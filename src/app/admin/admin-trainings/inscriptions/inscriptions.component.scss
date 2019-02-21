@@ -1,0 +1,138 @@
+
+.wrapper-admin {
+  max-width: 1600px;
+  min-width: 765px;
+  margin: 0 auto;
+}
+
+.block-inscriptions {
+  display: flex;
+  flex-direction: column;
+  position: static;
+  height: 610px;
+  margin-left: 220px;
+  margin-top: -608px;
+  padding-right: 30px;
+}
+
+
+//---------------------  Table -----------------------------//
+.inscriptions-show p {
+  margin-left: 10px;
+  color: #4a3a3e;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.inscriptions-show {
+  padding: 10px;
+  background-color: #fcfcfc;
+  border-radius: 5px;
+}
+
+.options {
+  text-align: center;
+}
+
+table tr th {
+  font-size: 12px;
+  padding: 4px;
+}
+
+table tbody tr td {
+  font-size: 12px;
+  padding: 4px;
+}
+
+.btn-group-inscriptions {
+  display: flex;
+  justify-content: center;
+}
+
+tbody .btn-delete-inscriptions {
+  margin-left: 10px;
+}
+
+.pagination-inscriptions {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 20px;
+  padding-right: 10px;
+}
+
+.add-inscriptions-btn{
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 50px;
+
+}
+
+/***--------------------- Modal add inscriptions ----------------------------***/
+.modal-header h4{
+  color: #380505;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+
+
+.form-group span {
+  font-size: 12px;
+  color: #a70a0a;
+  font-weight: bold;
+}
+
+.btn-add-inscriptions-modal-create {
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+.btn-inscriptions-delete-modal-create {
+  width: 55px;
+  height: 25px;
+  border-radius: 5px;
+  border: 0 solid white;
+  background-color: #dc3545;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.btn-exit-inscriptions-delete-modal-create {
+  width: 55px;
+  height: 25px;
+  border-radius: 5px;
+  border: 0 solid white;
+  background-color: #6c757d;
+  cursor: pointer;
+}
+
+//.btn-delete-inscriptions  {
+//  margin-right: 10px;
+//}
+
+/***------------------  Modal window remove ---------------------------------***/
+
+.modal-body .btn-delete {
+  margin: 15px;
+}
+
+.btn-delete {
+  width: 55px;
+  height: 25px;
+  border-radius: 5px;
+  border: 0 solid white;
+  background-color: #dc3545;
+  cursor: pointer;
+}
+
+.btn-exit {
+  width: 55px;
+  height: 25px;
+  border-radius: 5px;
+  border: 0 solid white;
+  background-color: #6c757d;
+  cursor: pointer;
+}
+
+

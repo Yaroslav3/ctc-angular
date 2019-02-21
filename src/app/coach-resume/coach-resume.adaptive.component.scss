@@ -1,0 +1,31 @@
+
+@media only screen and (max-width: 1200px) {
+  .wrapper {
+    max-width: 1200px;
+  }
+  .block-trainer-coach{
+    display: none;
+  }
+  .block-trainer-coach-mobile-views {
+    display: block;
+    padding: 10px;
+  }
+
+  .trainers-editor {
+    width: 100%;
+  }
+
+
+  .block-trainer-coach {
+    width: 100%;
+    padding: 2px;
+  }
+
+
+  .nav-pills .nav-link {
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+    margin-right: 20px;
+  }
+}

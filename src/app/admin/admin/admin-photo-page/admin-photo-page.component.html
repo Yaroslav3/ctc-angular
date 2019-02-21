@@ -1,0 +1,123 @@
+<app-admin></app-admin>
+
+
+<div class="wrapper-admin">
+  <div class="block-photo-page">
+    <div class="content-block-photo">
+      <ng-progress></ng-progress>
+      <div *ngFor="let model of modelPhotoStartPage |paginate: {itemsPerPage:4, currentPage: p}" class="photo-info">
+        <h4>{{model.namePage}}</h4>
+        <div class="photo-img">
+          <div>
+            <img [src]="'data:image/jpg;base64,'+ model.photo">
+          </div>
+        </div>
+
+        <div class="btn-update-photo">
+
+          <button *ngIf="roles[0] == ['PM']" type="button" class=" btn btn-danger btn-sm"
+                  (click)="openModalDeletePhoto(modalDeletePhoto, model)"><i class="far fa-trash-alt"></i>
+            <span style="margin-left: 10px">delete</span>
+          </button>
+
+          <button type="button" class=" btn btn-success btn-sm"
+                  (click)="openModalUpdatePhoto(modalUpdatePhoto, model)">
+            <i class="fas fa-cloud"></i><span
+            style="margin-left: 10px">update photo</span>
+          </button>
+        </div>
+
+        <!------------------------------------- Modal window delete Photo ---------------------------------------->
+        <ng-template #modalDeletePhoto let-modal>
+          <div class="modal-body text-center">
+            <p style="color: #151230">Do you want to delete?</p>
+            <button type="button" class="btn-delete" (click)="removePhotoBtn(model)">Yes</button>
+            <button type="button" class="btn-exit" (click)="modal.dismiss('Cross click')">Exit</button>
+          </div>
+        </ng-template>
+
+      </div>
+    </div>
+    <br>
+    <pagination-controls (pageChange)="p=$event"></pagination-controls>
+    <div class="add-page">
+      <button *ngIf="roles[0] == ['PM']" type="button" (click)="addPhotoPage(modalAddPage)" class=" btn btn-info">
+        <i class="fas fa-puzzle-piece"></i> Add photo
+      </button>
+    </div>
+
+
+  </div>
+
+
+  <!------------------------------------- Modal window save Photo ---------------------------------------->
+
+  <ng-template #modalAddPage let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-add"><span><i class="fas fa-palette"></i> add photo</span>
+      </h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <form name="form" #f="ngForm" novalidate>
+        <div class="info-user">
+          <div class="form-group">
+            <label for="create-name">name</label>
+            <input type="text" [(ngModel)]="modelPhotoSave.namePage" name="namePage" class="form-control"
+                   id="create-name" aria-describedby="emailHelp" placeholder="namePage">
+          </div>
+          <div *ngIf="btnChooseSave">
+            <label for="file-add-page" class=" btn-info custom-file-upload">
+              <i class="fas fa-cloud"></i> save
+            </label>
+            <input id="file-add-page" type="file" (change)="onFileSelectorSave($event)">
+          </div>
+
+          <div class="btn-save-photo" *ngIf="buttonSavePhoto">
+            <button type="button" class=" btn btn-info btn-sm"
+                    (click)="createPhotoStartPage(modelPhotoSave)">
+              <i class="fas fa-check-circle"></i><span style="margin-left: 10px">Save photo</span>
+            </button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </ng-template>
+
+
+  <!------------------------------------- Modal window update Photo ---------------------------------------->
+
+  <ng-template #modalUpdatePhoto let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-update"><span><i class="far fa-images"></i> update photo page</span>
+      </h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <div *ngIf="roles[0] == ['PM']" class="form-group">
+        <label for="upload-name">name</label>
+        <input type="text" [(ngModel)]="modelPhoto.namePage" name="namePage" class="form-control"
+               id="upload-name" placeholder="name page">
+      </div>
+
+      <div class="upload-page" *ngIf="btnChooseUpdate">
+        <label for="file-update" class=" btn-success custom-file-upload">
+          <i class="fas fa-cloud"></i> Update
+        </label>
+        <input id="file-update" type="file" (change)="onFileSelectorUpdate($event)">
+      </div>
+      <div class="upload-page-btn" *ngIf="buttonUpdatePhoto">
+        <button type="button" class=" btn btn-info" (click)="updatePhotoStartPage(modelPhoto)">
+          <i class="fas fa-cloud-download-alt"></i> Update
+        </button>
+      </div>
+    </div>
+  </ng-template>
+</div>

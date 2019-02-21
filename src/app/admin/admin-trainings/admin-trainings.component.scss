@@ -1,0 +1,35 @@
+.wrapper-admin {
+  max-width: 1600px;
+  min-width: 765px;
+  margin: 0 auto;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #b2b2b2;
+}
+
+.nav-pills .nav-link {
+  text-align: left;
+  width: 160px;
+}
+a {
+  color: #524343;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+  font-size: 14px;
+}
+.block-group{
+  display:block;
+  width: 200px;
+  height: 610px;
+  padding: 20px;
+  background-color: #dbdbdb;
+  margin-top: -16px;
+}
+
+.nav-item .badge-light{
+  color: #ffffff;
+  background-color: #5960ff;
+}

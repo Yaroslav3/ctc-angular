@@ -1,0 +1,528 @@
+
+.wrapper {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+* {
+  transition: all .2s;
+  box-sizing: border-box;
+}
+
+html, body, iframe {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+iframe {
+  display: block;
+  width: 100%;
+  border: none;
+
+}
+
+.clear {
+  clear: both;
+}
+
+
+.promo-trainings {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  height: 90px;
+  background: #fff;
+  z-index: 2000;
+  margin-left: -3.5%;
+  box-shadow: 0 2px 30px rgba(28, 15, 25, 0.3);
+
+
+}
+
+.promo-trainings h1 {
+  font-family: 'Casiopea_Light', serif;
+  font-weight: bold;
+  font-size: 30px;
+  color: #4d4d4d;
+  margin: 0 4.5%;
+  padding: 10px 0;
+  //letter-spacing: 1px;
+
+}
+
+
+.industries-trainings {
+  height: 150px;
+}
+
+.industries-trainings p {
+  font-family: 'KIA_KIAM', serif;
+  //text-transform: uppercase;
+  font-size: 18px;
+  padding-left: 15px;
+  color: #565d65;
+}
+
+.industries-trainings h1 {
+  width: 450px;
+  text-align: justify;
+  font-family: 'KIA_KIAM', serif;
+  font-size: 15px;
+  padding-left: 15px;
+  color: #565d65;
+}
+
+/****---------- Button scroll up -------------***/
+
+.block-scroll {
+  display: block;
+  position: fixed;
+  right: 0;
+  top: 550px;
+  z-index: 99999;
+  margin-right: 40px;
+}
+
+
+.scroll-up button {
+  text-decoration: none;
+  outline: none;
+  display: inline-block;
+  margin: 10px 20px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #2B3856;
+  border-radius: 8px;
+  transition: .2s ease-in-out;
+  font-weight: bold;
+  text-shadow: rgba(255, 255, 255, .5) 1px 1px, rgba(100, 100, 100, .3) 3px 7px 3px;
+  user-select: none;
+  padding: 1em 2em;
+  border-radius: 3px / 100%;
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, .0) 30%, rgba(255, 255, 255, .8), rgba(255, 255, 255, .0) 70%),
+  linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0) 90%, rgba(255, 255, 255, .3)),
+  linear-gradient(to right, rgba(125, 125, 125, 1), rgba(255, 255, 255, .9) 45%, rgba(125, 125, 125, .5)),
+  linear-gradient(to right, rgba(125, 125, 125, 1), rgba(255, 255, 255, .9) 45%, rgba(125, 125, 125, .5)),
+  linear-gradient(to right, rgba(223, 190, 170, 1), rgba(255, 255, 255, .9) 45%, rgba(223, 190, 170, .5)),
+  linear-gradient(to right, rgba(223, 190, 170, 1), rgba(255, 255, 255, .9) 45%, rgba(223, 190, 170, .5));
+  background-repeat: no-repeat;
+  background-size: 200% 100%, auto, 100% 2px, 100% 2px, 100% 1px, 100% 1px;
+  background-position: 200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
+  box-shadow: rgba(0, 0, 0, .5) 3px 10px 10px -10px;
+}
+
+.scroll-up button:before {
+  content: "";
+  background: linear-gradient(90deg, rgba(110, 72, 254, 0.1), rgba(87, 87, 87, 0.5));
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  top: -8px;
+  left: -75px;
+  transform: skewX(-45deg);
+}
+
+.scroll-up button:hover {
+  background: #fef7f0;
+  color: #2B3856;
+}
+
+.scroll-up button:hover:before {
+  left: 150px;
+  transition: .5s ease-in-out;
+}
+
+//-------ACCORDION--------//
+
+.accordion {
+  width: 100%;
+  /*
+  ширина произвольная выбирается
+  *в зависимости от места размещения
+  */
+  max-width: 100%;
+  min-height: 0;
+  display: block;
+  /* относительное позиционирование */
+  position: relative;
+  margin: 0 auto;
+  padding: 0;
+  background-color: #fefffa;
+  overflow: hidden
+}
+
+
+/* заголовки панелей аккордеона */
+.accordion h2 {
+  font-family: 'KIA_KIAM', serif;
+  font-size: 17px;
+  margin: 5px;
+  text-align: center;
+  color: #b8a272;
+  font-weight: 300;
+  letter-spacing: 1px;
+  display: block;
+  padding: 10px 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  border-radius: 5px;
+  background-color: #273649;
+  border-top: 0 solid #3face4;
+  border-bottom: 1px solid #2479a5;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.title_block:hover {
+  color: #2B3856;
+}
+
+/* заголовки панелей аккордеона при наведении
+* в данном варианте не срабатывает
+*/
+.accordion h2:hover {
+  display: block;
+  background-color: #2B3856;
+}
+
+/* Формируем блоки с содерханием */
+.msg {
+  position: relative;
+  overflow: hidden;
+  height: auto;
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* оформляем параграфы */
+
+.msg h4 {
+  color: rgba(48, 69, 92, 0.8);
+  font-family: 'KIA_KIAM', serif;
+  font-size: 25px;
+  font-weight: bold;
+
+  letter-spacing: 1px;
+  text-align: center;
+  padding: 20px 20px
+}
+
+.msg p {
+  color: rgba(48, 69, 92, 0.8);
+  font-family: 'Ubuntu_Rehular', serif;
+  text-align: justify;
+  font-size: 18px;
+  line-height: 20px;
+  padding: 2px 20px
+}
+
+.item p {
+  text-align: left;
+  margin: 2px 10px;
+}
+
+/* Позаботимся о небольших экранах */
+@media (max-width: 550px) {
+  .accordion {
+    box-sizing: border-box;
+    transform: translate(0, 0);
+    max-width: 100%;
+    min-height: 100%;
+    margin: 0;
+    left: 0;
+  }
+}
+
+/* Формируем неупорядоченный список */
+.accordion ul {
+  list-style: none;
+  perspective: 900px;
+  padding: 0;
+  margin: 0;
+}
+
+/* Определяем и формируем отдельный элемент списка
+ * в который поместим скрытый флажек,
+ * заголовок панелей и блок с содержанием
+*/
+.accordion ul li {
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+/* устанавливаем время ожидания перед воспроизведением анимации
+ * на основе нумерации в дереве элементов
+*/
+.accordion ul li:nth-of-type(1) {
+  animation-delay: 0.5s;
+}
+
+.accordion ul li:nth-of-type(2) {
+  animation-delay: 0.75s;
+}
+
+.accordion ul li:nth-of-type(3) {
+  animation-delay: 1s;
+}
+
+.accordion ul li:last-of-type {
+  padding-bottom: 0;
+}
+
+/* Сформируем  указатель переключения состояния аккордеона */
+.accordion ul li i {
+  position: absolute;
+  transform: translate(-6px, 0);
+  margin-top: 16px;
+  /* расположим указатель на панели заголовка справа */
+  right: 25px;
+}
+
+/* "Рисуем " сам указатель */
+.accordion ul li i:before, .accordion ul li i:after {
+  content: "";
+  position: absolute;
+  background-color: #eee;
+  width: 3px;
+  height: 9px;
+}
+
+/* Добавляем элемент трансформации указателя при переключении */
+.accordion ul li i:before {
+  transform: translate(-2px, 0) rotate(45deg);
+}
+
+.accordion ul li i:after {
+  transform: translate(2px, 0) rotate(-45deg);
+}
+
+/* Делаем чекбокс скрытым*/
+.accordion ul li input[type=checkbox] {
+  position: absolute;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+}
+
+/* Когда у флажка установлен checked
+ * блок с содержанием скрыт
+*/
+.accordion ul li input[type=checkbox]:checked ~ div.msg {
+  margin-top: 0;
+  max-height: 0;
+  opacity: 0;
+  transform: translate(0, 50%);
+}
+
+/* А указатель показывает вниз */
+.accordion ul li input[type=checkbox]:checked ~ i:before {
+  transform: translate(2px, 0) rotate(45deg);
+}
+
+.accordion ul li input[type=checkbox]:checked ~ i:after {
+  transform: translate(-2px, 0) rotate(-45deg);
+}
+
+/*  Устанавливаем эффект перехода
+ * между двумя состояниями указателя
+*/
+div.msg, ul li i:before, ul li i:after {
+  transition: all 0.5s ease-in-out;
+}
+
+.hr-line-down {
+  border: 0;
+  height: 1px;
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0)), color-stop(rgba(0, 0, 0, 0.75)), to(rgba(0, 0, 0, 0)));
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0))
+}
+
+.line-down {
+  width: 99%;
+}
+
+.order {
+  height: auto;
+  background-color: #FAFAFA;
+  border-radius: 5px;
+
+}
+
+.order-trainings {
+  flex-grow: 1;
+  width: 100%;
+  height: auto;
+}
+
+//---summary-trenets----//
+
+.summary-trenets {
+  display: flex;
+  height: auto;
+  background-color: #FAFAFA;
+  padding: 2px;
+  margin: 0 0 15px;
+  border: 1px solid #FAFAFA;
+  border-radius: 5px;
+}
+
+.text-trainers {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.text-trainers h4 {
+  font-size: 15px;
+
+}
+
+.block-trener {
+  width: 50%;
+}
+
+.block-trener button {
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: left;
+  margin: 3px 0;
+  color: rgba(48, 69, 92, 0.8);
+  border-radius: 2px;
+  background: #ffffff;
+  padding: 10px 20px 10px 20px;
+  width: 88%;
+  border: white;
+  outline: none !important;
+  font-family: 'KIA_KIAM', serif;
+  font-size: 12px;
+
+}
+
+.block-trener button:hover {
+  background: #e0e1ed;
+}
+
+.block-trener button.btn {
+  background: #c4ac7e;
+}
+
+.block-trener button.btn:hover {
+  background: #d4be8b;
+}
+
+.toshow {
+  display: none;
+  position: absolute;
+  background-color: #b8a272;
+  width: 55%;
+  height: auto;
+  z-index: 5000;
+}
+
+.block-trener button:hover div.toshow {
+  display: flex;
+  position: fixed; /* Фиксированное положение */
+  right: 0.5%; /* Расстояние от правого края окна браузера */
+  top: 495px; /* Расстояние сверху */
+  padding: 10px; /* Поля вокруг текста */
+  background: #ffffff;; /* Цвет фона */
+  border: 1px solid #ffffff; /* Параметры рамки */
+  border-radius: 2px;
+}
+
+.img-trener img {
+  width: 115px;
+  height: 165px;
+  border-radius: 2px;
+
+}
+
+.info-trener p.name-trener {
+  margin-left: 5%;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 12px 25px;
+}
+
+.info-trener p {
+  width: 100%;
+  font-size: 12px;
+  margin: 2px 2px 2px 20px;
+  text-align: justify;
+
+}
+
+.line {
+  border-left: 2px solid #ccc;
+  margin-left: 10px;
+  padding-left: 10px;
+
+}
+
+//-----order-block-----//
+
+.order-block {
+  display: flex;
+  width: 50%;
+  height: auto;
+  justify-content: center;
+  background-color: #FAFAFA;
+  border-radius: 2px;
+
+}
+
+.btn {
+  width: 60%;
+  height: 60px;
+  background-color: #9f8650;
+  box-shadow: 0 2px 8px rgba(28, 15, 25, 0.9);
+  outline: none !important;
+  border: 0;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius: 2px;
+
+}
+
+.btn:hover {
+  background-color: #b8a272;
+  box-shadow: 0 2px 8px rgba(28, 15, 25, 0.5);
+
+}
+
+.btn p {
+  margin: 8px;
+  font-size: 18px;
+  text-align: center;
+  color: #273649;
+}
+
+
+.description {
+  width: 50%;
+}
+
+
+/*** Editor***/
+.training-editor-show {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+:host ::ng-deep #myEditor {
+  .angular-editor-textarea {
+    border: none;
+  }
+
+  #editor {
+    resize: none;
+  }
+}

@@ -1,0 +1,248 @@
+<app-admin></app-admin>
+<div class="wrapper-admin">
+  <ng-progress></ng-progress>
+  <div class="block-service">
+    <div class="header-user-service">
+      <div class="user-service-info">
+        <div *ngIf="userDetails">
+          <p>
+            admin user service
+          </p>
+
+          <div class="info-group">
+            <div class="info">
+              <span id="name"><i class="fab fa-cloudsmith"></i>: ( login) {{userDetails.name}} </span>
+            </div>
+            <div>
+              <span id="login"><i class="fas fa-signature"></i>:(name) {{userDetails.username}} </span>
+            </div>
+            <div>
+              <span id="email"><i class="fas fa-at"></i>: {{userDetails.email}}</span>
+            </div>
+            <div class="role">
+              <div *ngFor="let elem of userDetails.authorities;">
+                <span id="role"> <i class="far fa-user-circle"></i>: Role:  {{elem.authority}}</span>
+              </div>
+            </div>
+          </div>
+          <hr>
+
+          <div class="btn-group-service">
+            <button class="btn btn-secondary btn-sm" (click)="openChangePassword(modalChangePassword)">
+              <i class="fas fa-key"></i> change password
+            </button>
+
+            <button *ngIf="roles[0] == ['PM']" class="btn btn-secondary btn-sm"
+                    (click)="openRegistration(modalRegistration)">
+              <i class="far fa-registered"></i> registration
+            </button>
+          </div>
+        </div>
+
+
+        <div class="info-password" *ngIf="isErrorPassword">
+          <div class="alert alert-warning" role="alert">
+            <strong>Warning! </strong> old password is not correct.
+          </div>
+        </div>
+        <div class="info-password" *ngIf="isErrorRegistration">
+          <div class="alert alert-warning" role="alert">
+            <strong>Warning! </strong> error registration.
+          </div>
+        </div>
+        <div class="info-password" *ngIf="isErrorDeleteUser">
+          <div class="alert alert-warning" role="alert">
+            <strong>Warning! </strong> delete account.
+          </div>
+        </div>
+
+        <div class="info-password" *ngIf="isSuccessPassword">
+          <div class="alert alert-success" role="alert">
+            <strong>Success! </strong> the password has changed.
+          </div>
+        </div>
+        <div class="info-password" *ngIf="isSuccessRegistration">
+          <div class="alert alert-success" role="alert">
+            <strong>Success! </strong>  registration.
+          </div>
+        </div>
+        <div class="info-password" *ngIf="isSuccessDeleteUser">
+          <div class="alert alert-success" role="alert">
+            <strong>Success! </strong>  delete user.
+          </div>
+        </div>
+      </div>
+      <br>
+
+      <div *ngIf="roles[0] == ['PM']" class="user-show-reg">
+
+        <table class="table">
+          <thead>
+          <tr>
+            <th class="d-inline-block col-1 text-table" scope="col">login</th>
+            <th class="d-inline-block col-1 text-table" scope="col">name</th>
+            <th class="d-inline-block col-4 text-table" scope="col">email</th>
+            <th class="d-inline-block col-2 text-table" scope="col">role</th>
+            <th class="d-inline-block col-2 text-table" scope="col">data create</th>
+            <th class="d-inline-block col-2 text-table" scope="col">options</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let elem of userDetailsAdmin |paginate: {itemsPerPage:3, currentPage: p}; let i=index">
+            <td class="d-inline-block col-1 text-table">{{elem.name}}</td>
+            <td class="d-inline-block col-1 text-table">{{elem.username}}</td>
+            <td class="d-inline-block col-4 text-table">{{elem.email}}</td>
+            <td class="d-inline-block col-2 text-table"
+                *ngFor="let role of userDetailsAdmin[i].roles">
+              <span>{{role.name}}</span>
+            </td>
+            <td class="d-inline-block col-2 text-table">{{elem.date}}</td>
+            <td class="d-inline-block col-2 text-table">
+              <div>
+                <button class=" badge btn-success btn-sm" (click)="openModalDeleteUser(modalDelete)"> delete</button>
+              </div>
+            </td>
+
+            <!------------------------------------- Modal window delete Photo ---------------------------------------->
+            <ng-template #modalDelete let-modal>
+              <div class="modal-body text-center">
+                <p style="color: #151230">Do you want to delete?</p>
+                <button type="button" class="btn-delete" (click)="removeUser(elem)">Yes</button>
+                <button type="button" class="btn-exit" (click)="modal.dismiss('Cross click')">Exit</button>
+              </div>
+            </ng-template>
+
+
+          </tr>
+          <div class="pagination-service">
+            <pagination-controls (pageChange)="p =$event"></pagination-controls>
+          </div>
+          </tbody>
+          <div class="user-count">
+            <p> users count: {{count}}</p>
+          </div>
+        </table>
+      </div>
+
+      <!------------------------------------- Modal window open registration ---------------------------------------->
+
+      <ng-template #modalRegistration let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-registration"><span><i class="far fa-registered"></i> registration</span>
+          </h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="info-user">
+
+            <form name="form" (ngSubmit)="f.form.valid && onRegistration()" #f="ngForm" novalidate>
+              <div class="form-group">
+                <input type="text" class="form-control" name="name" [(ngModel)]="form.name" #name="ngModel" required
+                       placeholder="name"/>
+                <div *ngIf="f.submitted && name.invalid">
+                  <span *ngIf="name.errors.required">Name is required</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel"
+                       required placeholder="surname"/>
+                <div *ngIf="f.submitted && username.invalid">
+                  <span *ngIf="username.errors.required">Username is required</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="email" [(ngModel)]="form.email" #email="ngModel" required
+                        placeholder="email"/>
+                <div *ngIf="f.submitted && email.invalid">
+                  <span *ngIf="email.errors.required">Email is required</span>
+                  <span *ngIf="email.errors.email">Email must be a valid email address</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" name="password" [(ngModel)]="form.password"
+                       #password="ngModel"
+                       required minlength="6" placeholder="password"/>
+                <div *ngIf="f.submitted && password.invalid">
+                  <span *ngIf="password.errors.required">Password is required</span>
+                  <span *ngIf="password.errors.minlength">Password must be at least 6 characters</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <select name="role" [(ngModel)]="form.role" title="select" #role="ngModel" required>
+                  <option>admin</option>
+                  <option>pm</option>
+                  <div *ngIf="f.submitted && role.invalid">
+                    <span *ngIf="role.errors.required">role is required</span>
+                  </div>
+                </select>
+              </div>
+              <div class="form-group">
+                <button class="btn btn-secondary btn-sm">Register</button>
+                <div *ngIf="f.submitted && isSignUpFailed" class="alert alert-warning">
+                  Signup failed!<br/>{{errorMessage}}
+                </div>
+              </div>
+            </form>
+            <span *ngIf="f.form.valid">
+             test
+            </span>
+          </div>
+        </div>
+      </ng-template>
+
+
+      <!------------------------------------- Modal window change password ---------------------------------------->
+      <ng-template #modalChangePassword let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-add"><span><i class="fas fa-key"></i> change password</span>
+          </h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form name="form" [formGroup]="passwordForm" (ngSubmit)="clickChangePassword()">
+            <div class="info-user">
+
+              <div class="form-group">
+                <input formControlName="passwordOld" type="password" name="passwordOld" class="form-control"
+                       placeholder="password old" [ngClass]="{'is-invalid': isSubmitted && f.passwordOld.errors}">
+                <div *ngIf="isSubmitted && f.passwordOld.errors">
+                  <div *ngIf="f.passwordOld.errors.required"><span>* filed required</span></div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <input formControlName="password" type="password" name="password" class="form-control"
+                       placeholder="password new" [ngClass]="{'is-invalid': isSubmitted && f.password.errors}"/>
+                <div *ngIf="isSubmitted && f.password.errors">
+                  <div *ngIf="f.password.errors.required"><span>* filed required</span></div>
+                  <div *ngIf="f.password.errors.minlength"><span>* mast by 6 characters</span></div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <input formControlName="repeat" type="password" name="repeat" class="form-control"
+                       placeholder="password repeat" [ngClass]="{'is-invalid': isSubmitted && f.repeat.errors}">
+                <div *ngIf="isSubmitted && f.repeat.errors">
+                  <div *ngIf="f.repeat.errors.required"><span>* filed required</span></div>
+                  <div *ngIf="f.repeat.errors.minlength"><span>* mast by 6 characters</span></div>
+                  <div *ngIf="f.repeat.errors.compare"><span> password did not match</span></div>
+                </div>
+              </div>
+              <div class="btn-edit-password">
+                <button class="btn-ok">Yes</button>
+                <button type="button" class="btn-exit" (click)="modal.dismiss('Cross click')">Exit</button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </ng-template>
+
+    </div>
+  </div>
+</div>
+

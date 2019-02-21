@@ -1,0 +1,41 @@
+@media only screen and (max-width: 1200px) {
+  .wrapper {
+    max-width: 1180px;
+  }
+  .block-trainers-edit {
+    margin-left: -40px;
+  }
+  .editor-filed textarea {
+    font-size: 12px;
+    padding: 10px 20px 10px 20px;
+  }
+
+}
+
+@media only screen and (max-width: 980px) {
+  .wrapper {
+    max-width: 970px;
+  }
+
+  .editor-filed {
+    padding-left: 10px;
+  }
+  .editor-filed input {
+    font-size: 15px;
+  }
+
+  .editor-filed textarea {
+    font-size: 12px;
+    padding: 5px 10px 5px 10px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .wrapper {
+    max-width: 760px;
+  }
+  .editor-filed input {
+    font-size: 13px;
+  }
+
+}

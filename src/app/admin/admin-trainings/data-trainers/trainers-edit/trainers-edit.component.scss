@@ -1,0 +1,177 @@
+.wrapper-admin {
+  max-width: 1600px;
+  min-width: 765px;
+  margin: 0 auto;
+}
+
+
+.block-trainers-edit {
+  position: static;
+  width: 96%;
+  margin-left: 2%;
+  margin-top: -608px;
+}
+
+.editor-coach {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  padding-bottom: 10px;
+
+}
+
+.editor-photo {
+  width: 200px;
+  flex-grow: 1;
+  //background-color: #f4f4f4;
+
+}
+
+.photo {
+  //background-color: red;
+}
+
+.editor-photo img {
+  width: 150px;
+  height: 200px;
+  border-radius: 5px;
+}
+
+//-----------------------------------
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  width: 150px;
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.custom-file-upload:hover {
+  background-color: #e1e1e1;
+}
+
+//------------------------------------
+
+.progress-bar-upload {
+  width: 150px;
+  margin-top: 10px;
+}
+
+.change-btn {
+  padding-top: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.btn-save-photo {
+  margin-top: -11.8px;
+}
+
+.name-file {
+  font-size: 10px;
+}
+
+.btn-save-photo .btn {
+  width: 150px;
+  padding: 6px 12.5px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 17px;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(28, 15, 25, 0.1);
+
+}
+
+.editor-filed {
+  width: 100%;
+  background-color: white;
+  flex-grow: 1;
+}
+
+.editor-filed input {
+  width: 50%;
+  height: 35px;
+  border-radius: 5px;
+  text-indent: 0.8em;
+  border: 1px solid #d1b6b7;
+  margin-bottom: 20px;
+  color: #4d4d4d;
+  //font-size: 13px;
+}
+
+.editor-filed input:focus {
+  border: 1.5px solid #8993f2;
+  box-shadow: 0 2px 8px rgba(28, 15, 25, 0.2);
+}
+
+.editor-filed textarea {
+  width: 100%;
+  height: 137px;
+  border-radius: 5px;
+  border: 1.5px solid #d1b6b7;
+  color: #4d4d4d;
+  text-align: justify;
+  padding: 15px 30px 15px 30px;
+
+}
+
+.editor-filed textarea:focus {
+  border: 1.5px solid #8993f2;
+  box-shadow: 0 2px 8px rgba(28, 15, 25, 0.2);
+}
+
+.editor-container {
+  padding-left: 200px;
+}
+
+.editor {
+  width: 100%;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #b2b2b2;
+}
+
+.nav-pills .nav-link {
+  text-align: left;
+  width: 160px;
+}
+
+a {
+  color: #524343;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+  font-size: 12px;
+}
+
+.block-group {
+  display: block;
+  width: 220px;
+  height: auto;
+  padding: 20px;
+  background-color: #dbdbdb;
+  margin-top: -16px;
+}
+
+
+
+.group {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-left: 0;
+  margin-top: -5px;
+}
+
+.group button {
+  width: 155px;
+  box-shadow: 0 2px 8px rgba(28, 15, 25, 0.2);
+}
+

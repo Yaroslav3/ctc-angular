@@ -1,0 +1,99 @@
+.wrapper-admin {
+  max-width: 1600px;
+  min-width: 765px;
+  margin: 0 auto;
+}
+
+.block-add-trainings-susses {
+  position: static;
+  width: 80%;
+  margin-left: 20%;
+  height: 580px;
+  margin-top: -580px;
+}
+
+.alert {
+  height: 200px;
+  width: 80%;
+}
+
+.alert p {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 25px;
+  font-family: Ubuntu_Mono_Bold_Italic, serif ;
+}
+
+.block-add-trainings h4 {
+  font-family: Ubuntu_italic, serif;
+  color: #7f3400;
+}
+
+.block-add-trainings {
+  position: static;
+  width: 80%;
+  margin-left: 5%;
+  margin-top: -608px;
+}
+
+.block-add-trainings {
+  width: 90%;
+}
+
+.add-container {
+  padding-left: 200px;
+}
+
+.block-group {
+  display: block;
+  width: 220px;
+  height: auto;
+  padding: 20px;
+  background-color: #dbdbdb;
+  margin-top: -16px;
+}
+
+.block-input {
+  display: flex;
+  //flex-direction: row;
+  //justify-content: start;
+  padding-left: 0;
+}
+
+.block-input input {
+  width: 50%;
+  height: 35px;
+  border-radius: 5px;
+  text-indent: 0.8em;
+  border: 1px solid #ff6600;
+}
+.block-input input:focus {
+  border: 1px solid #0f09f2;
+  box-shadow: 0 2px 8px rgba(28, 15, 25, 0.2);
+}
+
+
+.group {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-left: 0;
+  margin-top: -5px;
+}
+
+.group button {
+  width: 155px;
+}
+
+.error-input {
+
+}
+
+.error-input span {
+  color: #a01809;
+  font-size: 12px;
+  font-family: KIA_KIAM, serif;
+  font-weight: bold;
+
+}
+

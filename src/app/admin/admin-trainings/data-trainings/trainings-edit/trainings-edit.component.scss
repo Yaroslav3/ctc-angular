@@ -1,0 +1,85 @@
+.wrapper-admin {
+  max-width: 1600px;
+  min-width: 765px;
+  margin: 0 auto;
+}
+
+.block-trainings-edit {
+  position: static;
+  width: 80%;
+  margin-left: 5%;
+  height: 590px;
+  margin-top: -608px;
+
+}
+
+.editor-container{
+  padding-left: 200px;
+}
+
+.editor{
+  width: 90%;
+}
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #b2b2b2;
+
+}
+
+.nav-pills .nav-link {
+  text-align: left;
+  width: 160px;
+}
+
+a {
+  color: #524343;
+  text-decoration: none;
+  background-color: transparent;
+  font-size: 12px;
+}
+
+.block-group {
+  display: block;
+  width: 220px;
+  height: auto;
+  padding: 20px;
+  background-color: #dbdbdb;
+  margin-top: -16px;
+}
+
+.block-trainings-edit {
+  width: 95%;
+}
+
+
+.block-input {
+  //display: flex;
+  //flex-direction: row;
+  //justify-content: start;
+  padding-left: 0;
+}
+
+.block-input input {
+  width: 50%;
+  height: 35px;
+  border-radius: 5px;
+  text-indent: 0.8em;
+  border: 1px solid #ff5b00;
+}
+.block-input input:focus {
+  border: 1px solid #0f09f2;
+  box-shadow: 0 2px 8px rgba(28, 15, 25, 0.2);
+}
+
+
+.group{
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-left: 0;
+  margin-top: -5px;
+}
+.group button{
+  width: 155px;
+}
+

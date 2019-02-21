@@ -1,0 +1,83 @@
+.wrapper-admin {
+  max-width: 1600px;
+  min-width: 765px;
+  margin: 0 auto;
+}
+
+.block-video {
+  display: flex;
+  flex-direction: column;
+  position: static;
+  height: 610px;
+  margin-left: 220px;
+  margin-top: -608px;
+  padding-right: 30px;
+}
+
+
+//-----------------------------------
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  width: auto;
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.custom-file-upload:hover {
+  background-color: #5c5de9;
+}
+
+//-------------------------------------
+
+.progress-bar-upload {
+  width: 100%;
+  margin-top: 10px;
+}
+
+
+.video-content video {
+  margin-left: 20%;
+  width: 50%;
+}
+.group{
+  margin-left: 19%;
+}
+.group button {
+  margin-right: 20px;
+}
+
+.add-video{
+  display: flex;
+  justify-content: flex-end;
+}
+
+/*** Modal window remove video***/
+
+.modal-body .btn-delete {
+  margin: 15px;
+}
+
+.btn-delete {
+  width: 55px;
+  height: 25px;
+  border-radius: 5px;
+  border: 0 solid white;
+  background-color: #dc3545;
+  cursor: pointer;
+}
+
+.btn-exit {
+  width: 55px;
+  height: 25px;
+  border-radius: 5px;
+  border: 0 solid white;
+  background-color: #6c757d;
+  cursor: pointer;
+}

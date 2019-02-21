@@ -1,0 +1,36 @@
+@media only screen and (max-width: 1200px) {
+  .wrapper {
+    max-width: 1180px;
+  }
+
+  .block-group {
+    width: 150px;
+  }
+
+  .nav-pills .nav-link {
+    text-align: left;
+    width: 120px;
+  }
+
+  a {
+    color: #524343;
+    font-size: 10px;
+  }
+
+}
+
+@media only screen and (max-width: 980px) {
+  .wrapper {
+    max-width: 970px;
+  }
+
+
+}
+
+@media only screen and (max-width: 768px) {
+  .wrapper {
+    max-width: 760px;
+  }
+
+}
+

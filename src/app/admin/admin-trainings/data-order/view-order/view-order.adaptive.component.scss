@@ -1,0 +1,29 @@
+@media only screen and (max-width: 1200px) {
+  .wrapper {
+    max-width: 1180px;
+  }
+
+  .view-order {
+    margin-left: 170px;
+  }
+}
+
+@media only screen and (max-width: 980px) {
+  .wrapper {
+    max-width: 970px;
+
+    .view-order {
+      margin-left: 150px;
+    }
+
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .wrapper {
+    max-width: 760px;
+  }
+  .view-order {
+    margin-left: 150px;
+  }
+}

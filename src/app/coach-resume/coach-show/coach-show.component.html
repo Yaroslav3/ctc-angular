@@ -1,0 +1,23 @@
+
+<div *ngIf="trainers" class="block-coach-show-trainer">
+
+
+  <div class="coach-header">
+    <div class="coach-img">
+      <img [src]="'data:image/jpg;base64,'+ trainers['photo'][0]['photo']" alt="Trainings">
+    </div>
+    <div class="coach-name">
+      <p class="name-surname-coach">{{trainers.name}} {{trainers.surname}}</p>
+      <p class="line">{{trainers.heading}}</p>
+    </div>
+  </div>
+  <hr>
+
+
+  <div class="editor-show">
+    <angular-editor id="myEditor" [(ngModel)]="trainers.description" [config]="editorConfig"></angular-editor>
+  </div>
+  <hr>
+</div>
+
+

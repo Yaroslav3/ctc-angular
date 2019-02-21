@@ -1,0 +1,190 @@
+
+
+
+.clear {
+  clear: both;
+}
+
+//.background-footer{
+//	position: absolute;
+//	width: 100%;
+//	height: 317px;
+//	background: #E5E4E2;
+//
+//	z-index: 100;
+//
+//}
+
+footer {
+  position: relative;
+  z-index: 200;
+  width: 100%;
+  height: auto;
+  color: #555;
+
+}
+
+.text-down p {
+  width: 450px;
+  font-family: 'Casiopea_Light', serif;
+  font-size: 25px;
+  margin: 25px 11px;
+  z-index: 500;
+
+}
+
+.footer {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.contact {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 2px;
+  //border: 1px solid #ccc;
+  padding: 0 0;
+  //background: #fff;
+  border-radius: 3px;
+}
+
+.fu {
+  padding: 5px 10px;
+  //border: 1px solid #ddd;
+  //background: #fffde1;
+  border-radius: 2px;
+  margin: 0px 20px 0px -1px;
+}
+
+.contact2 {
+  display: flex;
+  padding: 5px 10px;
+  //border: 1px solid #ddd;
+  //background: #fffde1;
+  border-radius: 2px;
+  margin: 0px 2px 0px 5px;
+}
+
+.contact a {
+  text-decoration: none !important;
+  color: #111;
+}
+
+.email-footer p {
+  font-family: 'Casiopea_Regular', serif;
+  //font-family: 'PoppinsMedium','PT_Sans-Narrow-Web-Regular', sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.phone-footer p {
+  font-family: 'Casiopea_Regular', serif;
+  //font-family:'PoppinsMedium','PT_Sans-Narrow-Web-Regular', sans-serif;
+  font-size: 12px;
+}
+
+.skype-footer p {
+  font-family: 'Casiopea_Regular', serif;
+  //font-family: 'PoppinsMedium','PT_Sans-Narrow-Web-Regular', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+
+}
+
+.icon i {
+  font-size: 20px;
+  margin: 15px 5px 5px;
+}
+
+.fa-skype:hover {
+  color: #1686D9;
+}
+
+.fa-facebook-square:hover {
+  color: #00008B;
+}
+
+.fa-youtube-square:hover {
+  color: #ff0000;
+}
+
+.name-footer h4 {
+  padding: 5px 10px;
+  font-family: 'Ubuntu_Rehular', serif;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+//adaptive------------------------------------------------------------------------
+
+@media only screen and (max-width: 768px) {
+  .wrapper {
+    max-width: 760px;
+  }
+
+  //----FOOTER-----//
+  .contact {
+    margin: 0px 8px;
+  }
+  .fu {
+    padding: 2px 2px;
+  }
+  .email-footer p {
+
+    font-size: 10px;
+  }
+  .phone-footer p {
+
+    font-size: 10px;
+  }
+  .skype-footer p {
+
+    font-size: 12px;
+  }
+  .icon i {
+    font-size: 16px;
+    margin: 11px 2px 2px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .wrapper {
+    max-width: 470px;
+    font-size: 15px;
+  }
+
+  //----FOOTER-----//
+
+  .background-footer {
+    margin-top: -370px;
+    z-index: 100;
+    height: 367px;
+
+  }
+  .text-down p {
+    width: 100%;
+    font-size: 20px;
+    margin: 25px 8px;
+  }
+
+  .footer {
+    display: inline-block;
+
+  }
+  .contact {
+    display: inline-block;
+    margin: 3px 8px;
+
+  }
+  .contact2 {
+    margin: 0px -5px;
+  }
+
+  .name-footer h4 {
+    font-size: 9.5px;
+  }
+}

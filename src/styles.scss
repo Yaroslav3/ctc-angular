@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./scss/fonts";
+@import "./scss/vars";
+@import "./scss/rest";
+@import "../node_modules/bootstrap/dist/css/bootstrap.css";
+@import "../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css";
+@import "../node_modules/fullcalendar/dist/fullcalendar.css";
+
+
+
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.wrapper {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: #fcfcfc;
+}
+
+
+:active, :hover, :focus {
+  outline: 0;
+  outline-offset: 0;
+}
+

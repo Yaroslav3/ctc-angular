@@ -1,0 +1,38 @@
+<div *ngIf="auth()">
+  <div class="wrapper">
+
+    <footer *ngFor="let elem of user; let i=index">
+      <div *ngIf="i<1">
+        <div class="text-down">
+          <p>{{text}}</p>
+        </div>
+        <div class="footer">
+          <div class="contact">
+            <!--<a href=mailto:ybutenko@ukr.net">-->
+            <div class="fu email-footer">
+              <p><i class="far fa-envelope"></i> {{elem.email}}</p>
+            </div>
+            <!--</a>-->
+            <div class="fu phone-footer">
+              <p><i class="fas fa-mobile-alt"></i> {{elem.phone}}</p>
+            </div>
+            <div class="fu skype-footer">
+              <p><i class="fab fa-skype"></i> {{elem.skype}}</p>
+            </div>
+          </div>
+          <div class="contact2">
+            <div class="icon fu">
+              <i class="fab fa-facebook-square"></i>
+              <i class="fab fa-youtube-square"></i>
+            </div>
+          </div>
+        </div>
+        <div class="name-footer">
+          <h4> {{elem.name}} {{elem.surname}}</h4>
+          <h4><i class="fas fa-map-marker-alt"></i> {{elem.city}} {{elem.postcode}} {{elem.city}} {{elem.street}}</h4>
+        </div>
+        <hr>
+      </div>
+    </footer>
+  </div>
+</div>

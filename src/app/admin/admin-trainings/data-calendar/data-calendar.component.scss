@@ -1,0 +1,133 @@
+.wrapper-admin {
+  max-width: 1600px;
+  min-width: 765px;
+  margin: 0 auto;
+}
+
+.block-calendar {
+  display: flex;
+  flex-direction: column;
+  position: static;
+  height: 610px;
+  margin-left: 220px;
+  margin-top: -608px;
+  padding-right: 30px;
+}
+
+.form-group {
+  margin-top: -10px;
+}
+
+.form-group label {
+  font-size: 10px;
+}
+
+.form-group input {
+  height: 37px;
+  text-indent: 0.1em;
+  font-weight: bold;
+  font-size: 10px;
+  color: #7f3400;
+}
+
+.form-group select {
+  height: 36px;
+  font-weight: bold;
+  text-indent: 0.1em;
+  font-size: 10px;
+  color: #492200;
+}
+
+.form-group .color-choose {
+  width: 10px;
+  height: 10px;
+}
+
+.input-group-append button i {
+  font-size: 15px;
+}
+
+.btn-calendar-save {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 20px;
+}
+
+.btn-calendar-save button {
+  height: auto;
+}
+
+.modal-header {
+  background-color: #f7f7f7;
+}
+
+.close {
+  border: 0;
+}
+
+.modal-header {
+  height: 56px;
+}
+
+.modal-header span {
+  font-size: 20px;
+}
+
+.modal-header i {
+  color: #c0111a;
+}
+
+.events-show {
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+
+.info {
+  padding-top: 5px;
+  padding-left: 20px;
+}
+
+.info span {
+  margin-left: 20px;
+  color: #4a3a3e;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.info i {
+  color: #2c88b5;
+  font-size: 18px;
+}
+
+.modal-body .btn-delete {
+  margin: 15px;
+}
+
+.btn-delete {
+  width: 55px;
+  height: 25px;
+  border-radius: 5px;
+  border: 0 solid white;
+  background-color: #dc3545;
+  cursor: pointer;
+}
+
+.btn-exit {
+  width: 55px;
+  height: 25px;
+  border-radius: 5px;
+  border: 0 solid white;
+  background-color: #6c757d;
+  cursor: pointer;
+}
+
+:host ::ng-deep #myCalendar {
+  .fc-center h2 {
+    color: #480505;
+    font-size: 21px;
+    font-weight: bold;
+  }
+  tr td .fc-today {
+    background-color: #a6b9ff;
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,24 @@
+<div class="wrapper-admin">
+  <nav class="navbar navbar-light bg-light">
+    <a routerLink="" class="navbar-brand" href="#">
+      <img src="/assets/img/logo2.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      <span class="ctc">Ctcontact</span><span class="admin">admin panel</span>
+    </a>
+    <button class="btn btn-secondary btn-sm" (click)="logout()">Logout</button>
+  </nav>
+  <div>
+    <nav class="dws-menu">
+      <ul class="dws-ul">
+        <li class="dws-li"><a routerLink="/admin" routerLinkActive="selected">HOME</a></li>
+        <li class="dws-li"><a routerLink="/admin/trainings" routerLinkActive="selected">ТРЕНИНГИ</a></li>
+        <li class="dws-li"><a routerLink="/admin/webinars" routerLinkActive="selected">ВЕБИНАРЫ</a></li>
+        <li class="dws-li"><a routerLink="/admin/schedule" routerLinkActive="selected">РАСПИСАНИЕ</a></li>
+        <li class="dws-li"><a routerLink="/admin/room-rental" routerLinkActive="selected">АРЕНДА ЗАЛОВ</a></li>
+        <li class="dws-li"><a routerLink="/admin/recommendations" routerLinkActive="selected">РЕКОМЕНДАЦИИ</a></li>
+      </ul>
+    </nav>
+  </div>
+
+</div>
+<br>
+<router-outlet></router-outlet>

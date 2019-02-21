@@ -1,0 +1,32 @@
+<app-admin-trainings></app-admin-trainings>
+
+
+<div class="wrapper-admin">
+  <ng-progress></ng-progress>
+  <div class="editor-container">
+    <div *ngIf="trainings" class="block-trainings-edit">
+      <div class="block-input">
+        <input type="text" class="input-training"  [(ngModel)]="trainings.name"  value="{{trainings.name}}" name="name" title="name">
+      </div>
+      <br>
+
+      <div class="editor">
+        <angular-editor [(ngModel)]="trainings.description" [config]="editorConfig"></angular-editor>
+        <div class="html">
+        </div>
+        <br>
+        <div class="group">
+          <button class="btn btn-info" (click)="onClickUpdate(trainings)" type="submit">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+

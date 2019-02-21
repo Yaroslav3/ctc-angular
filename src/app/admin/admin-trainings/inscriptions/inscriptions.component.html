@@ -1,0 +1,173 @@
+<app-admin-trainings></app-admin-trainings>
+
+<div class="wrapper-admin">
+  <ng-progress></ng-progress>
+  <div class="block-inscriptions">
+    <div>
+      <div class="inscriptions-show">
+        <p>
+          inscriptions
+        </p>
+        <table class="table">
+          <thead>
+          <tr>
+            <th class="d-inline-block col-4 text-table" scope="col">paragraph</th>
+            <th class="d-inline-block col-4 text-table" scope="col">description</th>
+            <th class="d-inline-block col-4 text-table options" scope="col">options</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let elem of inscriptions |paginate: {itemsPerPage:3, currentPage: p}">
+            <td class="d-inline-block col-4 text-table">{{elem.paragraph}}</td>
+            <td class="d-inline-block col-4 text-table">{{elem.description}}</td>
+            <td class="d-inline-block col-4 text-table">
+              <div class="btn-group-inscriptions">
+                <button class=" badge btn-secondary btn-sm"
+                        (click)="openEditInscriptions(modalEditInscriptions, elem.id)"> edit
+                </button>
+                <button *ngIf="roles[0] == ['PM']" class="btn-delete-inscriptions badge btn-success btn-sm"
+                        (click)="openModalDelete(modalDelete)"> delete
+                </button>
+              </div>
+            </td>
+
+
+            <!------------ Modal window delete Inscriptions----------->
+
+            <ng-template #modalDelete let-modal>
+              <div class="modal-body text-center">
+                <p style="color: #151230">Do you want to delete?</p>
+                <button type="button" class="btn-delete" (click)="deleteInscriptions(elem)">Yes</button>
+                <button type="button" class="btn-exit" (click)="modal.dismiss('Cross click')">Exit</button>
+              </div>
+            </ng-template>
+          </tr>
+
+          <div *ngIf="count >=2" class="pagination-inscriptions">
+            <pagination-controls (pageChange)="p =$event"></pagination-controls>
+          </div>
+          </tbody>
+        </table>
+
+        <div class="add-inscriptions-btn">
+          <button type="button" class="btn btn-info" (click)="openModalAddInscriptions(modalAddInscriptions)">
+            <i class="fas fa-puzzle-piece"></i> create
+          </button>
+        </div>
+
+        <!--- Modal window add Inscriptions---->
+
+        <ng-template #modalAddInscriptions let-modal>
+          <div class="modal-header">
+            <h4 class="modal-title" id="modal-add"><span> <i class="fas fa-puzzle-piece"></i> add inscriptions</span>
+            </h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form name="form" [formGroup]="formGroup" (ngSubmit)="formGroup.valid && onCreateInscription()" #f="ngForm"
+                  novalidate>
+              <div class="info-user">
+                <div class="form-group">
+                  <label for="title"></label>
+                  <input type="text" class="form-control" name="paragraph"
+                         id="title" placeholder="title" formControlName="paragraph" required>
+                  <div *ngIf="paragraph.invalid && (paragraph.dirty || paragraph.touched)">
+
+                    <span *ngIf="paragraph.errors.required">
+                      title is required.
+                    </span>
+                    <span *ngIf="paragraph.errors.maxlength">
+                      max length 50
+                    </span>
+                  </div>
+
+
+                  <label for="title-description"></label>
+                  <textarea type="text" class="form-control" name="description"
+                            id="title-description" placeholder="description" formControlName="description" required
+                            rows="4"></textarea>
+
+                  <div *ngIf="description.invalid && (description.dirty || description.touched)">
+
+                    <span *ngIf="description.errors.required">
+                      description is required.
+                    </span>
+                    <span *ngIf="description.errors.maxlength">
+                       max length 255
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="btn-add-inscriptions-modal-create">
+                <button class="btn-inscriptions-delete-modal-create">Yes</button>
+                <button type="button" class="btn-exit-inscriptions-delete-modal-create"
+                        (click)="modal.dismiss('Cross click')">Exit
+                </button>
+              </div>
+            </form>
+
+          </div>
+        </ng-template>
+
+
+        <!------------------------------------- Modal window edit ------------------------------------------->
+
+        <ng-template #modalEditInscriptions let-modal>
+          <div class="modal-header">
+            <h4 class="modal-title" id="modal-edit"><span><i class="fas fa-edit"></i> edit inscriptions</span>
+            </h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div *ngIf="inscriptionsModel" class="modal-body">
+            <form name="form" #f="ngForm" [formGroup]="formGroup" (ngSubmit)="formGroup.valid && onUpdateInscription()"
+                  novalidate>
+              <div class="info-user">
+                <div class="form-group">
+                  <label for="title-edit"></label>
+                  <input type="text" class="form-control"  [(ngModel)]="inscriptionsModel.paragraph"
+                         id="title-edit" placeholder="title" formControlName="paragraph" required>
+                  <div *ngIf="paragraph.invalid && (paragraph.dirty || paragraph.touched)">
+
+                    <span *ngIf="paragraph.errors.required">
+                      description is required.
+                    </span>
+                    <span *ngIf="paragraph.errors.maxlength">
+                       max length 50
+                    </span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="title-description-edit"></label>
+                  <textarea type="text" class="form-control" name="description" [(ngModel)]="inscriptionsModel.description"
+                            id="title-description-edit" placeholder="description"
+                            rows="4" formControlName="description" required></textarea>
+
+                  <div *ngIf="description.invalid && (description.dirty || description.touched)">
+
+                    <span *ngIf="description.errors.required">
+                      description is required.
+                    </span>
+                    <span *ngIf="description.errors.maxlength">
+                       max length 255
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="btn-add-inscriptions-modal-create">
+                <button class="btn-inscriptions-delete-modal-create">Yes</button>
+                <button type="button" class="btn-exit-inscriptions-delete-modal-create"
+                        (click)="modal.dismiss('Cross click')">Exit
+                </button>
+              </div>
+            </form>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

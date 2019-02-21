@@ -1,0 +1,118 @@
+<div class="wrapper">
+  <main>
+
+    <ng-progress></ng-progress>
+    <div *ngIf="doneOrder" class="alert-order-success">
+      <p> Спасибо, мы свяжится с вам в ближайшее время.</p>
+    </div>
+    <div *ngIf="done" class="order-checkout">
+      <div class="text-checkout">
+        <h1>Оформление заказа</h1>
+      </div>
+      <form name="form" #f="ngForm" novalidate>
+        <div class="contecnt-checkout">
+          <br>
+          <div class="trener-checkout">
+            <p>Тренеры</p>
+            <br>
+
+            <div *ngFor="let data of trainersCheckbox" class="trener-checkbox">
+              <label class="container">{{data.value.name}} {{data.value.surname}}
+                <input name="trainers" type="checkbox"
+                       (change)="onChange(data.value.name, data.value.surname,  $event.target.checked)">
+                <span class="checkmark"></span>
+              </label>
+            </div>
+
+            <br>
+            <div class="description-choice">
+              <p>* Выберите желаемого тренера или оставите ячейки пустыми</p>
+            </div>
+          </div>
+          <div class="calendar-checkout">
+            <p>Дата и выбор тренига</p>
+            <div class="block-order-group">
+
+              <input type="text" name="date" [(ngModel)]="modelOrderTrainers.date" bsDatepicker class="input"
+                     placeholder="дата">
+              <div class="error-input" *ngIf="orderError">
+                <span>{{orderError.date}}</span>
+              </div>
+
+
+              <select [(ngModel)]="modelOrderTrainers.training" name="training" title="select">
+                <option>--</option>
+                <option class="select-input" id="training" name="training"
+                        *ngFor="let training of trainings">
+                  {{training.name}}
+                </option>
+              </select>
+              <div class="label-training">
+                <p>Тренинги</p>
+              </div>
+              <div class="error-input" *ngIf="orderError">
+                <span>{{orderError.training}}</span>
+              </div>
+
+              <input class="input" [(ngModel)]="modelOrderTrainers.country" name="country" type="text"
+                     placeholder="страна" #country="ngModel" [ngClass]="{'is-invalid':f.submitted && country.invalid}">
+              <div class="error-input" *ngIf="orderError">
+                <span>{{orderError.country}}</span>
+              </div>
+
+              <input class="input" [(ngModel)]="modelOrderTrainers.city" name="city" type="text"
+                     placeholder="город проведения тренинга">
+              <div class="error-input" *ngIf="orderError">
+                <span>{{orderError.city}}</span>
+              </div>
+
+              <input class="input" [(ngModel)]="modelOrderTrainers.company" type="text" name="company"
+                     placeholder="назавние компании ">
+              <div class="error-input" *ngIf="orderError">
+                <span>{{orderError.company}}</span>
+              </div>
+
+
+              <input class="input" [(ngModel)]="modelOrderTrainers.nameSurname" type="text" name="nameSurname"
+                     placeholder="имя, фамилия ">
+              <div class="error-input" *ngIf="orderError">
+                <span>{{orderError.nameSurname}}</span>
+              </div>
+
+
+              <input class="input" [(ngModel)]="modelOrderTrainers.phone" type="text" name="phone"
+                     placeholder="номер телефона ">
+              <div class="error-input" *ngIf="orderError">
+                <span>{{orderError.phone}}</span>
+              </div>
+
+
+              <input class="input" [(ngModel)]="modelOrderTrainers.email" type="email" name="email"
+                     placeholder="email">
+              <div class="error-input" *ngIf="orderError">
+                <span>{{orderError.email}}</span>
+              </div>
+
+
+              <textarea class="textarea-form" [(ngModel)]="modelOrderTrainers.description" type="text"
+                        name="description"
+                        placeholder="дополнительная информация...."></textarea>
+              <div class="error-input" *ngIf="orderError">
+                <span>{{orderError.description}}</span>
+              </div>
+
+
+            </div>
+          </div>
+
+        </div>
+
+        <div class="btn-order">
+          <button class="btn-ok" (click)="submitOrderSave(modelOrderTrainers)" type="submit">Отправить заказ</button>
+        </div>
+      </form>
+      <br>
+    </div>
+    <hr class="hr-line-down">
+  </main>
+</div>

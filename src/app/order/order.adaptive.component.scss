@@ -1,0 +1,175 @@
+@media only screen and (max-width: 1200px) {
+  .wrapper {
+    max-width: 1180px;
+  }
+
+  .btn-order {
+    padding: 0 4.8% 0 4.8%;
+  }
+}
+
+@media only screen and (max-width: 980px) {
+  .wrapper {
+    max-width: 970px;
+  }
+
+  .container {
+    padding-left: 15%;
+    font-size: 11px;
+  }
+
+  .input {
+    margin: 10px 10px 10px 55px;
+  }
+  .block-order-group select {
+    margin: 10px 10px 10px 55px;
+  }
+  .label-training{
+
+    margin: -10px 0 0 55px;
+  }
+
+  .label-training p{
+    font-size: 10px;
+  }
+  .textarea-form {
+    margin: 10px 10px 10px 55px;
+  }
+
+  .btn-order {
+    padding: 0 0.3% 0 0.3%;
+  }
+
+  .error-input{
+    width: 70%;
+    margin: -8px 0 0 65px;
+  }
+
+}
+
+@media only screen and (max-width: 768px) {
+  .wrapper {
+    max-width: 760px;
+  }
+
+  .alert-order-success p {
+    font-size: 15px;
+  }
+  .container {
+    padding-left: 8%;
+    font-size: 13px;
+  }
+
+  .text-checkout {
+    font-size: 25px;
+  }
+
+  .contecnt-checkout {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .trener-checkout {
+    width: 100%;
+    font-size: 25px;
+  }
+
+  .checkmark {
+    top: 5px;
+  }
+  .calendar-checkout p {
+    font-size: 25px;
+  }
+
+  .calendar-checkout {
+    width: 100%;
+    margin-top: 45px;
+  }
+  .form-control-input-data {
+    width: 70%;
+  }
+  .block-order-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .input {
+    width: 80%;
+    margin: 10px 10px 10px 10%;
+  }
+  .block-order-group select {
+    width: 80%;
+    margin: 10px 10px 10px 10%;
+
+  }
+  .label-training{
+    margin: -10px 0 0 10%;
+  }
+  .label-training p{
+    font-size: 10px;
+  }
+
+  .textarea-form {
+    width: 80%;
+    margin: 10px 10px 10px 10%;
+  }
+
+  .btn-order {
+    margin: 15px 15px 15px 0;
+    padding: 0 9.5% 0 9.5%;
+  }
+
+  .btn-ok {
+    width: 100%;
+  }
+
+  .error-input{
+    width: 50%;
+    margin: -8px 0 0 12%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .wrapper {
+    max-width: 470px;
+    font-size: 15px;
+  }
+
+  .alert-order-success{
+    border-radius: 0;
+  }
+
+  .alert-order-success p {
+    font-size: 13px;
+  }
+
+  .text-checkout {
+    font-size: 15px;
+  }
+  .container {
+    padding-left: 18%;
+    font-size: 15px;
+  }
+
+  .block-order-group select {
+    width: 80%;
+    margin: 10px 10px 10px 10%;
+    font-size: 18px;
+    text-indent: 0.5em;
+  }
+  .error-input{
+    width: 50%;
+    margin: -8px 0 0 12%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+

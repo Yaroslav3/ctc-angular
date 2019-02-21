@@ -1,0 +1,75 @@
+<app-admin-trainings></app-admin-trainings>
+
+
+<div class="wrapper-admin">
+  <ng-progress></ng-progress>
+  <div class="add-trainer-container">
+    <div class="add-photo">
+      <div class="photo-trainer" *ngIf="boolSavePhoto">
+        <div class="change-btn">
+          <div *ngIf="imageToShow != null" class="photo">
+            <p>Trainer create</p>
+          </div>
+          <label for="file-upload" class="custom-file-upload">
+            <i class="fas fa-cloud-upload-alt"></i> Upload photo
+          </label>
+          <input id="file-upload" type="file" (change)="onFileSelector($event)">
+        </div>
+        <div *ngIf="progressBar" class="progress-bar-upload">
+          <progress-bar [progress]="progress" [color]="'#488aff'">
+          </progress-bar>
+        </div>
+      </div>
+
+
+      <div class="btn-save-photo" *ngIf="buttonUpdatePhoto">
+        <button type="button" class=" btn btn-info btn-sm" (click)="onCreate()"><i
+          class="fas fa-check-circle"></i><span style="margin-left: 10px">Save photo</span>
+        </button>
+        <div *ngIf="buttonUpdatePhoto" class="name-file">
+          <p>{{selectFile.name}}</p>
+        </div>
+      </div>
+
+
+    </div>
+    <div *ngIf="blockTrainerText">
+      <div class="input-filed">
+        <input type="text" [(ngModel)]="trainers.name" title="name" placeholder="name">
+      </div>
+      <div class="error-input" *ngIf="orderError">
+        <span>{{orderError.name}}</span>
+      </div>
+
+      <div class="input-filed">
+        <input type="text" [(ngModel)]="trainers.surname" title="surname" placeholder="surname">
+      </div>
+      <div class="error-input" *ngIf="orderError">
+        <span>{{orderError.surname}}</span>
+      </div>
+      <div class="input-filed">
+        <textarea type="text" [(ngModel)]="trainers.heading" title="heading" placeholder="heading"></textarea>
+      </div>
+      <div class="error-input" *ngIf="orderError">
+        <span>{{orderError.heading}}</span>
+      </div>
+
+      <div class="editor">
+        <angular-editor [(ngModel)]="trainers.description" [config]="editorConfig"></angular-editor>
+        <div class="html">
+        </div>
+        <br>
+        <div class="error-input" *ngIf="orderError">
+          <span>{{orderError.description}}</span>
+        </div>
+        <div class="group">
+          <button class="btn btn-info" (click)="onClickNext(trainers)" type="submit"> Next <i
+            class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

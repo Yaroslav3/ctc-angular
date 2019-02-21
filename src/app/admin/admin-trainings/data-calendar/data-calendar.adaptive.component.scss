@@ -1,0 +1,28 @@
+@media only screen and (max-width: 1200px) {
+  .wrapper {
+    max-width: 1180px;
+  }
+  .block-calendar {
+    margin-left: 170px;
+  }
+}
+
+@media only screen and (max-width: 980px) {
+  .wrapper {
+    max-width: 970px;
+  }
+
+  :host ::ng-deep #myCalendar {
+    .fc-center h2 {
+      font-size: 18px;
+    }
+  }
+
+}
+
+@media only screen and (max-width: 768px) {
+  .wrapper {
+    max-width: 760px;
+  }
+
+}

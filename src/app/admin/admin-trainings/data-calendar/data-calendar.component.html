@@ -1,0 +1,216 @@
+<app-admin-trainings></app-admin-trainings>
+
+
+<div class="wrapper-admin">
+  <div class="block-calendar">
+    <ng-progress></ng-progress>
+
+    <div *ngIf="calendarOptions">
+      <ng-fullcalendar id="myCalendar" #ucCalendar [options]="calendarOptions"
+                       (eventClick)="eventClick($event.detail,contentShow)"
+                       (eventDrop)="updateEvent($event.detail)"
+                       (eventResize)="updateEvent($event.detail)"
+                       (eventDestroy)="destroyEvent($event.detail)"
+                       (drop)="delete($event.detail)"
+                       (clickButton)="clickButton($event.detail)"></ng-fullcalendar>
+
+    </div>
+
+    <!-- Modal show events---->
+
+    <ng-template #contentShow let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-show"><span><i class="far fa-calendar-alt"></i> event</span>
+        </h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="events-show">
+          <div class="info">
+            <label for="title"><i class="far fa-comment-alt"></i>
+              <span id="title"> {{modelCalendarTrainingsDate.title}}</span>
+            </label>
+          </div>
+          <div class="info">
+            <label for="data-event"> <i class="far fa-clock"></i>
+              <span
+                id="data-event"> {{modelCalendarTrainingsDate.start| date:'dd.MM.yyyy'}}-{{modelCalendarTrainingsDate.end |date:'dd.MM.yyyy'}}</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="updateEventBtn(contentEdit)" class="btn btn-dark btn-sm">Update</button>
+        <button type="button" (click)="removeEventBtn(removeEvent)" class="btn btn-danger btn-sm">Remove event</button>
+      </div>
+    </ng-template>
+
+    <!--- Modal window remove------>
+    <ng-template  #removeEvent let-modal>
+      <div class="modal-body text-center">
+        <p style="color: #151230">Do you want to delete?</p>
+        <button type="button" class="btn-delete" (click)="removeEventViewBtn(modelCalendarTrainingsDate.id)">Yes</button>
+        <button type="button" class="btn-exit" (click)="modal.dismiss('Cross click')">Exit</button>
+      </div>
+    </ng-template>
+
+    <!-- Modal window  add event calendar  -->
+
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title"><span><i class="far fa-calendar-plus"></i> add event</span>
+        </h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!--<div id="calendar"></div>-->
+        <div class="dialog" id="dialog-update">
+          <form name="form" #f="ngForm" novalidate>
+            <div class="form-group">
+              <label for="text">Name event</label>
+              <input type="text" [(ngModel)]="model.title" name="title" class="form-control"
+                     id="text"
+                     aria-describedby="emailHelp"
+                     placeholder="event">
+            </div>
+            <div class="form-group">
+              <label for="start-event">Start event</label>
+              <div class="input-group">
+                <input id="start-event" class="form-control" placeholder="yyyy-mm-dd"
+                       name="start" [(ngModel)]="model.start" ngbDatepicker #s="ngbDatepicker">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary calendar" (click)="s.toggle()" type="button"><i
+                    class="far fa-calendar-alt"></i></button>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="end-event">Finish event</label>
+              <div class="input-group">
+                <input id="end-event" class="form-control" placeholder="yyyy-mm-dd"
+                       name="end" [(ngModel)]="model.end" ngbDatepicker
+
+                       #e="ngbDatepicker">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary calendar" (click)="e.toggle()" type="button"><i
+                    class="far fa-calendar-alt"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputState">Color background</label>
+              <select [(ngModel)]="model.color" name="colors" id="inputState"
+                      class="form-control">
+                <option *ngFor="let colors of color"
+                        [ngStyle]="{'color':colors,'font-weight': 'bold'}">{{colors}}
+                </option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="color-text">Color text</label>
+              <select [(ngModel)]="model.textColor" name="textColor" id="color-text"
+                      class="form-control">
+                <option *ngFor="let colors of colorText">{{colors}}
+                </option>
+              </select>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-sm"
+                (click)="ngSaveDateCalendarTrainings(model)">Save
+        </button>
+      </div>
+    </ng-template>
+
+    <div class="btn-calendar-save">
+      <button class="btn btn-lg btn btn-primary" (click)="open(content)"><i class="far fa-address-book"></i> Add event
+      </button>
+    </div>
+
+
+    <!----Modal window  edit event ------>
+    <ng-template #contentEdit let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-update"><span><i class="far fa-edit"></i> update event</span></h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <!--<div id="calendar"></div>-->
+        <div class="dialog" id="dialog">
+          <form name="form" #f="ngForm" novalidate>
+            <div class="form-group">
+              <label for="update-title">Name event</label>
+              <input type="text" [(ngModel)]="modelCalendarTrainingsDate.title"
+                     name="title" class="form-control"
+                     id="update-title"
+                     aria-describedby="emailHelp"
+                     placeholder="event">
+            </div>
+            <div class="form-group">
+              <label for="start-event-update">Start event</label>
+              <div class="input-group">
+                <input id="start-event-update" class="form-control" placeholder="yyyy-mm-dd"
+                       name="start" [(ngModel)]="modelCalendarTrainingsDate.start" ngbDatepicker
+                       #s2="ngbDatepicker">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary calendar" (click)="s2.toggle()" type="button"><i
+                    class="far fa-calendar-alt"></i></button>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="end-event-update">Finish event</label>
+              <div class="input-group">
+                <input id="end-event-update" class="form-control" placeholder="yyyy-mm-dd"
+                       name="end" [(ngModel)]="modelCalendarTrainingsDate.end"
+                       ngbDatepicker
+                       #e2="ngbDatepicker">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary calendar" (click)="e2.toggle()" type="button"><i
+                    class="far fa-calendar-alt"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="input-color-back">Color background</label>
+              <select [(ngModel)]="modelCalendarTrainingsDate.color" value="{model_calendarTrainingsDate.color}}"
+                      name="colors" id="input-color-back"
+                      class="form-control">
+                <option *ngFor="let colors of color"
+                        [ngStyle]="{'color':colors,'font-weight': 'bold'}">{{colors}}
+                </option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="color-text-update">Color text</label>
+              <select [(ngModel)]="modelCalendarTrainingsDate.textColor"
+                      name="textColor" id="color-text-update"
+                      class="form-control">
+                <option *ngFor="let colors of colorText">{{colors}}
+                </option>
+              </select>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-sm"
+                (click)="updateCalendarTrainingModalView(modelCalendarTrainingsDate.id,modelCalendarTrainingsDate)">
+          Update
+        </button>
+      </div>
+    </ng-template>
+  </div>
+</div>
+

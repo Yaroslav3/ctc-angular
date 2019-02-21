@@ -1,0 +1,202 @@
+<app-admin></app-admin>
+
+<div class="wrapper-admin">
+  <div class="block-user">
+    <div class="header-user-service">
+      <div class="user-service-info">
+        <ng-progress></ng-progress>
+        <div>
+          <p>
+            footer info
+          </p>
+
+          <div class="info-group" *ngFor="let users of user">
+
+            <ul class="border">
+              <li><span> {{users.name}}</span></li>
+              <li><span> {{users.surname}}</span></li>
+              <li> <span> <i class="far fa-envelope"></i> {{users.email}}</span></li>
+              <li><span> <i class="fas fa-mobile-alt"></i> {{users.phone}}</span></li>
+              <li><span> <i class="fab fa-skype"></i> {{users.skype}}</span></li>
+              <li><span> <i class="fas fa-globe-americas"></i> {{users.country}} {{users.city}}</span></li>
+              <li><span> <i class="fas fa-map-marker-alt"></i>  {{users.street}}</span></li>
+              <li><span> <i class="fas fa-terminal"></i> {{users.postcode}}</span></li>
+            </ul>
+
+
+
+            <div class="btn-user">
+              <button type="button" (click)="openModalEditUser(modalEditUser, users.id)"
+                      class="badge btn-secondary btn-sm">
+                <i
+                  class="fas fa-marker"></i> edit
+              </button>
+              <button *ngIf="roles[0] == ['PM']" type="button" (click)="openModalRemoveUser(modalRemoveUser)"
+                      class="badge btn-danger btn-sm"><i
+                class="fas fa-trash"></i> remove
+              </button>
+
+              <!--- Modal window remove ---->
+
+              <ng-template #modalRemoveUser let-modal>
+                <div class="modal-body text-center">
+                  <p style="color: #151230">Do you want to delete?</p>
+                  <button type="button" class="btn-delete" (click)="removeUserBtn(users.id)">Yes</button>
+                  <button type="button" class="btn-exit" (click)="modal.dismiss('Cross click')">Exit</button>
+                </div>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="btn-create-user">
+        <button *ngIf="roles[0] == ['PM']" type="button" (click)="openModalAddUser(modalAddUser)"
+                class="btn btn-secondary"><i
+          class="fas fa-user-astronaut"></i> add user
+        </button>
+      </div>
+
+
+
+
+
+      <!--- Modal window add User---->
+
+      <ng-template #modalAddUser let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-add"><span><i class="fas fa-user-plus"></i> add user</span>
+          </h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form name="form" #f="ngForm" novalidate>
+            <div class="info-user">
+              <div class="form-group">
+                <label for="create-name">name</label>
+                <input type="text" [(ngModel)]="modelCreateUser.name" name="name" class="form-control"
+                       id="create-name" placeholder="name">
+              </div>
+              <div class="form-group">
+                <label for="create-Surname">surname</label>
+                <input type="text" [(ngModel)]="modelCreateUser.surname" name="surname" class="form-control"
+                       id="create-Surname" placeholder="surname">
+              </div>
+              <div class="form-group">
+                <label for="create-email">email</label>
+                <input type="text" [(ngModel)]="modelCreateUser.email" name="email" class="form-control"
+                       id="create-email" placeholder="email">
+              </div>
+              <div class="form-group">
+                <label for="create-phone">phone</label>
+                <input type="text" [(ngModel)]="modelCreateUser.phone" name="phone" class="form-control"
+                       id="create-phone" placeholder="phone">
+              </div>
+              <div class="form-group">
+                <label for="create-skype">skype</label>
+                <input type="text" [(ngModel)]="modelCreateUser.skype" name="skype" class="form-control"
+                       id="create-skype" placeholder="skype">
+              </div>
+              <div class="form-group">
+                <label for="create-country">country</label>
+                <input type="text" [(ngModel)]="modelCreateUser.country" name="skype" class="form-control"
+                       id="create-country" aria-describedby="emailHelp" placeholder="country">
+              </div>
+              <div class="form-group">
+                <label for="create-city">city</label>
+                <input type="text" [(ngModel)]="modelCreateUser.city" name="city" class="form-control"
+                       id="create-city" placeholder="city">
+              </div>
+              <div class="form-group">
+                <label for="create-street">street</label>
+                <input type="text" [(ngModel)]="modelCreateUser.street" name="street" class="form-control"
+                       id="create-street" placeholder="street">
+              </div>
+              <div class="form-group">
+                <label for="create-postcode">postcode</label>
+                <input type="text" [(ngModel)]="modelCreateUser.postcode" name="postcode" class="form-control"
+                       id="create-postcode" placeholder="postcode">
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="btn-edit-user">
+          <button type="button" class="btn-delete" (click)="createUser(modelCreateUser)">Yes</button>
+          <button type="button" class="btn-exit" (click)="modal.dismiss('Cross click')">Exit</button>
+        </div>
+      </ng-template>
+
+      <!--- Modal window edit ---->
+
+      <ng-template #modalEditUser let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-edit"><span><i class="fas fa-edit"></i> edit user</span>
+          </h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <form name="form" #f="ngForm" novalidate>
+            <div class="info-user">
+              <div class="form-group">
+                <label for="update-name">name</label>
+                <input type="text" [(ngModel)]="modelUser.name" name="name" class="form-control"
+                       id="update-name" placeholder="name">
+              </div>
+              <div class="form-group">
+                <label for="update-Surname">surname</label>
+                <input type="text" [(ngModel)]="modelUser.surname" name="surname" class="form-control"
+                       id="update-Surname" placeholder="surname">
+              </div>
+              <div class="form-group">
+                <label for="update-email">email</label>
+                <input type="text" [(ngModel)]="modelUser.email" name="email" class="form-control"
+                       id="update-email" placeholder="email">
+              </div>
+              <div class="form-group">
+                <label for="update-phone">phone</label>
+                <input type="text" [(ngModel)]="modelUser.phone" name="phone" class="form-control"
+                       id="update-phone" placeholder="phone">
+              </div>
+              <div class="form-group">
+                <label for="update-skype">skype</label>
+                <input type="text" [(ngModel)]="modelUser.skype" name="skype" class="form-control"
+                       id="update-skype" placeholder="skype">
+              </div>
+              <div class="form-group">
+                <label for="update-country">country</label>
+                <input type="text" [(ngModel)]="modelUser.country" name="country" class="form-control"
+                       id="update-country" placeholder="country">
+              </div>
+              <div class="form-group">
+                <label for="update-city">city</label>
+                <input type="text" [(ngModel)]="modelUser.city" name="city" class="form-control"
+                       id="update-city" placeholder="city">
+              </div>
+              <div class="form-group">
+                <label for="update-street">street</label>
+                <input type="text" [(ngModel)]="modelUser.street" name="street" class="form-control"
+                       id="update-street" placeholder="street">
+              </div>
+              <div class="form-group">
+                <label for="update-postcode">postcode</label>
+                <input type="text" [(ngModel)]="modelUser.postcode" name="postcode" class="form-control"
+                       id="update-postcode" placeholder="postcode">
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="btn-edit-user">
+          <button type="button" class="btn-delete" (click)="updateUser(modelUser)">Yes</button>
+          <button type="button" class="btn-exit" (click)="modal.dismiss('Cross click')">Exit</button>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
+

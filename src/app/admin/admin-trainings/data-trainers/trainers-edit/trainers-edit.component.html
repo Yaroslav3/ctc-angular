@@ -1,0 +1,67 @@
+<app-admin-trainings></app-admin-trainings>
+
+<div class="wrapper-admin">
+  <ng-progress></ng-progress>
+  <div class="editor-container">
+    <div *ngIf="trainers" class="block-trainers-edit">
+
+      <div class="editor-coach">
+        <div class="editor-photo">
+
+          <div class="photo">
+              <img src="{{imageToShow}}" alt="{{trainers.name}} {{trainers.surname}}">
+          </div>
+
+          <div *ngIf="boolUpdatePhoto" class="change-btn">
+            <label for="file-upload" class="custom-file-upload">
+              <i class="fas fa-cloud-upload-alt"></i> Update photo
+            </label>
+            <input id="file-upload" type="file" (change)="onFileSelector($event)">
+          </div>
+          <div *ngIf="progressBar" class="progress-bar-upload">
+            <progress-bar [progress]="progress" [color]="'#488aff'">
+            </progress-bar>
+          </div>
+
+          <br>
+          <div class="btn-save-photo" *ngIf="buttonUpdatePhoto">
+            <button type="button" class=" btn btn-info btn-sm" (click)="onUpdatePhoto()">
+              <i class="fas fa-check-circle">
+
+            </i><span style="margin-left: 10px">Save photo</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="editor-filed">
+          <div>
+            <input class="filed" type="text" [(ngModel)]="trainers.name" value="{{trainers.name}}" title="mame"
+                   placeholder="mame">
+          </div>
+          <div>
+            <input class="filed" type="text" [(ngModel)]="trainers.surname"  value="{{trainers.surname}}"
+                   title="surname" placeholder="surname">
+          </div>
+          <div>
+            <textarea class="filed-textarea" [(ngModel)]="trainers.heading" value="{{trainers.heading}}"
+                      title="heading"
+                      placeholder="heading"></textarea>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="buttonUpdatePhoto" class="name-file">
+        <p>{{selectFile.name}}</p>
+      </div>
+      <div class="editor">
+        <angular-editor [(ngModel)]="trainers.description" [config]="editorConfig"></angular-editor>
+        <div class="html">
+        </div>
+        <br>
+        <div class="group">
+          <button class="btn btn-info" (click)="onClickUpdate(trainers)" type="submit">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,82 @@
+.wrapper-admin {
+  max-width: 1600px;
+  min-width: 765px;
+  margin: 0 auto;
+}
+
+.view-order {
+  position: static;
+  height: auto;
+  margin-left: 220px;
+  margin-top: -608px;
+}
+
+.header-table {
+  background-color: #557da1;
+
+}
+
+.header-table h1 {
+  color: whitesmoke;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 25px;
+}
+
+.order-text {
+  margin: 0 0 16px;
+}
+
+.order-text p {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #a7a7a7;
+  font-size: 15px;
+}
+
+.order-text span {
+  margin-left: 10px;
+}
+
+.id-order {
+  color: #557da1;
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.id-order span {
+  margin-left: 10px;
+}
+
+.table-bordered tr td {
+  text-align: left;
+  color: #737373;
+  border: 1px solid #e4e4e4;
+  padding: 12px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.table-bordered tbody th {
+  color: #144722;
+  font-weight: normal;
+  font-size: 13px;
+}
+
+table tfoot .text-table {
+  color: #595959;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+table tfoot .text {
+  color: #144722;
+  height: auto;
+  font-size: 13px;
+  font-weight: normal;
+}
+
+.table tfoot span {
+  margin-left: 45px;
+}
+

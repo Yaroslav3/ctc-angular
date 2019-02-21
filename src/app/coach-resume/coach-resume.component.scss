@@ -1,0 +1,61 @@
+
+
+.promo-coach {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  height: 90px;
+  background: #fff;
+  z-index: 1000;
+  margin-left: -3.5%;
+  border-top: 1px solid #fff;
+  box-shadow: 0 2px 30px rgba(28, 15, 25, 0.2);
+  //background: linear-gradient(208deg, #eeeeee 20%, #ffff 50%);
+
+}
+
+.trainers-editor {
+  width: 250px;
+  height: 20px;
+}
+
+
+.block-trainer-coach {
+  width: 250px;
+  padding: 2px;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #b2b2b2;
+}
+
+.nav-pills .nav-link {
+  text-align: left;
+  width: 250px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.nav-pills .nav-link:hover {
+  background-color: #cce1ed;
+}
+
+
+.nav li a {
+  color: #524343;
+  text-decoration: none;
+  background-color: transparent;
+  font-size: 12px;
+}
+
+.nav-item span {
+  color: #2c88b5;
+}
+
+.block-trainer-coach-mobile-views {
+  display: none;
+}
+
+
+

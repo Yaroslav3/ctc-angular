@@ -1,0 +1,60 @@
+@media only screen and (max-width: 1200px) {
+  .wrapper {
+    max-width: 1180px;
+  }
+
+  .photo-info {
+    width: 250px;
+    height: auto;
+    //background-color: #f1f1f1;
+    border-radius: 5px;
+  }
+  .photo-img img {
+    height: 140px;
+  }
+
+  .block-photo-page {
+    margin-left: 160px;
+  }
+
+  .btn-sm, .btn-group-sm > .btn {
+    padding: 0.15rem 0.4rem;
+    font-size: 0.075rem;
+    line-height: 1.0;
+    border-radius: 0.2rem;
+  }
+
+  .btn-update-photo button i {
+    font-size: 10px;
+  }
+  .btn-update-photo button span {
+    font-size: 10px;
+  }
+}
+
+@media only screen and (max-width: 980px) {
+  .wrapper {
+    max-width: 970px;
+  }
+  .photo-info {
+    width: 200px;
+    height: auto;
+    //background-color: #f1f1f1;
+    border-radius: 5px;
+  }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

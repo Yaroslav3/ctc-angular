@@ -1,0 +1,70 @@
+<app-admin-trainings></app-admin-trainings>
+
+<div class="wrapper-admin">
+  <ng-progress></ng-progress>
+  <div *ngIf="order" class="view-order">
+    <div class="container">
+      <div class="row">
+        <table class="table">
+          <tbody>
+          <tr>
+            <td class="header-table">
+              <h1 style="">Order training.</h1>
+            </td>
+          </tr>
+          <div class="order-text">
+            <br>
+            <p>Time create order message: <span> {{order.time | date:'dd-MM-yyyy(HH:mm)'}}</span></p>
+          </div>
+          <div class="id-order">
+            <p> Order <span>#{{order.id}}</span></p>
+          </div>
+          <table class="table table-bordered">
+            <tr>
+              <td class="d-inline-block col-6 text-table">Training</td>
+              <td class="d-inline-block col-3 text-table">Time order</td>
+              <td class="d-inline-block col-3 text-table">Country and city</td>
+            </tr>
+            <tbody>
+            <th class="d-inline-block col-6 text-table">{{order.training}}</th>
+            <th class="d-inline-block col-3 text-table">{{order.date | date:'dd-MM-yyyy'}}</th>
+            <th class="d-inline-block col-3 text-table">{{order.country}},  {{order.city}}</th>
+            </tbody>
+
+
+            <tfoot>
+            <tr>
+              <th class="d-inline-block col-6 text-table">Name desired coach(s)</th>
+              <th class="d-inline-block col-6 text-table text">{{order.orderTrainers}}</th>
+            </tr>
+            <tr>
+              <th class="d-inline-block col-6 text-table">Name company</th>
+              <th class="d-inline-block col-6 text-table text">{{order.company}}</th>
+            </tr>
+            <tr>
+              <th class="d-inline-block col-6 text-table">Customer name</th>
+              <th class="d-inline-block col-6 text-table text">{{order.nameSurname}}</th>
+            </tr>
+            <tr>
+              <th class="d-inline-block col-6 text-table">Phone:</th>
+              <th class="d-inline-block col-6 text-table text">{{order.phone}}</th>
+            </tr>
+            <tr>
+              <th class="d-inline-block col-6 text-table">Email:</th>
+              <th class="d-inline-block col-6 text-table text">{{order.email}}</th>
+            </tr>
+            <tr>
+              <th class="d-inline-block col-12 text-table"> Description:
+                <span class="text">{{order.description}}</span>
+
+              </th>
+            </tr>
+            </tfoot>
+          </table>
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

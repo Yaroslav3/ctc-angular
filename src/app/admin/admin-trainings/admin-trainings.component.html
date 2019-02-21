@@ -1,0 +1,40 @@
+<app-admin-header></app-admin-header>
+
+
+<div class="wrapper-admin">
+  <ng-progress></ng-progress>
+  <div class="block-group">
+    <ul class="nav nav-pills nav-justified">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/admin/trainings/data-trainings" routerLinkActive="active">
+          <span style="margin-right: 10px" class="fa fa-users fa-icon-right-margin-small"></span> Trainings
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/admin/trainings/data-trainers" routerLinkActive="active">
+          <span style="margin-right: 16px" class="fa fa-user fa-icon-right-margin-small"></span> Trainers
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/admin/trainings/data-calendar" routerLinkActive="active">
+          <span style="margin-right: 16px" class="far fa-calendar-alt fa-icon-right-margin-small"></span> Calendar
+        </a>
+      </li>
+      <li class="nav-item">
+        <a  class="nav-link" routerLink="/admin/trainings/data-order" routerLinkActive="active">
+          <span style="margin-right: 20px" class="fas fa-dollar-sign fa-icon-right-margin-small"></span> Order
+           <span class="badge badge-info">{{countOrder}}</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/admin/trainings/inscriptions" routerLinkActive="active">
+          <span style="margin-right: 12px" class="far fa-edit fa-icon-right-margin-small"></span> Inscriptions
+        </a>
+      </li>
+    </ul>
+    <hr>
+  </div>
+  <router-outlet></router-outlet>
+</div>
+
+

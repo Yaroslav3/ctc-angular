@@ -1,0 +1,122 @@
+<app-admin></app-admin>
+
+<div class="wrapper-admin">
+  <div class="block-video">
+    <ng-progress></ng-progress>
+    <div *ngFor="let elem of video">
+
+      <div class="video-content">
+        <video class="video" playsinline="" controls="controls" muted="video" loop="" style="opacity: 1;"
+               autoplay="autoplay">
+          <source [src]="elem.videoUrl" type="video/mp4">
+        </video>
+      </div>
+      <div class="btn group">
+        <button type="button" class=" btn btn-danger btn-sm"
+                (click)="openModalDeleteVideo(modalDeleteVideo)">delete video
+        </button>
+        <button type="button" class=" btn btn-success btn-sm"
+                (click)="openModalUpdateVideo(modalUpdateVideo)">update video
+        </button>
+      </div>
+
+
+      <!------------------------------------- Modal window update Video ---------------------------------------->
+
+      <ng-template #modalUpdateVideo let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-update"><span><i class="far fa-images"></i> update video </span>
+          </h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div class="upload-page" *ngIf="btnChooseUpdate">
+            <label for="file-update" class=" btn-success custom-file-upload">
+              <i class="fas fa-cloud"></i> Choose video
+            </label>
+            <input id="file-update" type="file"
+                   (change)="onFileSelectorUpdate($event)">
+          </div>
+          <div *ngIf="validateVideo" class="alert  alert-danger">
+            max size file "50 Mb" you file - {{fileSize}} size, Choose smaller file size
+          </div>
+          <div class="upload-page-btn" *ngIf="buttonUpdateVideo">
+            <button type="button" class=" btn btn-info"
+                    (click)="onAdminUpdateVideo(elem.id)">
+              <i class="fas fa-cloud-download-alt"></i> Update video
+            </button>
+          </div>
+
+          <div *ngIf="progressBar" class="progress-bar-upload">
+            <progress-bar [progress]="progress" [color]="'#488aff'">
+            </progress-bar>
+          </div>
+        </div>
+
+      </ng-template>
+
+      <!------------------------------------- Modal window delete Video -------------------------------------->
+
+      <ng-template #modalDeleteVideo let-modal>
+        <div class="modal-body text-center">
+          <p style="color: #151230">Do you want to delete video?</p>
+          <button type="button" class="btn-delete" (click)="adminDeleteVideo(elem.id)">Yes</button>
+          <button type="button" class="btn-exit" (click)="modal.dismiss('Cross click')">Exit</button>
+        </div>
+      </ng-template>
+
+    </div>
+
+
+    <div *ngIf="addVideo" class="add-video">
+      <br>
+      <button type="button" class=" btn btn-info" (click)="addPhotoVideo(modalAddVideo)">
+        <i class="far fa-file-video"></i> Add video
+      </button>
+    </div>
+
+
+    <!------------------------------------- Modal window save Video ---------------------------------------->
+
+    <ng-template #modalAddVideo let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-add"><span><i class="fas fa-palette"></i> add video</span>
+        </h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form name="form" #f="ngForm" novalidate>
+          <div class="info-video">
+            <div *ngIf="btnChooseSave">
+              <label for="file-add-video" class=" btn-info custom-file-upload">
+                <i class="fas fa-cloud"></i> Choose video
+              </label>
+              <input id="file-add-video" type="file" (change)="onFileSelectorSave($event)">
+            </div>
+            <div *ngIf="validateVideo" class="alert  alert-danger">
+              max size file "50 Mb" you file - {{fileSize}} size, Choose smaller file size
+            </div>
+            <div class="btn-save-video" *ngIf="buttonSaveVideo">
+              <button type="button" class=" btn btn-info btn-sm"
+                      (click)="adminCreateVideo()">
+                <i class="fas fa-check-circle"></i><span style="margin-left: 10px">Save video</span>
+              </button>
+            </div>
+          </div>
+          <div *ngIf="progressBar" class="progress-bar-upload">
+            <progress-bar [progress]="progress" [color]="'#488aff'">
+            </progress-bar>
+          </div>
+        </form>
+      </div>
+    </ng-template>
+
+
+  </div>
+</div>

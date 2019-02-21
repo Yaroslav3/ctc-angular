@@ -1,0 +1,39 @@
+<div class="wrapper">
+  <ng-progress></ng-progress>
+  <div class="promo-coach"></div>
+  <div class="trainers-editor">
+    <br>
+    <div class="block-trainer-coach">
+      <br>
+      <!--<h4>тренеры</h4>-->
+      <div *ngFor="let elem of trainersAll" class="trainers">
+        <ul class="nav nav-pills nav-justified">
+          <li class="nav-item">
+            <a class="nav-link" (click)="transferPage(elem)">
+              <span style="margin-right: 10px" class="fas fa-user-tie"></span> {{elem.name}} {{elem.surname}}
+            </a>
+          </li>
+        </ul>
+      </div>
+      <hr>
+    </div>
+  </div>
+  <app-coach-show [trainers]="trainers"></app-coach-show>
+
+  <!------------------ Mobile version  ------------------------->
+  <div class="block-trainer-coach-mobile-views">
+    <!--<h4>тренеры</h4>-->
+    <div *ngFor="let elem of trainersAll" class="trainers">
+      <ul class="nav nav-pills nav-justified">
+        <li class="nav-item">
+          <a class="nav-link" (click)="transferPageMobile(elem)">
+            <span style="margin-right: 10px" class="fas fa-user-tie"></span> {{elem.name}} {{elem.surname}}
+          </a>
+        </li>
+      </ul>
+    </div>
+    <hr>
+  </div>
+</div>
+
+

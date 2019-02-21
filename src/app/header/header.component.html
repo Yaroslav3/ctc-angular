@@ -1,0 +1,119 @@
+<div *ngIf="auth()">
+  <div *ngIf="isHiddenAdmin()">
+    <div *ngIf="isHidden()" class="top-pic" [ngStyle]="{'background-image': 'url(' + homePhoto + ')'}">
+      <div class="top-pic-video">
+        <ng-progress></ng-progress>
+        <div class="top-pic-video-text"><p>{{titleText}}</p></div>
+
+        <div id="headerVideo" class="video-wrapper"
+             data-video-atts="playsinline muted loop">
+          <video *ngFor="let elem of video" class="video" playsinline="" muted="video" loop="" style="opacity: 1;"
+                 autoplay="autoplay">
+            <source [src]="elem.videoUrl" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <div [@visibilityChanged]="animPhoto()">
+      <div class="top-pic" *ngIf="isPhotoTrainings()"
+           [ngStyle]="{'background-image': 'url(' + trainingsPhoto + ')'}"></div>
+    </div>
+    <div [@visibilityChanged]="animPhoto()">
+      <div class="top-pic" *ngIf="isPhotoWebinars()"
+           [ngStyle]="{'background-image': 'url(' + webinarsPhoto + ')'}"></div>
+    </div>
+    <div [@visibilityChanged]="animPhoto()">
+      <div class="top-pic" *ngIf="isPhotoOrder()"
+           [ngStyle]="{'background-image': 'url(' + orderPhoto + ')'}"></div>
+    </div>
+
+    <div [@visibilityChanged]="animPhoto()">
+      <div class="top-pic" *ngIf="isPhotoCoachResume()"
+           [ngStyle]="{'background-image': 'url(' + coachPhoto + ')'}"></div>
+    </div>
+
+    <div [@visibilityChanged]="animPhoto()">
+      <div class="top-pic" *ngIf=" isSchedule()"
+           [ngStyle]="{'background-image': 'url(' + schedule + ')'}"></div>
+    </div>
+
+
+    <div [@visibilityChanged]="animPhoto()">
+      <div class="top-pic" *ngIf="isRoomRental()"
+           [ngStyle]="{'background-image': 'url(' + roomRental + ')'}"></div>
+    </div>
+
+
+    <div [@visibilityChanged]="animPhoto()">
+      <div class="top-pic" *ngIf="isRecommendations()"
+           [ngStyle]="{'background-image': 'url(' + recommendations + ')'}"></div>
+    </div>
+
+
+    <div class="wrapper">
+      <header>
+        <input type="checkbox" id="touch-inp" hidden (click)="burger()">
+        <label class="touch" for="touch-inp">
+          <span class="touch-row"></span>
+          <span class="touch-row"></span>
+          <span class="touch-row"></span>
+        </label>
+
+        <!-- BURGER -->
+        <div class="logo"
+             [ngStyle]="{'background-image': 'url('+'/assets/img/logo2.png'+ ')'}"></div>
+        <nav class="dws-menu">
+          <ul class="dws-ul">
+            <li class="dws-li"><a routerLink="" routerLinkActive="selected">HOME</a></li>
+            <li class="dws-li"><a routerLink="/trainings" routerLinkActive="selected">ТРЕНИНГИ</a></li>
+            <li class="dws-li"><a routerLink="/webinars" routerLinkActive="selected">ВЕБИНАРЫ</a></li>
+            <li class="dws-li"><a routerLink="/schedule" routerLinkActive="selected">РАСПИСАНИЕ</a></li>
+            <li class="dws-li"><a routerLink="/room-rental" routerLinkActive="selected">АРЕНДА ЗАЛОВ</a></li>
+            <li class="dws-li"><a routerLink="/recommendations" routerLinkActive="selected">РЕКОМЕНДАЦИИ</a></li>
+          </ul>
+        </nav>
+
+        <!-- BURGER  MOBILE-->
+        <nav class="dws-menu-mob" *ngIf="burgerMenu">
+          <ul class="dws-ul-mob">
+            <li class="dws-li-mob"><a (click)="burgerHidden()" routerLink="" routerLinkActive="selected">HOME</a></li>
+            <li class="dws-li-mob"><a (click)="burgerHidden()" routerLink="/trainings" routerLinkActive="selected">ТРЕНИНГИ</a>
+            </li>
+            <li class="dws-li-mob"><a (click)="burgerHidden()" routerLink="/webinars" routerLinkActive="selected">ВЕБИНАРЫ</a>
+            </li>
+            <li class="dws-li-mob"><a (click)="burgerHidden()" routerLink="/schedule" routerLinkActive="selected">РАСПИСАНИЕ</a>
+            </li>
+            <li class="dws-li-mob"><a (click)="burgerHidden()" routerLink="/room-rental" routerLinkActive="selected">АРЕНДА
+              ЗАЛОВ</a></li>
+            <li class="dws-li-mob"><a (click)="burgerHidden()" routerLink="/recommendations"
+                                      routerLinkActive="selected">РЕКОМЕНДАЦИИ</a></li>
+          </ul>
+        </nav>
+
+      </header>
+    </div>
+  </div>
+
+</div>
+<router-outlet></router-outlet>
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-light">-->
+<!--<a class="navbar-brand" routerLink="">Test Task</a>-->
+<!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"-->
+<!--aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"-->
+<!--(click)="toggleNavbar ()">-->
+<!--<span class="navbar-toggler-icon"></span>-->
+<!--</button>-->
+<!--<div class="collapse navbar-collapse" id="navbarNavAltMarkup" [ngClass]="{'show': navbarOpen}">-->
+<!--<ul class="navbar-nav">-->
+<!--<li class="nav-item ">-->
+<!--<a class="nav-link" routerLink="/trainings" routerLinkActive="active">Start</a>-->
+<!--</li>-->
+<!--<li class="nav-item ">-->
+<!--<a class="nav-link" routerLink="/twoPage" routerLinkActive="active">Registration</a>-->
+<!--</li>-->
+<!--<li class="nav-item ">-->
+<!--<a class="nav-link" routerLink="/registration-status" routerLinkActive="active">User Details</a>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</div>-->
+<!--</nav>-->

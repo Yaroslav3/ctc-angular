@@ -1,0 +1,123 @@
+.wrapper-admin {
+  max-width: 1600px;
+  min-width: 765px;
+  margin: 0 auto;
+}
+
+.block-order {
+  position: static;
+  height: 650px;
+  margin-left: 220px;
+  margin-top: -608px;
+}
+
+tr td div h6 span {
+  margin-left: -5px;
+
+}
+
+.data-order {
+  color: #662600;
+  font-weight: bold;
+}
+
+.badge-message i {
+  font-size: 15px;
+  color: #1686D9
+}
+
+.badge-danger {
+  border: 0;
+}
+
+.badge-secondary {
+  border: 0;
+}
+
+.badge-danger:hover {
+  background-color: #c0313d;
+}
+
+.badge-secondary:hover {
+  background-color: #848d95;
+}
+
+.table tr td {
+  padding: 5px;
+}
+
+tr td .badge {
+  margin-left: 20px;
+}
+
+tr td {
+  font-size: 10px;
+  font-family: 'KIA_KIAM', serif;
+  margin-bottom: -10px;
+}
+
+tr th {
+  height: 45px;
+}
+
+tr th p {
+  color: #144e22;
+  font-family: Ubuntu_Mono_Bold_Italic, serif;
+}
+
+.options {
+  text-align: center;
+}
+
+.btn {
+  display: inline;
+}
+
+.group {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-left: -20px;
+  margin-top: -5px;
+}
+
+.add-training {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  margin: 25px 55px;
+}
+
+.modal-body .btn-delete {
+  margin: 15px;
+}
+
+.btn-delete {
+  width: 55px;
+  height: 25px;
+  border-radius: 5px;
+  border: 0 solid white;
+  background-color: #dc3545;
+  cursor: pointer;
+}
+
+.btn-exit {
+  width: 55px;
+  height: 25px;
+  border-radius: 5px;
+  border: 0 solid white;
+  background-color: #6c757d;
+  cursor: pointer;
+}
+
+.pagination-order {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 20px;
+  padding-right: 50px;
+}
+
+

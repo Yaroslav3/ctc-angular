@@ -1,0 +1,210 @@
+.wrapper-admin {
+  max-width: 1600px;
+  min-width: 765px;
+  margin: 0 auto;
+}
+
+.block-user {
+  display: flex;
+  flex-direction: column;
+  position: static;
+  height: 610px;
+  margin-left: 220px;
+  margin-top: -608px;
+  padding-right: 30px;
+}
+
+.header-user-service {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-user-service .user-service-info div p {
+  //padding-left: 10px;
+  color: #4a3a3e;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.user-service-info {
+  display: flex;
+  flex-direction: row;
+  background-color: #d7d7d7;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.info-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-group span {
+  font-size: 12px;
+}
+
+.btn-user button{
+  margin-right: 10px;
+}
+
+.btn-user i {
+  color: white;
+}
+
+.badge {
+  border: 0;
+}
+
+.btn-create-user {
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+//** modal window add user **//
+
+.modal-header {
+  height: 56px;
+}
+
+.modal-header span {
+  font-size: 20px;
+}
+
+.modal-header i {
+  color: #c0111a;
+}
+
+.events-show {
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+
+.info {
+  padding-top: 5px;
+  padding-left: 20px;
+}
+
+.info span {
+  margin-left: 20px;
+  color: #4a3a3e;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.info i {
+  color: #2c88b5;
+  font-size: 18px;
+}
+
+.modal-body .btn-delete {
+  margin: 15px;
+}
+
+.btn-create-user {
+  padding-top: 20px;
+}
+
+/*** Modal window remove***/
+
+
+.btn-delete {
+  width: 55px;
+  height: 25px;
+  border-radius: 5px;
+  border: 0 solid white;
+  background-color: #dc3545;
+  cursor: pointer;
+}
+
+.btn-exit {
+  width: 55px;
+  height: 25px;
+  border-radius: 5px;
+  border: 0 solid white;
+  background-color: #6c757d;
+  cursor: pointer;
+}
+
+/*** Modal window edit***/
+
+.btn-edit-user {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px;
+}
+
+.btn-edit-user button {
+  margin-left: 10px;
+}
+
+.form-group {
+  margin-top: -10px;
+}
+
+.form-group label {
+  font-size: 10px;
+}
+
+.form-group input {
+  height: 37px;
+  text-indent: 0.1em;
+  font-weight: bold;
+  font-size: 10px;
+  color: #7f3400;
+}
+
+.form-group select {
+  height: 36px;
+  font-weight: bold;
+  text-indent: 0.1em;
+  font-size: 10px;
+  color: #492200;
+}
+
+.form-group .color-choose {
+  width: 10px;
+  height: 10px;
+}
+
+
+/****************************************/
+.border {
+  list-style: none;
+  padding: 0;
+  border: 0 !important;
+}
+.border li {
+  font-family: "Trebuchet MS", "Lucida Sans", serif;
+  padding: 2px 20px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border-left: 10px solid #3c5480;
+  box-shadow: 2px -2px 5px 0 rgba(0,0,0,.1),
+  -2px -2px 5px 0 rgba(0,0,0,.1),
+  2px 2px 5px 0 rgba(0,0,0,.1),
+  -2px 2px 5px 0 rgba(0,0,0,.1);
+  font-size: 10px;
+  transition: 0.3s all linear;
+
+}
+.border li:nth-child(2){border-color: #3c5480;}
+.border li:nth-child(3){border-color: #3c5480;}
+.border li:nth-child(4){border-color: #3c5480;}
+.border li:nth-child(5){border-color: #3c5480;}
+.border li:nth-child(6){border-color: #3c5480;}
+.border li:nth-child(7){border-color: #3c5480;}
+.border li:nth-child(8){border-color: #3c5480;}
+.border li:hover {border-left: 10px solid transparent;}
+.border li:nth-child(1):hover {border-right: 10px solid #493224;}
+.border li:nth-child(2):hover {border-right: 10px solid #493224;}
+.border li:nth-child(3):hover {border-right: 10px solid #493224;}
+.border li:nth-child(4):hover {border-right: 10px solid #493224;}
+.border li:nth-child(5):hover {border-right: 10px solid #493224;}
+.border li:nth-child(6):hover {border-right: 10px solid #493224;}
+.border li:nth-child(7):hover {border-right: 10px solid #493224;}
+.border li:nth-child(8):hover {border-right: 10px solid #493224;}
+
+
+
+
+

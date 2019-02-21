@@ -1,0 +1,33 @@
+<app-admin-header></app-admin-header>
+
+<div class="wrapper-admin">
+
+  <div class="block-group">
+    <ul class="nav nav-pills nav-justified">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/admin/home/user" routerLinkActive="active">
+          <span style="margin-right: 10px" class="fas fa-user-tie"></span> User footer
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/admin/home/photo-page" routerLinkActive="active">
+          <span style="margin-right: 10px" class="far fa-image"></span> Photo page
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/admin/home/video-page" routerLinkActive="active">
+          <span style="margin-right: 10px" class="fas fa-video"></span> Video page
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/admin/home/service" routerLinkActive="active">
+          <span style="margin-right: 10px" class="fas fa-users-cog"></span> User service
+        </a>
+      </li>
+    </ul>
+    <hr>
+  </div>
+  <router-outlet></router-outlet>
+</div>
+
+
