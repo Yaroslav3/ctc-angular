@@ -8,91 +8,159 @@
   position: static;
   height: 650px;
   margin-left: 220px;
-  margin-top: -608px;
+  margin-top: -658px;
 }
 
-tr td div h6 span {
-  margin-left: -5px;
+/**------------------------ Table  --------------------------------**/
 
+table {
+  text-align: left;
+  line-height: 30px;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid #f2f2f2;
+  width: 99%;
+  margin: 50px auto;
+  border-radius: .25rem;
+  box-shadow: 0 2px 8px rgba(28, 15, 25, 0.1);
+}
+
+thead tr:first-child {
+  background: #7e7e7e;
+  color: #fff;
+  border: none;
+  height: 10px;
+  font-family: Ubuntu_Rehular, serif;
+}
+
+.options p {
+  left: auto;
+}
+
+tbody tr td {
+  font-size: 11px;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+table .table-title {
+  font-size: 12px;
+  font-family: Ubuntu_Rehular, serif;
 }
 
 .data-order {
-  color: #662600;
+  color: #380505;
   font-weight: bold;
+}
+
+
+th:first-child,
+td:first-child {
+  //padding: 0 15px 0 20px;
+}
+
+th {
+  font-weight: 500;
+}
+
+thead tr:last-child th {
+  border-bottom: 0;
+}
+
+tbody tr:hover {
+  background-color: #f2f2f2;
+  cursor: default;
+}
+
+tbody tr:last-child td {
+  border: none;
+}
+
+tbody td i {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+tbody td {
+  border-bottom: 1px solid #ddd;
+}
+
+td:last-child {
+  text-align: right;
+  padding-right: 10px;
+}
+
+.button {
+  color: #aaa;
+  cursor: pointer;
+  vertical-align: middle;
+  margin-top: -4px;
+}
+
+.view:hover {
+  color: #0a79df;
+}
+
+.delete:hover {
+  color: #dc2a2a;
 }
 
 .badge-message i {
   font-size: 15px;
-  color: #1686D9
+  color: #005cbf;
+
 }
 
-.badge-danger {
-  border: 0;
+/***************    Pagination ***********************************/
+
+.pagination-order {
+  margin: 10px;
 }
 
-.badge-secondary {
-  border: 0;
+:host ::ng-deep pagination-controls {
+  .ngx-pagination {
+    margin-left: 0 !important;
+    padding: 0 !important;
+  }
+
+  .ngx-pagination .current {
+    padding: 0.0135rem 0.625rem;
+    background: #7e7e7e;
+    color: #fefefe;
+    cursor: default;
+    border-radius: 5px;
+    font-size: 10px;
+  }
+
+  .ngx-pagination a, .ngx-pagination button {
+    color: #0a0a0a;
+    display: block;
+    padding: 0.1875rem 0.625rem;
+    border-radius: 0;
+    font-size: 10px;
+  }
+
+  .ngx-pagination .disabled {
+    padding: 0.1875rem 0.625rem;
+    color: #cacaca;
+    cursor: default;
+    font-size: 10px;
+  }
+
 }
 
-.badge-danger:hover {
-  background-color: #c0313d;
-}
 
-.badge-secondary:hover {
-  background-color: #848d95;
-}
+//.badge-message i {
+//  font-size: 15px;
+//  color: #1686D9
+//}
 
-.table tr td {
-  padding: 5px;
-}
 
-tr td .badge {
+/*** Modal window remove***/
+
+.modal-body button {
   margin-left: 20px;
-}
-
-tr td {
-  font-size: 10px;
-  font-family: 'KIA_KIAM', serif;
-  margin-bottom: -10px;
-}
-
-tr th {
-  height: 45px;
-}
-
-tr th p {
-  color: #144e22;
-  font-family: Ubuntu_Mono_Bold_Italic, serif;
-}
-
-.options {
-  text-align: center;
-}
-
-.btn {
-  display: inline;
-}
-
-.group {
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-  margin-left: -20px;
-  margin-top: -5px;
-}
-
-.add-training {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  margin: 25px 55px;
-}
-
-.modal-body .btn-delete {
-  margin: 15px;
 }
 
 .btn-delete {
@@ -112,12 +180,4 @@ tr th p {
   background-color: #6c757d;
   cursor: pointer;
 }
-
-.pagination-order {
-  display: flex;
-  justify-content: flex-end;
-  padding-top: 20px;
-  padding-right: 50px;
-}
-
 

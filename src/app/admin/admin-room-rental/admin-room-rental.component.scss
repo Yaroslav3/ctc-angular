@@ -1,22 +1,43 @@
+
+
 .wrapper-admin {
   max-width: 1600px;
   min-width: 765px;
   margin: 0 auto;
 }
 
-.content-schedule{
-  display: flex;
-  justify-content: center;
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #a7c6d1;
 }
 
-
-.bock-schedule {
-  padding: 100px;
+.nav-pills .nav-link {
+  text-align: left;
+  width: 160px;
+  border-radius: 0;
 }
 
-.content-schedule p {
-  color: #380505;
-  font-size: 15px;
+.nav-pills .nav-link:hover{
+  background-color: #f0f0f0;
+}
+a {
+  color: #524343;
+  text-decoration: none;
+  background-color: transparent;
+  font-size: 14px;
+}
+.block-group{
+  display:block;
+  width: 200px;
+  height: 610px;
+  padding-left: 20px;
+  padding-right: 20px;
+  //background-color: #dbdbdb;
+  margin-top: -16px;
 }
 
+.nav-item .badge-light{
+  color: #ffffff;
+  background-color: #5960ff;
+}
 

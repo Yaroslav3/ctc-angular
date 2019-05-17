@@ -24,7 +24,7 @@ export class AdminVideoComponent implements OnInit {
   video: Video;
 
   /**
-   * select file save photo
+   * selectPeriodDate file save photo
    * **/
   selectFileSave: File = null;
 

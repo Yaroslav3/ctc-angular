@@ -1,12 +1,9 @@
 import {Component, ElementRef, HostListener, OnInit} from '@angular/core';
-import {Trainers} from '../shared/model/Trainers.model';
-import {Trainings} from '../shared/model/Trainings.model';
+import {Trainings} from '../shared/model/trainings/Trainings.model';
 import {Inscriptions} from '../shared/model/Inscriptions.model';
-import {AngularEditorConfig} from '@kolkov/angular-editor';
 
-import {TrainingsService} from '../shared/service/trainings.service';
-import {InscriptionsService} from '../shared/service/inscriptions.service';
-import {TrainersService} from '../shared/service/trainers.service';
+import {TrainingsService} from '../shared/service/trainings/trainings.service';
+import {InscriptionsService} from '../shared/service/trainings/inscriptions.service';
 import {Router} from '@angular/router';
 import {NgProgress} from '@ngx-progressbar/core';
 import {Subscription} from 'rxjs';
@@ -18,27 +15,28 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
   styleUrls: ['./trainings.component.scss', './trainings.adaptive.component.scss'],
   animations: [
     trigger('up', [
-        state('show', style({
-          opacity: 1,
-          transform: 'translateX(0)'
-        })),
-        state('hide',   style({
-          opacity: 0,
-          transform: 'translateX(-100%)'
-        })),
-        transition('show => hide', animate('300ms ease-out')),
-        transition('hide => show', animate('300ms ease-in'))
-    ])
+      state('show', style({
+        opacity: 1,
+        transform: 'translateX(0)'
+      })),
+      state('hide', style({
+        opacity: 0,
+        transform: 'translateX(-100%)'
+      })),
+      transition('show => hide', animate('300ms ease-out')),
+      transition('hide => show', animate('300ms ease-in'))
+    ]),
   ]
 })
 export class TrainingsComponent implements OnInit {
 
-  constructor(private serviceTrainers: TrainersService, private serviceTrainings: TrainingsService,
-              private router: Router, private inscriptionsService: InscriptionsService,
+  constructor(private serviceTrainings: TrainingsService, private router: Router,
+              private inscriptionsService: InscriptionsService,
               public progressService: NgProgress, public el: ElementRef) {
+
   }
 
-  trainers: Trainers;
+
   trainings: Trainings;
 
   inscriptions: Inscriptions;
@@ -47,40 +45,18 @@ export class TrainingsComponent implements OnInit {
 
   state = 'hide';
 
+  isProgress: boolean;
 
-  editorConfig: AngularEditorConfig = {
-    editable: false,
-    showToolbar: false,
-    height: 'auto',
-    defaultFontSize: '5',
-    minHeight: '5rem',
-    placeholder: 'Enter text here...',
-    translate: 'no',
-    customClasses: [ // optional
-      {
-        name: 'quote',
-        class: 'quote',
-      },
-      {
-        name: 'redText',
-        class: 'redText'
-      },
-      {
-        name: 'titleText',
-        class: 'titleText',
-        tag: 'h1',
-      },
-    ]
-  };
 
   ngOnInit() {
+
     window.scroll(0, 0);
     this.progressService.ref().start();
-    this.getAllTrainers();
     this.getAllTrainings();
     this.getAllInscriptions();
     this.progressService.ref().complete();
   }
+
 
   @HostListener('window:scroll', ['$event'])
   checkScroll() {
@@ -96,15 +72,12 @@ export class TrainingsComponent implements OnInit {
   }
 
 
-
   /**
    *  get all Inscriptions
    * ***/
   private getAllInscriptions() {
-
     this.inscriptionsService.getAllInscriptions().subscribe((data: Inscriptions) => {
       this.inscriptions = data;
-
     });
   }
 
@@ -112,23 +85,19 @@ export class TrainingsComponent implements OnInit {
    *  get all Trainings
    * **/
   private getAllTrainings() {
-
+    this.isProgress = true;
+    // setTimeout(() => {
     this.serviceTrainings.getAllTrainings().subscribe((data: Trainings) => {
       this.trainings = data;
-
+      this.isProgress = false;
     });
+    // }, 2000);
   }
 
-  private getAllTrainers() {
-    this.serviceTrainers.getAllTrainers().subscribe((data: Trainers) => {
-      this.trainers = data;
-    });
-  }
 
-  onClick(trainers: Trainers) {
-    this.router.navigate(['trainings', 'coach-resume-show', trainers.id]);
+  noClickTrainings(id: number) {
+    this.router.navigate(['trainings', 'training-show', id]);
   }
-
 
   scrollUp() {
     const scrollToTop = window.setInterval(() => {

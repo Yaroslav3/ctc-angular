@@ -32,13 +32,13 @@ export class AdminPhotoPageComponent implements OnInit {
 
 
   /**
-   * select file save photo
+   * selectPeriodDate file save photo
    * **/
   selectFileSave: File = null;
 
 
   /**
-   * select file update photo
+   * selectPeriodDate file update photo
    * **/
   selectFileUpdate: File = null;
 

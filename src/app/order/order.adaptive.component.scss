@@ -3,9 +3,12 @@
     max-width: 1180px;
   }
 
-  .btn-order {
-    padding: 0 4.8% 0 4.8%;
+  .all-content-order {
+    margin-right: 50px;
+    margin-left: 50px;
   }
+
+
 }
 
 @media only screen and (max-width: 980px) {
@@ -13,9 +16,20 @@
     max-width: 970px;
   }
 
+  .all-content-order {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+
   .container {
     padding-left: 15%;
     font-size: 11px;
+  }
+
+  .input-group{
+    width: 80%;
+    margin: 10px 10px 10px 55px;
   }
 
   .input {
@@ -24,25 +38,26 @@
   .block-order-group select {
     margin: 10px 10px 10px 55px;
   }
-  .label-training{
+  .label-training {
 
     margin: -10px 0 0 55px;
   }
 
-  .label-training p{
+  .label-training p {
     font-size: 10px;
   }
   .textarea-form {
     margin: 10px 10px 10px 55px;
   }
 
-  .btn-order {
-    padding: 0 0.3% 0 0.3%;
-  }
 
-  .error-input{
+  .error-input {
     width: 70%;
     margin: -8px 0 0 65px;
+  }
+
+  .btn-ok {
+    margin: 10px 10px 10px 55px;
   }
 
 }
@@ -56,7 +71,7 @@
     font-size: 15px;
   }
   .container {
-    padding-left: 8%;
+    padding-left: 9%;
     font-size: 13px;
   }
 
@@ -93,40 +108,51 @@
     flex-direction: column;
   }
 
+  .input-group{
+    width: 80%;
+    margin: 10px auto 0;
+  }
+
   .input {
     width: 80%;
-    margin: 10px 10px 10px 10%;
+    margin: 10px auto 0;
   }
+
   .block-order-group select {
     width: 80%;
-    margin: 10px 10px 10px 10%;
+    margin: 10px auto 0;
 
   }
-  .label-training{
-    margin: -10px 0 0 10%;
+  .label-training {
+    margin: 10px 0 0 10%;
   }
-  .label-training p{
+  .label-training p {
     font-size: 10px;
   }
 
   .textarea-form {
     width: 80%;
-    margin: 10px 10px 10px 10%;
+    margin: 10px auto 0;
   }
 
-  .btn-order {
-    margin: 15px 15px 15px 0;
-    padding: 0 9.5% 0 9.5%;
+
+  .error-input {
+    width: 50%;
+    margin: 10px 0 0 10%;
+  }
+  .error-input span {
+    color: #a01809;
+    font-size: 8px;
+    font-family: KIA_KIAM, serif;
+    font-weight: bold;
   }
 
   .btn-ok {
-    width: 100%;
+    //margin: 10px 10px 10px 55px
+    margin: 0 auto;
   }
 
-  .error-input{
-    width: 50%;
-    margin: -8px 0 0 12%;
-  }
+
 }
 
 @media only screen and (max-width: 480px) {
@@ -135,7 +161,7 @@
     font-size: 15px;
   }
 
-  .alert-order-success{
+  .alert-order-success {
     border-radius: 0;
   }
 
@@ -148,18 +174,35 @@
   }
   .container {
     padding-left: 18%;
-    font-size: 15px;
+    font-size: 13px;
+  }
+
+  .input {
+    width: 100%;
+
+  }
+
+  .textarea-form {
+    width: 100%;
   }
 
   .block-order-group select {
-    width: 80%;
-    margin: 10px 10px 10px 10%;
+    width: 100%;
+  }
+
+  .block-order-group select {
     font-size: 18px;
     text-indent: 0.5em;
   }
-  .error-input{
+  .error-input {
     width: 50%;
-    margin: -8px 0 0 12%;
+    margin: 10px 0 0 1%;
+  }
+
+  .btn-ok {
+    width: 100%;
+    //margin: 10px 10px 10px 55px
+    //margin: 0 auto;
   }
 }
 

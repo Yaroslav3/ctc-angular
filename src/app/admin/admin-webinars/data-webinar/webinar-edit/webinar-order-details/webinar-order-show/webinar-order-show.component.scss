@@ -1,0 +1,117 @@
+.wrapper-admin {
+  max-width: 1600px;
+  min-width: 765px;
+  margin: 0 auto;
+}
+
+.block-webinar-order {
+  position: static;
+  height: 620px;
+  margin-left: 220px;
+  margin-top: -650px;
+}
+
+
+/**-----------  TABLE  ------------------------------**/
+
+table {
+  text-align: left;
+  line-height: 30px;
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 98%;
+  //border: 1px solid #9c9c9c;
+  border: 1px solid #f2f2f2;
+  margin: 50px auto;
+  border-radius: .15rem;
+  box-shadow: 0 2px 8px rgba(28, 15, 25, 0.1);
+
+}
+
+table .header-table {
+  height: 60px;
+}
+
+thead tr:first-child {
+  background: #9c9c9c;
+  color: #fff;
+  border: none;
+}
+
+table thead tr .time {
+  font-size: 9px;
+  font-family: Arial, Helvetica, sans-serif, serif
+}
+
+tbody tr td {
+  text-align: left;
+  font-size: 11px;
+}
+
+
+.liqPay-text {
+  color: #07453e;
+  font-weight: bold;
+}
+
+.liqPay-id {
+  color: #144e22;
+  font-weight: bold;
+}
+
+.fa-vial {
+  color: #3a27ff;
+  font-size: 15px;
+}
+
+.fa-check-circle {
+  color: #179918;
+  font-size: 15px;
+}
+
+.error-status {
+  color: #ff424a;
+  font-size: 15px;
+}
+
+th:first-child,
+td:first-child {
+  padding: 0 15px 0 20px;
+}
+
+th {
+  font-weight: 500;
+}
+
+
+tbody tr:hover {
+  background-color: #f2f2f2;
+  cursor: default;
+}
+
+tbody tr:last-child td {
+  border: none;
+}
+
+
+td:last-child {
+  text-align: right;
+  padding-right: 10px;
+}
+
+.button {
+  color: #aaa;
+  cursor: pointer;
+  vertical-align: middle;
+  margin-top: -4px;
+}
+
+.edit:hover {
+  color: #0a79df;
+}
+
+.delete:hover {
+  color: #dc2a2a;
+}
+
+

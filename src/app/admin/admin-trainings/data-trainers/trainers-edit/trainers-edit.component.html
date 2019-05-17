@@ -9,7 +9,7 @@
         <div class="editor-photo">
 
           <div class="photo">
-              <img src="{{imageToShow}}" alt="{{trainers.name}} {{trainers.surname}}">
+            <img src="{{imageToShow}}" alt="{{trainers.name}} {{trainers.surname}}">
           </div>
 
           <div *ngIf="boolUpdatePhoto" class="change-btn">
@@ -23,45 +23,149 @@
             </progress-bar>
           </div>
 
+          <div class="btn-contacts" *ngIf="boolUpdatePhoto">
+            <button class="btn btn-outline-info btn-sm" (click)="contactsPage()"><i
+              class="fas fa-file-contract"></i> contacts trainer
+            </button>
+          </div>
+
           <br>
           <div class="btn-save-photo" *ngIf="buttonUpdatePhoto">
             <button type="button" class=" btn btn-info btn-sm" (click)="onUpdatePhoto()">
               <i class="fas fa-check-circle">
 
-            </i><span style="margin-left: 10px">Save photo</span>
+              </i><span style="margin-left: 10px">Save photo</span>
             </button>
+          </div>
+          <div *ngIf="buttonUpdatePhoto" class="name-file">
+            <br>
+            <p>{{selectFile.name}}</p>
           </div>
         </div>
 
         <div class="editor-filed">
           <div>
-            <input class="filed" type="text" [(ngModel)]="trainers.name" value="{{trainers.name}}" title="mame"
-                   placeholder="mame">
+            <input class="filed" type="text" [(ngModel)]="trainers.name" value="{{trainers.name}}"
+                   title="mame" placeholder="mame">
           </div>
           <div>
-            <input class="filed" type="text" [(ngModel)]="trainers.surname"  value="{{trainers.surname}}"
+            <input class="filed" type="text" [(ngModel)]="trainers.surname" value="{{trainers.surname}}"
                    title="surname" placeholder="surname">
           </div>
           <div>
-            <textarea class="filed-textarea" [(ngModel)]="trainers.heading" value="{{trainers.heading}}"
-                      title="heading"
-                      placeholder="heading"></textarea>
+            <input class="filed" type="text" [(ngModel)]="trainers.scope" value="{{trainers.scope}}"
+                   placeholder="qualification">
           </div>
+
+          <div class="skills-coach">
+
+            <table>
+              <thead>
+              <tr>
+                <th colspan="2" class="table-title">what trainings are conducted by the coach (qualification)</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let elem of trainers.trainerTrainings |paginate: {itemsPerPage:2, currentPage: p}">
+                <td>{{elem.name}}</td>
+                <td>
+                  <i class="fas fa-pencil-alt edit" (click)="modalEditSkills(skillsEditModal)"></i>
+                  <i class="far fa-trash-alt delete" (click)="modalDeleteSkills(skillsDeleteModal)"></i>
+                </td>
+
+                <!-------------------------------- Modal delete Skills------------------------------------------------>
+                <ng-template #skillsDeleteModal let-modal>
+                  <div class="modal-body text-center">
+                    <p style="color: #151230">Do you want to delete?</p>
+                    <button type="button" class="btn-delete" (click)="skillsDelete(elem.id)">Yes</button>
+                    <button type="button" class="btn-exit" (click)="modal.dismiss('Cross click')">Exit</button>
+                  </div>
+                </ng-template>
+
+                <!-------------------------------------- Modal window edit -------------------------------------------->
+
+                <ng-template #skillsEditModal let-modal>
+                  <div class="modal-header">
+                    <h4 class="modal-title" id="modal-edit"><span><i class="fas fa-edit"></i> edit user</span>
+                    </h4>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+
+                  <div class="modal-body">
+                    <form name="form" #f="ngForm" novalidate>
+                      <div class="info-user">
+                        <div class="form-group">
+                          <label for="update-name">name</label>
+                          <input type="text" [(ngModel)]="elem.name" name="name" class="form-control"
+                                 id="update-name" placeholder="name">
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+
+                  <div class="btn-add">
+                    <button type="button" class="btn-delete" (click)="updateSkills(elem.id, elem.name)">Yes</button>
+                    <button type="button" class="btn-exit" (click)="modal.dismiss('Cross click')">Exit</button>
+                  </div>
+                </ng-template>
+
+              </tr>
+              </tbody>
+            </table>
+            <br>
+
+            <div class="btn-add-skills">
+              <pagination-controls (pageChange)="p=$event"></pagination-controls>
+              <button type="button" class="btn btn-secondary btn-sm" (click)="openModalAddSkills(modalAddSkills)">Add
+                qualification
+              </button>
+            </div>
+
+          </div>
+
         </div>
       </div>
-      <div *ngIf="buttonUpdatePhoto" class="name-file">
-        <p>{{selectFile.name}}</p>
-      </div>
+
+
+      <!------------------------------------ Modal window add Skills------------------------------------------>
+
+      <ng-template #modalAddSkills let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-add"><span><i class="fas fa-puzzle-piece"></i> add qualification</span>
+          </h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form name="form" #f="ngForm" novalidate>
+            <div class="info-user">
+              <div class="form-group">
+                <label for="create-name">qualification</label>
+                <input type="text" [(ngModel)]="trainerTrainingsModel.name" name="name" class="form-control"
+                       id="create-name" placeholder="name">
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="btn-add">
+          <button type="button" class="btn-delete" (click)="createSkills(trainerTrainingsModel)">Yes</button>
+          <button type="button" class="btn-exit" (click)="modal.dismiss('Cross click')">Exit</button>
+        </div>
+      </ng-template>
+
       <div class="editor">
         <angular-editor [(ngModel)]="trainers.description" [config]="editorConfig"></angular-editor>
-        <div class="html">
-        </div>
         <br>
         <div class="group">
           <button class="btn btn-info" (click)="onClickUpdate(trainers)" type="submit">Update</button>
         </div>
       </div>
     </div>
-  </div>
 
+  </div>
 </div>
+

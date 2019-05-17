@@ -15,12 +15,13 @@ export class DataTrainersComponent implements OnInit {
   modalRef: BsModalRef;
   message: string;
 
-  boolPagination = false;
   p: any;
 
 
-  constructor(private serviceTrainers: TrainersService, private modalService: BsModalService, private router: Router,
-              public progress: NgProgress) {
+  constructor(private serviceTrainers: TrainersService,
+              private modalService: BsModalService,
+              private router: Router,
+              private progress: NgProgress) {
   }
 
   ngOnInit() {
@@ -34,11 +35,6 @@ export class DataTrainersComponent implements OnInit {
     this.progress.ref().start();
     this.serviceTrainers.adminGetAllTrainers().subscribe((data: Trainers) => {
       this.trainers = data;
-
-      if (Object.keys(data).length >= 5) {
-        this.boolPagination = true;
-
-      }
       this.progress.ref().complete();
     });
   }

@@ -1,0 +1,152 @@
+.wrapper-admin {
+  max-width: 1600px;
+  min-width: 765px;
+  margin: 0 auto;
+}
+
+.edit-photo-content {
+  position: static;
+  height: auto;
+  margin-left: 250px;
+  margin-top: -608px;
+}
+
+.header-text-photo {
+  text-align: left;
+}
+
+.header-text-photo p span {
+  color: #179918;
+  font-size: 15px;
+  font-family: Exo2BoldItalic, sans-serif, serif;
+}
+
+
+/*********************************************************/
+
+.show-photo-block {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+
+}
+
+.block-img {
+  margin-right: 10px;
+  padding-bottom: 10px;
+  width: 300px;
+  height: auto;
+}
+
+
+.show-img {
+  justify-content: space-between;
+}
+
+.show-img img {
+  width: 100%;
+  height: 80%;
+}
+
+/**********************/
+
+
+.show-photo-clock div {
+  display: flex;
+  flex-direction: row;
+}
+
+
+.browse-btn {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  //margin: 0.5rem;
+  position: relative;
+  width: 150px;
+  height: 90px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+
+#cameraImg {
+  cursor: pointer;
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+
+
+.btn-photo-room {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 5px;
+}
+
+.btn-delete-room {
+  width: 100px;
+  height: 26px;
+  background-color: #991014;
+  font-size: 12px;
+  border: 0;
+  border-radius: 1px;
+  color: #fbfbfb;
+  box-shadow: 0 2px 2px rgba(28, 15, 25, 0.3);
+}
+
+.btn-edit {
+  width: 100px;
+  height: 26px;
+  background-color: #179918;
+  font-size: 12px;
+  border: 0;
+  border-radius: 1px;
+  color: #fbfbfb;
+  box-shadow: 0 2px 2px rgba(28, 15, 25, 0.3);
+}
+
+.btn-edit:hover{
+  background-color: #1dc11e;
+}
+.btn-delete-room:hover {
+  background-color: #c71015;
+}
+
+//--------------Save Button---------------------//
+
+.change-btn-room {
+
+}
+
+.input-update-file {
+  //display: none;
+}
+
+.custom-file-upload {
+  width: 120px;
+  //border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 13px;
+  cursor: pointer;
+  border-radius: 2px;
+  font-size: 10px;
+  text-align: center;
+}
+
+.custom-file-upload:hover {
+  background-color: #e1e1e1;
+}
+
+
+.btn-back-room {
+  display: flex;
+  justify-content: flex-start;
+  padding-right: 20px;
+}
+
+.btn {
+  border-radius: 1px;
+}

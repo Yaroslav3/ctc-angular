@@ -13,8 +13,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {AngularEditorModule} from '@kolkov/angular-editor';
 import {OrderComponent} from './order/order.component';
-import {CoachResumeComponent} from './coach-resume/coach-resume.component';
-import {CoachShowComponent} from './coach-resume/coach-show/coach-show.component';
+
 import {WebinarsComponent} from './webinars/webinars.component';
 import {RecommendationsComponent} from './recommendations/recommendations.component';
 import {RoomRentalComponent} from './room-rental/room-rental.component';
@@ -29,6 +28,18 @@ import {BsDatepickerModule} from 'ngx-bootstrap';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AuthGuardService} from './admin/auth/service/auth-guard.service';
 import {NgProgressModule} from '@ngx-progressbar/core';
+import {MenuAnimateComponent} from './menu-animate/menu-animate.component';
+import {MenuComponent} from './menu/menu.component';
+import {CoachComponent} from './coach/coach.component';
+import {ShowCouchResumeComponent} from './coach/show-couch-resume/show-couch-resume.component';
+import {TrainingShowComponent} from './trainings/training-show/training-show.component';
+import {WebinarShowComponent} from './webinars/webinar-show/webinar-show.component';
+import {OrderFormWebinarComponent} from './webinars/webinar-show/order-form-webinar/order-form-webinar.component';
+import {OrderStatusComponent} from './webinars/webinar-show/order-form-webinar/order-status/order-status.component';
+import {AngularFormioPdfModule} from 'angular-formio-pdf';
+import { LoaderComponent } from './loader/loader.component';
+import { ShowRoomInfoComponent } from './room-rental/show-room-info/show-room-info.component';
+import { OrderRoomComponent } from './room-rental/order-room/order-room.component';
 
 
 @NgModule({
@@ -39,20 +50,30 @@ import {NgProgressModule} from '@ngx-progressbar/core';
     HomeComponent,
     TrainingsComponent,
     OrderComponent,
-    CoachResumeComponent,
-    CoachShowComponent,
     WebinarsComponent,
     RecommendationsComponent,
     RoomRentalComponent,
     ScheduleComponent,
-    LoginComponent
+    LoginComponent,
+    MenuAnimateComponent,
+    MenuComponent,
+    CoachComponent,
+    ShowCouchResumeComponent,
+    TrainingShowComponent,
+    WebinarShowComponent,
+    OrderFormWebinarComponent,
+    OrderStatusComponent,
+    LoaderComponent,
+    ShowRoomInfoComponent,
+    OrderRoomComponent
   ],
   imports: [
     BrowserModule,
+    AngularFormioPdfModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
     RouterModule,
     ProgressBarModule,
     BsDatepickerModule.forRoot(),
@@ -61,7 +82,8 @@ import {NgProgressModule} from '@ngx-progressbar/core';
     FullCalendarModule,
     NgbModule,
     BrowserAnimationsModule,
-    NgProgressModule
+    NgProgressModule,
+    NgbModule,
 
   ],
   providers: [httpInterceptorProviders, AuthGuardService],

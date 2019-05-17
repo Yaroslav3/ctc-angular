@@ -1,0 +1,163 @@
+.wrapper-admin {
+  max-width: 1600px;
+  min-width: 765px;
+  margin: 0 auto;
+}
+
+.block-webinars {
+  position: static;
+  width: 80%;
+  margin-left: 250px;
+  margin-top: -608px;
+
+}
+
+
+/************* Table ******************/
+
+table {
+  text-align: left;
+  line-height: 30px;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 2px solid #f9f9f9;
+  width: 98%;
+  //margin: 50px auto;
+  border-radius: .25rem;
+  box-shadow: 0 2px 8px rgba(28, 15, 25, 0.2);
+
+}
+
+table .table-title {
+  font-size: 15px;
+  font-family: Ubuntu_Rehular, serif;
+}
+
+tbody tr td {
+  font-size: 12px;
+
+}
+
+
+thead tr:first-child {
+  background: #6198e2;
+  color: #fff;
+  border: none;
+}
+
+th:first-child,
+td:first-child {
+  padding: 0 15px 0 10px;
+}
+
+th {
+  font-weight: 500;
+}
+
+thead tr:last-child th {
+  border-bottom: 0;
+}
+
+tbody tr:hover {
+  background-color: #f2f2f2;
+  cursor: default;
+}
+
+tbody tr:last-child td {
+  border: none;
+}
+
+tbody td {
+  border-bottom: 1px solid #ddd;
+}
+
+td:last-child {
+  text-align: right;
+  padding-right: 10px;
+}
+
+tbody td i {
+  margin-right: 20px;
+}
+
+.edit:hover {
+  color: #0a79df;
+}
+
+.delete:hover {
+  color: #dc2a2a;
+}
+
+
+/***************    Pagination ***********************************/
+
+:host ::ng-deep pagination-controls {
+  .ngx-pagination {
+    margin-left: 0 !important;
+    padding: 0 !important;
+  }
+
+  .ngx-pagination .current {
+    padding: 0.35rem 0.625rem;
+    background: #6198e2;
+    color: #fefefe;
+    cursor: default;
+    border-radius: 5px;
+    font-size: 10px;
+  }
+
+  .ngx-pagination a, .ngx-pagination button {
+    color: #0a0a0a;
+    display: block;
+    padding: 0.1875rem 0.625rem;
+    border-radius: 0;
+    font-size: 10px;
+  }
+
+  .ngx-pagination .disabled {
+    padding: 0.1875rem 0.625rem;
+    color: #cacaca;
+    cursor: default;
+    font-size: 10px;
+  }
+
+}
+
+.modal-body .btn-delete {
+  margin: 15px;
+}
+
+
+.clock-pagination-button {
+  display: flex;
+  justify-content: space-between;
+  margin: 25px 25px;
+
+}
+
+
+
+/***------------------  Modal window remove ---------------------------------***/
+
+
+.modal-body .btn-delete {
+  margin: 15px;
+}
+
+.btn-delete {
+  width: 55px;
+  height: 25px;
+  border-radius: 5px;
+  border: 0 solid white;
+  background-color: #dc3545;
+  cursor: pointer;
+}
+
+.btn-exit {
+  width: 55px;
+  height: 25px;
+  border-radius: 5px;
+  border: 0 solid white;
+  background-color: #6c757d;
+  cursor: pointer;
+}

@@ -1,13 +1,22 @@
 <app-admin-header></app-admin-header>
 
 <div class="wrapper-admin">
-  <div class="bock-schedule">
-    <div class="alert-secondary">
+
       <div class="content-schedule">
-        <p>
-          sorry, page in developing...
-        </p>
+
+        <ng-progress></ng-progress>
+        <div class="block-group">
+          <ul class="nav nav-pills nav-justified">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/admin/room/rental/data" routerLinkActive="active">
+                <span style="margin-right: 10px" class="fas fa-chess-rook"></span> Room
+              </a>
+            </li>
+
+          </ul>
+          <hr>
+        </div>
+        <router-outlet></router-outlet>
       </div>
-    </div>
-  </div>
+
 </div>

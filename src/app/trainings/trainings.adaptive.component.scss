@@ -3,146 +3,104 @@
     max-width: 1180px;
   }
 
-
-  .block-trener button:hover div.toshow {
-    top: 511px; /* Расстояние сверху */
-
+  .all-content {
+    margin-right: 50px;
+    margin-left: 50px;
   }
-  .img-trener img {
-    width: 100px;
-    height: 152px;
+}
+
+
+@media only screen and (max-width: 980px) {
+  .wrapper {
+    max-width: 970px;
   }
 
-  .btn p {
+  .training-info-block {
+    width: 520px;
+    height: auto;
+  }
+
+
+  .training-info-block img{
+    width: 100%;
+    height: 270px;
+  }
+
+}
+
+@media only screen and (max-width: 768px) {
+  .wrapper {
+    max-width: 760px;
+  }
+
+
+  .industries-trainings h1 {
+    font-size: 18px;
+  }
+
+  .industries-trainings p {
     font-size: 13px;
   }
 
-  @media only screen and (max-width: 980px) {
-    .wrapper {
-      max-width: 970px;
-    }
-
-    .promo-trainings h1 {
-      font-size: 20px;
-      letter-spacing: 0;
-      padding: 10px;
-    }
-
-
-    .accordion h2 {
-      font-size: 12px;
-      border-radius: 2px;
-
-    }
-
-    .block-trener {
-      padding: 20px 20px 10px 50px;
-
-    }
-
-    .block-trener button {
-      width: 100%;
-    }
-    .order-block {
-      margin: 0;
-      width: 144%;
-    }
-    .block-trener button:hover div.toshow {
-      display: none;
-    }
-    .order-block {
-      width: 80%;
-    }
-
-    .btn {
-      margin: 5%;
-      width: 90%;
-    }
-
+  .industries-trainings h2 {
+    font-size: 13px;
   }
 
-  @media only screen and (max-width: 768px) {
-    .wrapper {
-      max-width: 760px;
-    }
-
-    .promo-trainin {
-      height: 70px;
-
-    }
-
-
-    .industries-trainings p {
-      //text-align: center;
-      padding: 15px;
-      font-size: 15px;
-    }
-
-    .industries-trainings h1 {
-      //text-align: center;
-      padding: 15px;
-      width: auto;
-      font-size: 12px;
-    }
-
-    .training-editor-show {
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-
-
-    .order-block {
-      width: 220%;
-    }
-    .block-trener button {
-      width: 220%;
-    }
-
-    .btn {
-      margin: 5%;
-      width: 100%;
-    }
-    .btn p {
-      font-size: 18px;
-    }
-    .description {
-      display: none;
-    }
+  .training-info-block {
+    width: 420px;
+    height: auto;
   }
-  @media only screen and (max-width: 480px) {
-    .wrapper {
-      max-width: 470px;
-      font-size: 15px;
-    }
 
 
-    .promo-trainings {
-      padding: 3px;
-    }
 
-
-    .accordion h2 {
-      font-size: 12px;
-    }
-
-    .block-trener {
-      padding: 20px 0 10px 20px;
-    }
-
-    .training-editor-show {
-      padding-left: 3px;
-      padding-right: 3px;
-    }
-
-
-    .order-block {
-      width: 200%;
-    }
-    .block-trener button {
-      width: 200%;
-    }
-
+  .all-content {
+    margin-right: 10px;
+    margin-left: 10px;
   }
+
+
+  .training-info-block img{
+    width: 100%;
+    height: 230px;
+  }
+
+}
+
+@media only screen and (max-width: 480px) {
+  .wrapper {
+    max-width: 470px;
+    font-size: 15px;
+  }
+
+  .all-content {
+    margin-right: 8px;
+    margin-left: 2px;
+  }
+
+  .industries-trainings h1 {
+    font-size: 17px;
+  }
+
+  .industries-trainings p {
+    font-size: 12px;
+  }
+
+  .industries-trainings h2 {
+    font-size: 12px;
+  }
+
+
+  .training-info-block {
+    width: 320px;
+    height: auto;
+  }
+
+
+  .training-info-block img{
+    width: 100%;
+    height: 170px;
+  }
+
 }
 
 

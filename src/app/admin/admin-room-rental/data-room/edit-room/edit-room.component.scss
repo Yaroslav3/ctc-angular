@@ -1,0 +1,56 @@
+.wrapper-admin {
+  max-width: 1600px;
+  min-width: 765px;
+  margin: 0 auto;
+}
+
+.edit-room-container {
+  display: flex;
+  flex-direction: column;
+  position: static;
+  height: 600px;
+  margin-left: 220px;
+  margin-top: -608px;
+}
+
+.header-edit-photo-room {
+  margin-left: 19.5%;
+}
+
+.header-edit-photo-room p span {
+  color: #179918;
+  font-size: 15px;
+  font-family: Exo2BoldItalic, sans-serif, serif;
+}
+
+
+//-----------------  Header content ---------------------------------------//
+.block-one-edit {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-btn {
+  width: 85%;
+  height: auto;
+  padding: 2px;
+}
+
+.btn-edit-photo {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 5px;
+}
+
+.edit-btn .btn-edit-photo button {
+  width: 55%;
+}
+
+.btn {
+  border-radius: 1px;
+  background-color: #e5e5e5;
+}
+
+.btn:hover {
+  background-color: #f3f3f3;
+}

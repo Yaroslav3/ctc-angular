@@ -12,70 +12,121 @@
 
 }
 
-.menu-trainer-trainings-calendar button {
-  margin: 20px;
-  border-radius: 2px;
-  width: 150px;
-  height: 30px;
-  background-color: whitesmoke;
-  border: 0 solid #2B3856;
+
+/************* Table ******************/
+
+table {
+  text-align: left;
+  line-height: 30px;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 2px solid #f9f9f9;
+  width: 98%;
+  //margin: 50px auto;
+  border-radius: .25rem;
+  box-shadow: 0 2px 8px rgba(28, 15, 25, 0.2);
 
 }
 
-.menu-trainer-trainings-calendar button:hover {
-  background-color: #cecece;
-}
-
-.container-block-trainings {
-  padding-left: 45px;
-  padding-right: 45px;
-}
-
-.badge-danger {
-  border: 0;
-}
-
-.badge-secondary {
-  border: 0;
-}
-
-.badge-danger:hover {
-  background-color: #c0313d;
-}
-
-.badge-secondary:hover {
-  background-color: #848d95;
-}
-
-.table tr td {
-  padding: 4px;
-}
-
-tr td .badge {
-  margin-left: 20px;
-}
-
-tr td {
+table .table-title {
   font-size: 12px;
-  font-family: 'KIA_KIAM', serif;
-  margin-bottom: -10px;
+  font-family: Ubuntu_Rehular, serif;
 }
 
-tr th {
-  height: 45px;
+tbody tr td {
+  font-size: 12px;
+
 }
 
-tr th p {
-  color: #144e22;
-  font-family: Ubuntu_Mono_Bold_Italic, serif
+
+thead tr:first-child {
+  background: #6198e2;
+  color: #fff;
+  border: none;
 }
 
-.options {
-  text-align: center;
+th:first-child,
+td:first-child {
+  padding: 0 15px 0 10px;
 }
 
-.btn {
-  display: inline;
+th {
+  font-weight: 500;
+}
+
+thead tr:last-child th {
+  border-bottom: 0;
+}
+
+tbody tr:hover {
+  background-color: #f2f2f2;
+  cursor: default;
+}
+
+tbody tr:last-child td {
+  border: none;
+}
+
+tbody td {
+  border-bottom: 1px solid #ddd;
+}
+
+td:last-child {
+  text-align: right;
+  padding-right: 10px;
+}
+
+tbody td i {
+  margin-right: 20px;
+}
+
+.edit:hover {
+  color: #0a79df;
+}
+
+.delete:hover {
+  color: #dc2a2a;
+}
+
+/***************    Pagination ***********************************/
+
+:host ::ng-deep pagination-controls {
+  .ngx-pagination {
+    margin-left: 0 !important;
+    padding: 0 !important;
+  }
+
+  .ngx-pagination .current {
+    padding: 0.35rem 0.625rem;
+    background: #6198e2;
+    color: #fefefe;
+    cursor: default;
+    border-radius: 5px;
+    font-size: 10px;
+  }
+
+  .ngx-pagination a, .ngx-pagination button {
+    color: #0a0a0a;
+    display: block;
+    padding: 0.1875rem 0.625rem;
+    border-radius: 0;
+    font-size: 10px;
+  }
+
+  .ngx-pagination .disabled {
+    padding: 0.1875rem 0.625rem;
+    color: #cacaca;
+    cursor: default;
+    font-size: 10px;
+  }
+
+}
+
+/******* BUTTON ADD Trainer***********/
+
+.btn-info{
+  background-color: #5d8ed4;
+  border-color: #6198e2;
 }
 
 .group {
@@ -96,11 +147,11 @@ tr th p {
   margin: 25px 55px;
 }
 
-.modal-body .btn-delete{
+.modal-body .btn-delete {
   margin: 15px;
 }
 
-.btn-delete{
+.btn-delete {
   width: 55px;
   height: 25px;
   border-radius: 5px;
@@ -108,7 +159,8 @@ tr th p {
   background-color: #dc3545;
   cursor: pointer;
 }
-.btn-exit{
+
+.btn-exit {
   width: 55px;
   height: 25px;
   border-radius: 5px;
@@ -117,4 +169,11 @@ tr th p {
   cursor: pointer;
 }
 
+
+.clock-pagination-button {
+  display: flex;
+  justify-content: space-between;
+  margin: 25px 25px;
+
+}
 

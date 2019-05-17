@@ -1,0 +1,62 @@
+<app-admin-webinars></app-admin-webinars>
+
+<div class="wrapper-admin">
+  <div class="block-webinar-order">
+
+
+    <table *ngIf="liqPayResponse">
+      <thead *ngIf="webinarOrder">
+      <tr>
+        <th colspan="2" class="header-table">Status order LiqPay</th>
+      </tr>
+      <tr>
+        <th colspan="2" class="time"><i class="fas fa-pen"></i> create order
+          liqPay: {{liqPayResponse.create_date | date:'dd-MM-yyyy(HH:mm)'}}
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td class="d-inline-block col-3">order id site</td>
+        <td *ngIf="liqPayResponse.status == 'sandbox'" class="d-inline-block col-9"><i
+          class="fas fa-vial" title="{{webinarOrder.status}}"></i> {{webinarOrder.id}}</td>
+        <td *ngIf="liqPayResponse.status == 'success'" class="d-inline-block col-9"><i
+          class="far fa-check-circle" title="{{webinarOrder.status}}"></i> {{webinarOrder.id}}</td>
+        <td *ngIf="liqPayResponse.status == 'error'" class="d-inline-block col-9"><i
+          class="error-status fas fa-times" title="{{webinarOrder.status}}"></i></td>
+      </tr>
+      <tr>
+        <td class="liqPay-text d-inline-block col-3">order id liqPay</td>
+        <td *ngIf="liqPayResponse.status == 'sandbox'" class="d-inline-block col-9"><i
+          class="fas fa-vial" title="{{liqPayResponse.status}}"></i> {{liqPayResponse.payment_id}}</td>
+        <td *ngIf="liqPayResponse.status == 'success'" class="d-inline-block col-9"><i
+          class="far fa-check-circle" title="{{liqPayResponse.status}}"></i>  {{liqPayResponse.payment_id}}</td>
+        <td *ngIf="liqPayResponse.status == 'error'" class="d-inline-block col-9"><i
+          class="error-status fas fa-times" title="{{liqPayResponse.status}}"></i></td>
+      </tr>
+      <tr>
+        <td class="d-inline-block col-3">price</td>
+        <td class="d-inline-block col-9">{{webinarOrder.price}} {{webinarOrder.currency}}</td>
+      </tr>
+      <tr>
+        <td class="d-inline-block col-3">paytype</td>
+        <td class="d-inline-block col-9">{{liqPayResponse.paytype}}</td>
+      </tr>
+      <tr>
+        <td class="d-inline-block col-3">name</td>
+        <td class="d-inline-block col-9">{{webinarOrder.nameAndLastName}}</td>
+      </tr>
+      <tr>
+        <td class="d-inline-block col-3">email</td>
+        <td class="d-inline-block col-9">{{webinarOrder.email}}</td>
+      </tr>
+      <tr>
+        <td class="d-inline-block col-3">phone</td>
+        <td class="d-inline-block col-9">{{webinarOrder.phone}}</td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+

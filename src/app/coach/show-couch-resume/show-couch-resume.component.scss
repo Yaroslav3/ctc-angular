@@ -1,0 +1,173 @@
+
+.wrapper {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+
+.block-coach-show-trainer {
+  margin-top: 35px;
+  margin-left: 120px;
+  margin-right: 120px;
+  //margin: 0 auto;
+}
+
+.btn-back {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.coach-header {
+  width: 96%;
+  margin: 0 auto;
+  transition: all linear 0.3s;
+  box-sizing: border-box;
+}
+
+.white_bg {
+  background-color: white;
+  padding: 20px;
+}
+
+.coach-info {
+  display: flex;
+}
+
+.coach-title {
+  width: 10%;
+  margin-left: 25px;
+  margin-top: 5px;
+}
+
+.coach-title h5 {
+  font-size: 12px;
+  font-family: Exo2Regular , Arial, sans-serif ;
+  color: #45689c;
+  font-weight: bold;
+}
+
+.coach-name {
+  width: 100%;
+  font-family: Exo2Regular , Arial, sans-serif ;
+}
+
+.block-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.block-content-coach {
+  display: flex;
+  flex-direction: row;
+}
+
+.coach-content {
+  width: 50%;
+  flex-grow: 1;
+}
+
+.coach-content p {
+  font-size: 16px;
+  text-align: justify;
+  font-family: Arial, Helvetica, sans-serif, serif;
+}
+
+.coach-img {
+  flex-grow: 1;
+  width: 10%;
+  padding-left: 50px;
+}
+
+//------------------ Btn order  ----------------------//
+.btn-or {
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.btn {
+  border-radius: 0;
+
+}
+
+.btn-or button {
+  font-size: 11px;
+}
+
+.coach-img img {
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.coach-img span {
+  font-size: 15px;
+  font-family: Fira_Sans_Condensed_Light, serif;
+  color: #45689c;
+  font-weight: bold;
+}
+
+
+/*--------- Contact url info-----------*/
+.contact-url {
+  display: flex;
+  flex-direction: row;
+}
+
+.contact-url i {
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+.block-img-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.training-coach .title-training {
+  font-size: 15px;
+  color: #380505;
+}
+
+
+.training-coach div {
+  margin-top: -7px;
+}
+
+.training-coach a .th-train {
+  font-size: 10px;
+}
+
+
+/********* FOR MOBILE VERSION **************/
+.coach-img-mob {
+  display: none;
+}
+
+.training-coach-mob {
+  display: flex;
+  flex-direction: column;
+  background-color: #fcfcfc;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+:host ::ng-deep #myEditor {
+  .angular-editor-textarea {
+    border: none;
+    //padding: .0rem -2.8rem -11rem;
+    //text-indent: -0.5em;
+  }
+
+
+  .angular-editor-wrapper .angular-editor-textarea blockquote {
+    margin: 0 0 0 0 !important;
+  }
+
+  #editor {
+    resize: none;
+  }
+
+  .angular-editor .angular-editor-wrapper .angular-editor-textarea {
+    padding: 0 !important;
+  }
+}

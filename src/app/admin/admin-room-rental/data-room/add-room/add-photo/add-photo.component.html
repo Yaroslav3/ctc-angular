@@ -1,0 +1,41 @@
+<app-admin-room-rental></app-admin-room-rental>
+
+
+<div class="wrapper-admin">
+  <ng-progress></ng-progress>
+  <div class="add-photo-content">
+    <div class="header-text-photo">
+      <p>
+        add photo room: <span>{{nameRoom}}</span>
+      </p>
+    </div>
+
+    <div class="show-photo-block" *ngFor="let elem of photo; let i=index">
+      <div *ngFor="let elem2 of photo[i]" class="block-img">
+        <div class="show-img">
+          <img [src]="'data:image/jpg;base64,' + elem2.photo">
+        </div>
+        <div class="delete-photo-room">
+          <button type="button" class="btn-delete-room" (click)="deletePhoto(elem2.id)">delete</button>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="isBtnUpload == false" class="form-group">
+      <div class="browse-btn">
+        <input type="file" name="cameraImg" id="cameraImg" (change)="onSelectedFile($event)"/>
+        <div class="browse-image">
+          <img src="assets/img/camera.png" width="60px"/>
+          <p>Browse image</p>
+        </div>
+      </div>
+      <div *ngIf="progressBar" class="progress-bar-upload">
+        <progress-bar [progress]="progressNumber" [color]="'#488aff'">
+        </progress-bar>
+      </div>
+    </div>
+    <div class="btn-redirect-finish">
+      <button class="btn btn-secondary" (click)="finish()">Next <i class="fas fa-chevron-right"></i></button>
+    </div>
+  </div>
+</div>

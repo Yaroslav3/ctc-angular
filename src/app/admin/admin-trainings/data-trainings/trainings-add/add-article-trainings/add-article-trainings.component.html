@@ -1,0 +1,35 @@
+<app-admin-trainings></app-admin-trainings>
+
+<div class="wrapper-admin">
+  <ng-progress></ng-progress>
+  <div class="block-add-article">
+    <div *ngIf="trainings" class="text-header-article">
+      <p>
+        Add article training: <span>{{trainings.name}}</span>
+      </p>
+    </div>
+
+    <div class="editor">
+      <form name="form" [formGroup]="formGroup" (ngSubmit)="onClickCreate()" novalidate>
+
+        <angular-editor formControlName="description" [config]="editorConfig"></angular-editor>
+        <div class="error-input" *ngIf="isSubmitted && f.description.errors">
+          <div *ngIf="f.description.errors.required">
+            <span>* заполни поле </span>
+          </div>
+        </div>
+
+
+        <div class="html">
+        </div>
+        <br>
+        <div class="group">
+          <button class="btn btn-back-training" type="submit" (click)="back()"><i class="fas fa-chevron-left"></i>Back
+          </button>
+          <button class="btn btn-info" type="submit"><i class="fas fa-plus"></i>  Create</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

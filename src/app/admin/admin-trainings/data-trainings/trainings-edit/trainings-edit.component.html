@@ -5,20 +5,125 @@
   <ng-progress></ng-progress>
   <div class="editor-container">
     <div *ngIf="trainings" class="block-trainings-edit">
-      <div class="block-input">
-        <input type="text" class="input-training"  [(ngModel)]="trainings.name"  value="{{trainings.name}}" name="name" title="name">
+      <div class="first-info">
+        <div class="img-training">
+
+          <div class="photo-view">
+            <div *ngIf="isShowPhoto==false" class="photo">
+              <img src="./assets/img/texture-2068283_1920.jpg" alt=" create photo">
+            </div>
+
+            <div *ngIf="isShowPhoto==true" class="photo">
+              <img src="{{imageToShow}}" alt="photo">
+            </div>
+
+            <div class="br-com">
+              <div *ngIf="idUpdatePhotoTraining" class="change-btn-trainings">
+                <label for="file-update" class="custom-file-upload">
+                  <i class="fas fa-cloud-upload-alt"></i><span>Update photo</span>
+                </label>
+                <input id="file-update" type="file" (change)="onFileSelectorUpdate($event)">
+              </div>
+
+              <div class="btn-save-photo" *ngIf="idUpdatePhoto">
+                <button type="button" class=" btn btn-info btn-sm" (click)="onUpdate()"><i
+                  class="fas fa-check-circle"></i><span style="margin-left: 10px">Save photo</span>
+                </button>
+              </div>
+
+
+              <!--****   ---------------------  Create PDF file  ----------------  ****/-->
+              <div *ngIf="isChooseSavePDF" class="change-btn-trainings">
+                <label for="file-pdf" class="pdf custom-file-upload">
+                  <i class="fas fa-file-pdf"></i><span> Create PDF</span>
+                </label>
+                <input id="file-pdf" type="file" (change)="onFilePDFSelector($event)">
+              </div>
+
+              <div class="btn-save-photo" *ngIf="isSavePDF">
+                <button type="button" class=" btn btn-info btn-sm" (click)="createFilePDF()"><i
+                  class="fas fa-check-circle"></i><span style="margin-left: 10px">Save pdf</span>
+                </button>
+              </div>
+              <div *ngIf="isProgressBarPDF" class="progress-bar-upload">
+                <progress-bar [progress]="progressNumberPDF" [color]="'#488aff'">
+                </progress-bar>
+              </div>
+
+              <!--/****   ---------------------  Update PDF file  ----------------  ****/-->
+              <div *ngIf="isChooseUpdatePDF" class="change-btn-trainings">
+                <label for="file--update-pdf" class="pdf custom-file-upload">
+                  <i class="fas fa-file-pdf"></i><span> Update PDF</span>
+                </label>
+                <input id="file--update-pdf" type="file" (change)="onFileUpdatePDFSelector($event)">
+              </div>
+
+              <div class="btn-save-photo" *ngIf="isUpdatePDF">
+                <button type="button" class=" btn btn-info btn-sm" (click)="updateFilePDF()"><i
+                  class="fas fa-check-circle"></i><span style="margin-left: 10px">Save pdf</span>
+                </button>
+              </div>
+
+              <div *ngIf="isProgressBarUpdatePDF" class="progress-bar-upload">
+                <progress-bar [progress]="progressUpdatePDF" [color]="'#488aff'">
+                </progress-bar>
+              </div>
+
+              <div *ngIf="isArticle == true" class="update-article">
+                <button type="button" class="btn btn-ar  btn-sm" (click)="redirectUpdateArticle()"><i
+                  class="far fa-newspaper"></i><span style="margin-left: 11px">Update Article</span>
+                </button>
+              </div>
+              <div *ngIf="isArticle == false" class="update-article">
+                <button type="button" class="btn btn-ar  btn-sm" (click)="redirectCreateArticle()"><i
+                  class="far fa-newspaper"></i><span style="margin-left: 11px">Create Article</span>
+                </button>
+              </div>
+
+
+              <div *ngIf="idCheckEmptyPhoto" class="change-btn-trainings">
+                <label for="file-upload" class="custom-file-upload">
+                  <i class="fas fa-cloud-upload-alt"></i> Choose photo
+                </label>
+                <input id="file-upload" type="file" (change)="onFileSelector($event)">
+              </div>
+
+
+              <div *ngIf="progressBar" class="progress-bar-upload">
+                <progress-bar [progress]="progressNumber" [color]="'#488aff'">
+                </progress-bar>
+              </div>
+
+
+              <div class="btn-save-photo" *ngIf="idSavePhotoTraining">
+                <button type="button" class=" btn btn-info btn-sm" (click)="onCreate()"><i
+                  class="fas fa-check-circle"></i><span style="margin-left: 10px">Save photo</span>
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="input-info">
+          <div class="block-input">
+            <input type="text" class="input-training" [(ngModel)]="trainings.name" value="{{trainings.name}}"
+                   name="name" title="name" placeholder="name training">
+          </div>
+          <div class="block-input">
+          <textarea type="text" class="input-training" [(ngModel)]="trainings.briefly" value="{{trainings.briefly}}"
+                    name="name" title="name" placeholder="briefly about the training"></textarea>
+          </div>
+          <div class="editor">
+            <div class="group">
+              <button class="btn btn-info" (click)="onClickUpdate(trainings)" type="submit">Update</button>
+            </div>
+          </div>
+        </div>
+
       </div>
       <br>
-
-      <div class="editor">
-        <angular-editor [(ngModel)]="trainings.description" [config]="editorConfig"></angular-editor>
-        <div class="html">
-        </div>
-        <br>
-        <div class="group">
-          <button class="btn btn-info" (click)="onClickUpdate(trainings)" type="submit">Update</button>
-        </div>
-      </div>
     </div>
   </div>
 

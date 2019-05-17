@@ -1,0 +1,67 @@
+<app-admin-room-rental></app-admin-room-rental>
+
+
+<div class="wrapper-admin">
+  <div class="room-container">
+    <div class="text-header-room">
+      <p>
+        Show room
+      </p>
+    </div>
+
+    <div *ngIf="isEmpty == true">
+      <div class="empty-room-list">
+        <div class="alert alert-secondary" role="alert">
+          List room is empty
+        </div>
+      </div>
+
+      <div class="add-room-btn">
+        <button type="button" routerLink="/admin/room/rental/add-room" class="btn btn-info btn-sm"><i
+          class="fas fa-chess-rook"></i> Add Room
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="isEmpty == false">
+      <table>
+        <thead>
+        <tr>
+          <th class="table-title d-inline-block col-7 text-table-header" scope="col"><p>name</p></th>
+          <th class="table-title d-inline-block col-5 text-table-header" scope="col"><p class="options">options</p></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let elem of room | paginate: {itemsPerPage:8, currentPage: p}">
+          <td class="d-inline-block col-7 text-table-header">{{elem.nameRoom}}</td>
+          <td class="d-inline-block col-5 text-table-header">
+            <i class="far fa-edit edit" (click)="onEdit(elem.id)"></i>
+            <i class="far fa-trash-alt delete" (click)="openModal(modalDeletePhoto)"></i>
+          </td>
+
+          <!------------------------------ DELETE  Trainers ------------------------------------------------->
+          <ng-template #modalDeletePhoto let-modal>
+            <div class="modal-body text-center">
+              <p style="color: #151230">Do you want to delete?</p>
+              <button type="button" class="btn-delete" (click)="removeRoom(elem.id)">Yes</button>
+              <button type="button" class="btn-exit" (click)="modal.dismiss('Cross click')">Exit</button>
+            </div>
+          </ng-template>
+        </tr>
+        </tbody>
+      </table>
+      <div class="clock-pagination-button">
+        <div>
+          <pagination-controls (pageChange)="p =$event"></pagination-controls>
+        </div>
+        <div>
+          <button type="button" routerLink="/admin/room/rental/add-room" class="btn btn-info btn-sm"><i
+            class="fas fa-chess-rook"></i> Add Room
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

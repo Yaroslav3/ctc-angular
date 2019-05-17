@@ -1,0 +1,43 @@
+<app-admin-room-rental></app-admin-room-rental>
+
+<div class="wrapper-admin">
+  <div class="add-article-content">
+    <p>
+      add article room: <span>{{nameRoom}}</span>
+    </p>
+
+    <div *ngIf="isCheck == true">
+      <div class="alert alert-secondary" role="alert">
+        <p>Such fields are already filled in,</p>
+        <p>to edit prices go to</p>
+        <div class="btn-go-to">
+          <button class="btn btn-secondary" (click)="redirect()">Go to edit <i
+            class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="isCheck == false"  class="editor-room">
+      <form name="form" [formGroup]="formGroup" (ngSubmit)="createArticle()" novalidate>
+        <div class="block-editor">
+          <angular-editor formControlName="descriptionArticle"
+                          [(ngModel)]="roomArticle.descriptionArticle" [config]="editorConfig"
+                          title="description room article "></angular-editor>
+
+          <div class="error-input" *ngIf="isSubmitted && f.descriptionArticle.errors">
+            <div *ngIf="f.descriptionArticle.errors.required"><span>* fill in the field </span></div>
+            <div *ngIf="f.descriptionArticle.errors.maxlength"><span>* 20000 символов </span></div>
+          </div>
+          <div class="error-input" *ngIf="roomError">
+            <span>{{roomError.descriptionArticle}}</span>
+          </div>
+        </div>
+        <div class="btn-save-article">
+          <button class="btn btn-secondary">Next <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>

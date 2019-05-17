@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit} from '@angular/core';
 import {Video} from '../shared/model/Video.model';
 import {Trainers} from '../shared/model/Trainers.model';
 import {Location} from '@angular/common';
@@ -18,12 +18,13 @@ import {NgProgress} from '@ngx-progressbar/core';
       state('void', style({'background-color': '#848484'})),
       transition('void => *', animate(1000)),
       transition('* => *', animate(500)),
-    ])
+    ]),
   ]
 })
 export class HeaderComponent implements OnInit {
 
   isVisible: boolean;
+
 
   /**
    * show video
@@ -94,19 +95,96 @@ export class HeaderComponent implements OnInit {
   /**
    *url for hidden photo customer
    * **/
-  private names: string[] = ['/trainings', '/webinars', '/trainings-order', '/trainings/coach-resume-show/', '/login', '/schedule',
-    '/room-rental', '/recommendations'];
+  private names: string[] = ['/trainings', '/trainings/coach', '/webinars', '/schedule',
+    '/room-rental', '/recommendations', '/login'];
 
 
   /**
    * url for hidden photo admin panel
    * **/
-  private admin: string[] = ['/admin', '/admin/trainings', '/admin/trainings/data-trainers', '/admin/trainings/data-trainings',
-    '/admin/trainings/data-calendar', '/admin/trainings/trainings-edit/', '/admin/trainings/data-order',
-    '/admin/trainings/trainings-choose/', '/admin/trainings/trainings-add', '/admin/trainings/trainers-edit/',
-    '/admin/trainings/trainers-add', '/admin/trainings/view-order/', '/admin/home/user', '/admin/home/photo-page',
-    '/admin/webinars', '/admin/schedule', '/admin/room-rental', '/admin/recommendations', '/admin/home/video-page',
-    '/admin/home/service', '/admin/trainings/inscriptions'];
+  private admin: string[] = [
+
+    /**
+     * admin Admin
+     * **/
+    '/admin',
+    '/admin/home/user',
+    '/admin/home/photo-page',
+    '/admin/webinars',
+    '/admin/schedule',
+    '/admin/room-rental',
+    '/admin/recommendations',
+    '/admin/home/video-page',
+    '/admin/home/service',
+    '/admin/trainings/inscriptions',
+
+    /**
+     * admin Trainings
+     * **/
+    '/admin/trainings',
+    '/admin/trainings/data-trainers',
+    '/admin/trainings/data-trainings',
+    '/admin/trainings/data-calendar',
+    '/admin/trainings/trainings-edit/',
+    '/admin/trainings/data-order',
+    '/admin/trainings/trainings-choose/',
+    '/admin/trainings/trainings-add',
+    '/admin/trainings/trainers-edit/',
+    '/admin/trainings/contacts/', '/login',
+    '/admin/trainings/trainers-add',
+    '/admin/trainings/view-order/',
+    '/admin/trainings/update/article-trainings/',
+    '/admin/trainings/create/article-trainings/',
+
+
+    /**
+     * admin Webinars
+     * **/
+    '/admin/webinars/data-webinars',
+    '/admin/webinars/webinar-add',
+    '/admin/webinars/webinars-edit/',
+    '/admin/webinars/webinar-add/photo-add/',
+    '/admin/webinars/inscriptions',
+    '/admin/webinars/webinars-edit/webinar-order/',
+    '/admin/webinars/webinar-order-show/',
+
+    /**
+     * admin Blog
+     * **/
+    '/admin/blog',
+    '/admin/blog/data-blog',
+    '/admin/blog/blog-edit/',
+    '/admin/blog/data-add',
+    '/admin/blog/create-photo/',
+
+    /**
+     * Room rental
+     * ***/
+    '/admin/room/rental/data',
+    '/admin/room/rental/add-room',
+    '/admin/room/rental/add-room-rental/',
+    '/admin/room/rental/add-prise-room/',
+    '/admin/room/rental/add-photo-room/',
+    '/admin/room/rental/edit-room/',
+    '/admin/room/rental/edit-room/name/',
+    '/admin/room/rental/edit-room/price/',
+    '/admin/room/rental/edit-room/photo/',
+    '/admin/room/rental/edit-room/show-order-room/',
+    '/admin/room/rental/edit-room/article/',
+
+    /**
+     * customer
+     * **/
+    '/trainings/coach/resume/',
+    '/trainings/training-show/',
+    '/trainings-order',
+    '/webinars/webinar-show/',
+    '/webinars/webinar-order-form',
+    '/webinars/webinar-order/status/',
+    '/room-rental/show/',
+    '/room/order/',
+
+  ];
 
 
   protected titleText = 'Corporate Training Company, since 1999';
@@ -115,7 +193,7 @@ export class HeaderComponent implements OnInit {
 
 
   constructor(private location: Location, private photoService: PhotoStartPageService,
-              private videoService: VideoService, public progress: NgProgress) {
+              private videoService: VideoService, public progress: NgProgress, public el: ElementRef) {
     this.burgerMenu = true;
   }
 
@@ -129,6 +207,7 @@ export class HeaderComponent implements OnInit {
   animPhoto() {
     this.isVisible = true;
   }
+
 
   /**
    *  burger view (mobile version)
@@ -169,12 +248,10 @@ export class HeaderComponent implements OnInit {
           this.homePhoto = this.base64 + a.photo;
         } else if (a.namePage === 'trainings') {
           this.trainingsPhoto = this.base64 + a.photo;
-        } else if (a.namePage === 'webinars') {
-          this.webinarsPhoto = this.base64 + a.photo;
-        } else if (a.namePage === 'order') {
-          this.orderPhoto = this.base64 + a.photo;
         } else if (a.namePage === 'coach') {
           this.coachPhoto = this.base64 + a.photo;
+        } else if (a.namePage === 'webinars') {
+          this.webinarsPhoto = this.base64 + a.photo;
         } else if (a.namePage === 'schedule') {
           this.schedule = this.base64 + a.photo;
         } else if (a.namePage === 'room-rental') {
@@ -216,53 +293,54 @@ export class HeaderComponent implements OnInit {
     return false;
   }
 
-  public isPhotoWebinars(): boolean {
-    if (this.names[1] === this.location.path()) {
+  public isPhotoCoachResume(): boolean {
+    if (this.names[1] === this.location.path().replace(/[0-9]/g, '')) {
       return this.showStatusPhoto = true;
     }
     return false;
   }
 
-  public isPhotoOrder(): boolean {
+  public isPhotoWebinars(): boolean {
     if (this.names[2] === this.location.path()) {
       return this.showStatusPhoto = true;
     }
     return false;
   }
 
-  public isPhotoCoachResume(): boolean {
-    if (this.names[3] === this.location.path().replace(/[0-9]/g, '')) {
-      return this.showStatusPhoto = true;
-    }
-    return false;
-  }
-
-  public auth(): boolean {
-    if (this.names[4] === this.location.path()) {
-      return this.login = false;
-    }
-    return this.login = true;
-  }
-
   public isSchedule(): boolean {
-    if (this.names[5] === this.location.path()) {
+    if (this.names[3] === this.location.path()) {
       return this.showStatusPhoto = true;
     }
     return false;
   }
 
   public isRoomRental(): boolean {
-    if (this.names[6] === this.location.path()) {
+    if (this.names[4] === this.location.path()) {
       return this.showStatusPhoto = true;
     }
     return false;
   }
 
   public isRecommendations(): boolean {
-    if (this.names[7] === this.location.path()) {
+    if (this.names[5] === this.location.path()) {
       return this.showStatusPhoto = true;
     }
     return false;
+  }
+
+  // public isPhotoOrder(): boolean {
+  //   if (this.names[2] === this.location.path()) {
+  //     return this.showStatusPhoto = true;
+  //   }
+  //   return false;
+  // }
+
+
+  public auth(): boolean {
+    if (this.names[6] === this.location.path()) {
+      return this.login = false;
+    }
+    return this.login = true;
   }
 
 

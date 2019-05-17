@@ -1,0 +1,42 @@
+<div class="wrapper">
+
+
+  <div class="all-content">
+    <br>
+    <br>
+    <br>
+
+    <div *ngIf="isProgress==true">
+      <div class="loading-content">
+        <app-loader></app-loader>
+      </div>
+    </div>
+
+    <div *ngIf="isProgress==false">
+      <div class="title">
+        <h3>Тренеры</h3>
+      </div>
+      <hr>
+      <div class="coach-block">
+        <div *ngFor="let elem of trainers">
+          <div class="trainer-block">
+            <img [src]="'data:image/jpg;base64,'+ elem['photo'][0]['photo']" alt="Trainings">
+            <br>
+            <div class="bl-tol">
+              <h3>{{elem.name}}</h3>
+              <h3 class="surname">{{elem.surname}}</h3>
+              <hr>
+              <div class="bl-height">
+                <p>{{elem.scope}}</p>
+              </div>
+              <div class="btn-trainer">
+                <button class="btn btn-outline-secondary" (click)="redirect(elem)">Подробно о тренере</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+.wrapper-admin {
+  max-width: 1600px;
+  min-width: 765px;
+  margin: 0 auto;
+}
+
+.add-room-container {
+  display: flex;
+  flex-direction: column;
+  position: static;
+  height: 600px;
+  margin-left: 220px;
+  margin-top: -608px;
+}
+
+
+.edit-name-room-header p{
+  margin-left: 10%;
+}
+
+.edit-name-room-header p span {
+  color: #179918;
+  font-size: 15px;
+  font-family: Exo2BoldItalic, sans-serif, serif;
+}
+
+.edit-room {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.edit-room input {
+  width: 100%;
+  height: 35px;
+  border-radius: 1px;
+  text-indent: 0.8em;
+  border: 1px solid #d1b6b7;
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+
+.btn-update-room {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  border-radius: 1px;
+}
+
+
+/***--------------------  valid --------------------------***/
+.error-input {
+  margin-top: -20px;
+}
+
+.error-input span {
+  color: #a01809;
+  font-size: 12px;
+  font-family: KIA_KIAM, serif;
+  font-weight: bold;
+
+}

@@ -2,11 +2,15 @@ import {Component, OnInit} from '@angular/core';
 import {AngularEditorConfig} from '@kolkov/angular-editor';
 import {TrainersService} from '../../../../shared/service/trainers.service';
 import {Trainers} from '../../../../shared/model/Trainers.model';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {HttpEventType} from '@angular/common/http';
 import {PhotoService} from '../../../../shared/service/photo.service';
 import {FontsJsonFileService} from '../../../../shared/service/fonts-json-file.service';
 import {NgProgress} from '@ngx-progressbar/core';
+import {TrainerTrainings} from '../../../../shared/model/TrainerTrainings.model';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {TrainerTrainingsService} from '../../../../shared/service/trainer-trainings.service';
+import {Contacts} from '../../../../shared/model/Contacts.model';
 
 
 @Component({
@@ -20,7 +24,8 @@ export class TrainersEditComponent implements OnInit {
 
   constructor(private idNumber: ActivatedRoute, private serviceTrainers: TrainersService,
               private photoService: PhotoService, private fontService: FontsJsonFileService,
-              public progressService: NgProgress) {
+              public progressService: NgProgress, private modalService: NgbModal,
+              private trainerTrainingService: TrainerTrainingsService, private router: Router) {
 
     idNumber.params.subscribe((p) => {
       this.id = p.id;
@@ -29,12 +34,18 @@ export class TrainersEditComponent implements OnInit {
 
   id: number;
   trainers: Trainers = new Trainers();
+  trainerTrainings: TrainerTrainings = new TrainerTrainings();
+  trainerTrainingsModel: TrainerTrainings = new TrainerTrainings();
+  qualification: TrainerTrainings;
+  contacts: Contacts;
+
   selectFile: File = null;
   imageToShow: any;
   boolUpdatePhoto = true;
   buttonUpdatePhoto = false;
   progressBar = false;
   progress = 0;
+  p: any;
 
 
   isImageLoading = false;
@@ -42,7 +53,7 @@ export class TrainersEditComponent implements OnInit {
   editorConfig: AngularEditorConfig = {
     editable: true,
     showToolbar: true,
-    height: '13rem',
+    height: '18rem',
     fonts: this.fonts,
     defaultFontSize: '5',
     minHeight: '5rem',
@@ -65,6 +76,7 @@ export class TrainersEditComponent implements OnInit {
     ]
   };
 
+
   ngOnInit() {
     this.getFonts();
     this.getOneTrainers(this.id);
@@ -81,14 +93,6 @@ export class TrainersEditComponent implements OnInit {
         this.fonts[i] = result[i];
       }
     });
-  }
-
-  onFileSelector(event) {
-    this.selectFile = event.target.files[0] as File;
-    if (this.selectFile != null) {
-      this.boolUpdatePhoto = false;
-      this.buttonUpdatePhoto = true;
-    }
   }
 
 
@@ -122,6 +126,15 @@ export class TrainersEditComponent implements OnInit {
   /**
    * get photo Trainers
    * **/
+
+  onFileSelector(event) {
+    this.selectFile = event.target.files[0] as File;
+    if (this.selectFile != null) {
+      this.boolUpdatePhoto = false;
+      this.buttonUpdatePhoto = true;
+    }
+  }
+
   createImageFromBlob(image: Blob) {
     const reader = new FileReader();
     reader.addEventListener('load', () => {
@@ -135,6 +148,9 @@ export class TrainersEditComponent implements OnInit {
   }
 
 
+  /**
+   *  get one photo
+   * ***/
   getPhoto(id: number) {
     this.progressService.ref().start();
     this.isImageLoading = true;
@@ -155,18 +171,91 @@ export class TrainersEditComponent implements OnInit {
     this.progressService.ref().start();
     this.serviceTrainers.adminGetOneTrainers(id).subscribe((data: Trainers) => {
       this.trainers = data;
+      console.log(data);
+      this.trainerTrainings = data.trainerTrainings;
+      this.contacts = data.contacts;
       this.progressService.ref().complete();
     });
   }
 
 
   onClickUpdate(trainers: Trainers) {
+    console.log(trainers);
     this.progressService.ref().start();
     this.serviceTrainers.adminUpdateTrainers(trainers, this.id).subscribe((data) => {
       window.alert('success');
       this.progressService.ref().complete();
-    }, error1 => {
+    }, error => {
       window.alert('error');
     });
+  }
+
+
+  /***
+   * modal window remove Trainer Skills
+   ***/
+  modalDeleteSkills(view) {
+    this.modalService.open(view);
+  }
+
+  /***
+   *  delete skills Trainer
+   * ***/
+  skillsDelete(id: number) {
+    this.progressService.ref().start();
+    this.trainerTrainingService.adminDeleteTrainerTrainings(id).subscribe(() => {
+      this.modalService.dismissAll(2);
+      this.progressService.ref().complete();
+      this.getOneTrainers(this.id);
+    });
+  }
+
+
+  /***
+   * modal window create Trainer Skills
+   ***/
+  openModalAddSkills(view) {
+    this.modalService.open(view);
+  }
+
+
+  /***
+   *  create skills Trainer
+   * ***/
+  createSkills(trainerSkills: TrainerTrainings) {
+    this.progressService.ref().start();
+    this.trainerTrainingService.adminCreateTrainerTrainings(this.id, trainerSkills).subscribe(() => {
+      this.modalService.dismissAll(2);
+      this.progressService.ref().complete();
+      this.getOneTrainers(this.id);
+    }, error => {
+      window.alert('error');
+    });
+  }
+
+  /***
+   * modal window edit Trainer Skills
+   ***/
+  modalEditSkills(view) {
+    this.modalService.open(view);
+  }
+
+  /***
+   *  update skills Trainer
+   * ***/
+  updateSkills(id: number, trainerSkills: string) {
+    this.progressService.ref().start();
+    this.qualification = new TrainerTrainings(trainerSkills, id);
+    this.trainerTrainingService.adminUpdateTrainerTrainings(id, this.qualification).subscribe(() => {
+      this.modalService.dismissAll(2);
+      this.progressService.ref().complete();
+      this.getOneTrainers(this.id);
+    }, error => {
+      window.alert('error');
+    });
+  }
+
+  contactsPage() {
+    this.router.navigate(['admin', 'trainings', 'contacts', this.id]);
   }
 }

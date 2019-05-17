@@ -1,0 +1,86 @@
+
+<app-menu></app-menu>
+
+<ng-progress></ng-progress>
+<br>
+<div class="wrapper">
+
+  <div *ngIf="trainers" class="block-coach-show-trainer">
+    <div class="coach-header">
+      <div class="btn-back">
+        <a class="btn btn-outline-secondary" routerLink="/trainings/coach"> <i class="fas fa-chevron-left"></i>
+          назад</a>
+      </div>
+      <div class="white_bg">
+        <div class="coach-info">
+          <div class="coach-title">
+            <h5>О тренере</h5>
+          </div>
+          <div class="block-content">
+            <div class="coach-name">
+              <h5 class="name-surname-coach">{{trainers.name}} {{trainers.surname}}</h5>
+            </div>
+            <div class="block-content-coach">
+              <div class="coach-content">
+                <angular-editor id="myEditor" [(ngModel)]="trainers.description"
+                                [config]="editorConfig"></angular-editor>
+                <br>
+              </div>
+              <div class="coach-img">
+                <div class="block-img-info">
+                  <img [src]="'data:image/jpg;base64,'+ trainers['photo'][0]['photo']" alt="Trainings">
+
+                  <div *ngIf="trainers.contacts[0]" class="contact-url">
+                    <span>Контактная информация: </span>
+                    <span *ngIf="trainers.contacts[0].urlFacebook != null">
+                    <a [href]="trainers.contacts[0].urlFacebook">
+                      <i style="color: #4267b2" class="fab fa-facebook-square"></i> </a></span>
+                    <span *ngIf="trainers.contacts[0].urlLinkedin != null">
+                    <a [href]="trainers.contacts[0].urlLinkedin">
+                      <i style="color: #0077B5" class="fab fa-linkedin"></i> </a></span>
+                    <span *ngIf="trainers.contacts[0].email != null">
+                    <a [href]="'mailto:'+trainers.contacts[0].email">
+                      <i class="fas fa-at"></i> </a></span>
+                  </div>
+                  <div *ngIf="trainers.contacts[0]">
+                      <span *ngIf="trainers.contacts[0].skype != null">
+                      <i class="fab fa-skype"></i> {{trainers.contacts[0].skype}}</span>
+                    <hr>
+                  </div>
+                  <div class="btn-or">
+                    <button class="btn btn-outline-secondary" routerLink="/trainings-order">заказть корпоративный тренинг</button>
+                  </div>
+                </div>
+                <div class="training-coach">
+                  <span class="title-training">Трененги тренера:</span>
+                  <div *ngFor="let elem of trainers.trainerTrainings">
+                    <a><span class="th-train">{{elem.name}}</span></a>
+                  </div>
+                </div>
+                <hr>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="coach-img-mob">
+          <br>
+          <div class="block-img-info-mob">
+            <img [src]="'data:image/jpg;base64,'+ trainers['photo'][0]['photo']" alt="Trainings">
+            <br>
+            <span>Контактная информация: </span>
+            <span> <i style="font-size: 25px" class="fab fa-skype"></i></span>
+            <hr>
+          </div>
+          <div class="training-coach-mob">
+            <span class="title-training">Трененги тренера:</span>
+            <div *ngFor="let elem of trainers.trainerTrainings">
+              <a><span>{{elem.name}}</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

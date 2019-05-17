@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {AngularEditorConfig} from '@kolkov/angular-editor';
-import {Trainings} from '../../../../shared/model/Trainings.model';
-import {TrainingsService} from '../../../../shared/service/trainings.service';
-import {FontsJsonFileService} from '../../../../shared/service/fonts-json-file.service';
+import {Trainings} from '../../../../shared/model/trainings/Trainings.model';
+import {TrainingsService} from '../../../../shared/service/trainings/trainings.service';
 import {NgProgress} from '@ngx-progressbar/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -14,75 +14,105 @@ import {NgProgress} from '@ngx-progressbar/core';
 export class TrainingsAddComponent implements OnInit {
 
 
-  constructor(private serviceTrainings: TrainingsService, private fontService: FontsJsonFileService, public progress: NgProgress) {
-  }
-
   private orderError: Trainings;
   private isCreated = false;
 
+
+  /**
+   *  for validation.
+   * ***/
+  formGroup: FormGroup;
+
+  /**
+   *  show error validation message.
+   * **/
+  isSubmitted = false;
+
   done = true;
   doneSave = false;
-  fonts = [];
 
   trainings: Trainings = new Trainings();
+  id: number;
 
 
-  editorConfig: AngularEditorConfig = {
-    editable: true,
-    showToolbar: true,
-    height: '22rem',
-    defaultFontSize: '5',
-    fonts: this.fonts,
-    minHeight: '5rem',
-    placeholder: 'Enter text here...',
-    translate: 'no',
-    customClasses: [ // optional
-      {
-        name: 'quote',
-        class: 'quote',
-      },
-      {
-        name: 'redText',
-        class: 'redText'
-      },
-      {
-        name: 'titleText',
-        class: 'titleText',
-        tag: 'h1',
-      },
-    ]
-  };
+  constructor(private serviceTrainings: TrainingsService,
+              private progress: NgProgress,
+              private fb: FormBuilder,
+              private router: Router) {
+  }
 
   ngOnInit() {
+    this.createFormGroup();
     window.scroll(0, 0);
-    this.getFonts();
+
+  }
+
+
+  /***
+   *  Form Group for validation
+   * **/
+
+  createFormGroup() {
+    return this.formGroup = this.fb.group({
+      name: ['', [Validators.required, Validators.maxLength(200)]],
+      briefly: ['', [Validators.required, Validators.maxLength(200)]],
+    });
+  }
+
+  /***
+   *  FormGroup controls
+   * ***/
+
+  public get f() {
+    return this.formGroup.controls;
   }
 
   /**
-   *  get fonts in the file json
-   *  @path ./assets/fonts.json.
+   *  reset password form
    * **/
-  getFonts() {
-    this.fontService.getFontJsonFile().subscribe(result => {
-      for (let i = 0; i < Object.keys(result).length; i++) {
-        this.fonts[i] = result[i];
-      }
-    });
 
+  revert() {
+    this.formGroup.reset();
   }
 
 
-  noClickAddTraining(trainings: Trainings) {
+  noClickAddTraining() {
+
+    this.isSubmitted = true;
+
+    if (this.formGroup.invalid) {
+      console.log('error');
+      return;
+    }
+
+    console.log('test');
+
+    const trainings = new Trainings();
+    trainings.name = this.f.name.value;
+    trainings.briefly = this.f.briefly.value;
+
     this.progress.ref().start();
-    this.serviceTrainings.adminCreateTrainings(trainings).subscribe(() => {
+    this.serviceTrainings.adminCreateTrainings(trainings).subscribe((data: Trainings) => {
+        this.id = data.id;
+
         this.doneSave = true;
         this.done = false;
-        window.scroll(0, 0);
         this.progress.ref().complete();
       },
       error => {
+        window.alert(error.message);
         this.orderError = error.error;
         this.isCreated = false;
       });
+  }
+
+
+  /**
+   *  redirect create Article
+   * **/
+  next() {
+    console.log('dsdv');
+    this.router.navigate(['admin', 'trainings', 'create', 'article-trainings', this.id]);
+
   }
 }

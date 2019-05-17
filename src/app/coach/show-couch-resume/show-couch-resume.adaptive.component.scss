@@ -1,0 +1,88 @@
+@media only screen and (max-width: 1200px) {
+  .wrapper {
+    max-width: 1180px;
+  }
+  .block-coach-show-trainer {
+    margin-top: 35px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .coach-img span {
+    font-size: 10px;
+  }
+
+}
+
+
+@media only screen and (max-width: 980px) {
+  .wrapper {
+    max-width: 970px;
+  }
+  .coach-content {
+    width: 40%;
+  }
+
+  .coach-title {
+    width: 15%;
+    margin-left: 15px;
+    margin-top: 5px;
+  }
+  .coach-img span {
+    font-size: 9px;
+  }
+  .btn-or button {
+    font-size: 9px;
+  }
+
+}
+
+@media only screen and (max-width: 768px) {
+  .wrapper {
+    max-width: 760px;
+  }
+  .coach-content {
+    width: 100%;
+  }
+
+  .coach-title {
+    display: none;
+  }
+
+
+  .block-content-coach {
+    display: flex;
+    flex-direction: column;
+  }
+  .coach-img {
+    width: 100%;
+    padding-left: 0;
+  }
+  .coach-img span {
+    font-size: 15px;
+  }
+  .btn-or button {
+    font-size: 15px;
+  }
+
+}
+
+@media only screen and (max-width: 480px) {
+  .wrapper {
+    max-width: 470px;
+    font-size: 15px;
+  }
+  .block-coach-show-trainer {
+    margin-top: 35px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .coach-img span {
+    font-size: 11px;
+  }
+
+
+}
+
+

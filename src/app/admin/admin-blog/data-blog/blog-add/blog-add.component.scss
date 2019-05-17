@@ -1,0 +1,73 @@
+.wrapper-admin {
+  max-width: 1600px;
+  min-width: 765px;
+  margin: 0 auto;
+}
+
+.content-blog-add {
+  position: static;
+  height: 750px;
+  margin-left: 250px;
+  margin-top: -608px;
+}
+
+
+.header-text-blog-add {
+  color: #4a3a3e;
+  font-size: 20px;
+  font-family: Exo2Regular, serif;
+  text-align: center;
+}
+
+.b-block {
+  display: flex;
+  justify-content: center;
+}
+
+.create-blog {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+
+}
+
+
+.input-filed {
+  padding: 5px 20px;
+}
+
+.input-filed input {
+  width: 100%;
+  height: 35px;
+  border-radius: 1px;
+  text-indent: 0.8em;
+  border: 1px solid #d1b6b7;
+  margin-bottom: 15px;
+  font-size: 12px;
+}
+.error-input {
+  display: flex;
+  //align-content: start;
+  width: 50%;
+  margin-top: -18px;
+
+}
+
+.error-input span {
+  color: #a01809;
+  font-size: 11px;
+  font-family: KIA_KIAM, serif;
+  font-weight: bold;
+  z-index: 1000;
+
+}
+
+.b-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.btn-sm, .btn-group-sm > .btn {
+  border-radius: 1.5px;
+}

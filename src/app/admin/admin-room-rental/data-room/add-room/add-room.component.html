@@ -1,0 +1,44 @@
+<app-admin-room-rental></app-admin-room-rental>
+
+
+<div class="wrapper-admin">
+  <div class="add-room-container">
+    <div class="header-room-text">
+      <p>
+        Add room
+      </p>
+
+      <div class="create-room">
+        <form name="form" [formGroup]="formGroup" (ngSubmit)="saveRoom()" novalidate>
+          <div class="input-filed">
+            <input formControlName="nameRoom" type="text" title="name room"
+                   placeholder="name room">
+          </div>
+          <div class="error-input" *ngIf="isSubmitted && f.nameRoom.errors">
+            <div *ngIf="f.nameRoom.errors.required"><span>* fill in the field </span></div>
+            <div *ngIf="f.nameRoom.errors.maxlength"><span>* 200 символов </span></div>
+          </div>
+          <div class="error-input" *ngIf="roomError">
+            <span>{{roomError.nameRoom}}</span>
+          </div>
+
+          <div class="input-filed">
+            <input formControlName="roomCapacity" type="number" title="room capacity"
+                   placeholder="room capacity">
+          </div>
+          <div class="error-input" *ngIf="isSubmitted && f.roomCapacity.errors">
+            <div *ngIf="f.roomCapacity.errors.required"><span>* fill in the field </span></div>
+            <div *ngIf="f.roomCapacity.errors.maxlength"><span>* 200 символов </span></div>
+          </div>
+          <div class="error-input" *ngIf="roomError">
+            <span>{{roomError.roomCapacity}}</span>
+          </div>
+
+          <div class="btn-save-room">
+            <button class="btn btn-secondary">Next <i class="fas fa-chevron-right"></i></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

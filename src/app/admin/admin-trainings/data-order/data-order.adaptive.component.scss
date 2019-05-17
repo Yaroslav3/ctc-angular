@@ -5,12 +5,10 @@
   .block-order {
     margin-left: 160px;
   }
-  tr th p {
+  tbody tr td {
     font-size: 10px;
   }
-  .table tr td {
-    padding: 8px;
-  }
+
 
 }
 
@@ -18,20 +16,13 @@
   .wrapper {
     max-width: 970px;
   }
-  //tr td {
-  //  font-size: 10px;
-  //}
-  .mob{
-    font-size: 8px;
-  }
+
 }
 
 @media only screen and (max-width: 768px) {
   .wrapper {
     max-width: 760px;
   }
-  .mob{
-    font-size: 6px;
-  }
+
 
 }

@@ -1,0 +1,59 @@
+<app-admin-webinars></app-admin-webinars>
+
+<div class="wrapper-admin">
+  <div class="block-webinar-order">
+
+
+    <div>
+      <table>
+        <thead>
+        <tr>
+          <th class="table-title d-inline-block col-1 text-table-header" scope="col"><p>status</p></th>
+          <th class="table-title d-inline-block col-3 text-table-header" scope="col"><p>name</p></th>
+          <th class="table-title d-inline-block col-4 text-table-header" scope="col"><p>theme</p></th>
+          <th class="table-title d-inline-block col-2 text-table-header" scope="col"><p>name client</p></th>
+          <th class="table-title d-inline-block col-2 text-table-header" scope="col"><p class="options">options</p>
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let elem of webinarOrder | paginate: {itemsPerPage:10, currentPage: p}">
+          <td class="d-inline-block col-1 text-table-header" title="status">
+            <div *ngIf="elem.status == 'sandbox'" title="status {{elem.status}}"><i class="sandbox fas fa-vial"></i></div>
+            <div *ngIf="elem.status == 'success'" title="status {{elem.status}}"><i class="success fas fa-check"></i></div>
+            <div *ngIf="elem.status == 'failure'" title="status {{elem.status}}"><i class="failure fas fa-exclamation-triangle"></i></div>
+            <div *ngIf="elem.status == 'error'" title="status {{elem.status}}"><i class="error fas fa-times"></i></div>
+          </td>
+          <td class="d-inline-block col-3 text-table-header" title="{{elem.nameWebinar}}">{{elem.nameWebinar}}</td>
+          <td class="d-inline-block col-4 text-table-header" title="{{elem.theme}}">{{elem.theme}}</td>
+          <td class="d-inline-block col-2 text-table-header" title="{{elem.nameAndLastName}}">{{elem.nameAndLastName}}
+          </td>
+
+          <td class="d-inline-block col-2 text-table-header">
+            <i class="fas fa-eye show" title="show" (click)="onClickShow(elem.id)"></i>
+            <i class="far fa-trash-alt delete" title="delete" (click)="openDeleteWindow(modalRemoveWebinarsOrder)"></i>
+          </td>
+
+          <!-------------------------- DELETE Trainers --------------------------------------------->
+          <ng-template #modalRemoveWebinarsOrder let-modal>
+            <div class="modal-body text-center">
+              <p style="color: #151230">Do you want to delete?</p>
+              <button type="button" class="btn-delete" (click)="removeWebinarOrder(elem.id)">Yes</button>
+              <button type="button" class="btn-exit" (click)="modal.dismiss('Cross click')">Exit</button>
+            </div>
+          </ng-template>
+        </tr>
+
+        </tbody>
+      </table>
+      <div class="clock-pagination-button">
+        <div>
+          <pagination-controls (pageChange)="p =$event"></pagination-controls>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+

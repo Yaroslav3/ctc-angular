@@ -94,7 +94,6 @@
               <div class="input-group">
                 <input id="end-event" class="form-control" placeholder="yyyy-mm-dd"
                        name="end" [(ngModel)]="model.end" ngbDatepicker
-
                        #e="ngbDatepicker">
                 <div class="input-group-append">
                   <button class="btn btn-outline-secondary calendar" (click)="e.toggle()" type="button"><i
@@ -160,7 +159,7 @@
               <label for="start-event-update">Start event</label>
               <div class="input-group">
                 <input id="start-event-update" class="form-control" placeholder="yyyy-mm-dd"
-                       name="start" [(ngModel)]="modelCalendarTrainingsDate.start" ngbDatepicker
+                       name="start" [(ngModel)]="modelCalendarTrainingsDate.start" required  ngbDatepicker
                        #s2="ngbDatepicker">
                 <div class="input-group-append">
                   <button class="btn btn-outline-secondary calendar" (click)="s2.toggle()" type="button"><i

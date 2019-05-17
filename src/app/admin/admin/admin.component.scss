@@ -6,12 +6,17 @@
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #b2b2b2;
+  background-color: #a7c6d1;
 }
 
 .nav-pills .nav-link {
   text-align: left;
   width: 160px;
+  border-radius: 0;
+}
+
+.nav-pills .nav-link:hover{
+  background-color: #f0f0f0;
 }
 a {
   color: #524343;
@@ -23,8 +28,9 @@ a {
   display:block;
   width: 200px;
   height: 610px;
-  padding: 20px;
-  background-color: #dbdbdb;
+  padding-left: 20px;
+  padding-right: 20px;
+  //background-color: #dbdbdb;
   margin-top: -16px;
 }
 

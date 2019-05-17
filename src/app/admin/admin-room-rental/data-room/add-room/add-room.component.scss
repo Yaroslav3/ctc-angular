@@ -1,0 +1,56 @@
+.wrapper-admin {
+  max-width: 1600px;
+  min-width: 765px;
+  margin: 0 auto;
+}
+
+.add-room-container {
+  display: flex;
+  flex-direction: column;
+  position: static;
+  height: 600px;
+  margin-left: 220px;
+  margin-top: -608px;
+}
+
+.header-room-text {
+  text-align: center;
+}
+
+.create-room {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.create-room input {
+  width: 100%;
+  height: 35px;
+  border-radius: 1px;
+  text-indent: 0.8em;
+  border: 1px solid #d1b6b7;
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+
+.btn-save-room {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn {
+  border-radius: 1px;
+}
+
+
+/***--------------------  valid --------------------------***/
+.error-input {
+  padding-bottom: 10px;
+}
+
+.error-input span {
+  color: #a01809;
+  font-size: 12px;
+  font-family: KIA_KIAM, serif;
+  font-weight: bold;
+
+}

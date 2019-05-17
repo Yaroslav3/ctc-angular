@@ -3,7 +3,7 @@ import {AngularEditorConfig} from '@kolkov/angular-editor';
 import {Trainers} from '../../../../shared/model/Trainers.model';
 import {TrainersService} from '../../../../shared/service/trainers.service';
 import {PhotoService} from '../../../../shared/service/photo.service';
-import {Trainings} from '../../../../shared/model/Trainings.model';
+import {Trainings} from '../../../../shared/model/trainings/Trainings.model';
 import {HttpEventType} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {FontsJsonFileService} from '../../../../shared/service/fonts-json-file.service';
@@ -42,7 +42,7 @@ export class TrainersAddComponent implements OnInit {
   editorConfig: AngularEditorConfig = {
     editable: true,
     showToolbar: true,
-    height: '13rem',
+    height: '20rem',
     fonts: this.fonts,
     defaultFontSize: '5',
     minHeight: '5rem',
@@ -93,6 +93,7 @@ export class TrainersAddComponent implements OnInit {
         this.progressService.ref().complete();
       },
       error => {
+        this.progressService.ref().complete();
         this.orderError = error.error;
         this.isCreated = false;
       });
@@ -128,6 +129,7 @@ export class TrainersAddComponent implements OnInit {
         } else if (event.type === HttpEventType.Response) {
           this.progressBar = false;
           this.boolSavePhoto = true;
+
         }
       }, error1 => {
         window.alert('error');

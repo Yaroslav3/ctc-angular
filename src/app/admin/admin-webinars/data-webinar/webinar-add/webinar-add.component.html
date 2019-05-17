@@ -1,0 +1,152 @@
+<app-admin-webinars></app-admin-webinars>
+
+
+<div class="wrapper-admin">
+  <ng-progress></ng-progress>
+  <div class="block-webinar-add">
+
+
+    <div class="wb-block">
+      <div class="wb-input">
+        <h3>create webinar</h3>
+
+        <form name="form" [formGroup]="webinarForm" (ngSubmit)="saveWebinar()" novalidate>
+          <div>
+
+            <div class="input-filed">
+              <input formControlName="name" type="text" title="name" placeholder="name webinar"
+                     [ngClass]="{'is-invalid': isSubmitted && f.name.errors}">
+            </div>
+            <div class="error-input" *ngIf="isSubmitted && f.name.errors">
+              <div *ngIf="f.name.errors.required"><span>You must add an name webinar.</span></div>
+              <div *ngIf="f.name.errors.maxlength"><span> no more than 200 characters</span></div>
+            </div>
+            <div class="error-input" *ngIf="webinarError">
+              <span>{{webinarError.name}}</span>
+            </div>
+
+
+            <div class="input-filed">
+              <input formControlName="theme" type="text" title="theme" placeholder="theme">
+            </div>
+            <div class="error-input" *ngIf="isSubmitted && f.theme.errors">
+              <div *ngIf="f.theme.errors.required"><span>You must add an theme webinar.</span></div>
+              <div *ngIf="f.theme.errors.maxlength"><span> no more than 200 characters</span></div>
+            </div>
+            <div class="error-input" *ngIf="webinarError">
+              <span>{{webinarError.theme}}</span>
+            </div>
+
+
+            <div class="input-group">
+              <input formControlName="dateEvent" id="end-event" class="form-control" placeholder="date event yyyy-mm-dd"
+                     title="dateEvent"
+                     name="end" ngbDatepicker
+                     #e="ngbDatepicker">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar" (click)="e.toggle()" type="button"><i
+                  class="far fa-calendar-alt"></i></button>
+              </div>
+            </div>
+            <div class="error-input" *ngIf="isSubmitted && f.dateEvent.errors">
+              <div *ngIf="f.dateEvent.errors.required"><span>You must add an date webinar.</span></div>
+              <div *ngIf="f.dateEvent.errors.maxlength"><span> no more than 20 characters</span></div>
+            </div>
+            <div class="error-input" *ngIf="webinarError">
+              <span>{{webinarError.dateEvent}}</span>
+            </div>
+
+
+            <div class="input-filed">
+              <input formControlName="timeEvent" type="text" title="timeEvent" placeholder=" 10:00 - 18:00 event time">
+            </div>
+            <div class="error-input" *ngIf="isSubmitted && f.timeEvent.errors">
+              <div *ngIf="f.timeEvent.errors.required"><span>You must add an time webinar.</span></div>
+              <div *ngIf="f.timeEvent.errors.maxlength"><span> no more than 30 characters</span></div>
+            </div>
+            <div class="error-input" *ngIf="webinarError">
+              <span>{{webinarError.timeEvent}}</span>
+            </div>
+
+            <div class="input-filed">
+              <input formControlName="price" type="number" title="price" placeholder="price to event">
+            </div>
+            <div class="error-input" *ngIf="isSubmitted && f.price.errors">
+              <div *ngIf="f.price.errors.required"><span>You must add an time webinar.</span></div>
+              <div *ngIf="f.price.errors.maxlength"><span> no more than 19 characters</span></div>
+            </div>
+            <div class="error-input" *ngIf="webinarError">
+              <span>{{webinarError.price}}</span>
+            </div>
+
+
+            <div class="input-filed">
+              <select formControlName="currency" name="currency" title="currency">
+                <option>UAH</option>
+                <option>USD</option>
+                <option>EUR</option>
+              </select>
+              <div class="error-input" *ngIf="isSubmitted && f.currency.errors">
+                <div *ngIf="f.currency.errors.required">
+                  <span>* You must add an currency.</span>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="input-filed">
+              <input formControlName="countPerson" type="number" title="countPerson"
+                     placeholder="number of persons to event">
+            </div>
+            <div class="error-input" *ngIf="isSubmitted && f.countPerson.errors">
+              <div *ngIf="f.countPerson.errors.required"><span>You must add an count person.</span></div>
+              <div *ngIf="f.countPerson.errors.maxlength"><span> no more than 19 characters</span></div>
+            </div>
+            <div class="error-input" *ngIf="webinarError">
+              <span>{{webinarError.countPerson}}</span>
+            </div>
+
+
+            <div class="input-filed">
+              <input formControlName="city" type="text" title="city"
+                     placeholder="the city where the event takes place">
+            </div>
+            <div class="error-input" *ngIf="isSubmitted && f.city.errors">
+              <div *ngIf="f.city.errors.required"><span>You must add an name city.</span></div>
+              <div *ngIf="f.city.errors.maxlength"><span> no more than 50 characters</span></div>
+            </div>
+            <div class="error-input" *ngIf="webinarError">
+              <span>{{webinarError.city}}</span>
+            </div>
+
+            <div class="input-filed">
+              <input formControlName="address" type="text" title="address" placeholder="address  webinar">
+            </div>
+            <div class="error-input" *ngIf="isSubmitted && f.address.errors">
+              <div *ngIf="f.address.errors.required"><span> You must add an address  webinar</span></div>
+              <div *ngIf="f.address.errors.maxlength"><span> no more than 199 characters</span></div>
+            </div>
+            <div class="error-input" *ngIf="webinarError">
+              <span>{{webinarError.address}}</span>
+            </div>
+
+            <div>
+              <angular-editor formControlName="description" [config]="editorConfig"></angular-editor>
+            </div>
+            <div class="error-input" *ngIf="isSubmitted && f.description.errors">
+              <div *ngIf="f.description.errors.required"><span> You must add an description webinar.</span></div>
+            </div>
+            <div class="error-input" *ngIf="webinarError">
+              <span>{{webinarError.description}}</span>
+            </div>
+
+
+            <div class="wb-btn">
+              <button class="btn btn-secondary btn-sm">Next <i class="fas fa-angle-right"></i></button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

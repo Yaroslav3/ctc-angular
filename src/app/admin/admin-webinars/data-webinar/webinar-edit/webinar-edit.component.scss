@@ -1,0 +1,191 @@
+.wrapper-admin {
+  max-width: 1600px;
+  min-width: 765px;
+  margin: 0 auto;
+}
+
+.block-webinar-edit {
+  position: static;
+  height: auto;
+  margin-left: 220px;
+  margin-top: -608px;
+}
+
+.wb-block {
+  display: flex;
+  //justify-content: row;
+}
+
+/**------------------- Photo -------------------------**/
+.wb-photo {
+  width: 250px;
+  height: 250px;
+  //background-color: #f8f8f8;
+}
+
+.wb-photo .wb-img img {
+  width: 100%;
+  height: 150px;
+}
+
+//--------------Save Button---------------------//
+
+.change-btn-webinar {
+  margin-top: 20px;
+
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  width: 250px;
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 2px;
+  text-align: center;
+}
+
+.custom-file-upload:hover {
+  background-color: #e1e1e1;
+}
+
+.custom-file-save {
+  width: 250px;
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 2px;
+  text-align: center;
+}
+
+/************************************/
+//-----------------------------------//
+
+.btn-info-w {
+
+}
+
+.count-seats {
+  width: 100%;
+  background-color: #f2f2f2;
+  border-radius: 2px;
+}
+
+.count-seats p {
+  padding: 5px;
+  color: #1c6413;
+}
+
+.count-seats p span {
+  color: #005cbf;
+}
+
+.btn {
+  background-color: #ffffff;
+  border: 1px solid #c3bcd1;
+  border-radius: 2px;
+  color: #0a0a0a;
+}
+
+.btn:hover {
+  background-color: #e1e1e1;
+}
+
+.btn-info-w button {
+  width: 100%;
+  height: 40px;
+}
+
+.wb-input {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin-left: 20px;
+  margin-right: 40px;
+}
+
+.wb-input h3 {
+  font-size: 15px;
+  color: #2f2f2f;;
+  padding-bottom: 2px;
+}
+
+.input-filed input {
+  width: 100%;
+  height: 35px;
+  border-radius: 2px;
+  text-indent: 0.8em;
+  border: 1px solid #d1b6b7;
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+
+.input-filed input:focus {
+  border: 1px solid #575757;
+  box-shadow: 0 2px 8px rgba(28, 15, 25, 0.2);
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  height: 38px;
+  border-radius: 2px;
+  //text-indent: 0.8em;
+  border: 1px solid #d1b6b7;
+  font-size: 12px;
+}
+
+.input-group input:focus {
+  border: 1px solid #575757;
+  box-shadow: 0 2px 8px rgba(28, 15, 25, 0.2);
+}
+
+.input-filed select {
+  width: 100%;
+  height: 35px;
+  border-radius: 2px;
+  text-indent: 0.8em;
+  border: 1px solid #d1b6b7;
+  margin-bottom: 20px;
+  font-size: 12px;
+  font-family: 'KIA_KIAM', serif;
+}
+
+.error-input {
+  display: flex;
+  //align-content: start;
+  //width: 50%;
+  margin-top: -22px;
+}
+
+.error-input span {
+  color: #a01809;
+  font-size: 11px;
+  font-family: KIA_KIAM, serif;
+  font-weight: bold;
+}
+
+.error-input-date {
+}
+
+.error-input-date span {
+  color: #a01809;
+  font-size: 11px;
+}
+
+.wb-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.btn-sm, .btn-group-sm > .btn {
+  border-radius: 1.5px;
+}

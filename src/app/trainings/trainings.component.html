@@ -1,86 +1,59 @@
-<div *ngIf="inscriptions" class="wrapper">
-
-  <div class="promo-trainings">
-    <h1>{{inscriptions[0].paragraph}}</h1>
-  </div>
-  <br>
-
+<div class="wrapper">
 
   <br>
 
-  <div class="industries-trainings">
-    <p>{{inscriptions[1].paragraph}}</p>
-    <h1>{{inscriptions[1].description}}</h1>
-    <br>
-    <hr>
-  </div>
 
-  <div *ngFor="let training of trainings" class="accordion checkbox">
-    <ng-progress></ng-progress>
-    <ul>
-      <li>
-        <input type="checkbox" checked title="">
-        <i></i>
-        <h2 class="title_block">{{training.name}}</h2>
-        <div class="msg">
-          <div class="training-editor-show">
-            <angular-editor id="myEditor" [(ngModel)]="training.description" [config]="editorConfig"></angular-editor>
-          </div>
-          <hr class="hr-line-down">
-
-
-          <div class="order">
-            <div class="text-trainers">
-              <h4>Тренеры</h4>
-            </div>
-            <div class="order-trainings">
-              <div class="summary-trenets">
-                <div class="block-trener">
-
-                  <div *ngFor="let trainer of trainers">
-
-                    <button (click)="onClick(trainer)" type="submit">{{trainer.name}} {{trainer.surname}}
-
-                      <!--<div class="toshow">-->
-                      <!--<div class="img-trener">-->
-                      <!--<img [src]="'data:image/jpg;base64,'+ trainer['photo'][0]['photo']" alt="Trainings">-->
-                      <!--</div>-->
-                      <!--<div class="info-trener">-->
-                      <!--<p class="name-trener">{{trainer.name}} {{trainer.surname}}</p>-->
-                      <!--<div>-->
-                      <!--<p class="line">{{trainer.heading}}</p>-->
-                      <!--</div>-->
-                      <!--</div>-->
-                      <!--</div>-->
-                    </button>
-                  </div>
-
-
-                  <br>
-                  <div class="order-block">
-                    <button routerLink="/trainings-order" type="button" class="btn"><p>Заказать тренинг</p></button>
-                  </div>
-                  <br>
-                </div>
-
-                <div class="description">
-
-                </div>
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div [@up]="state" class="block-scroll">
-    <div class="scroll-up">
-      <button type="button" (click)="scrollUp()"><i class="fas fa-chevron-up"></i></button>
+  <div *ngIf="isProgress==true">
+    <div class="loading-content">
+      <app-loader></app-loader>
     </div>
   </div>
 
+  <div *ngIf="isProgress==false" class="all-content">
+    <br>
 
-  <br/>
+    <div class="industries-trainings">
+      <div *ngFor="let elem of inscriptions;">
+        <h1>{{elem.paragraph}}</h1>
+        <h2>{{elem.description}}</h2>
+        <br>
+      </div>
+    </div>
+    <br>
+    <br>
+
+    <div class="block-add-trainings">
+
+      <div *ngFor="let training of trainings; let i = index">
+        <a (click)="noClickTrainings(training.id)">
+          <div class="training-info-block" *ngFor="let elem of trainings[i].photoTrainings;">
+            <img [src]="'data:image/jpg;base64,' + elem.photo" alt="photo">
+            <br>
+            <br>
+            <div class="down-info">
+              <h3>{{training.name}}</h3>
+              <div class="bl">
+                <span>{{training.briefly}}</span>
+              </div>
+              <hr>
+              <div class="btn-training">
+                <button type="button" class="btn btn-outline-secondary">заказть корпоративный тренинг
+                </button>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+
+    <!--<div [@up]="state" class="block-scroll">-->
+    <!--<div class="scroll-up">-->
+    <!--<button type="button" (click)="scrollUp()"><i class="fas fa-chevron-up"></i></button>-->
+    <!--</div>-->
+    <!--</div>-->
+
+
+    <br/>
+  </div>
 </div>

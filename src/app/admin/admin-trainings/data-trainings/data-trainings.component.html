@@ -4,27 +4,26 @@
   <div class="row">
     <div class="block-trainings">
       <div class="table-responsive-md">
-        <table class="table">
-          <thead class="thead-light">
+
+
+        <table>
+          <thead>
           <tr>
-            <th class="d-inline-block col-8 text-table-header" scope="col"><p>name</p></th>
-            <th class="d-inline-block col-4 text-table-header" scope="col"><p class="options"> options</p></th>
+            <th class="table-title d-inline-block col-7 text-table-header" scope="col"><p>name</p></th>
+            <th class="table-title d-inline-block col-5 text-table-header" scope="col"><p class="options">options</p>
+            </th>
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let elem of trainings |paginate: {itemsPerPage:10, currentPage: p}">
-            <td class="d-inline-block col-8 text-table">{{elem.name}}</td>
-            <td class="d-inline-block col-4 text-table">
-              <div class="btn group">
-                <button (click)="onClick(elem)" class="badge badge-danger btn-sm"><i class="fas fa-edit"></i> Edit
-                </button>
-                <button (click)="openModal(template)" class="badge badge-secondary btn-sm"><i
-                  class="far fa-trash-alt"></i>
-                  Delete
-                </button>
-              </div>
+          <tr *ngFor="let elem of trainings |paginate: {itemsPerPage:8, currentPage: p}">
+            <td class="d-inline-block col-7 text-table-header">{{elem.name}}</td>
+            <td class="d-inline-block col-5 text-table-header">
+              <i class="fas fa-pencil-alt edit" (click)="onClick(elem)"></i>
+              <i class="far fa-trash-alt delete" (click)="openModal(deleteModal)"></i>
             </td>
-            <ng-template #template>
+
+            <!------------------------------ DELETE  Trainers ------------------------------------------------->
+            <ng-template #deleteModal>
               <div class="modal-body text-center">
                 <p style="color: #151230">Do you want to delete?</p>
                 <button type="button" class="btn-delete" (click)="confirm(elem.id)">Yes</button>
@@ -32,17 +31,60 @@
               </div>
             </ng-template>
           </tr>
+
           </tbody>
         </table>
-        <div *ngIf="boolPagination">
-          <pagination-controls (pageChange)="p =$event"></pagination-controls>
+        <div class="clock-pagination-button">
+          <div>
+            <pagination-controls (pageChange)="p =$event"></pagination-controls>
+          </div>
+          <div>
+            <button type="button" routerLink="/admin/trainings/trainings-add" class="btn btn-info btn-sm"><i
+              class="fas fa-address-book"></i> Add trainer
+            </button>
+          </div>
         </div>
 
-        <div class="add-training">
-          <button type="button" routerLink="/admin/trainings/trainings-add" class=" btn btn-info"><i
-            class="fab fa-creative-commons-remix"></i> Add training
-          </button>
-        </div>
+
+        <!--<table class="table">-->
+        <!--<thead class="thead-light">-->
+        <!--<tr>-->
+        <!--<th class="d-inline-block col-8 text-table-header" scope="col"><p>name</p></th>-->
+        <!--<th class="d-inline-block col-4 text-table-header" scope="col"><p class="options"> options</p></th>-->
+        <!--</tr>-->
+        <!--</thead>-->
+        <!--<tbody>-->
+        <!--<tr *ngFor="let elem of trainings |paginate: {itemsPerPage:10, currentPage: p}">-->
+        <!--<td class="d-inline-block col-8 text-table">{{elem.name}}</td>-->
+        <!--<td class="d-inline-block col-4 text-table">-->
+        <!--<div class="btn group">-->
+        <!--<button (click)="onClick(elem)" class="badge badge-danger btn-sm"><i class="fas fa-edit"></i> Edit-->
+        <!--</button>-->
+        <!--<button (click)="openModal(template)" class="badge badge-secondary btn-sm"><i-->
+        <!--class="far fa-trash-alt"></i>-->
+        <!--Delete-->
+        <!--</button>-->
+        <!--</div>-->
+        <!--</td>-->
+        <!--<ng-template #template>-->
+        <!--<div class="modal-body text-center">-->
+        <!--<p style="color: #151230">Do you want to delete?</p>-->
+        <!--<button type="button" class="btn-delete" (click)="confirm(elem.id)">Yes</button>-->
+        <!--<button type="button" class="btn-exit" (click)="decline()">Exit</button>-->
+        <!--</div>-->
+        <!--</ng-template>-->
+        <!--</tr>-->
+        <!--</tbody>-->
+        <!--</table>-->
+        <!--<div *ngIf="boolPagination">-->
+        <!--<pagination-controls (pageChange)="p =$event"></pagination-controls>-->
+        <!--</div>-->
+
+        <!--<div class="add-training">-->
+        <!--<button type="button" routerLink="/admin/trainings/trainings-add" class=" btn btn-info"><i-->
+        <!--class="fab fa-creative-commons-remix"></i> Add training-->
+        <!--</button>-->
+        <!--</div>-->
       </div>
     </div>
   </div>

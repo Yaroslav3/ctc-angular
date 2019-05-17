@@ -1,0 +1,83 @@
+/******************************---- Menu Animations ----********************************************/
+.menu-animation {
+
+  position: fixed;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 30px;
+  background: #FFFFFF;
+  z-index: 5000;
+  margin-left: 0;
+  box-shadow: 0 3px 6px rgba(69, 104, 156, 0.3);
+}
+
+
+.logo-animation {
+  flex-grow: 1;
+  background: no-repeat;
+  background-size: 30px;
+  margin-left: 3%;
+  margin-top: 0.20%;
+}
+
+.animation-ul {
+  display: flex;
+  justify-content: center;
+  margin-right: 17px;
+}
+
+.animation-li {
+  list-style: none;
+  //padding: 3px 2px;
+}
+
+
+li.animation-li a {
+  font-family: 'Ubuntu_Bold', serif;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 12px;
+  color: #111;
+  position: relative;
+  margin: 2px 5px;
+  top: 5px;
+}
+
+
+/***************/
+
+//li.animation-li:hover {
+//  background-color: #F2F2F2;
+//
+//
+//}
+//
+li.animation-li a:hover {
+  color: #650707;
+}
+
+li.animation-li a::before {
+  content: '';
+  width: 0;
+  height: 1px;
+  background-color: #353694;
+  box-shadow: 0 3px 6px rgba(251, 251, 251, 0.9);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transition: .5s;
+}
+
+li.animation-li a::after {
+  content: '';
+  width: 0;
+  height: 1px;
+  background-color: #353694;
+  box-shadow: 0 3px 6px rgba(251, 251, 251, 0.9);
+  position: absolute;
+  top: 100%;
+  right: 0;
+}
+
+

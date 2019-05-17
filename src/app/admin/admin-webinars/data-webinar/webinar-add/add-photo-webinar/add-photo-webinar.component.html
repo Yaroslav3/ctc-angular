@@ -1,0 +1,75 @@
+<app-admin-webinars></app-admin-webinars>
+<div class="wrapper-admin">
+  <ng-progress></ng-progress>
+  <div class="block-webinar-photo">
+
+
+    <div class="wb-block">
+      <div class="wb-input">
+        <h3>create photo webinar</h3>
+
+
+
+
+        <div *ngIf="alert3==true">
+          <div class="alert alert-success" role="alert">
+            No webinar for this id was found
+          </div>
+          <div class="wb-btn">
+            <button
+              (click)="back()"
+              class="btn btn-secondary btn-sm">Next <i class="fas fa-angle-right"></i></button>
+          </div>
+        </div>
+
+        <div *ngIf="alert2==true">
+          <div class="alert alert-success" role="alert">
+            The photo already exists, go to the editing section to change the photo!!
+          </div>
+          <div class="wb-btn">
+            <button
+              (click)="changePhoto()"
+              class="btn btn-secondary btn-sm">Next <i class="fas fa-angle-right"></i></button>
+          </div>
+        </div>
+
+        <div *ngIf="alert==true">
+          <div class="alert alert-success" role="alert">
+            Photo saved succeed!
+          </div>
+          <div class="wb-btn">
+            <button
+              (click)="finish()"
+              class="btn btn-secondary btn-sm">Next <i class="fas fa-angle-right"></i></button>
+          </div>
+        </div>
+
+
+        <div *ngIf="boolUpdatePhoto">
+          <label for="file-upload" class="custom-file-upload">
+            <i class="fas fa-cloud-upload-alt"></i> Upload photo
+          </label>
+          <input id="file-upload" type="file" (change)="onFileSelector($event)">
+        </div>
+
+
+        <div class="btn-save-photo" *ngIf="buttonUpdatePhoto">
+          <button type="button" class=" btn btn-info btn-sm" (click)="onCreate()"><i
+            class="fas fa-check-circle"></i><span style="margin-left: 10px">Save photo</span>
+          </button>
+          <div *ngIf="buttonUpdatePhoto" class="name-file">
+            <p>{{selectFile.name}}</p>
+          </div>
+        </div>
+
+        <div>
+          <div *ngIf="progressBar" class="progress-bar-upload">
+            <progress-bar [progress]="progress" [color]="'#488aff'">
+            </progress-bar>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

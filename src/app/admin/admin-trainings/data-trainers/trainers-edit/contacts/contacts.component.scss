@@ -1,0 +1,190 @@
+.wrapper-admin {
+  max-width: 1600px;
+  min-width: 765px;
+  margin: 0 auto;
+}
+
+.block-trainers-contacts {
+  position: static;
+  margin-left: 200px;
+  margin-top: -608px;
+  height: 630px;
+  padding-left: 2%;
+}
+
+
+/************* Table ******************/
+
+
+table {
+  text-align: left;
+  line-height: 30px;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 2px solid #f9f9f9;
+  width: 98%;
+  //margin: 50px auto;
+  border-radius: .25rem;
+  box-shadow: 0 2px 8px rgba(28, 15, 25, 0.2);
+
+}
+
+table .table-title {
+  font-size: 12px;
+  font-family: Ubuntu_Rehular, serif;
+}
+
+tbody tr td {
+  font-size: 12px;
+
+}
+
+
+
+
+thead tr:first-child {
+  background: #5487c6;
+  color: #fff;
+  border: none;
+}
+
+th:first-child,
+td:first-child {
+  padding: 0 15px 0 10px;
+}
+
+th {
+  font-weight: 500;
+}
+
+thead tr:last-child th {
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+  background-color: #f2f2f2;
+  cursor: default;
+}
+
+tbody tr:last-child td {
+  border: none;
+}
+
+tbody td {
+  border-bottom: 1px solid #ddd;
+}
+
+td:last-child {
+  text-align: right;
+  padding-right: 10px;
+}
+
+tbody td i {
+  margin-right: 20px;
+}
+
+.edit:hover {
+  color: #0a79df;
+}
+
+
+.btn-add-skills {
+  display: flex;
+  justify-content: space-between;
+  height: 28px;
+}
+
+.btn-secondary {
+  color: #fff;
+  background-color: #5487c6;
+  border-color: #6c757d;
+}
+
+.btn-delete {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 25px;
+  margin-top: 25px;
+}
+
+
+/******************** MODAL WINDOW ADD CONTACTS *******************************************/
+
+/*** Modal window edit***/
+
+.btn-add {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px;
+}
+
+.btn-add button {
+  margin-left: 10px;
+}
+
+.form-group {
+  margin-top: -10px;
+}
+
+.form-group label {
+  font-size: 10px;
+}
+
+.form-group input {
+  height: 37px;
+  text-indent: 0.1em;
+  font-weight: bold;
+  font-size: 10px;
+  color: #7f3400;
+}
+
+.form-group select {
+  height: 36px;
+  font-weight: bold;
+  text-indent: 0.1em;
+  font-size: 10px;
+  color: #492200;
+}
+
+.form-group .color-choose {
+  width: 10px;
+  height: 10px;
+}
+
+
+.modal-body button {
+  margin-left: 20px;
+}
+
+.btn-exit {
+  background-color: #9c9c9c;
+  border-color: #ffffff;
+}
+
+
+/*** Modal window remove***/
+
+.btn-delete-btn {
+  width: 55px;
+  height: 25px;
+  border-radius: 5px;
+  border: 0 solid white;
+  background-color: #dc3545;
+  cursor: pointer;
+}
+
+.btn-exit-btn {
+  width: 55px;
+  height: 25px;
+  border-radius: 5px;
+  border: 0 solid white;
+  background-color: #6c757d;
+  cursor: pointer;
+}
+
+
+.back{
+  color: #144e22;
+  cursor: pointer;
+}
+

@@ -1,0 +1,98 @@
+<app-menu></app-menu>
+
+
+<div class="wrapper">
+  <ng-progress></ng-progress>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="all-content">
+
+    <div class="coach-header">
+      <div class="btn-back">
+        <a class="btn btn-outline-secondary" routerLink="/webinars"> <i class="fas fa-chevron-left"></i>
+          назад</a>
+      </div>
+      <div *ngIf="webinar" class="white_bg">
+        <div class="bl-block">
+          <div class="bl-img">
+            <img [src]="'data:image/jpg;base64,' + webinar.photoWebinars[0].photo">
+          </div>
+
+          <div class="bl-w-info">
+            <div class="bl-w-text">
+              <p class="name-w">{{webinar.name}}</p>
+              <p>{{webinar.theme}}</p>
+            </div>
+
+            <div class="bl-w-price">
+              <p class="date">{{webinar.dateEvent| date: 'dd.MM.yyyy'}}</p>
+              <p>{{webinar.timeEvent}}</p>
+            </div>
+            <div class="bl-w-count" *ngIf="webinar.countPerson-count > 0">
+              <p> осталось мест: <span>{{webinar.countPerson - count}}</span></p>
+              <p> {{webinar.price}} {{webinar.currency}}</p>
+            </div>
+            <div class="bl-w-count" *ngIf="webinar.countPerson-count <= 0">
+              <div class="bl-w-count-null">
+                Все бидеты на вебинар проданы!
+              </div>
+            </div>
+          </div>
+          <div class="bl-block-editor">
+            <div class="webinar-description">
+              <p>Описание вебинара</p>
+            </div>
+
+            <angular-editor id="myEditor" [(ngModel)]="webinar.description"
+                            [config]="editorConfig"></angular-editor>
+
+
+            <div class="w-zero" *ngIf="webinar.countPerson-count <= 0">
+              <div class="alert alert-success" role="alert">
+                Все бидеты на вебинар проданы!
+              </div>
+            </div>
+
+            <div *ngIf="webinar.countPerson-count > 0" class="w-tab">
+
+              <table>
+                <thead>
+                <tr>
+                  <th class="table-title d-inline-block col-4 text-table-header" scope="col">свободных мест</th>
+                  <th class="table-title d-inline-block col-4 text-table-header" scope="col">цена</th>
+                  <th class="table-title d-inline-block col-4 text-table-header" scope="col">к-во</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td class="d-inline-block col-4 text-table-header">{{webinar.countPerson - count}}</td>
+                  <td class="d-inline-block col-4 text-table-header price-w">{{webinar.price}} {{webinar.currency}}
+                  </td>
+                  <td class="d-inline-block col-4 text-table-header">
+                    <form name="form" novalidate>
+                      <select class="select-w" [(ngModel)]="d" name="count" title="count">
+                        <!--<option *ngFor="let elem of createRange(webinar.countPerson-count); let i=index">-->
+                        <!--{{i+1}}-->
+                        <!--</option>-->
+                        <option>1</option>
+                      </select>
+                    </form>
+                  </td>
+                  <div class="btn-buy">
+                    <button class="btn btn-outline-secondary" (click)="order( webinar)">
+                      Купить
+                    </button>
+                  </div>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

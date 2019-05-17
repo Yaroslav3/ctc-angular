@@ -1,0 +1,152 @@
+<app-admin-webinars></app-admin-webinars>
+
+
+<div class="wrapper-admin">
+  <ng-progress></ng-progress>
+  <div class="block-webinar-inscription">
+
+
+    <div>
+      <p>
+        inscriptions webinar
+      </p>
+      <table>
+        <thead>
+        <tr>
+          <th class="d-inline-block col-4 text-table" scope="col">paragraph</th>
+          <th class="d-inline-block col-4 text-table" scope="col">description</th>
+          <th class="d-inline-block col-4 text-table options" scope="col">options</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let elem of webinar">
+          <td class="mob d-inline-block col-4 text-table"
+              title="{{elem.paragraph}}">{{elem.paragraph}}
+          </td>
+          <td class="name mob d-inline-block col-4 text-table"
+              title="{{elem.description}}">{{elem.description}}
+          </td>
+          <td class="d-inline-block col-4 text-table-header">
+            <i class="far fa-edit edit" title="edit"
+               (click)="openUpdateInscription(modalEditInscriptions, elem.id)"></i>
+            <i class="far fa-trash-alt delete" *ngIf="roles[0] == ['PM']"
+               title="delete" (click)="openModalDelete(templateDelete)"></i>
+          </td>
+
+          <ng-template #templateDelete let-modal>
+            <div class="modal-body text-center">
+              <p style="color: #151230">Do you want to delete?</p>
+              <button type="button" class="btn-delete" (click)="deleteInscription(elem.id)">Yes</button>
+              <button type="button" class="btn-exit" (click)="modal.dismiss('Cross click')">Exit</button>
+            </div>
+          </ng-template>
+        </tr>
+        </tbody>
+      </table>
+
+    </div>
+    <div class="add-inscriptions-btn">
+      <button type="button" class="btn btn-info" (click)="openModalAddInscriptions(modalAddInscriptions)">
+        <i class="fas fa-puzzle-piece"></i> create
+      </button>
+    </div>
+
+
+    <!------------------------------------- Modal window edit Inscription------------------------------------------->
+
+    <ng-template #modalEditInscriptions let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-edit"><span><i class="fas fa-edit"></i> edit inscriptions</span>
+        </h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div *ngIf="inscriptionsModel">
+          <form name="form" [formGroup]="webinarForm" (ngSubmit)="updateInscription()" novalidate>
+            <div class="input-filed">
+              <input formControlName="paragraph" type="text"
+                     [(ngModel)]="inscriptionsModel.paragraph"
+                     title="paragraph" placeholder="paragraph">
+            </div>
+            <div class="error-input" *ngIf="isSubmitted && f.paragraph.errors">
+              <div *ngIf="f.paragraph.errors.required"><span>You must add an paragraph inscription.</span></div>
+              <div *ngIf="f.paragraph.errors.maxlength"><span> no more than 200 characters</span></div>
+            </div>
+
+
+            <div class="input-filed">
+            <textarea formControlName="description" type="text"
+                      [(ngModel)]="inscriptionsModel.description"
+                      title="description" placeholder="description"></textarea>
+            </div>
+            <div class="error-input" *ngIf="isSubmitted && f.description.errors">
+              <div *ngIf="f.description.errors.required"><span>You must add an description inscription.</span></div>
+              <div *ngIf="f.description.errors.maxlength"><span> no more than 200 characters</span></div>
+            </div>
+
+
+            <div class="btn-add-inscriptions-modal-create">
+              <button class="btn-inscriptions-delete-modal-create">Yes</button>
+              <button type="button" class="btn-exit-inscriptions-delete-modal-create"
+                      (click)="modal.dismiss('Cross click')">Exit
+              </button>
+            </div>
+
+
+          </form>
+        </div>
+      </div>
+    </ng-template>
+
+
+    <!------------------------------------- Modal window create Inscription------------------------------------------->
+
+    <ng-template #modalAddInscriptions let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-add"><span> <i class="fas fa-puzzle-piece"></i> create inscriptions</span>
+        </h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+        <form name="form" [formGroup]="webinarForm" (ngSubmit)="saveInscription()" novalidate>
+          <div class="input-filed">
+            <input formControlName="paragraph" type="text"
+
+                   title="paragraph" placeholder="paragraph">
+          </div>
+          <div class="error-input" *ngIf="isSubmitted && f.paragraph.errors">
+            <div *ngIf="f.paragraph.errors.required"><span>You must add an paragraph inscription.</span></div>
+            <div *ngIf="f.paragraph.errors.maxlength"><span> no more than 200 characters</span></div>
+          </div>
+
+          <div class="input-filed">
+            <textarea formControlName="description" type="text"
+                      title="description" placeholder="description"></textarea>
+          </div>
+          <div class="error-input" *ngIf="isSubmitted && f.description.errors">
+            <div *ngIf="f.description.errors.required"><span>You must add an description inscription.</span></div>
+            <div *ngIf="f.description.errors.maxlength"><span> no more than 200 characters</span></div>
+          </div>
+
+
+          <div class="btn-add-inscriptions-modal-create">
+            <button class="btn-inscriptions-delete-modal-create">Yes</button>
+            <button type="button" class="btn-exit-inscriptions-delete-modal-create"
+                    (click)="modal.dismiss('Cross click')">Exit
+            </button>
+          </div>
+        </form>
+      </div>
+    </ng-template>
+
+
+  </div>
+</div>
+

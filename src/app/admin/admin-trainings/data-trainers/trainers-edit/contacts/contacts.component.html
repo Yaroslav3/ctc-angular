@@ -1,0 +1,177 @@
+<app-admin-trainings></app-admin-trainings>
+
+<div class="wrapper-admin">
+  <ng-progress></ng-progress>
+  <div class="editor-container">
+    <div class="block-trainers-contacts">
+
+      <div *ngIf="contacts == null">
+        <button type="button" class="btn btn-secondary btn-sm"
+                (click)="openModalAddContacts(modalAddContacts)">
+          <i class="fas fa-puzzle-piece"></i> add contacts
+        </button>
+      </div>
+
+
+      <ng-template #modalAddContacts let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-add"><span><i class="fas fa-puzzle-piece"></i> add contacts</span>
+          </h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form name="form" #f="ngForm" novalidate>
+            <div class="info-user">
+              <div class="form-group">
+                <label for="facebook">facebook</label>
+                <input type="text" [(ngModel)]="contactsModel.urlFacebook" name="name" class="form-control"
+                       id="facebook" placeholder="name">
+              </div>
+              <div class="form-group">
+                <label for="linkedin">Linkedin</label>
+                <input type="text" [(ngModel)]="contactsModel.urlLinkedin" name="name" class="form-control"
+                       id="linkedin" placeholder="name">
+              </div>
+              <div class="form-group">
+                <label for="email">email</label>
+                <input type="text" [(ngModel)]="contactsModel.email" name="name" class="form-control"
+                       id="email" placeholder="name">
+              </div>
+              <div class="form-group">
+                <label for="skype">skype</label>
+                <input type="text" [(ngModel)]="contactsModel.skype" name="name" class="form-control"
+                       id="skype" placeholder="name">
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="btn-add">
+          <button type="button" class=" btn btn-secondary btn-save btn-sm" (click)="createContacts(contactsModel)">
+            Save
+          </button>
+          <button type="button" class="btn-exit btn btn-primary btn-sm" (click)="modal.dismiss('Cross click')">Exit
+          </button>
+        </div>
+      </ng-template>
+
+
+      <div *ngIf="contacts" class="skills-coach">
+
+        <table>
+          <thead>
+          <tr>
+            <th class="table-title">name</th>
+            <th class="table-title">contacts</th>
+            <th class="table-title">options</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><i class="fab fa-facebook"></i>facebook</td>
+            <td>{{contacts.urlFacebook}}</td>
+            <td>
+              <i class="fas fa-pencil-alt edit"
+                 (click)="openModalEditContacts(contactsEditModal)"></i>(edit)
+            </td>
+          </tr>
+          <tr>
+            <td><i class="fab fa-linkedin"></i>Linkedin</td>
+            <td>{{contacts.urlLinkedin}}</td>
+            <td>
+              <i class="fas fa-pencil-alt edit"
+                 (click)="openModalEditContacts(contactsEditModal)"></i>(edit)
+            </td>
+          </tr>
+          <tr>
+            <td><i class="fas fa-envelope"></i>email</td>
+            <td>{{contacts.email}}</td>
+            <td>
+              <i class="fas fa-pencil-alt edit"
+                 (click)="openModalEditContacts(contactsEditModal)"></i>(edit)
+            </td>
+          </tr>
+          <tr>
+            <td><i class="fab fa-skype"></i>skype</td>
+            <td>{{contacts.skype}}</td>
+            <td>
+              <i class="fas fa-pencil-alt edit"
+                 (click)="openModalEditContacts(contactsEditModal)"></i>(edit)
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="btn-delete">
+          <button type="button" class="btn btn-secondary btn-sm" (click)="openModalDelete(contactsDeleteModal)">
+            <i class="far fa-trash-alt delete"></i> Delete All
+          </button>
+        </div>
+
+        <div class="back">
+          <button  type="button" class="btn btn-light" (click)="back()">
+            <i class="fas fa-angle-left"></i> back
+          </button>
+        </div>
+
+        <!-------------------------------- Modal delete Contacts------------------------------------------------>
+        <ng-template #contactsDeleteModal let-modal>
+          <div class="modal-body text-center">
+            <p style="color: #151230">Do you want to delete?</p>
+            <button type="button" class="btn-delete-btn" (click)="contactsDelete(contacts.id)">Yes</button>
+            <button type="button" class="btn-exit-btn" (click)="modal.dismiss('Cross click')">Exit</button>
+          </div>
+        </ng-template>
+
+        <!-------------------------------------- Modal window edit Contacts -------------------------------------------->
+
+        <ng-template #contactsEditModal let-modal>
+          <div class="modal-header">
+            <h4 class="modal-title" id="modal-edit"><span><i class="fas fa-edit"></i> edit contacts</span>
+            </h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div *ngIf="contacts" class="modal-body">
+            <div class="info-user">
+              <div class="form-group">
+                <label for="facebook-edit">facebook </label>
+                <input type="text" [(ngModel)]="contacts.urlFacebook" class="form-control"
+                       id="facebook-edit" placeholder="name">
+              </div>
+
+              <div class="form-group">
+                <label for="linkedin-edit">Linkedin</label>
+                <input type="text" [(ngModel)]="contacts.urlLinkedin" class="form-control"
+                       id="linkedin-edit" placeholder="name">
+              </div>
+
+              <div class="form-group">
+                <label for="email-edit">email</label>
+                <input type="email" [(ngModel)]="contacts.email" class="form-control"
+                       id="email-edit" placeholder="name">
+              </div>
+
+              <div class="form-group">
+                <label for="skype-edit">skype</label>
+                <input type="text" [(ngModel)]="contacts.skype" class="form-control"
+                       id="skype-edit" placeholder="name">
+              </div>
+
+            </div>
+            <div class="btn-add">
+              <button type="button" class="btn-delete-btn"
+                      (click)="updateContacts(contacts, contacts.id)">Yes
+              </button>
+              <button type="button" class="btn-exit-btn" (click)="modal.dismiss('Cross click')">Exit</button>
+            </div>
+          </div>
+        </ng-template>
+
+      </div>
+    </div>
+  </div>
+</div>

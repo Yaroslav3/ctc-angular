@@ -1,0 +1,177 @@
+.wrapper-admin {
+  max-width: 1600px;
+  min-width: 765px;
+  margin: 0 auto;
+}
+
+.block-webinar-order {
+  position: static;
+  height: 620px;
+  margin-left: 220px;
+  margin-top: -608px;
+}
+
+/**------------------------ Table  --------------------------------**/
+
+table {
+  text-align: left;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid #f2f2f2;
+  width: 99%;
+  border-radius: .1rem;
+  box-shadow: 0 2px 8px rgba(28, 15, 25, 0.1);
+}
+
+thead tr:first-child {
+  background: #7e7e7e;
+  color: #fff;
+  border: none;
+  height: 10px;
+  font-family: Ubuntu_Rehular, serif;
+}
+
+table thead tr .options {
+  text-align: center;
+}
+
+tbody tr td {
+  font-size: 11px;
+}
+
+tbody tr td div .sandbox{
+  color: #3a27ff;
+  font-size: 15px;
+}
+
+tbody tr td div .success{
+  color: #1c6413;
+  font-size: 15px;
+}
+
+tbody tr td div .error{
+  color: #cd0a0a;
+  font-size: 15px;
+}
+
+tbody tr td div .failure{
+  color: #ff424a;
+  font-size: 15px;
+}
+
+table .table-title {
+  font-size: 12px;
+  font-family: Ubuntu_Rehular, serif;
+}
+
+th:first-child,
+td:first-child {
+  //padding: 0 15px 0 20px;
+}
+
+th {
+  font-weight: 500;
+}
+
+thead tr:last-child th {
+  border-bottom: 0;
+}
+
+tbody tr:hover {
+  background-color: #f2f2f2;
+  cursor: default;
+}
+
+tbody tr:last-child td {
+  border: none;
+}
+
+tbody td i {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+tbody td {
+  //border-bottom: 1px solid #ddd;
+}
+
+td:last-child {
+  text-align: right;
+  padding-right: 10px;
+}
+
+.button {
+  color: #aaa;
+  cursor: pointer;
+  vertical-align: middle;
+  margin-top: -4px;
+}
+
+.badge-message i {
+  font-size: 15px;
+  color: #005cbf;
+
+}
+
+
+/*** Modal window remove***/
+
+.modal-body button {
+  margin-left: 20px;
+}
+
+.btn-delete {
+  width: 55px;
+  height: 25px;
+  border-radius: 5px;
+  border: 0 solid white;
+  background-color: #dc3545;
+  cursor: pointer;
+}
+
+.btn-exit {
+  width: 55px;
+  height: 25px;
+  border-radius: 5px;
+  border: 0 solid white;
+  background-color: #6c757d;
+  cursor: pointer;
+}
+
+
+/***************    Pagination ***********************************/
+
+.clock-pagination-button {
+  margin-top: 20px;
+}
+
+:host ::ng-deep pagination-controls {
+  .ngx-pagination {
+    margin-left: 0 !important;
+    padding: 0 !important;
+  }
+
+  .ngx-pagination .current {
+    padding: 0.35rem 0.625rem;
+    background: #9a93a8;
+    color: #fefefe;
+    cursor: default;
+    border-radius: 5px;
+    font-size: 10px;
+  }
+
+  .ngx-pagination a, .ngx-pagination button {
+    color: #0a0a0a;
+    display: block;
+    padding: 0.1875rem 0.625rem;
+    border-radius: 0;
+    font-size: 10px;
+  }
+
+  .ngx-pagination .disabled {
+    padding: 0.1875rem 0.625rem;
+    color: #cacaca;
+    cursor: default;
+    font-size: 10px;
+  }
+}

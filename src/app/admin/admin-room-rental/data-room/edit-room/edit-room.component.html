@@ -1,0 +1,53 @@
+<app-admin-room-rental></app-admin-room-rental>
+
+<div class="wrapper-admin">
+  <div class="edit-room-container">
+    <div class="block-one-edit">
+
+      <div *ngIf="room" class="header-edit-photo-room">
+        <p>
+          Edit room: <span> {{room.nameRoom}} </span>
+        </p>
+      </div>
+
+      <div class="edit-btn">
+        <div class="btn-edit-photo">
+          <button type="button" class="btn btn-sm" routerLink="/admin/room/rental/edit-room/name/{{id}}">
+            <i style="margin-left: -7px;color: #005cbf" class="far fa-edit"></i>
+            <span style="margin-left: 10px">Edit name room</span>
+          </button>
+        </div>
+        <div class="btn-edit-photo">
+          <button type="button" class="btn btn-sm" routerLink="/admin/room/rental/edit-room/price/{{id}}">
+            <i style="margin-left: -9px;color: #5252bf" class="fas fa-tags"></i>
+            <span style="margin-left: 5px"> Edit price room</span>
+          </button>
+        </div>
+        <div class="btn-edit-photo">
+          <button type="button" class="btn btn-sm" routerLink="/admin/room/rental/edit-room/photo/{{id}}">
+            <i style="margin-left: -2px;color: #5252bf" class="far fa-images"></i>
+            <span style="margin-left: 10px">Edit photo room</span>
+          </button>
+        </div>
+        <div class="btn-edit-photo">
+          <button type="button" class="btn btn-sm" routerLink="/admin/room/rental/edit-room/article/{{id}}">
+            <i style="margin-left: 1px;color: #005cbf" class="far fa-newspaper"></i>
+            <span style="margin-left: 11px">Edit article room</span>
+          </button>
+        </div>
+        <div class="btn-edit-photo">
+          <button type="button" class="btn btn-sm" routerLink="/admin/room/rental/edit-room/show-order-room/{{id}}">
+            <i style="margin-left: 5px; color: #179918" class="fas fa-shopping-cart"></i>
+            <span style="margin-left: 8px"> Show order room</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
+
+<!--<i class="far fa-edit"></i>-->
+<!--<i class="far fa-images"></i>-->
+<!--<i class="fas fa-tags"></i>-->
+<!--<i class="fas fa-shopping-cart"></i>-->

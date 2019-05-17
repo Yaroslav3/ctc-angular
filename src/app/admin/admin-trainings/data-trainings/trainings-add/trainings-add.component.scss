@@ -7,25 +7,29 @@
 .block-add-trainings-susses {
   position: static;
   width: 80%;
-  margin-left: 20%;
+  margin-left: 17%;
   height: 580px;
   margin-top: -580px;
 }
 
-.alert {
-  height: 200px;
-  width: 80%;
+.alert p {
+  text-align: center;
+  font-size: 20px;
+  font-family: Exo2Regular, serif;
 }
 
-.alert p {
-  margin-top: 50px;
-  text-align: center;
-  font-size: 25px;
-  font-family: Ubuntu_Mono_Bold_Italic, serif ;
+.btn-next-article {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn {
+ border-radius: 1px;
 }
 
 .block-add-trainings h4 {
-  font-family: Ubuntu_italic, serif;
+  font-family: Exo2Regular, sans-serif, serif;
+  font-size: 20px;
   color: #7f3400;
 }
 
@@ -55,21 +59,42 @@
 
 .block-input {
   display: flex;
-  //flex-direction: row;
-  //justify-content: start;
   padding-left: 0;
+  margin-bottom: 20px;
 }
 
 .block-input input {
-  width: 50%;
-  height: 35px;
-  border-radius: 5px;
+  width: 100%;
+  height: 25px;
+  border-radius: 3px;
   text-indent: 0.8em;
-  border: 1px solid #ff6600;
+  border: 1px solid #575757;
+  font-size: 12px;
 }
+
 .block-input input:focus {
-  border: 1px solid #0f09f2;
+  border: 1px solid #575757;
   box-shadow: 0 2px 8px rgba(28, 15, 25, 0.2);
+}
+
+
+.block-input textarea {
+  width: 100%;
+  height: 75px;
+  border-radius: 3px;
+  text-indent: 0.4em;
+  border: 1px solid #575757;
+  font-size: 12px;
+  padding: 10px;
+}
+
+.block-input textarea:focus {
+  border: 1px solid #575757;
+  box-shadow: 0 2px 8px rgba(28, 15, 25, 0.2);
+}
+
+.btn {
+
 }
 
 
@@ -78,7 +103,7 @@
   justify-content: flex-end;
   width: 100%;
   margin-left: 0;
-  margin-top: -5px;
+
 }
 
 .group button {
@@ -86,7 +111,7 @@
 }
 
 .error-input {
-
+  margin-top: -23px;
 }
 
 .error-input span {

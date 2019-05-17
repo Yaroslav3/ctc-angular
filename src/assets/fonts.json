@@ -4,6 +4,82 @@
     "name": "Arial"
   },
   {
+    "class": "Exo2Regular",
+    "name": "Exo2Regular"
+  },
+  {
+    "class": "Exo2Bold",
+    "name": "Exo2Bold"
+  },
+  {
+    "class": "Exo2Light",
+    "name": "Exo2Light"
+  },
+  {
+    "class": "Exo2BoldItalic",
+    "name": "Exo2BoldItalic"
+  },
+  {
+    "class": "Exo2ThinItalic",
+    "name": "Exo2ThinItalic"
+  },
+  {
+    "class": "Exo2Thin",
+    "name": "Exo2Thin"
+  },
+  {
+    "class": "Exo2SemiBoldItalic",
+    "name": "Exo2SemiBoldItalic"
+  },
+  {
+    "class": "Exo2SemiBold",
+    "name": "Exo2SemiBold"
+  },
+  {
+    "class": "Exo2Black",
+    "name": "Exo2Black"
+  },
+  {
+    "class": "Exo2MediumItalic",
+    "name": "Exo2MediumItalic"
+  },
+  {
+    "class": "Exo2Medium",
+    "name": "Exo2Medium"
+  },
+  {
+    "class": "Exo2LightItalic",
+    "name": "Exo2LightItalic"
+  },
+  {
+    "class": "Exo2BlackItalic",
+    "name": "Exo2BlackItalic"
+  },
+  {
+    "class": "Exo2Italic",
+    "name": "Exo2Italic"
+  },
+  {
+    "class": "Exo2ExtraLightItalic",
+    "name": "Exo2ExtraLightItalic"
+  },
+  {
+    "class": "Exo2ExtraLight",
+    "name": "Exo2ExtraLight"
+  },
+  {
+    "class": "Exo2ExtraBoldItalic",
+    "name": "Exo2ExtraBoldItalic"
+  },
+  {
+    "class": "Exo2ExtraBold",
+    "name": "Exo2ExtraBold"
+  },
+  {
+    "class": "Exo2BoldItalic",
+    "name": "Exo2BoldItalic"
+  },
+  {
     "class": "times-new-roman",
     "name": "Times New Roman"
   },
@@ -130,5 +206,13 @@
   {
     "class": "KIA_KIAM",
     "name": "KIA_KIAM"
+  },
+  {
+    "class": "Fira_Mono",
+    "name": "Fira_Mono"
+  },
+  {
+    "class": "Fira_Mono_Bold",
+    "name": "Fira_Mono_Bold"
   }
 ]

@@ -1,0 +1,60 @@
+<app-admin-blog></app-admin-blog>
+
+<div class="wrapper-admin">
+  <div class="content-blog">
+    <div *ngIf="isListEmpty==true">
+      <div class="alert alert-primary" role="alert">
+        List is empty!
+      </div>
+      <div class="list-empty-btn">
+        <button type="button" routerLink="/admin/blog/data-add" class="btn btn-secondary btn-sm"><i
+          class="fas fa-rss"></i> Create Blog
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="isListEmpty == false">
+      <table>
+        <thead>
+        <tr>
+          <th class="table-title d-inline-block col-7 text-table-header" scope="col"><p>name</p></th>
+          <th class="table-title d-inline-block col-5 text-table-header" scope="col"><p class="options">options</p>
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let elem of blog | paginate: {itemsPerPage:8, currentPage: p}">
+          <td class="d-inline-block col-7 text-table-header" title="{{elem.name}}">{{elem.name}}</td>
+          <td class="d-inline-block col-5 text-table-header">
+            <i class="far fa-edit edit" title="edit" (click)="onClickEdit(elem.id)"></i>
+            <i class="far fa-trash-alt delete" title="delete" (click)="openDeleteWindow(modalRemoveWebinars)"></i>
+          </td>
+
+          <!---------------------------- DELETE Trainers ----------------------------------------------->
+          <ng-template #modalRemoveWebinars let-modal>
+            <div class="modal-body text-center">
+              <p style="color: #151230">Do you want to delete?</p>
+              <button type="button" class="btn-delete" (click)="removeBlog(elem.id)">Yes</button>
+              <button type="button" class="btn-exit" (click)="modal.dismiss('Cross click')">Exit</button>
+            </div>
+          </ng-template>
+        </tr>
+
+        </tbody>
+      </table>
+      <div class="clock-pagination-button">
+        <div>
+          <pagination-controls (pageChange)="p =$event"></pagination-controls>
+        </div>
+        <div>
+          <button type="button" routerLink="/admin/blog/data-add" class="btn btn-secondary btn-sm"><i
+            class="fas fa-rss"></i> Create Blog
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

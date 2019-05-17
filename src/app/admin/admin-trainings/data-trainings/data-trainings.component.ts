@@ -1,6 +1,6 @@
 import {Component, OnInit, TemplateRef} from '@angular/core';
-import {TrainingsService} from '../../../shared/service/trainings.service';
-import {Trainings} from '../../../shared/model/Trainings.model';
+import {TrainingsService} from '../../../shared/service/trainings/trainings.service';
+import {Trainings} from '../../../shared/model/trainings/Trainings.model';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 import {Router} from '@angular/router';
 import {NgProgress} from '@ngx-progressbar/core';
@@ -14,11 +14,12 @@ export class DataTrainingsComponent implements OnInit {
   trainings: Trainings;
   modalRef: BsModalRef;
   message: string;
-  boolPagination = false;
   p: any;
 
 
-  constructor(private serviceTrainings: TrainingsService, private modalService: BsModalService, private router: Router,
+  constructor(private serviceTrainings: TrainingsService,
+              private modalService: BsModalService,
+              private router: Router,
               public progress: NgProgress) {
   }
 
@@ -28,14 +29,14 @@ export class DataTrainingsComponent implements OnInit {
   }
 
 
+  /**
+   *  all trainings
+   * ***/
   private getAllTrainings() {
     this.progress.ref().start();
     this.serviceTrainings.adminGetAllTrainings().subscribe((data: Trainings) => {
       this.trainings = data;
-
-      if (Object.keys(data).length >= 5) {
-        this.boolPagination = true;
-      }
+      console.log(data);
       this.progress.ref().complete();
     });
   }

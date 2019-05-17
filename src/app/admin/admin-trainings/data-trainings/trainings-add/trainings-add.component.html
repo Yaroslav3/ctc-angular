@@ -4,35 +4,50 @@
 <div class="wrapper-admin">
   <ng-progress></ng-progress>
   <div *ngIf="doneSave" class="block-add-trainings-susses">
+  <!--<div class="block-add-trainings-susses">-->
     <div class="alert alert-success" role="alert">
       <p>Training save</p>
     </div>
+    <div class="btn-next-article">
+      <button class="btn btn-outline-secondary" (click)="next()"> Next <i class="fas fa-chevron-right"></i> </button>
+    </div>
   </div>
-  <div  *ngIf="done" class="add-container">
+  <!--<div *ngIf="done == false" class="add-container">-->
+  <div *ngIf="done" class="add-container">
     <div class="block-add-trainings">
       <h4>Add training</h4>
-      <div class="block-input">
-        <input type="text" class="input-training" [(ngModel)]="trainings.name"  value="{{trainings.name}}" name="name" title="name">
-      </div>
-      <div class="error-input" *ngIf="orderError">
-        <span>{{orderError.name}}</span>
-      </div>
 
-      <br>
-
-      <div class="editor">
-        <angular-editor [(ngModel)]="trainings.description" [config]="editorConfig"></angular-editor>
-        <div class="html">
+      <form name="form" [formGroup]="formGroup" (ngSubmit)="noClickAddTraining()" novalidate>
+        <div class="block-input">
+          <input formControlName="name" type="text" class="input-training" [(ngModel)]="trainings.name" name="name"
+                 title="name" placeholder="name training">
         </div>
+        <div class="error-input" *ngIf="isSubmitted && f.name.errors">
+          <div *ngIf="f.name.errors.required"><span>* fill in the field </span></div>
+          <div *ngIf="f.briefly.errors.maxLength"><span>* 200 символов </span></div>
+        </div>
+
         <div class="error-input" *ngIf="orderError">
-          <span>{{orderError.description}}</span>
+          <span> server {{orderError.name}}</span>
+        </div>
+
+        <div class="block-input">
+          <textarea formControlName="briefly" type="text" class="input-training" [(ngModel)]="trainings.briefly"
+                    name="briefly" title="briefly" placeholder="briefly about the training"></textarea>
+        </div>
+        <div class="error-input" *ngIf="isSubmitted && f.briefly.errors">
+          <div *ngIf="f.briefly.errors.required"><span>* fill in the field </span></div>
+          <div *ngIf="f.briefly.errors.maxLength"><span>* 200 символов </span></div>
         </div>
         <br>
+
         <div class="group">
-          <button class="btn btn-info" (click)="noClickAddTraining(trainings)" type="submit">Save</button>
+          <button class="btn btn-secondary" type="submit">Next <i class="fas fa-chevron-right"></i></button>
         </div>
-      </div>
+
+      </form>
     </div>
+
 
   </div>
 </div>

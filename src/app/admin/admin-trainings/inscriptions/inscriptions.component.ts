@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {InscriptionsService} from '../../../shared/service/inscriptions.service';
+import {InscriptionsService} from '../../../shared/service/trainings/inscriptions.service';
 import {Inscriptions} from '../../../shared/model/Inscriptions.model';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {MessageResponse} from '../../../shared/model/MessageResponse.model';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {TokenStorageService} from '../../auth/service/token-storage.service';
 import {NgProgress} from '@ngx-progressbar/core';
 
@@ -44,7 +44,7 @@ export class InscriptionsComponent implements OnInit {
 
 
   constructor(private inscriptionsService: InscriptionsService, private modalService: NgbModal,
-              private fb: FormBuilder, private tokenStorage: TokenStorageService, public progressService: NgProgress) {
+              private tokenStorage: TokenStorageService, private progressService: NgProgress) {
   }
 
   ngOnInit() {
@@ -132,7 +132,7 @@ export class InscriptionsComponent implements OnInit {
   }
 
   /**
-   *  open modal window Inscriptions
+   *  open edit modal window Inscriptions
    * ***/
   openEditInscriptions(view, id) {
     this.createFormGroup();

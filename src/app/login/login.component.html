@@ -5,7 +5,11 @@
     <div class="content-login">
       <div *ngIf="isLoggedIn; else loggedOut">
         Logged in as {{roles}}.
+        <div>
+          <app-loader></app-loader>
+        </div>
       </div>
+
 
       <ng-template #loggedOut>
         <div class="row col-sm-6" style="max-width:350px;">

@@ -1,0 +1,48 @@
+<app-admin-room-rental></app-admin-room-rental>
+
+<div class="wrapper-admin">
+  <div class="add-room-container">
+    <div class="edit-name-room-header">
+      <p>
+        <i class="far fa-edit"></i> edit room: <span>{{room.nameRoom}}</span>
+      </p>
+    </div>
+
+    <div class=" edit-room">
+      <form name="form" [formGroup]="formGroup" (ngSubmit)="updateRoom()" novalidate>
+        <div class="input-filed">
+          <input formControlName="nameRoom" type="text" name="nameRoom" title="name room" [(ngModel)]="room.nameRoom"
+                 placeholder="name room">
+        </div>
+        <div class="error-input" *ngIf="isSubmitted && f.nameRoom.errors">
+          <div *ngIf="f.nameRoom.errors.required"><span>* fill in the field </span></div>
+          <div *ngIf="f.nameRoom.errors.maxlength"><span>* 200 символов </span></div>
+        </div>
+        <div class="error-input" *ngIf="roomError">
+          <span>{{roomError.nameRoom}}</span>
+        </div>
+
+        <div class="input-filed">
+          <input formControlName="roomCapacity" type="number" name="roomCapacity" title="room capacity"
+                 [(ngModel)]="room.roomCapacity"
+                 placeholder="room capacity">
+        </div>
+        <div class="error-input" *ngIf="isSubmitted && f.roomCapacity.errors">
+          <div *ngIf="f.roomCapacity.errors.required"><span>* fill in the field </span></div>
+          <div *ngIf="f.roomCapacity.errors.maxlength"><span>* 200 символов </span></div>
+        </div>
+        <div class="error-input" *ngIf="roomError">
+          <span>{{roomError.roomCapacity}}</span>
+        </div>
+
+        <div class="btn-update-room">
+          <button type="button" class="btn btn-secondary" (click)="back()">
+            <i class="fas fa-chevron-left"></i> Back
+          </button>
+          <button class="btn btn-secondary"> Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

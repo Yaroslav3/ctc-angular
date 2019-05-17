@@ -12,7 +12,7 @@ import {
 } from '@ng-bootstrap/ng-bootstrap';
 import {CalendarComponent} from 'ng-fullcalendar';
 import {Options} from 'fullcalendar';
-import {TrainingsCalendarService} from '../../../shared/service/trainings-calendar.service';
+import {TrainingsCalendarService} from '../../../shared/service/trainings/trainings-calendar.service';
 import {NgProgress} from '@ngx-progressbar/core';
 
 
@@ -24,6 +24,8 @@ import {NgProgress} from '@ngx-progressbar/core';
 })
 export class DataCalendarComponent implements OnInit {
 
+  startEvent: Date;
+  endEvent: Date;
 
   constructor(protected el: ElementRef, private  calendarService: TrainingsCalendarService,
               private calendar: NgbCalendar, private modalService: NgbModal, private config: NgbDatepickerConfig,
@@ -52,6 +54,7 @@ export class DataCalendarComponent implements OnInit {
   model: CalendarTrainings = new CalendarTrainings();
   events: any;
   displayEvent: any;
+  id: number;
 
 
   calendarOptions: Options;
@@ -107,6 +110,7 @@ export class DataCalendarComponent implements OnInit {
     this.progressService.ref().start();
     this.calendarService.adminGetAllTrainingsCalendar().subscribe((data: CalendarTrainings) => {
       this.events = data;
+      console.log(data);
       this.fullCalendar(data);
       this.progressService.ref().complete();
     });
@@ -132,8 +136,10 @@ export class DataCalendarComponent implements OnInit {
    * ***/
   ngSaveDateCalendarTrainings(cal: CalendarTrainings) {
 
+    console.log(cal.start);
     this.progressService.ref().start();
-    this.calendarService.adminSaveCalendarTrainings(cal).subscribe(() => {
+    this.calendarService.adminSaveCalendarTrainings(cal).subscribe((data: CalendarTrainings) => {
+      this.id = data.id;
       this.modalService.dismissAll(2);
       this.progressService.ref().complete();
       window.alert('add event susses');
@@ -158,9 +164,15 @@ export class DataCalendarComponent implements OnInit {
    *
    * ***/
   getOneCalendarTrainings(id: number) {
+    console.log(id);
+    if (id === undefined) {
+      id = this.id;
+    }
     this.progressService.ref().start();
     this.calendarService.adminGetOneCalendarTrainingsEvent(id).subscribe((data: CalendarTrainings) => {
       this.modelCalendarTrainingsDate = data;
+      this.startEvent = new Date(data.start);
+      this.endEvent = new Date(data.end);
       this.progressService.ref().complete();
     });
   }
@@ -216,7 +228,6 @@ export class DataCalendarComponent implements OnInit {
     this.progressService.ref().start();
     this.calendarService.adminUpdateCalendarTrainingsEvent(id, calendarTrainings)
       .subscribe((data: CalendarTrainings) => {
-
         this.ucCalendar.fullCalendar('renderEvent', data);
         this.progressService.ref().complete();
       }, error2 => {

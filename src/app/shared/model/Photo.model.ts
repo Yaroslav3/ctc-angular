@@ -3,4 +3,5 @@ export class Photo {
   name: string;
   file: File;
   size: number;
+  photo: File;
 }

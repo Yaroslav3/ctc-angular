@@ -1,0 +1,63 @@
+
+.wrapper-admin {
+  max-width: 1600px;
+  min-width: 765px;
+  margin: 0 auto;
+}
+
+
+.content-blog-add-photo {
+  position: static;
+  height: 750px;
+  margin-left: 250px;
+  margin-top: -608px;
+}
+
+.b-p-block {
+  display: flex;
+  justify-content: center;
+}
+
+.header-text-blog-add-photo {
+  color: #4a3a3e;
+  font-size: 20px;
+  font-family: Exo2Regular, serif;
+  text-align: center;
+}
+
+
+//-----------------------------------
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  width: 150px;
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.custom-file-upload:hover {
+  background-color: #e1e1e1;
+}
+
+//------------------------------------
+.name-file {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.name-file p {
+  font-size: 10px;
+  color: #2f2f2f;;
+  padding-bottom: 2px;
+}
+
+.wb-btn{
+  display: flex;
+  justify-content: flex-end;
+}

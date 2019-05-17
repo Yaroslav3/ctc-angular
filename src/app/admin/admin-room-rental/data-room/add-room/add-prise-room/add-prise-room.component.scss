@@ -1,0 +1,83 @@
+.wrapper-admin {
+  max-width: 1600px;
+  min-width: 765px;
+  margin: 0 auto;
+}
+
+.add-prise-content {
+  position: static;
+  height: 650px;
+  margin-left: 250px;
+  margin-top: -608px;
+  padding-right: 20px;
+}
+
+.prise-block div p {
+  text-align: center;
+  color: #300202;
+}
+
+.btn-go-to {
+  display: flex;
+  justify-content: center;
+}
+
+.header-text-prise {
+  text-align: center;
+}
+
+.header-text-prise p span {
+  color: #179918;
+  font-size: 15px;
+  font-family: Exo2BoldItalic, sans-serif, serif;
+}
+
+
+.create-prise {
+  margin: 0 auto;
+  width: 60%;
+}
+
+.create-prise input {
+  width: 100%;
+  height: 35px;
+  border-radius: 1px;
+  text-indent: 0.8em;
+  border: 1px solid #d1b6b7;
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+
+.input-filed select {
+  width: 100%;
+  height: 35px;
+  border-radius: 2px;
+  text-indent: 0.8em;
+  border: 1px solid #d1b6b7;
+  margin-bottom: 20px;
+  font-size: 12px;
+  //font-family: 'KIA_KIAM', serif;
+}
+
+.btn-save-prise {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn {
+  border-radius: 1px;
+}
+
+/***--------------------  valid --------------------------***/
+.error-input {
+  padding-bottom: 10px;
+  margin-top: -20px;
+}
+
+.error-input span {
+  color: #a01809;
+  font-size: 12px;
+  font-family: KIA_KIAM, serif;
+  font-weight: bold;
+
+}

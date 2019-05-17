@@ -1,10 +1,39 @@
 <div class="wrapper">
-  <div class="developing-page">
+  <div class="calendar">
 
-
-    <div class="alert alert-info" role="alert">
-      Sorry! Page in developing...
+    <div class="calendar-container">
+      <div *ngIf="calendarOptions">
+        <ng-progress></ng-progress>
+        <ng-fullcalendar id="myCalendar" #fullcalendar [options]="calendarOptions" [(eventsModel)]="events"
+                         (eventClick)="eventClick($event.detail,contentShow)"></ng-fullcalendar>
+      </div>
     </div>
 
+    <ng-template #contentShow let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-show"><i class="far fa-calendar-alt"></i>
+          <span class="text-header">событие</span>
+        </h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="events-show">
+          <div class="info">
+            <label for="title"><i class="far fa-comment-alt"></i>
+              <span id="title"> {{modelCalendarTrainingsDate.title}}</span>
+            </label>
+          </div>
+          <div class="info">
+            <label for="data-event"> <i class="far fa-clock"></i>
+              <span
+                id="data-event"> {{modelCalendarTrainingsDate.start| date:'dd.MM.yyyy'}}
+                - {{modelCalendarTrainingsDate.end |date:'dd.MM.yyyy'}}</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </ng-template>
   </div>
 </div>

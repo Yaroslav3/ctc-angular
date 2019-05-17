@@ -33,8 +33,8 @@
 
 .editor-photo img {
   width: 150px;
-  height: 200px;
-  border-radius: 5px;
+  height: 130px;
+  border-radius: 2px;
 }
 
 //-----------------------------------
@@ -56,7 +56,13 @@ input[type="file"] {
   background-color: #e1e1e1;
 }
 
-//------------------------------------
+//----------- Button contacts-------------------------//
+
+.btn-contacts button {
+  width: 150px;
+}
+
+//----------------------------------------------------//
 
 .progress-bar-upload {
   width: 150px;
@@ -89,19 +95,21 @@ input[type="file"] {
 
 .editor-filed {
   width: 100%;
-  background-color: white;
-  flex-grow: 1;
+  height: auto;
+  //background-color: white;
+  //flex-grow: 1;
+  //padding: 10px;
 }
 
 .editor-filed input {
   width: 50%;
-  height: 35px;
-  border-radius: 5px;
+  height: 25px;
+  border-radius: 3px;
   text-indent: 0.8em;
   border: 1px solid #d1b6b7;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   color: #4d4d4d;
-  //font-size: 13px;
+  font-size: 12px;
 }
 
 .editor-filed input:focus {
@@ -111,12 +119,12 @@ input[type="file"] {
 
 .editor-filed textarea {
   width: 100%;
-  height: 137px;
+  height: 120px;
   border-radius: 5px;
   border: 1.5px solid #d1b6b7;
   color: #4d4d4d;
   text-align: justify;
-  padding: 15px 30px 15px 30px;
+  padding: 5px 10px 5px 10px;
 
 }
 
@@ -132,6 +140,7 @@ input[type="file"] {
 .editor {
   width: 100%;
 }
+
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
   color: #fff;
@@ -161,7 +170,6 @@ a {
 }
 
 
-
 .group {
   display: flex;
   justify-content: flex-end;
@@ -174,4 +182,196 @@ a {
   width: 155px;
   box-shadow: 0 2px 8px rgba(28, 15, 25, 0.2);
 }
+
+
+/************* Table ******************/
+
+
+table {
+  text-align: left;
+  line-height: 30px;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 2px solid #f9f9f9;
+  width: 100%;
+  //margin: 50px auto;
+  border-radius: .25rem;
+  box-shadow: 0 2px 8px rgba(28, 15, 25, 0.2);
+
+}
+
+table .table-title {
+  font-size: 12px;
+  font-family: Ubuntu_Rehular, serif;
+}
+
+tbody tr td {
+  font-size: 12px;
+}
+
+thead tr:first-child {
+  background: #5487c6;
+  color: #fff;
+  border: none;
+}
+
+th:first-child,
+td:first-child {
+  padding: 0 15px 0 10px;
+}
+
+th {
+  font-weight: 500;
+}
+
+thead tr:last-child th {
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+  background-color: #f2f2f2;
+  cursor: default;
+}
+
+tbody tr:last-child td {
+  border: none;
+}
+
+tbody td {
+  border-bottom: 1px solid #ddd;
+}
+
+td:last-child {
+  text-align: right;
+  padding-right: 10px;
+}
+
+tbody td i {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+
+.edit:hover {
+  color: #0a79df;
+}
+
+
+.delete:hover {
+  color: #dc2a2a;
+}
+
+.btn-add-skills {
+  display: flex;
+  justify-content: space-between;
+  height: 28px;
+}
+
+.btn-secondary {
+  color: #fff;
+  background-color: #5487c6;
+  border-color: #6c757d;
+}
+
+/***************    Pagination ***********************************/
+
+:host ::ng-deep pagination-controls {
+  .ngx-pagination {
+    margin-left: 0 !important;
+    padding: 0 !important;
+  }
+
+  .ngx-pagination .current {
+    padding: 0.35rem 0.625rem;
+    background: #5487c6;
+    color: #fefefe;
+    cursor: default;
+    border-radius: 5px;
+    font-size: 10px;
+  }
+
+  .ngx-pagination a, .ngx-pagination button {
+    color: #0a0a0a;
+    display: block;
+    padding: 0.1875rem 0.625rem;
+    border-radius: 0;
+    font-size: 10px;
+  }
+
+  .ngx-pagination .disabled {
+    padding: 0.1875rem 0.625rem;
+    color: #cacaca;
+    cursor: default;
+    font-size: 10px;
+  }
+
+
+}
+
+/*** Modal window edit***/
+
+.btn-add {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px;
+}
+
+.btn-add button {
+  margin-left: 10px;
+}
+
+.form-group {
+  margin-top: -10px;
+}
+
+.form-group label {
+  font-size: 10px;
+}
+
+.form-group input {
+  height: 37px;
+  text-indent: 0.1em;
+  font-weight: bold;
+  font-size: 10px;
+  color: #7f3400;
+}
+
+.form-group select {
+  height: 36px;
+  font-weight: bold;
+  text-indent: 0.1em;
+  font-size: 10px;
+  color: #492200;
+}
+
+.form-group .color-choose {
+  width: 10px;
+  height: 10px;
+}
+
+
+/*** Modal window remove***/
+
+.modal-body button {
+  margin-left: 20px;
+}
+
+.btn-delete {
+  width: 55px;
+  height: 25px;
+  border-radius: 5px;
+  border: 0 solid white;
+  background-color: #dc3545;
+  cursor: pointer;
+}
+
+.btn-exit {
+  width: 55px;
+  height: 25px;
+  border-radius: 5px;
+  border: 0 solid white;
+  background-color: #6c757d;
+  cursor: pointer;
+}
+
 

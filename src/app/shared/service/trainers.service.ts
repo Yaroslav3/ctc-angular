@@ -16,12 +16,26 @@ export class TrainersService {
   }
 
 
+  /**
+   * get all Trainers
+   * ***/
   getAllTrainers() {
     return this.http.get(this.host + environment.apiUrlTrainers);
   }
 
+
+  /**
+   * get one Trainers
+   * ***/
   getOneTrainers(id: number) {
     return this.http.get(`${this.host + environment.apiUrlTrainersGetOne}/${id}`);
+  }
+
+  /**
+   * all coaches who are engaged in this training
+   * ***/
+  getAllTrainingsSkills(id: number) {
+    return this.http.get(`${this.host + environment.apiUrlGetAllNameSkills}/${id}`);
   }
 
 

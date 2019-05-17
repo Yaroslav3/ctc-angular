@@ -1,0 +1,65 @@
+<app-admin-blog></app-admin-blog>
+<div class="wrapper-admin">
+  <ng-progress></ng-progress>
+  <div class="content-blog-add">
+    <div class="header-text-blog-add">
+      <p> Create blog </p>
+    </div>
+    <div class="b-block">
+
+      <div *ngIf="isHiddenInput" class="create-blog">
+        <form name="form" [formGroup]="blogForm" (ngSubmit)="createBlog()" novalidate>
+          <div>
+            <div class="input-filed">
+              <input formControlName="name" type="text" title="name" placeholder="name blog"
+                     [ngClass]="{'is-invalid': isSubmitted && f.name.errors}">
+              <div class="error-input" *ngIf="isSubmitted && f.name.errors">
+                <div *ngIf="f.name.errors.required"><span>You must add an name blog.</span></div>
+                <div *ngIf="f.name.errors.maxlength"><span> no more than 80 characters</span></div>
+              </div>
+
+            </div>
+
+
+            <div class="input-filed">
+              <input formControlName="theme" type="text" title="theme" placeholder="theme blog"
+                     [ngClass]="{'is-invalid': isSubmitted && f.theme.errors}">
+              <div class="error-input" *ngIf="isSubmitted && f.theme.errors">
+                <div *ngIf="f.theme.errors.required"><span>You must add an theme blog.</span></div>
+                <div *ngIf="f.theme.errors.maxlength"><span> no more than 100 characters</span></div>
+              </div>
+            </div>
+
+
+            <div class="input-filed">
+              <input formControlName="author" type="text" title="blog author" placeholder="blog author"
+                     [ngClass]="{'is-invalid': isSubmitted && f.author.errors}">
+              <div class="error-input" *ngIf="isSubmitted && f.author.errors">
+                <div *ngIf="f.author.errors.required"><span>You must add an author blog.</span></div>
+                <div *ngIf="f.author.errors.maxlength"><span> no more than 80 characters</span></div>
+              </div>
+            </div>
+
+
+            <div class="input-filed">
+              <div>
+                <angular-editor formControlName="description" [config]="editorConfig"></angular-editor>
+              </div>
+              <div class="error-input" *ngIf="isSubmitted && f.description.errors">
+                <div *ngIf="f.description.errors.required"><span> You must add an description blog.</span></div>
+              </div>
+            </div>
+
+            <div class="input-filed">
+              <div class="b-btn">
+                <button class="btn btn-secondary btn-sm">Next <i class="fas fa-angle-right"></i></button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+</div>

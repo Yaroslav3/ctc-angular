@@ -10,7 +10,7 @@ import {AuthService} from '../../auth/service/auth.service';
 import {TokenStorageService} from '../../auth/service/token-storage.service';
 import {UserDetailsAdmin} from '../../../shared/model/UserDetailsAdmin';
 import {MessageResponse} from '../../../shared/model/MessageResponse.model';
-import {NgProgress} from "@ngx-progressbar/core";
+import {NgProgress} from '@ngx-progressbar/core';
 
 
 @Component({
@@ -171,7 +171,6 @@ export class AdminUserServiceComponent implements OnInit {
   /**
    *  show all registered users
    * **/
-
   getAllUser() {
     this.progress.ref().start();
     this.accountService.adminUrlGetAllUserAdmin().subscribe((data: UserDetailsAdmin) => {

@@ -1,0 +1,84 @@
+@media only screen and (max-width: 1200px) {
+  .wrapper {
+    max-width: 1180px;
+  }
+
+  .all-content {
+    margin-right: 60px;
+    margin-left: 60px;
+  }
+
+  .industries h1 {
+    font-size: 20px;
+  }
+  .industries p {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 980px) {
+  .wrapper {
+    max-width: 970px;
+  }
+
+  .all-content {
+    margin-right: 40px;
+    margin-left: 40px;
+  }
+
+  .down-info h3 {
+    font-size: 15px;
+  }
+
+  .down-info .bl span {
+    font-size: 10px;
+  }
+
+  .industries h1 {
+    font-size: 18px;
+  }
+  .industries p {
+    font-size: 13px;
+  }
+
+}
+
+@media only screen and (max-width: 768px) {
+  .wrapper {
+    max-width: 760px;
+  }
+
+  .all-content {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+
+  .webinar-info-block {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .industries h1 {
+    font-size: 15px;
+  }
+  .industries p {
+    font-size: 11px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .wrapper {
+    max-width: 470px;
+  }
+
+  .all-content {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  .webinar-info-block {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+}

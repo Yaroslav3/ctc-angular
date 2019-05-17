@@ -51,9 +51,4 @@ export class LoginComponent implements OnInit {
     );
   }
 
-  // reloadPage() {
-  //   this.router.navigate(["admin"]);
-  //   window.location.reload();
-  // }
-
 }

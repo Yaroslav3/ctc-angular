@@ -1,0 +1,80 @@
+<app-admin-room-rental></app-admin-room-rental>
+
+<div class="wrapper-admin">
+  <div class="add-prise-content">
+    <div class="header-text-prise">
+      <p>
+        add prise room: <span>{{nameRoom}}</span>
+      </p>
+    </div>
+
+    <div class="prise-block">
+      <div *ngIf="isCheck == true">
+        <div class="alert alert-secondary" role="alert">
+          <p>Such fields are already filled in,</p>
+          <p>to edit prices go to</p>
+          <div class="btn-go-to">
+            <button class="btn btn-secondary" (click)="redirect()">Go to edit <i
+              class="fas fa-chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="isCheck == false" class="create-prise">
+        <form name="form" [formGroup]="formGroup" (ngSubmit)="createRoomPrice()" novalidate>
+          <div class="input-filed">
+            <input formControlName="priceHour" type="number" name="priceHour" title="price per hour"
+                   placeholder="price per hour">
+            <div class="error-input" *ngIf="isSubmitted && f.priceHour.errors">
+              <div *ngIf="f.priceHour.errors.required"><span>* fill in the field </span></div>
+              <div *ngIf="f.priceHour.errors.maxlength"><span>* 7 символов </span></div>
+            </div>
+            <div class="error-input" *ngIf="priceError">
+              <span>{{priceError.priceHour}}</span>
+            </div>
+          </div>
+
+
+          <div class="input-filed">
+            <input formControlName="priceDay" type="number" name="priceDay" title="price per day"
+                   placeholder="price per day">
+            <div class="error-input" *ngIf="isSubmitted && f.priceDay.errors">
+              <div *ngIf="f.priceDay.errors.required"><span>* fill in the field </span></div>
+              <div *ngIf="f.priceDay.errors.maxlength"><span>* 7 символов </span></div>
+            </div>
+            <div class="error-input" *ngIf="priceError">
+              <span>{{priceError.priceDay}}</span>
+            </div>
+          </div>
+
+          <div class="input-filed">
+            <select formControlName="currency" name="currency" title="currency">
+              <option>UAH</option>
+              <option>USD</option>
+              <option>EUR</option>
+            </select>
+            <br>
+            <br>
+            <div class="error-input" *ngIf="isSubmitted && f.currency.errors">
+              <div *ngIf="f.currency.errors.required">
+                <span>* You must add an currency.</span>
+              </div>
+            </div>
+            <div class="error-input" *ngIf="priceError">
+              <span>{{priceError.currency}}</span>
+            </div>
+          </div>
+
+
+
+          <div class="btn-save-prise">
+            <button class="btn btn-secondary">Next <i
+              class="fas fa-chevron-right"></i></button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+

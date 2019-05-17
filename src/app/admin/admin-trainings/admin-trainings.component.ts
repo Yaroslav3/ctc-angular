@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {OrderService} from '../../shared/service/order.service';
-import {NgProgress} from "@ngx-progressbar/core";
 
 @Component({
   selector: 'app-admin-trainings',

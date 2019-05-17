@@ -1,0 +1,59 @@
+.wrapper-admin {
+  max-width: 1600px;
+  min-width: 765px;
+  margin: 0 auto;
+}
+
+.add-article-content {
+  position: static;
+  //width: 80%;
+  height: auto;
+  margin-left: 250px;
+  margin-top: -608px;
+  padding-right: 20px;
+}
+
+
+.add-article-content p  span {
+  color: #179918;
+  font-size: 15px;
+  font-family: Exo2BoldItalic, sans-serif, serif;
+}
+
+
+.add-article-content div p {
+  text-align: center;
+  color: #300202;
+}
+
+.btn-go-to {
+  display: flex;
+  justify-content: center;
+}
+
+
+.block-editor{
+  margin-bottom: 20px;
+}
+
+.btn-save-article {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn {
+  border-radius: 1px;
+}
+
+/***--------------------  valid --------------------------***/
+.error-input {
+  padding-bottom: 10px;
+}
+
+.error-input span {
+  color: #a01809;
+  font-size: 12px;
+  font-family: KIA_KIAM, serif;
+  font-weight: bold;
+
+}

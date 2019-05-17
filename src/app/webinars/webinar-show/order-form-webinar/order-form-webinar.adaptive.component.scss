@@ -1,0 +1,77 @@
+@media only screen and (max-width: 1200px) {
+  .wrapper {
+    max-width: 1180px;
+  }
+
+  .all-content {
+    margin-right: 65px;
+    margin-left: 65px;
+  }
+
+  .info p {
+    font-size: 15px;
+  }
+
+}
+
+@media only screen and (max-width: 980px) {
+  .wrapper {
+    max-width: 970px;
+  }
+
+  .all-content {
+    margin-right: 30px;
+    margin-left: 30px;
+  }
+
+  .info p {
+    font-size: 10px;
+  }
+
+  .w-b-liqPay {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .wrapper {
+    max-width: 760px;
+  }
+
+  /**************************   FORM ORDER INFO****************************************/
+  .form-info-order-w {
+    width: 80%;
+
+  }
+
+  .w-b-liqPay {
+    width: 60%;
+  }
+
+
+}
+
+@media only screen and (max-width: 480px) {
+  .wrapper {
+    max-width: 470px;
+    font-size: 15px;
+  }
+
+  /**************************   FORM ORDER INFO****************************************/
+  .form-info-order-w {
+    width: 90%;
+
+  }
+
+  .btn-payment div span {
+    font-size: 10px;
+  }
+
+  .btn-payment .w-info span {
+    font-size: 8px;
+  }
+
+  .w-b-liqPay {
+    width: 100%;
+  }
+}

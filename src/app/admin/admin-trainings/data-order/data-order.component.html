@@ -5,56 +5,53 @@
   <div class="block-order">
     <ng-progress></ng-progress>
 
-    <table class="table">
-      <thead class="thead-light">
-      <tr>
-        <th class="d-inline-block col-1 text-table-header" scope="col"><p>status</p></th>
-        <th class="d-inline-block col-2 text-table-header" scope="col"><p>data</p></th>
-        <th class="d-inline-block col-2 text-table-header" scope="col"><p>company</p></th>
-        <th class="d-inline-block col-2 text-table-header" scope="col"><p>training</p></th>
-        <th class="d-inline-block col-2 text-table-header" scope="col"><p>name</p></th>
-        <th class="d-inline-block col-3 text-table-header" scope="col"><p class="options">options</p></th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let elem of order |paginate: {itemsPerPage:8, currentPage: p}">
-        <td class="d-inline-block col-1 text-table">
-          <div class="badge-message" *ngIf="elem.status == true">
-            <i class="fas fa-envelope"></i>
-          </div>
-          <div class="badge-message" *ngIf="elem.status == false">
-            <i class="far fa-envelope-open"></i>
-          </div>
-        </td>
-        <td class="d-inline-block col-2 text-table"><span
-          class="data-order mob">{{elem.time | date:'dd-MM-yyyy/HH:mm'}}</span>
-        </td>
-        <td class="mob d-inline-block col-2 text-table">{{elem.company}}</td>
-        <td class="mob d-inline-block col-2 text-table">{{elem.training}}</td>
-        <td class="mob d-inline-block col-2 text-table">{{elem.nameSurname}}</td>
-        <td class="mob d-inline-block col-3 text-table">
-          <div class="btn group">
-            <button (click)="onClickView(elem)" class="badge badge-danger btn-sm"><i class="far fa-eye"></i>
-              View
-            </button>
-            <button (click)="openModal(template)" class="badge badge-secondary btn-sm"><i class="fas fa-trash"></i>
-              Delete
-            </button>
-          </div>
-        </td>
-        <ng-template #template>
-          <div class="modal-body text-center">
-            <p style="color: #151230">Do you want to delete?</p>
-            <button type="button" class="btn-delete" (click)="confirm(elem.id)">Yes</button>
-            <button type="button" class="btn-exit" (click)="decline()">Exit</button>
-          </div>
-        </ng-template>
+    <div>
+      <table>
+        <thead>
+        <tr>
+          <th class="d-inline-block col-1 text-table-header" scope="col"><p>status</p></th>
+          <th class="d-inline-block col-2 text-table-header" scope="col"><p>data</p></th>
+          <th class="d-inline-block col-2 text-table-header" scope="col"><p>company</p></th>
+          <th class="d-inline-block col-2 text-table-header" scope="col"><p>training</p></th>
+          <th class="name d-inline-block col-2 text-table-header" scope="col"><p>name</p></th>
+          <th class="d-inline-block col-3 text-table-header" scope="col"><p class="options">options</p></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let elem of order |paginate: {itemsPerPage:8, currentPage: p}">
+          <td class="d-inline-block col-1 text-table">
+            <div class="badge-message" *ngIf="elem.status == true">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="badge-message" *ngIf="elem.status == false">
+              <i class="far fa-envelope-open"></i>
+            </div>
+          </td>
+          <td class="d-inline-block col-2 text-table"><span
+            class="data-order">{{elem.time | date:'dd-MM-yyyy/HH:mm'}}</span>
+          </td>
+          <td class="mob d-inline-block col-2 text-table">{{elem.company}}</td>
+          <td class="mob d-inline-block col-2 text-table">{{elem.training}}</td>
+          <td class="name mob d-inline-block col-2 text-table">{{elem.nameSurname}}</td>
+          <td class="d-inline-block col-3 text-table-header">
+            <i class="far fa-eye view" (click)="onClickView(elem)"></i>
+            <i class="far fa-trash-alt delete" (click)="openModal(templateDelete)"></i>
+          </td>
 
-      </tr>
-      <div class="pagination-order" *ngIf="boolPagination">
-        <pagination-controls (pageChange)="p =$event"></pagination-controls>
-      </div>
-      </tbody>
-    </table>
+          <ng-template #templateDelete>
+            <div class="modal-body text-center">
+              <p style="color: #151230">Do you want to delete?</p>
+              <button type="button" class="btn-delete" (click)="confirm(elem.id)">Yes</button>
+              <button type="button" class="btn-exit" (click)="decline()">Exit</button>
+            </div>
+          </ng-template>
+        </tr>
+        <div class="pagination-order" *ngIf="boolPagination">
+          <pagination-controls (pageChange)="p =$event"></pagination-controls>
+        </div>
+        </tbody>
+      </table>
+    </div>
+
   </div>
 </div>

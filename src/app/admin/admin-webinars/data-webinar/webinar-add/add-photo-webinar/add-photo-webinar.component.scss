@@ -1,0 +1,69 @@
+.wrapper-admin {
+  max-width: 1600px;
+  min-width: 765px;
+  margin: 0 auto;
+}
+
+
+.block-webinar-photo {
+  position: static;
+  height: 620px;
+  margin-left: 220px;
+  margin-top: -608px;
+}
+
+.wb-block {
+  display: flex;
+  justify-content: center;
+}
+
+
+.wb-input {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.wb-input h3 {
+  font-size: 15px;
+  color: #2f2f2f;;
+  padding-bottom: 2px;
+}
+
+
+//-----------------------------------
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  width: 150px;
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.custom-file-upload:hover {
+  background-color: #e1e1e1;
+}
+
+//------------------------------------
+
+.name-file {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.name-file p {
+  font-size: 10px;
+  color: #2f2f2f;;
+  padding-bottom: 2px;
+}
+
+.wb-btn{
+  display: flex;
+  justify-content: flex-end;
+}

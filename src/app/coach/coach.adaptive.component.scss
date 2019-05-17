@@ -1,0 +1,42 @@
+@media only screen and (max-width: 1200px) {
+  .wrapper {
+    max-width: 1180px;
+  }
+
+  .all-content {
+    margin-right: 50px;
+    margin-left: 50px;
+  }
+}
+
+
+@media only screen and (max-width: 980px) {
+  .wrapper {
+    max-width: 970px;
+  }
+
+}
+
+@media only screen and (max-width: 768px) {
+  .wrapper {
+    max-width: 760px;
+  }
+
+}
+
+@media only screen and (max-width: 480px) {
+  .wrapper {
+    max-width: 470px;
+    font-size: 15px;
+  }
+
+  .all-content {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+
+}
+
+
+

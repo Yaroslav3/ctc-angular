@@ -1,14 +1,24 @@
 <app-admin-header></app-admin-header>
 
+
 <div class="wrapper-admin">
-  <div class="bock-webinars">
-    <div class="alert-secondary">
-      <div class="content-webinars">
-        <p>
-          sorry, page in developing...
-        </p>
-      </div>
-    </div>
+
+  <div class="block-group">
+    <ul class="nav nav-pills nav-justified">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/admin/webinars/data-webinars" routerLinkActive="active">
+          <span style="margin-right: 10px" class="fa fa-users fa-icon-right-margin-small"></span> Webinars
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/admin/webinars/inscriptions" routerLinkActive="active">
+          <span style="margin-right: 12px" class="far fa-edit fa-icon-right-margin-small"></span> Inscriptions
+        </a>
+      </li>
+
+    </ul>
+    <hr>
   </div>
+  <router-outlet></router-outlet>
 </div>
 
