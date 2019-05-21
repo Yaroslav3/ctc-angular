@@ -11,10 +11,14 @@
           <img [src]="'data:image/jpg;base64,' +room[i].photoRoom[0].photo" alt="Random first slide">
           <span class="bl-1"> Вместимость: <span> {{room[i].roomCapacity}} человек </span></span>
 
-          <div *ngFor="let elem2 of room[i].priseRoom" class="currency-room">
+          <div class="bl-text">
             <span>Цена: </span>
-            <span> Час <span class="rbl">{{elem2.priceHour}}  </span> <span>{{elem2.currency}}</span></span>
-            <span class="bl"> День <span>{{elem2.priceDay}} </span> <span>{{elem2.currency}}</span></span>
+          </div>
+          <div *ngFor="let elem2 of room[i].priseRoom" class="currency-room">
+            <p>Час/ <span>{{elem2.priceHour}} {{elem2.currency}}</span></p>
+            <p>День/ <span>{{elem2.priceDay}} {{elem2.currency}}</span></p>
+            <!--<span> Час <span class="rbl">{{elem2.priceHour}}  </span> <span>{{elem2.currency}}</span></span>-->
+            <!--<span class="bl"> День <span>{{elem2.priceDay}} </span> <span>{{elem2.currency}}</span></span>-->
           </div>
         </div>
 

@@ -1,0 +1,107 @@
+<div class="wrapper">
+  <div class="all-content">
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="block-order-room">
+
+      <!---------------------------------------- Hour block --------------------------------------------------------->
+      <div class="time-room" *ngIf="isDateTimeRoom == true">
+        <p><i class="far fa-calendar-alt"></i> Дата начала: <span class="bl-date"> {{date | date: 'yyyy-MM-dd'}}</span></p>
+
+        <p><i class="far fa-clock"></i> Заказаное время :</p>
+        <div *ngFor="let elem of arrayOrder" class="time-show">
+          <p>{{elem.startDate | date :'HH-mm'}} - <span>{{elem.endDate | date :'HH-mm'}}</span></p>
+        </div>
+
+        <p><i class="fas fa-dollar-sign"></i> Цена заказа: {{room.priseRoom[0].priceHour}}/ час</p>
+        <div *ngIf="room" class="prise-order">
+          <p><i style=" color: #179918"
+                class="fas fa-shopping-cart"></i> {{room.priseRoom[0].priceHour * numOrder}} {{room.priseRoom[0].currency}}
+          </p>
+        </div>
+      </div>
+      <!---------------------------------------- Day block --------------------------------------------------------->
+      <div class="time-room" *ngIf="isDatePeriodRoom == true">
+        <p><i class="far fa-calendar-alt"></i> Дата начала: <span
+          class="bl2-date"> {{datePeriod.startDate | date: 'yyyy-MM-dd'}}</span></p>
+
+        <p><i class="far fa-clock"></i> Заказаное время дня:</p>
+        <div class="time-show">
+          <p> с 10:00  по <span>19:00</span></p>
+        </div>
+
+        <p><i class="far fa-calendar-alt"></i> Дата окончания: <span
+          class="bl-date"> {{datePeriod.endDate | date: 'yyyy-MM-dd'}}</span></p>
+        <p><i class="fas fa-dollar-sign"></i> Цена заказа: {{room.priseRoom[0].priceDay}}/ день</p>
+        <div *ngIf="room" class="prise-order-day">
+          <p><i style=" color: #179918"
+                class="fas fa-shopping-cart"></i> {{room.priseRoom[0].priceDay * countDay}} {{room.priseRoom[0].currency}}
+          </p>
+        </div>
+      </div>
+      <div class="info-client">
+        <form name="form" [formGroup]="formGroup" (ngSubmit)="createRoomPrice()" novalidate>
+          <div class="input-filed">
+            <label>ФИО *</label>
+            <input formControlName="name" type="text" name="name" title="ФИО *"
+                   placeholder="ФИО">
+            <div class="error-input" *ngIf="isSubmitted && f.name.errors">
+              <div *ngIf="f.name.errors.required"><span>* заполни поле </span></div>
+              <div *ngIf="f.name.errors.maxlength"><span>* не более 50 символов </span></div>
+            </div>
+            <!--<div class="error-input" *ngIf="priceError">-->
+            <!--<span>{{priceError.priceHour}}</span>-->
+            <!--</div>-->
+          </div>
+
+          <div class="input-filed">
+            <label>Email *</label>
+            <input formControlName="email" type="email" name="email" title="email *"
+                   placeholder="Email">
+            <div class="error-input" *ngIf="isSubmitted && f.email.errors">
+              <div *ngIf="f.email.errors.required"><span>* заполни поле </span></div>
+              <div *ngIf="f.email.errors.email"><span>* поле не формата email</span></div>
+              <div *ngIf="f.email.errors.maxlength"><span>* не более 50 символов </span></div>
+            </div>
+            <!--<div class="error-input" *ngIf="priceError">-->
+            <!--<span>{{priceError.priceHour}}</span>-->
+            <!--</div>-->
+          </div>
+
+          <div class="input-filed">
+            <label>Телефон *</label>
+            <input formControlName="phone" type="number" name="phone" title="Телефон *"
+                   placeholder="Телефон">
+            <div class="error-input" *ngIf="isSubmitted && f.phone.errors">
+              <div *ngIf="f.phone.errors.required"><span>* заполни поле </span></div>
+              <div *ngIf="f.phone.errors.maxlength"><span>* не более 7 символов </span></div>
+            </div>
+            <!--<div class="error-input" *ngIf="priceError">-->
+            <!--<span>{{priceError.priceHour}}</span>-->
+            <!--</div>-->
+          </div>
+
+          <div class="input-filed">
+            <label>Дополнительные сведения</label>
+            <textarea formControlName="description" type="text" name="description" title="Дополнительные сведения"
+                      placeholder="... дополнительные сведения"></textarea>
+            <div class="error-input" *ngIf="isSubmitted && f.description.errors">
+              <div *ngIf="f.description.errors.maxlength"><span>* не более 500 символов </span></div>
+            </div>
+          </div>
+          <div class="btn-by-room">
+            <button class="btn btn-secondary">Подвердить бронь и оплатить</button>
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

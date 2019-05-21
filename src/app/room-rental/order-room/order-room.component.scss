@@ -1,0 +1,140 @@
+
+.all-content {
+  margin-right: 120px;
+  margin-left: 120px;
+}
+
+.block-order-room {
+  display: flex;
+  flex-direction: row;
+}
+
+.block-order-room p {
+  font-size: 13px;
+}
+
+.time-room {
+  width: 400px;
+  height: auto;
+}
+
+.time-room p {
+  color: #380505;
+}
+
+.clock-order p {
+  text-align: center;
+}
+
+.time-room .bl-date {
+  color: #144e22;
+  margin-left: 20px;
+  font-size: 14px;
+  font-family: Exo2ExtraBoldItalic, serif;
+}
+
+.time-room .bl2-date {
+  color: #144e22;
+  margin-left: 43px;
+  font-size: 14px;
+  font-family: Exo2ExtraBoldItalic, serif;
+}
+
+.time-show {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  width: 300px;
+
+}
+
+.time-show p {
+  margin-top: -15px;
+}
+
+.prise-order {
+  display: flex;
+  justify-content: center;
+}
+
+
+.prise-order p {
+  font-size: 15px;
+  color: #144e22;
+  font-family: Exo2ExtraBold, serif;
+}
+
+.prise-order-day {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 80px;
+}
+
+.prise-order-day p {
+  font-size: 15px;
+  color: #144e22;
+  font-family: Exo2ExtraBold, serif;
+}
+
+.info-client {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+
+}
+
+.input-filed label {
+  font-size: 12px;
+}
+
+.info-client input {
+  width: 100%;
+  height: 35px;
+  border-radius: 1px;
+  text-indent: 0.8em;
+  border: 1px solid #d1b6b7;
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+
+.info-client textarea {
+  width: 100%;
+  height: 135px;
+  border-radius: 1px;
+  text-indent: 0.8em;
+  border: 1px solid #d1b6b7;
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+
+.btn-by-room {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn {
+  border-radius: 1px;
+  border: 0;
+  background-color: #5b84c9;
+  box-shadow: 0 2px 2px rgba(28, 15, 25, 0.3);
+
+}
+
+.btn:hover {
+  background-color: #6595e3;
+}
+
+/***--------------------  valid --------------------------***/
+.error-input {
+  padding-bottom: 10px;
+  margin-top: -20px;
+}
+
+.error-input span {
+  color: #a01809;
+  font-size: 12px;
+  font-family: KIA_KIAM, serif;
+  font-weight: bold;
+
+}

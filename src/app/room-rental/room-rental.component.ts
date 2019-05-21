@@ -8,7 +8,7 @@ import {AngularEditorConfig} from '@kolkov/angular-editor';
 @Component({
   selector: 'app-room-rental',
   templateUrl: './room-rental.component.html',
-  styleUrls: ['./room-rental.component.scss']
+  styleUrls: ['./room-rental.component.scss', './room-rental.adaptive.component.scss']
 })
 
 
@@ -61,6 +61,7 @@ export class RoomRentalComponent implements OnInit {
   allRoom() {
     this.roomRentalService.getAllRoom().subscribe((data: Room) => {
       this.room = data;
+      console.log(data)
     });
   }
 }

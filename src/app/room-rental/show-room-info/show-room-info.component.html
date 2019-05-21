@@ -1,0 +1,127 @@
+<div class="wrapper">
+  <div *ngIf="room" class="all-content">
+    <br>
+    <br>
+    <br>
+    <div class="content-room-info">
+      <div class="carousel-room-photo">
+        <ngb-carousel *ngIf="photo">
+          <div *ngFor="let elem of photo; let i=index">
+            <ng-template ngbSlide>
+              <img [src]="'data:image/jpg;base64,' + elem.photo" alt="photo">
+            </ng-template>
+          </div>
+        </ngb-carousel>
+      </div>
+      <div class="text-info-room">
+        <div class="header-room">
+          <h1>{{room.nameRoom}}</h1>
+          <div class="price-room">
+            <div>
+              <p> Вместимость: {{room.roomCapacity}}</p>
+            </div>
+            <div class="bl-room">
+              <p>Час <span>{{room.priseRoom[0].priceHour}} {{room.priseRoom[0].currency}}</span></p>
+              <p>День <span>{{room.priseRoom[0].priceDay}} {{room.priseRoom[0].currency}}</span></p>
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
+        <div class="input-group">
+          <label>Дата начала:</label>
+          <input class="form-control" [(ngModel)]="date"
+                 placeholder="yyyy-mm-dd"
+                 required (ngModelChange)="select(date)"
+                 title="dateEvent"
+                 ngbDatepicker
+                 #e="ngbDatepicker">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary calendar" (click)="e.toggle()" type="button"><i
+              class="far fa-calendar-alt"></i></button>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label>Длительность:</label>
+          <select title="select" (change)="onSetDuration($event.target.value)">
+            <option>Почасовая</option>
+            <option>Несколько дней</option>
+          </select>
+        </div>
+
+
+        <!------------------------------------select many day date----------------------------------------------------->
+        <div *ngIf="isChoiceOrder == false">
+
+          <div class="input-group">
+            <label>Дата окончания:</label>
+            <input class="form-control" [(ngModel)]="dateManyDay"
+                   placeholder="yyyy-mm-dd"
+                   required (ngModelChange)="selectPeriodDate($event)"
+                   title="dateEvent"
+                   ngbDatepicker
+                   #e="ngbDatepicker">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary calendar" (click)="e.toggle()" type="button"><i
+                class="far fa-calendar-alt"></i></button>
+            </div>
+          </div>
+
+
+          <div class="error-time" *ngIf="isCheckDate == true">
+            <div class="alert alert-danger" role="alert">
+              Дата в указанном промежутке уже занята.
+            </div>
+          </div>
+
+          <div class="btn-select">
+            <button type="button" class="btn-back" routerLink="/room-rental"><i class="fas fa-chevron-left"></i> Назад
+            </button>
+            <button type="button" class="btn-go" [disabled]="isDisabledBtnPeriodDay" (click)="nextOnOrder()">
+              Продолжыить
+            </button>
+          </div>
+        </div>
+
+
+        <!------------------------------------select one day date and time--------------------------------------------->
+        <div *ngIf="isChoiceOrder == true" class="select-time-order">
+          <label class="chose-text">Выбор времени:</label>
+          <div class="time-order">
+            <div *ngFor="let data of timeCheckbox; let i=index">
+
+              <label for="one{{i}}" class="container">{{data.value.time}}
+                <input #inputs name="trainers" type="checkbox" id="one{{i}}" [disabled]="timeChoice[i].status == true"
+                       (change)="onChange(data.value.time, $event.target.checked)">
+
+                <div *ngIf="timeChoice[i].status == false">
+                  <span class="checkmark">{{data.value.time}}</span>
+                </div>
+              </label>
+            </div>
+
+
+            <div class="error-time" *ngIf="isEmptyArray == true">
+              <div class="alert alert-danger" role="alert">
+                Пожалуйста, выберите хотя бы один промежуток времени.
+              </div>
+            </div>
+          </div>
+          <div class="btn-select">
+            <button type="button" class="btn-back" routerLink="/room-rental"><i class="fas fa-chevron-left"></i> Назад
+            </button>
+            <button type="button" class="btn-go" (click)="nextOnOrder()">Продолжыить</button>
+          </div>
+        </div>
+        <div>
+          <hr>
+        </div>
+      </div>
+    </div>
+    <div class="description-info-room">
+      <angular-editor id="myEditor" [(ngModel)]="room.articleRoom[0].descriptionArticle"
+                      [config]="editorConfig"></angular-editor>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+@media only screen and (max-width: 1200px) {
+  .wrapper {
+    max-width: 1180px;
+  }
+  .all-content {
+    margin-right: 40px;
+    margin-left: 40px;
+  }
+
+}
+
+@media only screen and (max-width: 980px) {
+  .wrapper {
+    max-width: 970px;
+  }
+
+  .room-show-content {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+
+
+  .img-show {
+    width: 100%;
+    height: auto;
+    padding-bottom: 20px;
+  }
+
+  .img-show img {
+    width: 100%;
+    height: auto;
+  }
+
+
+}
+
+@media only screen and (max-width: 768px) {
+  .wrapper {
+    max-width: 760px;
+  }
+  .all-content {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+
+}
+
+
+@media only screen and (max-width: 480px) {
+  .wrapper {
+    max-width: 470px;
+    font-size: 15px;
+  }
+
+  .all-content {
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+

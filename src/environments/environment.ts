@@ -58,6 +58,8 @@ export const environment = {
   apiUrlRoomAllPhoto: 'api/room/rental/photo/allPhoto',
   apiUrlRoomDayTimeOrder: 'api/room/rental/date/getTimeOneDay',
   apiUrlRoomPeriodDayOrder: 'api/room/rental/date/getTimePeriodDay',
+  apiUrlCreateRoomOrder: 'api/room/rental/order/create',
+  apiUrlSaveTimeRoom: 'api/room/rental/date/createOrderTimeRoom',
 
 
 
