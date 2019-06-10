@@ -15,8 +15,9 @@ import {AngularEditorConfig} from '@kolkov/angular-editor';
 export class RoomRentalComponent implements OnInit {
   room: Room;
   article: RoomArticle;
+  isList: boolean;
+  isProgress: boolean;
 
-  timeChose = [{time: '09:00 - 10:00'}, {time: '10:00 - 11:00'}];
 
   editorConfig: AngularEditorConfig = {
     editable: false,
@@ -59,9 +60,19 @@ export class RoomRentalComponent implements OnInit {
    * all room show;
    * **/
   allRoom() {
+    this.isProgress = true;
     this.roomRentalService.getAllRoom().subscribe((data: Room) => {
       this.room = data;
-      console.log(data)
+      if (data === undefined) {
+        this.isList = true;
+        this.isProgress = false;
+      }
+      else {
+        this.isList = false;
+        this.isProgress = false;
+        // console.log(data);
+      }
+
     });
   }
 }

@@ -1,4 +1,79 @@
 <app-admin-room-rental></app-admin-room-rental>
-<p>
-  show-order-room works!
-</p>
+
+<div class="wrapper-admin">
+  <div class="show-order-room-container">
+    <div class="block-show-order-room">
+      <p>Date range selection</p>
+      <div class="calendar-room">
+
+        <div>
+          <ngb-datepicker #dp (select)="onDateSelection($event)" [displayMonths]="2" [dayTemplate]="t"
+                          outsideDays="hidden">
+          </ngb-datepicker>
+
+          <ng-template #t let-date let-focused="focused">
+              <span class="custom-day"
+                    [class.focused]="focused"
+                    [class.range]="isRange(date)"
+                    [class.faded]="isHovered(date) || isInside(date)"
+                    (mouseenter)="hoveredDate = date"
+                    (mouseleave)="hoveredDate = null">
+                {{ date.day }}
+              </span>
+          </ng-template>
+        </div>
+        <div  class="show-to-date" *ngIf="toDate">
+          <p>Date period to show</p>
+          <span>{{fromDate.year}}/{{fromDate.month}}/{{fromDate.day}}</span> -
+          <span>{{toDate.year}}/{{toDate.month}}/{{toDate.day}}</span>
+        </div>
+      </div>
+      <hr>
+      <div class="show-room-order">
+        <table>
+          <thead>
+          <tr>
+            <th class="d-inline-block col-1 text-table-header" scope="col"><p>status</p></th>
+            <th class="d-inline-block col-2 text-table-header" scope="col"><p>id</p></th>
+            <th class="d-inline-block col-4 text-table-header" scope="col"><p>start time order</p></th>
+            <th class="name d-inline-block col-2 text-table-header" scope="col"><p>name</p></th>
+            <th class="d-inline-block col-3 text-table-header" scope="col"><p class="options">options</p></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let elem of orderModel |paginate: {itemsPerPage:8, currentPage: p}">
+            <td class="d-inline-block col-1 text-table">
+              <div class="badge-message" *ngIf="elem.status == true">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="badge-message" *ngIf="elem.status == false">
+                <i class="far fa-envelope-open"></i>
+              </div>
+            </td>
+            <td class="mob d-inline-block col-2 text-table">{{elem.id}}</td>
+            <td class="mob d-inline-block col-4 text-table">{{elem.startTime | date:'dd-MM-yyyy/HH:mm'}}</td>
+            <td class="name mob d-inline-block col-2 text-table">{{elem.nameSurname}}</td>
+            <td class="d-inline-block col-3 text-table-header">
+              <i class="far fa-eye view" (click)="onClickOpenOrder(elem)"></i>
+              <i class="far fa-trash-alt delete" (click)="openModal(modalDelete)"></i>
+            </td>
+
+            <!------------ Modal window delete Inscriptions----------->
+
+            <ng-template #modalDelete let-modal>
+              <div class="modal-body text-center">
+                <p style="color: #151230">Do you want to delete?</p>
+                <button type="button" class="btn-delete" (click)="deleteOrderRoom(elem)">Yes</button>
+                <button type="button" class="btn-exit" (click)="modal.dismiss('Cross click')">Exit</button>
+              </div>
+            </ng-template>
+          </tr>
+          <div class="pagination-order" *ngIf="boolPagination">
+            <pagination-controls (pageChange)="p =$event"></pagination-controls>
+          </div>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

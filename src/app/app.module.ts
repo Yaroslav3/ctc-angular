@@ -40,6 +40,7 @@ import {AngularFormioPdfModule} from 'angular-formio-pdf';
 import { LoaderComponent } from './loader/loader.component';
 import { ShowRoomInfoComponent } from './room-rental/show-room-info/show-room-info.component';
 import { OrderRoomComponent } from './room-rental/order-room/order-room.component';
+import { SortPipe } from './shared/pipe/sort.pipe';
 
 
 @NgModule({
@@ -65,7 +66,8 @@ import { OrderRoomComponent } from './room-rental/order-room/order-room.componen
     OrderStatusComponent,
     LoaderComponent,
     ShowRoomInfoComponent,
-    OrderRoomComponent
+    OrderRoomComponent,
+    SortPipe
   ],
   imports: [
     BrowserModule,

@@ -84,7 +84,11 @@ export class TrainersAddComponent implements OnInit {
   }
 
 
+  /**
+   * create trainer
+   * ***/
   onClickNext(trainers: Trainers) {
+    console.log(trainers);
     this.progressService.ref().start();
     this.serviceTrainers.adminCreateTrainers(trainers).subscribe((data: Trainers) => {
         this.id = data.id;

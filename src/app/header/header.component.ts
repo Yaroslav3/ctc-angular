@@ -171,6 +171,7 @@ export class HeaderComponent implements OnInit {
     '/admin/room/rental/edit-room/photo/',
     '/admin/room/rental/edit-room/show-order-room/',
     '/admin/room/rental/edit-room/article/',
+    '/admin/room/rental/show-order-room-one/',
 
     /**
      * customer

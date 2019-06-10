@@ -19,7 +19,7 @@ export class RoomDateService {
    * save time order;
    * ***/
   createTimeOrderRoom(roomTime = []) {
-    return this.http.post(`${this.host + environment.apiUrlSaveTimeRoom}/`, roomTime, {
+    return this.http.post(`${this.host + environment.apiUrlSaveTimeRoom}`, roomTime, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
@@ -38,9 +38,20 @@ export class RoomDateService {
   /**
    * for customer
    * Choice time on many day;
-   *
    * ***/
   periodDayRoom(startDay: string, endDay: string, id: number) {
     return this.http.get(`${this.host + environment.apiUrlRoomPeriodDayOrder}/${startDay}/${endDay}/${id}`);
+  }
+
+  /**
+   * for customer
+   * method  for checked, time is exist or not exist;
+   * ****/
+  checkedTimeRoom(roomTime = [], id: number) {
+    return this.http.post(`${this.host + environment.apiUrlCheckedTimeRoom}/${id}`, roomTime, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    });
   }
 }

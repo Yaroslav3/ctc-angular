@@ -2,21 +2,26 @@
 
 <div class="wrapper-admin">
 
-      <div class="content-schedule">
+  <div class="content-schedule">
 
-        <ng-progress></ng-progress>
-        <div class="block-group">
-          <ul class="nav nav-pills nav-justified">
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/admin/room/rental/data" routerLinkActive="active">
-                <span style="margin-right: 10px" class="fas fa-chess-rook"></span> Room
-              </a>
-            </li>
+    <ng-progress></ng-progress>
+    <div class="block-group">
+      <ul class="nav nav-pills nav-justified">
 
-          </ul>
-          <hr>
-        </div>
-        <router-outlet></router-outlet>
-      </div>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/admin/room-rental" routerLinkActive="active">
+            <span style="margin-right: 10px" class="fas fa-search"></span> Look for order
+          </a>
+        </li>
 
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/admin/room/rental/data" routerLinkActive="active">
+            <span style="margin-right: 10px" class="fas fa-chess-rook"></span> Room
+          </a>
+        </li>
+      </ul>
+      <hr>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
 </div>

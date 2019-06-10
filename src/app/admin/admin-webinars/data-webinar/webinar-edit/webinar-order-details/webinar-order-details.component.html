@@ -4,7 +4,14 @@
   <div class="block-webinar-order">
 
 
-    <div>
+
+    <div *ngIf="isEmptyList == true">
+      <div class="alert alert-secondary" role="alert">
+       Order list empty.
+      </div>
+    </div>
+
+    <div *ngIf="isEmptyList == false">
       <table>
         <thead>
         <tr>
@@ -19,7 +26,7 @@
         <tbody>
         <tr *ngFor="let elem of webinarOrder | paginate: {itemsPerPage:10, currentPage: p}">
           <td class="d-inline-block col-1 text-table-header" title="status">
-            <div *ngIf="elem.status == 'sandbox'" title="status {{elem.status}}"><i class="sandbox fas fa-vial"></i></div>
+            <div *ngIf="elem.status == 'sandbox'" title="status {{elem.style}}"><i class="sandbox fas fa-vial"></i></div>
             <div *ngIf="elem.status == 'success'" title="status {{elem.status}}"><i class="success fas fa-check"></i></div>
             <div *ngIf="elem.status == 'failure'" title="status {{elem.status}}"><i class="failure fas fa-exclamation-triangle"></i></div>
             <div *ngIf="elem.status == 'error'" title="status {{elem.status}}"><i class="error fas fa-times"></i></div>

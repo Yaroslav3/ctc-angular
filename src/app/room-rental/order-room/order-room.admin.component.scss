@@ -1,0 +1,104 @@
+@media only screen and (max-width: 1200px) {
+  .wrapper {
+    max-width: 1180px;
+  }
+  .all-content {
+    margin-right: 40px;
+    margin-left: 40px;
+  }
+
+
+}
+
+@media only screen and (max-width: 980px) {
+  .wrapper {
+    max-width: 970px;
+  }
+
+  .content-room-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .r-b-liqPay {
+    width: 100%;
+  }
+
+  .r-b-liqPay button img {
+    width: 60%;
+    height: auto;
+    padding: 20px;
+
+  }
+
+}
+
+@media only screen and (max-width: 768px) {
+  .wrapper {
+    max-width: 760px;
+  }
+  .all-content {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+
+  .block-order-room {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .time-room {
+    padding: 20px;
+    width: 100%;
+    height: auto;
+    border: 1px solid #858585;
+    border-radius: 1px;
+  }
+
+  .bl-info {
+    padding-bottom: 20px;
+  }
+
+  .prise-order {
+    justify-content: flex-start;
+  }
+  .prise-order p {
+    margin-left: 105px;
+  }
+  .prise-order-day {
+    justify-content: flex-start;
+
+  }
+  .prise-order-day p {
+    margin-left: 130px;
+  }
+
+
+}
+
+
+@media only screen and (max-width: 480px) {
+  .wrapper {
+    max-width: 470px;
+    font-size: 15px;
+  }
+
+  .all-content {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+

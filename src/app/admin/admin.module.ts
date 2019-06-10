@@ -58,7 +58,9 @@ import {EditPriceRoomComponent} from './admin-room-rental/data-room/edit-room/ed
 import {EditNameRoomComponent} from './admin-room-rental/data-room/edit-room/edit-name-room/edit-name-room.component';
 import {EditPhotoRoomComponent} from './admin-room-rental/data-room/edit-room/edit-photo-room/edit-photo-room.component';
 import {ShowOrderRoomComponent} from './admin-room-rental/data-room/edit-room/show-order-room/show-order-room.component';
-import { EditArticleRoomComponent } from './admin-room-rental/data-room/edit-room/edit-article-room/edit-article-room.component';
+import {EditArticleRoomComponent} from './admin-room-rental/data-room/edit-room/edit-article-room/edit-article-room.component';
+import {ShowOrderRoomOneComponent} from './admin-room-rental/data-room/edit-room/show-order-room/show-order-room-one/show-order-room-one.component';
+import {FoundRoomComponent} from './admin-room-rental/data-room/found-room/found-room.component';
 
 
 const routes: Routes = [
@@ -122,7 +124,7 @@ const routes: Routes = [
   /**
    * Room-rental page
    * **/
-  {path: 'room-rental', component: AdminRoomRentalComponent},
+  {path: 'room-rental', component: FoundRoomComponent},
   {path: 'room/rental/data', component: DataRoomComponent},
   {path: 'room/rental/add-room', component: AddRoomComponent},
   {path: 'room/rental/add-room-rental/:id', component: AddArticleRoomComponent},
@@ -134,6 +136,7 @@ const routes: Routes = [
   {path: 'room/rental/edit-room/photo/:id', component: EditPhotoRoomComponent},
   {path: 'room/rental/edit-room/article/:id', component: EditArticleRoomComponent},
   {path: 'room/rental/edit-room/show-order-room/:id', component: ShowOrderRoomComponent},
+  {path: 'room/rental/show-order-room-one/:id', component: ShowOrderRoomOneComponent},
 
 
   /**
@@ -193,6 +196,8 @@ const routes: Routes = [
     EditPhotoRoomComponent,
     ShowOrderRoomComponent,
     EditArticleRoomComponent,
+    ShowOrderRoomOneComponent,
+    FoundRoomComponent,
 
 
   ],

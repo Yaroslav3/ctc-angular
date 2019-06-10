@@ -14,7 +14,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 export class ScheduleComponent implements OnInit {
 
   calendarOptions: Options;
-  modelCalendarTrainingsDate = new CalendarTrainings;
+  modelCalendarTrainingsDate = new CalendarTrainings();
 
   @ViewChild(CalendarComponent) ucCalendar: CalendarComponent;
 
@@ -31,7 +31,7 @@ export class ScheduleComponent implements OnInit {
   getAllDateCalendar() {
     this.progressService.ref().start();
     this.trainingsCalendarService.getAllDataCalendar().subscribe((date: CalendarTrainings) => {
-      console.log(date);
+      // console.log(date);
       this.fullCalendar(date);
       this.progressService.ref().complete();
     });

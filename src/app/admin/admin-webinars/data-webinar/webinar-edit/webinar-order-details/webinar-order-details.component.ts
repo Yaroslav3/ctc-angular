@@ -15,6 +15,7 @@ export class WebinarOrderDetailsComponent implements OnInit {
   id: number;
   webinarOrder: WebinarOrder;
   p: number;
+  isEmptyList = false;
 
   constructor(private  webinarOrderService: WebinarOrderService, private idNumber: ActivatedRoute, private route: Router,
               private modalService: NgbModal, public progressService: NgProgress) {
@@ -32,6 +33,7 @@ export class WebinarOrderDetailsComponent implements OnInit {
     this.webinarOrderService.adminWebinarOrderGetAll(id).subscribe((data: WebinarOrder) => {
       if (Object.keys(data).length === 0) {
         console.log('empty');
+        this.isEmptyList = true;
         return;
       }
       this.webinarOrder = data;
@@ -55,8 +57,8 @@ export class WebinarOrderDetailsComponent implements OnInit {
     this.progressService.ref().start();
     this.webinarOrderService.adminWebinarOrderDelete(id).subscribe(() => {
       this.progressService.ref().complete();
-      this.getAllWebinar(this.id);
       this.modalService.dismissAll(1);
+      this.getAllWebinar(this.id);
     }, error => {
       window.alert('error');
     });
