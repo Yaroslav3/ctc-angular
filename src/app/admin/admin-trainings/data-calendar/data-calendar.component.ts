@@ -110,7 +110,6 @@ export class DataCalendarComponent implements OnInit {
     this.progressService.ref().start();
     this.calendarService.adminGetAllTrainingsCalendar().subscribe((data: CalendarTrainings) => {
       this.events = data;
-      console.log(data);
       this.fullCalendar(data);
       this.progressService.ref().complete();
     });

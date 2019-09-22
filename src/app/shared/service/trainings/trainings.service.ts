@@ -63,6 +63,12 @@ export class TrainingsService {
     return this.http.get( this.host + eAdminTrainings.adminUrlGetAllTrainings);
   }
 
+  getAllTrainingsStateAdmin() {
+    this.http.get( this.host + eAdminTrainings.adminUrlGetAllTrainings).subscribe((res) => {
+      this.store.dispatch(new trainingsActions.AllTrainings(res));
+    });
+  }
+
   /**
    *  method for admin panel delete Trainings
    * **/
