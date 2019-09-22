@@ -31,11 +31,9 @@ export class DataTrainersComponent implements OnInit {
 
   ngOnInit() {
     window.scroll(0, 0);
-    // this.getAllTrainers();
-    this.store.select(fromRoot.getAllTrainers).subscribe((trainers: Trainers) => {
-      this.trainers = trainers;
-    });
+    this.store.select(fromRoot.getAllTrainers).subscribe((trainers: Trainers) => this.trainers = trainers);
   }
+
 
 
   openModal(template: TemplateRef<any>) {
@@ -44,8 +42,10 @@ export class DataTrainersComponent implements OnInit {
 
 
   confirm(id: number) {
+    this.message = 'Confirmed!';
+    this.modalRef.hide();
     this.serviceTrainers.adminDeleteTrainers(id).subscribe(() => {
-       this.startService.getTrainersAdmin();
+      this.startService.getTrainersAdmin();
       }
     );
   }
