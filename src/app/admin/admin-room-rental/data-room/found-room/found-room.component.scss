@@ -1,0 +1,327 @@
+.wrapper-admin {
+  max-width: 1600px;
+  min-width: 765px;
+  margin: 0 auto;
+}
+
+.room-look-for-container {
+  display: flex;
+  flex-direction: column;
+  position: static;
+  height: 600px;
+  margin-left: 220px;
+  margin-top: -608px;
+
+}
+
+.room-order {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.page-content {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 25px;
+}
+
+//----------------  input-----------------------//
+
+/*
+P.S: if you like my content maybe you will become a donator and donate some money? That helps me to create new awesome materials. https://www.paypal.me/melnik909
+*/
+
+/*
+=====
+LEVEL 1. RESET STYLES
+=====
+*/
+
+
+/* a-field_a1 */
+
+.a-field_a1 .a-field__input {
+  transition: border-color .2s ease-out;
+  will-change: border-color;
+}
+
+.field {
+  --uiFieldPlaceholderColor: var(--fieldPlaceholderColor, #000000);
+}
+
+.field__input {
+  background-color: transparent;
+  border-radius: 0;
+  border: none;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  font-family: inherit;
+  font-size: 1em;
+}
+
+.field__input:focus::-webkit-input-placeholder {
+  color: var(--uiFieldPlaceholderColor);
+}
+
+.field__input:focus::-moz-placeholder {
+  color: var(--uiFieldPlaceholderColor);
+  opacity: 1;
+}
+
+/*
+=====
+LEVEL 2. CORE STYLES
+=====
+*/
+
+.a-field {
+  display: inline-block;
+}
+
+.a-field__input {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.a-field__input:focus {
+  outline: none;
+}
+
+/*
+=====
+LEVEL 3. PRESENTATION STYLES
+=====
+*/
+
+/* a-field */
+
+.a-field {
+  --uiFieldHeight: var(--fieldHeight, 30px);
+  --uiFieldBorderWidth: var(--fieldBorderWidth, 2px);
+  --uiFieldBorderColor: var(--fieldBorderColor);
+
+  --uiFieldFontSize: var(--fieldFontSize, 1em);
+  --uiFieldHintFontSize: var(--fieldHintFontSize, 1em);
+
+  --uiFieldPaddingRight: var(--fieldPaddingRight, 15px);
+  --uiFieldPaddingBottom: var(--fieldPaddingBottom, 5px);
+  --uiFieldPaddingLeft: var(--fieldPaddingLeft, 0px);
+
+  position: relative;
+  box-sizing: border-box;
+  font-size: var(--uiFieldFontSize);
+  color: #2639bf;
+  padding-top: 1em;
+}
+
+.a-field .a-field__input {
+  height: var(--uiFieldHeight);
+  padding: 0 var(--uiFieldPaddingRight) 0 var(--uiFieldPaddingLeft);
+  border-bottom: var(--uiFieldBorderWidth) solid var(--uiFieldBorderColor);
+}
+
+.a-field .a-field__input::-webkit-input-placeholder {
+  opacity: 0;
+  transition: opacity .2s ease-out;
+}
+
+.a-field .a-field__input::-moz-placeholder {
+  opacity: 0;
+  transition: opacity .2s ease-out;
+}
+
+.a-field .a-field__input:not(:placeholder-shown) ~ .a-field__label-wrap .a-field__label {
+  opacity: 0;
+  bottom: var(--uiFieldPaddingBottom);
+}
+
+.a-field .a-field__input:focus::-webkit-input-placeholder {
+  opacity: 1;
+  transition-delay: .2s;
+}
+
+.a-field .a-field__input:focus::-moz-placeholder {
+  opacity: 1;
+  transition-delay: .2s;
+}
+
+.a-field .a-field__label-wrap {
+  box-sizing: border-box;
+  width: 100%;
+  height: var(--uiFieldHeight);
+
+  pointer-events: none;
+  cursor: text;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.a-field .a-field__label {
+  position: absolute;
+  left: var(--uiFieldPaddingLeft);
+  bottom: calc(50% - .5em);
+
+  line-height: 1;
+  font-size: var(--uiFieldHintFontSize);
+
+  pointer-events: none;
+  transition: bottom .2s cubic-bezier(0.9, -0.15, 0.1, 1.15), opacity .2s ease-out;
+  will-change: bottom, opacity;
+}
+
+.a-field .a-field__input:focus ~ .a-field__label-wrap .a-field__label {
+  opacity: 1;
+  bottom: var(--uiFieldHeight);
+}
+
+.a-field_a1 .a-field__input:focus {
+  border-color: var(--fieldBorderColorActive);
+}
+
+.field {
+  --fieldBorderColor: #D1C4E9;
+  --fieldBorderColorActive: #673AB7;
+}
+
+
+.order-room {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 98%;
+}
+
+
+/**------------------------ Table  --------------------------------**/
+
+table {
+  text-align: left;
+  line-height: 30px;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid #f2f2f2;
+  width: 100%;
+  //margin: 50px auto;
+  border-radius: .25rem;
+  box-shadow: 0 2px 8px rgba(28, 15, 25, 0.1);
+}
+
+thead tr:first-child {
+  background: #14ad85;
+  color: #fff;
+  border: none;
+  height: 10px;
+  font-family: Ubuntu_Rehular, serif;
+}
+
+.options p {
+  left: auto;
+}
+
+tbody tr td {
+  font-size: 11px;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+table .table-title {
+  font-size: 12px;
+  font-family: Ubuntu_Rehular, serif;
+}
+
+.data-order {
+  color: #380505;
+  font-weight: bold;
+}
+
+
+th:first-child,
+td:first-child {
+  //padding: 0 15px 0 20px;
+}
+
+th {
+  font-weight: 500;
+}
+
+thead tr:last-child th {
+  border-bottom: 0;
+}
+
+tbody tr:hover {
+  background-color: #f2f2f2;
+  cursor: default;
+}
+
+tbody tr:last-child td {
+  border: none;
+}
+
+tbody td i {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+tbody td {
+  border-bottom: 1px solid #ddd;
+}
+
+td:last-child {
+  text-align: right;
+  padding-right: 10px;
+}
+
+.button {
+  color: #aaa;
+  cursor: pointer;
+  vertical-align: middle;
+  margin-top: -4px;
+}
+
+.view:hover {
+  color: #0a79df;
+}
+
+.delete:hover {
+  color: #dc2a2a;
+}
+
+.badge-message i {
+  font-size: 15px;
+  color: #005cbf;
+
+}
+
+
+/***------------------  Modal window remove ---------------------------------***/
+
+
+.modal-body .btn-delete {
+  margin: 15px;
+}
+
+
+.btn-delete {
+  width: 55px;
+  height: 25px;
+  border-radius: 5px;
+  border: 0 solid white;
+  background-color: #dc3545;
+  cursor: pointer;
+}
+
+.btn-exit {
+  width: 55px;
+  height: 25px;
+  border-radius: 5px;
+  border: 0 solid white;
+  background-color: #6c757d;
+  cursor: pointer;
+}

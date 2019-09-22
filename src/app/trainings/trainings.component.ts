@@ -8,6 +8,11 @@ import {Router} from '@angular/router';
 import {NgProgress} from '@ngx-progressbar/core';
 import {Subscription} from 'rxjs';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {Store} from '@ngrx/store';
+import * as fromRoot from 'src/app/common/index';
+import * as trainingsActions from 'src/app/common/trainings/trainings.actions';
+import {Models} from "../core/interfaces";
+
 
 @Component({
   selector: 'app-trainings',
@@ -32,7 +37,8 @@ export class TrainingsComponent implements OnInit {
 
   constructor(private serviceTrainings: TrainingsService, private router: Router,
               private inscriptionsService: InscriptionsService,
-              public progressService: NgProgress, public el: ElementRef) {
+              public progressService: NgProgress, public el: ElementRef,
+              private store: Store<fromRoot.AppState>) {
 
   }
 
@@ -55,6 +61,9 @@ export class TrainingsComponent implements OnInit {
     this.getAllTrainings();
     this.getAllInscriptions();
     this.progressService.ref().complete();
+    this.store.select(fromRoot.getAllTrainings).subscribe((all: Trainings) => {
+      this.trainings = all;
+    });
   }
 
 
@@ -85,12 +94,13 @@ export class TrainingsComponent implements OnInit {
    *  get all Trainings
    * **/
   private getAllTrainings() {
-    this.isProgress = true;
+    // this.isProgress = true;
     // setTimeout(() => {
-    this.serviceTrainings.getAllTrainings().subscribe((data: Trainings) => {
-      this.trainings = data;
-      this.isProgress = false;
-    });
+    // this.serviceTrainings.getAllTrainings().subscribe((data: Trainings) => {
+    //   this.trainings = data;
+    //   this.store.dispatch(new trainingsActions.AllTrainings(data));
+    //   this.isProgress = false;
+    // });
     // }, 2000);
   }
 

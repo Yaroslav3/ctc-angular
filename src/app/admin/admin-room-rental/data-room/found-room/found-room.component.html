@@ -1,0 +1,82 @@
+<app-admin-room-rental></app-admin-room-rental>
+
+<div class="wrapper-admin">
+  <div class="room-look-for-container">
+
+    <div class="room-order">
+
+      <div class="page page-content">
+        <div class="page__demo">
+          <form name="form" [formGroup]="formGroup" (ngSubmit)="test()" novalidate>
+            <label class="field a-field a-field_a1 page__field">
+              <input formControlName="id" class="field__input a-field__input" placeholder=" " required>
+              <span class="a-field__label-wrap">
+        <span class="a-field__label"># look for order on id </span>
+      </span>
+            </label>
+          </form>
+        </div>
+      </div>
+
+      <div *ngIf="isRemove == true">
+        <div class="alert alert-primary" role="alert">
+          Remove order!
+        </div>
+      </div>
+
+      <div *ngIf="isEmpty == true">
+        <div class="alert alert-primary" role="alert">
+          Not found order!
+        </div>
+      </div>
+
+      <div *ngIf="isRemove == false">
+        <div *ngIf="isEmpty == false" class="order-room">
+          <table *ngIf="orderRoom">
+            <thead>
+            <tr>
+              <th class="d-inline-block col-1 text-table-header" scope="col"><p>status</p></th>
+              <th class="d-inline-block col-2 text-table-header" scope="col"><p>id</p></th>
+              <th class="d-inline-block col-4 text-table-header" scope="col"><p>start time order</p></th>
+              <th class="name d-inline-block col-2 text-table-header" scope="col"><p>name</p></th>
+              <th class="d-inline-block col-3 text-table-header" scope="col"><p class="options">options</p></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="d-inline-block col-1 text-table">
+                <div class="badge-message" *ngIf="orderRoom.status == true">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="badge-message" *ngIf="orderRoom.status == false">
+                  <i class="far fa-envelope-open"></i>
+                </div>
+              </td>
+              <td class="mob d-inline-block col-2 text-table">{{orderRoom.id}}</td>
+              <td class="mob d-inline-block col-4 text-table">{{orderRoom.startTime | date:'dd-MM-yyyy/HH:mm'}}</td>
+              <td class="name mob d-inline-block col-2 text-table">{{orderRoom.nameSurname}}</td>
+              <td class="d-inline-block col-3 text-table-header">
+                <i class="far fa-eye view" (click)="onClickOpenOrder(orderRoom.id)"></i>
+                <i class="far fa-trash-alt delete" (click)="openModal(modalDelete)"></i>
+              </td>
+
+              <!------------ Modal window delete Inscriptions----------->
+
+              <ng-template #modalDelete let-modal>
+                <div class="modal-body text-center">
+                  <p style="color: #151230">Do you want to delete?</p>
+                  <button type="button" class="btn-delete" (click)="deleteOrderRoom(orderRoom.id)">Yes</button>
+                  <button type="button" class="btn-exit" (click)="modal.dismiss('Cross click')">Exit</button>
+                </div>
+              </ng-template>
+            </tr>
+            <div class="pagination-order" *ngIf="boolPagination">
+              <pagination-controls (pageChange)="p =$event"></pagination-controls>
+            </div>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
