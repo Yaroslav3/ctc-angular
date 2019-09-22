@@ -10,8 +10,6 @@ import {Subscription} from 'rxjs';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {Store} from '@ngrx/store';
 import * as fromRoot from 'src/app/common/index';
-import * as trainingsActions from 'src/app/common/trainings/trainings.actions';
-import {Models} from "../core/interfaces";
 
 
 @Component({

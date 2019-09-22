@@ -4,6 +4,8 @@ import {Trainings} from '../../../shared/model/trainings/Trainings.model';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 import {Router} from '@angular/router';
 import {NgProgress} from '@ngx-progressbar/core';
+import {Store} from '@ngrx/store';
+import * as fromRoot from '../../../common';
 
 @Component({
   selector: 'app-data-trainings',
@@ -20,12 +22,15 @@ export class DataTrainingsComponent implements OnInit {
   constructor(private serviceTrainings: TrainingsService,
               private modalService: BsModalService,
               private router: Router,
-              public progress: NgProgress) {
+              public progress: NgProgress,
+              private store: Store<fromRoot.AppState>) {
   }
 
   ngOnInit() {
     window.scroll(0, 0);
-    this.getAllTrainings();
+    this.store.select(fromRoot.getAllTrainings).subscribe((all: Trainings) => {
+      this.trainings = all;
+    });
   }
 
 
@@ -36,7 +41,6 @@ export class DataTrainingsComponent implements OnInit {
     this.progress.ref().start();
     this.serviceTrainings.adminGetAllTrainings().subscribe((data: Trainings) => {
       this.trainings = data;
-      console.log(data);
       this.progress.ref().complete();
     });
   }
