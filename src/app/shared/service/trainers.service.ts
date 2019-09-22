@@ -2,6 +2,9 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Trainers} from '../model/Trainers.model';
 import {eAdminTrainers, environment} from '../../../environments/environment';
+import {Store} from '@ngrx/store';
+import * as fromRoot from '../../common';
+import * as trainersActions from '../../common/trainers/trainers.actions';
 
 
 @Injectable({
@@ -11,7 +14,8 @@ export class TrainersService {
 
   private readonly host: string;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private store: Store<fromRoot.AppState>) {
     this.host = environment.host;
   }
 
@@ -23,6 +27,13 @@ export class TrainersService {
     return this.http.get(this.host + environment.apiUrlTrainers);
   }
 
+
+  getAllTrainersState() {
+    this.http.get(this.host + environment.apiUrlTrainers).subscribe
+    ((trainers) => {
+      this.store.dispatch(new trainersActions.AllTrainers(trainers));
+    });
+  }
 
   /**
    * get one Trainers
@@ -47,6 +58,11 @@ export class TrainersService {
     return this.http.get(this.host + eAdminTrainers.adminUrlGetAllTrainers);
   }
 
+  getAllTrainersStateAdmin() {
+    this.http.get(this.host + eAdminTrainers.adminUrlGetAllTrainers).subscribe((trainers) => {
+      this.store.dispatch(new trainersActions.AllTrainers(trainers));
+    });
+  }
 
   /**
    *  method for admin panel one Trainers

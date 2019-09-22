@@ -4,6 +4,9 @@ import {TrainersService} from '../../../shared/service/trainers.service';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 import {Router} from '@angular/router';
 import {NgProgress} from '@ngx-progressbar/core';
+import {Store} from '@ngrx/store';
+import * as fromRoot from '../../../common';
+import {StartService} from '../../../shared/service/start.service';
 
 @Component({
   selector: 'app-data-trainers',
@@ -21,23 +24,16 @@ export class DataTrainersComponent implements OnInit {
   constructor(private serviceTrainers: TrainersService,
               private modalService: BsModalService,
               private router: Router,
-              private progress: NgProgress) {
+              private progress: NgProgress,
+              private store: Store<fromRoot.AppState>,
+              private startService: StartService) {
   }
 
   ngOnInit() {
     window.scroll(0, 0);
-    this.getAllTrainers();
+    this.store.select(fromRoot.getAllTrainers).subscribe((trainers: Trainers) => this.trainers = trainers);
   }
 
-
-  private getAllTrainers() {
-
-    this.progress.ref().start();
-    this.serviceTrainers.adminGetAllTrainers().subscribe((data: Trainers) => {
-      this.trainers = data;
-      this.progress.ref().complete();
-    });
-  }
 
 
   openModal(template: TemplateRef<any>) {
@@ -49,7 +45,7 @@ export class DataTrainersComponent implements OnInit {
     this.message = 'Confirmed!';
     this.modalRef.hide();
     this.serviceTrainers.adminDeleteTrainers(id).subscribe(() => {
-        this.getAllTrainers();
+      this.startService.getTrainersAdmin();
       }
     );
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {TokenStorageService} from '../auth/service/token-storage.service';
 import {Router} from '@angular/router';
+import {StartService} from '../../shared/service/start.service';
 
 @Component({
   selector: 'app-admin-header',
@@ -9,9 +10,13 @@ import {Router} from '@angular/router';
 })
 export class AdminHeaderComponent implements OnInit {
 
-  constructor(private token: TokenStorageService, private router: Router) { }
+  constructor(private token: TokenStorageService,
+              private router: Router,
+              private startService: StartService) { }
 
   ngOnInit() {
+    this.startService.getTrainingsAdmin();
+    this.startService.getTrainersAdmin();
   }
 
   logout() {

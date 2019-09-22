@@ -211,6 +211,7 @@ export class HeaderComponent implements OnInit {
     this.getVideoStart();
     this.getAllPhotoStartPage();
     this.startService.getTrainings();
+    this.startService.getTrainers();
   }
 
 
@@ -225,7 +226,6 @@ export class HeaderComponent implements OnInit {
   burger() {
     window.scroll(0, 0);
     this.burgerMenu = true;
-    console.log('true');
   }
 
   /**
@@ -233,7 +233,6 @@ export class HeaderComponent implements OnInit {
    * ***/
   burgerHidden() {
     this.burgerMenu = false;
-    console.log('false');
   }
 
 
