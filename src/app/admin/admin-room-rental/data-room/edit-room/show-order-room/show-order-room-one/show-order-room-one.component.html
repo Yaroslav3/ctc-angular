@@ -1,0 +1,88 @@
+<app-admin-room-rental></app-admin-room-rental>
+
+<div class="wrapper-admin">
+  <div class="order-room-container">
+
+
+    <div class="or-block">
+
+      <div class="info-order">
+        <div class="info-order-details" *ngIf="orderRoom">
+          <table>
+            <thead>
+            <tr>
+              <th colspan="2" class="header-table">
+                Details order room <span> "{{orderRoom.nameRoom}}" </span>
+              </th>
+            </tr>
+            <tr>
+              <th colspan="2" class="time"><i class="fas fa-pen"></i> create
+                order: {{orderRoom.createOrderTime | date:'dd-MM-yyyy(HH:mm)'}}
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="d-inline-block col-3">order id:</td>
+              <td class="d-inline-block col-9"># {{orderRoom.id}}</td>
+            </tr>
+            <tr>
+              <td class="d-inline-block col-3">name:</td>
+              <td class="d-inline-block col-9"> {{orderRoom.nameSurname}}</td>
+            </tr>
+            <tr>
+              <td class="d-inline-block col-3">email:</td>
+              <td class="d-inline-block col-9"> {{orderRoom.email}}</td>
+            </tr>
+            <tr>
+              <td class="d-inline-block col-3">phone:</td>
+              <td class="d-inline-block col-9"> {{orderRoom.phone}}</td>
+            </tr>
+            <tr>
+              <td class="d-inline-block col-3">start time:</td>
+              <td class="d-inline-block col-9"> {{orderRoom.startTime | date:'dd-MM-yyyy(HH:mm)'}}</td>
+            </tr>
+            <tr>
+              <td class="d-inline-block col-3">end time:</td>
+              <td class="d-inline-block col-9"> {{orderRoom.endTime | date:'dd-MM-yyyy(HH:mm)'}}</td>
+            </tr>
+            <tr>
+              <td class="d-inline-block col-3">price:</td>
+              <td class="d-inline-block col-9"> {{orderRoom.price}} {{orderRoom.currency}}</td>
+            </tr>
+            <tr>
+              <td class="d-inline-block col-3">currency:</td>
+              <td class="d-inline-block col-9"> {{orderRoom.currency}}</td>
+            </tr>
+            <tr>
+              <td class="d-inline-block col-3">description:</td>
+              <td class="d-inline-block col-9 description-text"> {{orderRoom.description}}</td>
+            </tr>
+
+            </tbody>
+          </table>
+
+          <!--<p>date create: <span class="or-det"> {{orderRoom.createOrderTime | date:'dd-MM-yyyy(HH:mm)'}}</span></p>-->
+          <!--<p> order id: <span class="or-det">{{orderRoom.id}}</span></p>-->
+          <!--<p>{{orderRoom.nameSurname}}</p>-->
+          <!--<p>{{orderRoom.email}}</p>-->
+          <!--<p>{{orderRoom.phone}}</p>-->
+          <!--<p>{{orderRoom.startTime | date:'dd-MM-yyyy/HH:mm'}}</p>-->
+          <!--<p>{{orderRoom.endTime | date:'dd-MM-yyyy/HH:mm'}}</p>-->
+          <!--<p>{{orderRoom.price}} {{orderRoom.currency}}</p>-->
+          <!--<p>{{orderRoom.currency}}</p>-->
+        </div>
+      </div>
+      <div class="info-order-time">
+        <div class="time-show-order" *ngFor="let elem of dateRoom ; let i=index;">
+          <p>{{i + 1}}:) <span> {{elem.startDate | date:'dd-MM-yyyy/HH:mm'}}
+            -  {{elem.endDate | date:'dd-MM-yyyy/HH:mm'}}</span></p>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+
+</div>

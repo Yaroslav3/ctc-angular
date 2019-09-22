@@ -14,8 +14,12 @@
 }
 
 .time-room {
-  width: 400px;
+  width: 250px;
   height: auto;
+}
+
+.time-room .info-text {
+  font-family: Exo2ExtraBoldItalic, serif;
 }
 
 .time-room p {
@@ -54,7 +58,7 @@
 
 .prise-order {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 
@@ -62,18 +66,19 @@
   font-size: 15px;
   color: #144e22;
   font-family: Exo2ExtraBold, serif;
+  margin-left: 105px;
 }
 
 .prise-order-day {
   display: flex;
-  justify-content: flex-end;
-  padding-right: 80px;
+  justify-content: flex-start;
 }
 
 .prise-order-day p {
   font-size: 15px;
   color: #144e22;
   font-family: Exo2ExtraBold, serif;
+  margin-left: 125px;
 }
 
 .info-client {
@@ -137,4 +142,34 @@
   font-family: KIA_KIAM, serif;
   font-weight: bold;
 
+}
+
+
+/** --------------------- btn LiqPay------------------------------- ***/
+
+.btn-liqPay {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.r-b-liqPay {
+  display: flex;
+  justify-content: flex-start;
+  //padding: 80px;
+  margin: 0 auto 80px;
+  width: 70%;
+  height: 100px;
+}
+
+.r-b-liqPay button {
+  border: 0;
+  background-color: #dad3e8;
+  box-shadow: 0 2px 2px rgba(28, 15, 25, 0.2);
+}
+
+.r-b-liqPay button img {
+  width: 50%;
+  height: auto;
+  padding: 20px;
 }

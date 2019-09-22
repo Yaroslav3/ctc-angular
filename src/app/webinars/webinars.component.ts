@@ -20,7 +20,8 @@ export class WebinarsComponent implements OnInit {
   isProgress: boolean;
 
 
-  constructor(private webinarsService: WebinarsService, private webinarsInscriptionsService: WebinarsInscriptionsService,
+  constructor(private webinarsService: WebinarsService,
+              private webinarsInscriptionsService: WebinarsInscriptionsService,
               private route: Router) {
   }
 

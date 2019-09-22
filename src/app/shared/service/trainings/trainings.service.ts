@@ -3,6 +3,9 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Trainings} from '../../model/trainings/Trainings.model';
 import {eAdminTrainings, environment} from '../../../../environments/environment';
+import {Store} from '@ngrx/store';
+import * as fromRoot from 'src/app/common/index';
+import * as trainingsActions from '../../../common/trainings/trainings.actions';
 
 @Injectable({
   providedIn: 'root'
@@ -11,12 +14,19 @@ export class TrainingsService {
 
   private readonly host: string;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private store: Store<fromRoot.AppState>) {
     this.host = environment.host;
   }
 
   getAllTrainings() {
-    return this.http.get( this.host + environment.apiUrlTrainings);
+    return this.http.get(this.host + environment.apiUrlTrainings);
+  }
+
+  getAllTrainingsState() {
+    this.http.get(this.host + environment.apiUrlTrainings)
+      .subscribe(res =>
+        this.store.dispatch(new trainingsActions.AllTrainings(res)));
   }
 
 

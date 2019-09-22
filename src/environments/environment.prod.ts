@@ -4,25 +4,25 @@ export const environment = {
 
 
   /**
-   * Video
+   * Video;
    * **/
   apiUrlVideo: 'api/video/getAll',
 
 
   /**
-   * User
+   * User;
    * **/
   apiUrlUser: 'api/user',
 
   /**
-   * Trainers
+   * Trainers;
    * **/
   apiUrlTrainers: 'api/trainers/getAll',
   apiUrlGetAllNameSkills: 'api/trainers/training/name-id',
   apiUrlTrainersGetOne: 'api/trainers/getOne',
 
   /**
-   * Trainings
+   * Trainings;
    * **/
   apiUrlTrainings: 'api/trainings/getAll',
   apiUrlTrainingsGetOne: 'api/trainings/getOne',
@@ -31,7 +31,7 @@ export const environment = {
   apiUrlDownloadPDF: 'api/trainings/downloadFile',
 
   /**
-   * webinars
+   * webinars;
    * **/
   apiUrlWebinarsInscription: 'api/webinars/inscription/getAll',
   apiUrlWebinars: 'api/webinars/getAll',
@@ -41,10 +41,21 @@ export const environment = {
   apiUrlWebinarOrderStatus: 'api/webinar/order/status',
 
   /**
-   * Calendar
+   * Calendar;
    * **/
   apiUrlGetAllDateCalendar: 'api/calendar/getAll',
 
+  /**
+   * Room rental;
+   * **/
+  apiUrlRoomAll: 'api/room/rental/all',
+  apiUrlRoomOne: 'api/room/rental/getOne',
+  apiUrlRoomAllPhoto: 'api/room/rental/photo/allPhoto',
+  apiUrlRoomDayTimeOrder: 'api/room/rental/date/getTimeOneDay',
+  apiUrlRoomPeriodDayOrder: 'api/room/rental/date/getTimePeriodDay',
+  apiUrlCreateRoomOrder: 'api/room/rental/order/create',
+  apiUrlSaveTimeRoom: 'api/room/rental/date/createOrderTimeRoom',
+  apiUrlCheckedTimeRoom: 'api/room/rental/date/checkedTime',
 
 };
 
@@ -73,7 +84,7 @@ export const eAdminVideo = {
  *  admin User Service
  * **/
 export const eAdminUserDetails = {
-  production: true,
+  production: false,
   adminUrlUserService: 'admin/user/service/details',
 };
 
@@ -320,4 +331,63 @@ export const eAdminFirstPhotoBlog = {
   adminUrlPhotoCreate: 'admin/blog-photo/create',
   adminUrlPhotoUpdate: 'admin/blog-photo/update',
 
+};
+
+/**
+ * admin Room Rental
+ * **/
+export const eAdminRoomRental = {
+  production: true,
+  adminUrlGetAll: 'admin/room/rental/all',
+  adminUrlGetOne: 'admin/room/rental/one',
+  adminUrlRemove: 'admin/room/rental/remove',
+  adminUrlCreate: 'admin/room/rental/create',
+  adminUrlUpdate: 'admin/room/rental/update',
+};
+
+/**
+ * admin Room Article;
+ * ***/
+export const eAdminRoomArticle = {
+  production: true,
+  adminUrlCreate: 'admin/room/article/create',
+  adminUrlStatus: 'admin/room/article/status',
+  adminUrlUpdate: 'admin/room/article/update'
+};
+
+/**
+ * for admin panel
+ * Room prise
+ * **/
+export const eAdminRoomPrise = {
+  production: true,
+  adminUrlGetOne: 'admin/room/price/one',
+  adminUrlStatus: 'admin/room/price/status',
+  adminUrlCreate: 'admin/room/price/create',
+  adminUrlUpdate: 'admin/room/price/update'
+};
+
+/**
+ * for admin panel
+ * Photo room
+ * **/
+export const eAdminRoomPhoto = {
+  production: true,
+  adminUplGetAll: 'admin/room/photo/getAll',
+  adminUplCreate: 'admin/room/photo/create',
+  adminUplDelete: 'admin/room/photo/delete',
+  adminUplUpdate: 'admin/room/photo/update'
+};
+
+
+/**
+ * for admin panel
+ * Room Order;
+ * **/
+export const eAdminOrderRoom = {
+  production: true,
+
+  adminUrlRangeDate: 'admin/room/order/rangeDate',
+  adminUrlOneOrderRoom: 'admin/room/order/getOneOrder',
+  adminUrlDeleteOrderRoom: 'admin/room/order/delete'
 };

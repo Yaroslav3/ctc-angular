@@ -43,8 +43,10 @@ export class InscriptionsComponent implements OnInit {
   p: any;
 
 
-  constructor(private inscriptionsService: InscriptionsService, private modalService: NgbModal,
-              private tokenStorage: TokenStorageService, private progressService: NgProgress) {
+  constructor(private inscriptionsService: InscriptionsService,
+              private modalService: NgbModal,
+              private tokenStorage: TokenStorageService,
+              private progressService: NgProgress) {
   }
 
   ngOnInit() {

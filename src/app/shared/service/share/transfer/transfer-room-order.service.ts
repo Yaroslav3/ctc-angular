@@ -22,6 +22,6 @@ export class TransferRoomOrderService {
   }
 
   clearData() {
-    this.dateTime = undefined;
+    this.dateTime = [];
   }
 }

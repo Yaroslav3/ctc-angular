@@ -22,7 +22,9 @@ export class DataOrderComponent implements OnInit {
   boolPagination = false;
   p: any;
 
-  constructor(private orderService: OrderService, private modalService: BsModalService, private router: Router,
+  constructor(private orderService: OrderService,
+              private modalService: BsModalService,
+              private router: Router,
               public progressService: NgProgress) {
   }
 

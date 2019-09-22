@@ -27,7 +27,6 @@ export class AuthGuardService implements CanLoad, CanActivate {
     const token = this.tokenStorage.getToken();
 
     if (token == null) {
-
       console.log('_____________AlwaysAuthGuard____________');
       return false;
     }

@@ -3,7 +3,15 @@
     <br>
     <br>
     <br>
-    <div class="content-room-info">
+
+    <div *ngIf="isProgress==true">
+      <div class="loader">
+        loading ...
+        <app-loader></app-loader>
+      </div>
+    </div>
+
+    <div *ngIf="isProgress==false" class="content-room-info">
       <div class="carousel-room-photo">
         <ngb-carousel *ngIf="photo">
           <div *ngFor="let elem of photo; let i=index">
@@ -124,4 +132,5 @@
                       [config]="editorConfig"></angular-editor>
     </div>
   </div>
+
 </div>

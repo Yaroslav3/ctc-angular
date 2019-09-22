@@ -7,6 +7,9 @@ import {PhotoStartPageService} from '../shared/service/photo-start-page.service'
 import {PhotoStartPage} from '../shared/model/PhotoStartPage';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {NgProgress} from '@ngx-progressbar/core';
+import {StartService} from "../shared/service/start.service";
+import {Store} from "@ngrx/store";
+import * as fromRoot from "../common";
 
 
 @Component({
@@ -171,6 +174,7 @@ export class HeaderComponent implements OnInit {
     '/admin/room/rental/edit-room/photo/',
     '/admin/room/rental/edit-room/show-order-room/',
     '/admin/room/rental/edit-room/article/',
+    '/admin/room/rental/show-order-room-one/',
 
     /**
      * customer
@@ -192,8 +196,13 @@ export class HeaderComponent implements OnInit {
   burgerMenu: boolean;
 
 
-  constructor(private location: Location, private photoService: PhotoStartPageService,
-              private videoService: VideoService, public progress: NgProgress, public el: ElementRef) {
+  constructor(private location: Location,
+              private photoService: PhotoStartPageService,
+              private videoService: VideoService,
+              public progress: NgProgress,
+              public el: ElementRef,
+              private store: Store<fromRoot.AppState>,
+              private startService: StartService) {
     this.burgerMenu = true;
   }
 
@@ -201,6 +210,7 @@ export class HeaderComponent implements OnInit {
     window.scroll(0, 0);
     this.getVideoStart();
     this.getAllPhotoStartPage();
+    this.startService.getTrainings();
   }
 
 

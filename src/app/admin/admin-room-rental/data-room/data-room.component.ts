@@ -4,6 +4,8 @@ import {Room} from '../../../shared/model/room/Room.model';
 import {NgProgress} from '@ngx-progressbar/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Router} from '@angular/router';
+import {OrderRoomService} from "../../../shared/service/roomRental/order-room.service";
+import {OrderRoom} from "../../../shared/model/room/OrderRoom.model";
 
 @Component({
   selector: 'app-data-room',
@@ -20,7 +22,8 @@ export class DataRoomComponent implements OnInit {
   constructor(private roomRentalService: RoomRentalService,
               private progress: NgProgress,
               private modalService: NgbModal,
-              private router: Router) {
+              private router: Router,
+              private orderRoomService: OrderRoomService) {
   }
 
   ngOnInit() {
@@ -28,6 +31,15 @@ export class DataRoomComponent implements OnInit {
     this.roomRentalAll();
   }
 
+
+  /**
+   * Get one order room;
+   * ***/
+  getOneOrderRoom(id: number) {
+    this.orderRoomService.getOneOrderRoom(id).subscribe((date: OrderRoom) => {
+      console.log(date);
+    });
+  }
 
   /**
    * show all Room

@@ -60,8 +60,7 @@ export const environment = {
   apiUrlRoomPeriodDayOrder: 'api/room/rental/date/getTimePeriodDay',
   apiUrlCreateRoomOrder: 'api/room/rental/order/create',
   apiUrlSaveTimeRoom: 'api/room/rental/date/createOrderTimeRoom',
-
-
+  apiUrlCheckedTimeRoom: 'api/room/rental/date/checkedTime',
 
 };
 
@@ -383,6 +382,19 @@ export const eAdminRoomPhoto = {
   adminUplCreate: 'admin/room/photo/create',
   adminUplDelete: 'admin/room/photo/delete',
   adminUplUpdate: 'admin/room/photo/update'
+};
+
+
+/**
+ * for admin panel
+ * Room Order;
+ * **/
+export const eAdminOrderRoom = {
+  production: false,
+
+  adminUrlRangeDate: 'admin/room/order/rangeDate',
+  adminUrlOneOrderRoom: 'admin/room/order/getOneOrder',
+  adminUrlDeleteOrderRoom: 'admin/room/order/delete'
 };
 /*
  * For easier debugging in development mode, you can import the following file

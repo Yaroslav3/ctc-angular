@@ -9,42 +9,47 @@
 
     <div class="block-order-room">
 
-      <!---------------------------------------- Hour block --------------------------------------------------------->
-      <div class="time-room" *ngIf="isDateTimeRoom == true">
-        <p><i class="far fa-calendar-alt"></i> Дата начала: <span class="bl-date"> {{date | date: 'yyyy-MM-dd'}}</span></p>
+      <div class="bl-info">
+        <!---------------------------------------- Hour block --------------------------------------------------------->
+        <div class="time-room" *ngIf="isDateTimeRoom == true">
+          <p class="info-text"><i class="fas fa-info"></i> Информация о заказе</p>
+          <p><i class="far fa-calendar-alt"></i> Дата начала: <span
+            class="bl-date"> {{date | date: 'yyyy-MM-dd'}}</span></p>
 
-        <p><i class="far fa-clock"></i> Заказаное время :</p>
-        <div *ngFor="let elem of arrayOrder" class="time-show">
-          <p>{{elem.startDate | date :'HH-mm'}} - <span>{{elem.endDate | date :'HH-mm'}}</span></p>
+          <p><i class="far fa-clock"></i> Заказаное время :</p>
+          <div *ngFor="let elem of arrayOrder" class="time-show">
+            <p>{{elem.startDate | date :'HH-mm'}} - <span>{{elem.endDate | date :'HH-mm'}}</span></p>
+          </div>
+
+          <p><i class="fas fa-dollar-sign"></i> Цена заказа: {{room.priseRoom[0].priceHour}}/ час</p>
+          <div *ngIf="room" class="prise-order">
+            <p><i style=" color: #179918"
+                  class="fas fa-shopping-cart"></i> {{room.priseRoom[0].priceHour * numOrder}} {{room.priseRoom[0].currency}}
+            </p>
+          </div>
         </div>
+        <!---------------------------------------- Day block --------------------------------------------------------->
+        <div class="time-room" *ngIf="isDatePeriodRoom == true">
+          <p class="info-text"><i class="fas fa-info"></i> Информация о заказе</p>
+          <p><i class="far fa-calendar-alt"></i> Дата начала: <span
+            class="bl2-date"> {{datePeriod.startDate | date: 'yyyy-MM-dd'}}</span></p>
 
-        <p><i class="fas fa-dollar-sign"></i> Цена заказа: {{room.priseRoom[0].priceHour}}/ час</p>
-        <div *ngIf="room" class="prise-order">
-          <p><i style=" color: #179918"
-                class="fas fa-shopping-cart"></i> {{room.priseRoom[0].priceHour * numOrder}} {{room.priseRoom[0].currency}}
-          </p>
+          <p><i class="far fa-clock"></i> Заказаное время дня:</p>
+          <div class="time-show">
+            <p> с 10:00 по <span>19:00</span></p>
+          </div>
+
+          <p><i class="far fa-calendar-alt"></i> Дата окончания: <span
+            class="bl-date"> {{datePeriod.endDate | date: 'yyyy-MM-dd'}}</span></p>
+          <p><i class="fas fa-dollar-sign"></i> Цена заказа: {{room.priseRoom[0].priceDay}}/ день</p>
+          <div *ngIf="room" class="prise-order-day">
+            <p><i style=" color: #179918"
+                  class="fas fa-shopping-cart"></i> {{room.priseRoom[0].priceDay * countDay}} {{room.priseRoom[0].currency}}
+            </p>
+          </div>
         </div>
       </div>
-      <!---------------------------------------- Day block --------------------------------------------------------->
-      <div class="time-room" *ngIf="isDatePeriodRoom == true">
-        <p><i class="far fa-calendar-alt"></i> Дата начала: <span
-          class="bl2-date"> {{datePeriod.startDate | date: 'yyyy-MM-dd'}}</span></p>
-
-        <p><i class="far fa-clock"></i> Заказаное время дня:</p>
-        <div class="time-show">
-          <p> с 10:00  по <span>19:00</span></p>
-        </div>
-
-        <p><i class="far fa-calendar-alt"></i> Дата окончания: <span
-          class="bl-date"> {{datePeriod.endDate | date: 'yyyy-MM-dd'}}</span></p>
-        <p><i class="fas fa-dollar-sign"></i> Цена заказа: {{room.priseRoom[0].priceDay}}/ день</p>
-        <div *ngIf="room" class="prise-order-day">
-          <p><i style=" color: #179918"
-                class="fas fa-shopping-cart"></i> {{room.priseRoom[0].priceDay * countDay}} {{room.priseRoom[0].currency}}
-          </p>
-        </div>
-      </div>
-      <div class="info-client">
+      <div *ngIf="isInputInf == true" class="info-client">
         <form name="form" [formGroup]="formGroup" (ngSubmit)="createRoomPrice()" novalidate>
           <div class="input-filed">
             <label>ФИО *</label>
@@ -101,6 +106,21 @@
 
       </div>
 
+      <div class="btn-liqPay">
+        <div *ngIf="isInputInf == false">
+          <div class="r-b-liqPay">
+            <button (click)="liqPayInvoiceRoom()">
+              <img src="assets/img/visa-mastercard.png">
+            </button>
+          </div>
+        </div>
+
+        <div *ngIf="isMassage == true">
+          <div class="alert alert-secondary" role="alert">
+            Дата и время уже заняты , выберете пожайлуста другой диапазон времени...!!!
+          </div>
+        </div>
+      </div>
     </div>
 
   </div>

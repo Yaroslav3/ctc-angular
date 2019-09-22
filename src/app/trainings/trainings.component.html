@@ -9,7 +9,7 @@
     </div>
   </div>
 
-  <div *ngIf="isProgress==false" class="all-content">
+  <div class="all-content">
     <br>
 
     <div class="industries-trainings">
@@ -23,7 +23,6 @@
     <br>
 
     <div class="block-add-trainings">
-
       <div *ngFor="let training of trainings; let i = index">
         <a (click)="noClickTrainings(training.id)">
           <div class="training-info-block" *ngFor="let elem of trainings[i].photoTrainings;">

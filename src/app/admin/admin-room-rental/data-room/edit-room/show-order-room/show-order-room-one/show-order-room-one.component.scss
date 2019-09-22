@@ -1,0 +1,138 @@
+.wrapper-admin {
+  max-width: 1600px;
+  min-width: 765px;
+  margin: 0 auto;
+}
+
+.order-room-container {
+  display: flex;
+  flex-direction: column;
+  //position: static;
+  height: auto;
+  margin-left: 220px;
+  margin-top: -608px;
+}
+
+.or-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 40px;
+  width: 100%;
+}
+
+.info-order {
+  flex-grow: 2;
+  //padding: 10px;
+  width: 70%;
+}
+
+/**-----------  TABLE  ------------------------------**/
+
+table {
+  text-align: left;
+  line-height: 30px;
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 98%;
+  border: 1px solid #9c9c9c;
+  //border: 1px solid #f2f2f2;
+  margin: 0 auto;
+  border-radius: .15rem;
+  box-shadow: 0 2px 8px rgba(28, 15, 25, 0.1);
+
+}
+
+table .header-table {
+  height: 60px;
+}
+
+table .header-table span {
+  color: #179918;
+  font-family: Exo2Medium, serif;
+  padding-left: 20px;
+}
+
+thead tr:first-child {
+  background: #9c9c9c;
+  color: #fff;
+  border: none;
+}
+
+table thead tr .time {
+  font-size: 9px;
+  font-family: Arial, Helvetica, sans-serif, serif
+}
+
+tbody tr td {
+  text-align: left;
+  font-size: 11px;
+}
+
+
+th:first-child,
+td:first-child {
+  padding: 0 15px 0 20px;
+}
+
+th {
+  font-weight: 500;
+}
+
+
+tbody tr:hover {
+  background-color: #f2f2f2;
+  cursor: default;
+}
+
+tbody tr:last-child td {
+  border: none;
+}
+
+
+td:last-child {
+  text-align: right;
+  padding-right: 10px;
+}
+
+.description-text {
+  height: 90px;
+  overflow-y: scroll;
+}
+
+//--------------------------------------------------------//
+
+
+.info-order-details p .or-det {
+  padding-left: 20px;
+}
+
+
+.info-order-time {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+  padding: 10px;
+  width: 40%;
+  overflow-y: auto;
+  //height: 443px;
+  height: auto;
+  border: solid 1px #14ad85;
+}
+
+.time-show-order {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.time-show-order p {
+  font-size: 10px;
+  padding-top: -5px;
+  color: #0c5460;
+  font-weight: bold;
+}
+
+.time-show-order p span {
+  padding-left: 20px;
+}

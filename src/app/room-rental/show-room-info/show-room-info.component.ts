@@ -10,9 +10,9 @@ import {RoomDateService} from '../../shared/service/roomRental/room-date.service
 import {DatePipe} from '@angular/common';
 import {Status} from '../../shared/model/status/Status.model';
 import {TransferRoomOrderService} from '../../shared/service/share/transfer/transfer-room-order.service';
-import {TransferRoomService} from "../../shared/service/share/transfer/transfer-room.service";
-import {TransferDatePeriodService} from "../../shared/service/share/transfer/transfer-date-period.service";
-import {RoomDatePeriod} from "../../shared/model/room/RoomDatePeriod.model";
+import {TransferRoomService} from '../../shared/service/share/transfer/transfer-room.service';
+import {TransferDatePeriodService} from '../../shared/service/share/transfer/transfer-date-period.service';
+import {RoomDatePeriod} from '../../shared/model/room/RoomDatePeriod.model';
 
 
 @Component({
@@ -50,6 +50,7 @@ export class ShowRoomInfoComponent implements OnInit {
   bu: boolean;
   arrayTime = [];
 
+  isProgress: boolean;
   isChoiceOrder = true;
 
   isEmptyArray: boolean;
@@ -113,6 +114,8 @@ export class ShowRoomInfoComponent implements OnInit {
 
     this.dateManyDay = new Date();
     this.dateManyDay.setDate(this.date.getDate() + 1);
+    this.dateManyDay.setMonth(this.date.getMonth());
+    this.dateManyDay.setFullYear(this.date.getFullYear());
     const current = new Date();
     this.config.minDate = {
       year: current.getFullYear(), month:
@@ -153,10 +156,12 @@ export class ShowRoomInfoComponent implements OnInit {
    * get one Room;
    * **/
   oneRoom(id: number) {
+    this.isProgress = true;
     this.roomRentalService.getOneRoom(id).subscribe((data: Room) => {
       this.room = data;
       this.photo = data.photoRoom;
       this.transferRoomService.setData(data);
+      this.isProgress = false;
     });
   }
 
@@ -168,6 +173,7 @@ export class ShowRoomInfoComponent implements OnInit {
     this.roomDateService.timeOneDayRoom(start, end, this.id).subscribe((data: RoomTimeOrder) => {
         this.showTimeOrder(data);
         // console.log(data);
+
       }
     );
   }
@@ -220,7 +226,7 @@ export class ShowRoomInfoComponent implements OnInit {
       } else {
 
         for (let i = 0; i < this.arrayTime.length; i++) {
-          if (new Date(this.arrayTime[i]['startDate']).getHours() === this.createNumberData(Number(num - 1)).getHours()) {
+          if (new Date(this.arrayTime[i].startDate).getHours() === this.createNumberData(Number(num - 1)).getHours()) {
             this.arrayTime.splice(i, 1);
           }
         }
@@ -318,7 +324,7 @@ export class ShowRoomInfoComponent implements OnInit {
       if (this.arrayTime.length === 0) {
         this.isEmptyArray = true;
       } else {
-
+        this.transferDatePeriodService.clearData();
         /**
          * redirect to order time room;
          * ***/
@@ -327,7 +333,7 @@ export class ShowRoomInfoComponent implements OnInit {
         this.route.navigate(['room', 'order', this.id]);
       }
     } else {
-
+      this.transferRoomOrderService.clearData();
       /**
        * redirect to order by many date room;
        * ***/
@@ -378,4 +384,5 @@ export class ShowRoomInfoComponent implements OnInit {
     value = datePipe.transform(value, 'yyyy-MM-dd HH:mm');
     return value;
   }
+
 }
