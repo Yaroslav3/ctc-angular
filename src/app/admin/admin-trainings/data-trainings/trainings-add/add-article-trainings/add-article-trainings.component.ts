@@ -8,6 +8,7 @@ import {Trainings} from '../../../../../shared/model/trainings/Trainings.model';
 import {TrainingArticle} from '../../../../../shared/model/trainings/TrainingArticle';
 import {ArticleTrainingsService} from '../../../../../shared/service/trainings/article-trainings.service';
 import {NgProgress} from '@ngx-progressbar/core';
+import {StartService} from '../../../../../shared/service/start.service';
 
 @Component({
   selector: 'app-add-article-trainings',
@@ -63,6 +64,7 @@ export class AddArticleTrainingsComponent implements OnInit {
               private fb: FormBuilder,
               private serviceTrainings: TrainingsService,
               private router: Router,
+              private startService: StartService,
               private articleTrainingsService: ArticleTrainingsService,
               private progress: NgProgress) {
     idNumber.params.subscribe((p) => {
@@ -136,9 +138,10 @@ export class AddArticleTrainingsComponent implements OnInit {
 
     this.progress.ref().start();
     this.articleTrainingsService.adminCreateArticle(articleTraining, this.id).subscribe((data) => {
-      console.log(data);
       window.alert('success');
+      this.startService.getTrainings();
       this.progress.ref().complete();
+      this.router.navigate(['admin', 'trainings', 'data-trainings']);
     }, error1 => {
       window.alert(error1.message);
     });
