@@ -72,7 +72,8 @@ export const eHomePhoto = {
   production: false,
 
   apiUrlPhotoPageStartGetAll: 'api/photoPage/getAll',
-  apiUrlPhotoPageStartGetOne: 'api/photoPage/getOne'
+  apiUrlPhotoPageStartGetOne: 'api/photoPage/getOne',
+  apiUrlPhotoNamePhotoPage: 'api/getNamePhotoPage'
 };
 
 

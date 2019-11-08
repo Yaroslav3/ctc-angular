@@ -23,6 +23,15 @@ export class PhotoStartPageService {
   /**
    * get one for customer photo Start Page
    * **/
+  customerPhotoStartPageGetOneForName(name: string){
+    return this.http.get(
+      `${this.host + eHomePhoto.apiUrlPhotoNamePhotoPage}/${name}`, {responseType: 'blob'}
+    );
+  }
+
+  /**
+   * get one for customer photo Start Page
+   * **/
   customerPhotoStartPageGetOne(id: number) {
     return this.http.get(
       `${this.host + eHomePhoto.apiUrlPhotoPageStartGetOne}/${id}`, {responseType: 'blob'}

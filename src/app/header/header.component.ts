@@ -10,6 +10,9 @@ import {NgProgress} from '@ngx-progressbar/core';
 import {StartService} from "../shared/service/start.service";
 import {Store} from "@ngrx/store";
 import * as fromRoot from "../common";
+import {ActivatedRoute, ParamMap} from '@angular/router';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 
 @Component({
@@ -27,7 +30,7 @@ import * as fromRoot from "../common";
 export class HeaderComponent implements OnInit {
 
   isVisible: boolean;
-
+  name: string
 
   /**
    * show video
@@ -201,6 +204,7 @@ export class HeaderComponent implements OnInit {
               private videoService: VideoService,
               public progress: NgProgress,
               public el: ElementRef,
+              private route: ActivatedRoute,
               private store: Store<fromRoot.AppState>,
               private startService: StartService) {
     this.burgerMenu = true;
@@ -209,6 +213,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     window.scroll(0, 0);
     this.getVideoStart();
+    this.setPhoto('home');
     this.getAllPhotoStartPage();
     this.startService.getTrainings();
     this.startService.getTrainers();
@@ -270,6 +275,19 @@ export class HeaderComponent implements OnInit {
         }
       }
       this.progress.ref().complete();
+    });
+  }
+
+  /**
+   *  get photo name start page
+   * **/
+  public setPhoto(name: string) {
+    console.log('name' , name)
+    if (name === '') {
+      console.log('name_2' , name);
+    }
+    this.photoService.customerPhotoStartPageGetOneForName(name).subscribe((response) => {
+      console.log('photo', response);
     });
   }
 

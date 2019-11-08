@@ -16,8 +16,8 @@ import {TrainingShowComponent} from './trainings/training-show/training-show.com
 import {WebinarShowComponent} from './webinars/webinar-show/webinar-show.component';
 import {OrderFormWebinarComponent} from './webinars/webinar-show/order-form-webinar/order-form-webinar.component';
 import {OrderStatusComponent} from './webinars/webinar-show/order-form-webinar/order-status/order-status.component';
-import {ShowRoomInfoComponent} from "./room-rental/show-room-info/show-room-info.component";
-import {OrderRoomComponent} from "./room-rental/order-room/order-room.component";
+import {ShowRoomInfoComponent} from './room-rental/show-room-info/show-room-info.component';
+import {OrderRoomComponent} from './room-rental/order-room/order-room.component';
 
 const routes: Routes = [
 
