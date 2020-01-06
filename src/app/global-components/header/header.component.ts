@@ -1,16 +1,16 @@
 import {Component, ElementRef, OnInit} from '@angular/core';
-import {Video} from '../shared/model/Video.model';
-import {Trainers} from '../shared/model/Trainers.model';
-import {Location} from '@angular/common';
-import {VideoService} from '../shared/service/video.service';
-import {PhotoStartPageService} from '../shared/service/photo-start-page.service';
-import {PhotoStartPage} from '../shared/model/PhotoStartPage';
+import {Video} from '../../shared/model/Video.model';
+import {Trainers} from '../../shared/model/Trainers.model';
+import {Location, ViewportScroller} from '@angular/common';
+import {VideoService} from '../../shared/service/video.service';
+import {PhotoStartPageService} from '../../shared/service/photo-start-page.service';
+import {PhotoStartPage} from '../../shared/model/PhotoStartPage';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {NgProgress} from '@ngx-progressbar/core';
-import {StartService} from "../shared/service/start.service";
-import {Store} from "@ngrx/store";
-import * as fromRoot from "../common";
-import {ActivatedRoute, ParamMap} from '@angular/router';
+import {StartService} from '../../shared/service/start.service';
+import {Store} from '@ngrx/store';
+import * as fromRoot from '../../common';
+import {ActivatedRoute, ParamMap, Params, Router} from '@angular/router';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
@@ -30,7 +30,7 @@ import {map} from 'rxjs/operators';
 export class HeaderComponent implements OnInit {
 
   isVisible: boolean;
-  name: string
+  name: string;
 
   /**
    * show video
@@ -282,9 +282,9 @@ export class HeaderComponent implements OnInit {
    *  get photo name start page
    * **/
   public setPhoto(name: string) {
-    console.log('name' , name)
+    console.log('name', name);
     if (name === '') {
-      console.log('name_2' , name);
+      console.log('name_2', name);
     }
     this.photoService.customerPhotoStartPageGetOneForName(name).subscribe((response) => {
       console.log('photo', response);

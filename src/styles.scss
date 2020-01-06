@@ -19,6 +19,9 @@
 html, body {
   height: 100%;
 }
+html {
+  scroll-behavior: smooth; // стиль для поавной прокрутки страници ViewportScroller
+}
 
 body {
   margin: 0;

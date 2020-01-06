@@ -1,0 +1,67 @@
+<app-menu-animate></app-menu-animate>
+<div *ngIf="auth()">
+  <div *ngIf="isHiddenAdmin()">
+    <div *ngIf="isHidden()"
+         class="top-pic"
+         [ngStyle]="{'background-image': 'url(' + homePhoto + ')'}">
+      <div class="top-pic-video">
+        <ng-progress></ng-progress>
+        <div class="top-pic-video-text"><p>{{titleText}}</p></div>
+        <div id="headerVideo"
+             class="video-wrapper"
+             data-video-atts="playsinline muted loop">
+          <video
+            *ngFor="let elem of video"
+            class="video"
+            playsinline="" muted="video" loop="" style="opacity: 1;"
+            autoplay="autoplay">
+            <source [src]="elem.videoUrl" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <div [@visibilityChanged]="animPhoto()">
+      <div class="top-pic"
+           *ngIf="isPhotoTrainings()"
+           [ngStyle]="{'background-image': 'url(' + trainingsPhoto + ')'}"></div>
+
+    </div>
+    <div [@visibilityChanged]="animPhoto()">
+      <div class="top-pic"
+           *ngIf="isPhotoWebinars()"
+           [ngStyle]="{'background-image': 'url(' + webinarsPhoto + ')'}"></div>
+    </div>
+
+    <div [@visibilityChanged]="animPhoto()">
+      <div class="top-pic"
+           *ngIf="isPhotoCoachResume()"
+           [ngStyle]="{'background-image': 'url(' + coachPhoto + ')'}"></div>
+    </div>
+
+    <div [@visibilityChanged]="animPhoto()">
+      <div class="top-pic"
+           *ngIf=" isSchedule()"
+           [ngStyle]="{'background-image': 'url(' + schedule + ')'}"></div>
+    </div>
+
+
+    <div [@visibilityChanged]="animPhoto()">
+      <div class="top-pic"
+           *ngIf="isRoomRental()"
+           [ngStyle]="{'background-image': 'url(' + roomRental + ')'}"></div>
+    </div>
+
+
+    <div [@visibilityChanged]="animPhoto()">
+      <div class="top-pic"
+           *ngIf="isRecommendations()"
+           [ngStyle]="{'background-image': 'url(' + recommendations + ')'}"></div>
+    </div>
+
+
+    <div class="wrapper">
+      <app-menu-app class="menu"></app-menu-app>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
