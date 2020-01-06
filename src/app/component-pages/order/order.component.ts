@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {Order} from '../shared/model/Order.model';
-import {Trainings} from '../shared/model/trainings/Trainings.model';
+import {Order} from '../../shared/model/Order.model';
+import {Trainings} from '../../shared/model/trainings/Trainings.model';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {DatePipe} from '@angular/common';
-import {TrainersService} from '../shared/service/trainers.service';
-import {TrainingsService} from '../shared/service/trainings/trainings.service';
-import {Trainers} from '../shared/model/Trainers.model';
-import {OrderService} from '../shared/service/order.service';
+import {TrainersService} from '../../shared/service/trainers.service';
+import {TrainingsService} from '../../shared/service/trainings/trainings.service';
+import {Trainers} from '../../shared/model/Trainers.model';
+import {OrderService} from '../../shared/service/order.service';
 import {NgProgress} from '@ngx-progressbar/core';
 import {NgbDateAdapter, NgbDateNativeAdapter, NgbDatepickerConfig} from '@ng-bootstrap/ng-bootstrap';
 

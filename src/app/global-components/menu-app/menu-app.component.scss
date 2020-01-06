@@ -1,0 +1,268 @@
+header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 82px;
+  background: #fcfcfc;
+  //margin-top: -3.5%;
+  z-index: 1000;
+  margin-left: -3.5%;
+  box-shadow: 0 3px 5px silver;
+  transform: scale(0.9);
+
+  .logo {
+    flex-grow: 1;
+    background: no-repeat;
+    margin-left: 4%;
+    margin-top: 5px;
+    background-size: cover;
+    max-width: 73px;
+    height: 67px;
+    transform: scale(0.9);
+  }
+
+  .dws-menu {
+    position: relative;
+    top: 15%;
+    left: -10px;
+    right: 14.4%;
+    height: 48px;
+    margin-bottom: -0.1%;
+
+    ul.dws-ul {
+      display: flex;
+      justify-content: center;
+
+      .dws-li {
+        list-style: none;
+        padding: 3px 2px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all .4s ease-in;
+        margin: 0 3px;
+        letter-spacing: 1px;
+
+        a {
+          font-family: Exo2Regular, serif;
+          font-weight: bold;
+          text-decoration: none;
+          font-size: 12px;
+          color: #717171;
+          position: relative;
+          margin: 2px 5px;
+          top: -1px;
+
+        }
+
+        &:hover {
+          background-color: rgba(167, 121, 83, 0.2);
+
+          a {
+            color: rgba(167, 121, 83, 0.96);
+          }
+
+        }
+      }
+
+      .activeLink {
+        background-color: rgba(0, 0, 0, 0.3);
+        transition: all .4s ease-out;
+        border-radius: 3px;
+
+        a {
+          color: white !important;
+          letter-spacing: 2px;
+          font-weight: normal;
+        }
+      }
+
+    }
+  }
+
+  .dws-menu-mob {
+    display: none;
+  }
+}
+
+
+// *****************MOBILE VERSION OF NAV (BURGER)*************************//
+.touch {
+  width: 35px;
+  height: 25px;
+  //border: px solid #000;
+  border-radius: 3px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  //background: #ddd;
+  margin-bottom: 3px;
+  margin-right: 8px;
+  z-index: 500;
+
+  &:hover {
+    background-color: #fff0fc;
+  }
+
+  .touch-row {
+    width: 90%;
+    height: 3.5px;
+    background: #848484;
+    border-radius: 10px;
+  }
+}
+
+.dws-menu-mob {
+  position: relative;
+  top: 15%;
+  left: -10px;
+  right: 14.4%;
+  height: 48px;
+  margin-bottom: -0.1%;
+
+  .dws-ul-mob {
+    display: flex;
+    justify-content: center;
+
+    .dws-li-mob {
+      list-style: none;
+      padding: 3px 2px;
+      border-radius: 4px;
+
+      a {
+        font-family: 'Ubuntu_Bold', serif;
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 12px;
+        color: #111;
+        position: relative;
+        margin: 2px 5px;
+        top: -1px;
+      }
+
+      &:hover {
+        background-color: #F2F2F2;
+
+        a {
+          color: #565656;
+        }
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 980px) {
+  header {
+    height: 65px;
+    flex-direction: row-reverse;
+  }
+  .logo {
+    background-size: 50px;
+    margin-top: 0 !important;
+    transform: scale(0.8) !important;
+  }
+  .dws-menu {
+    display: none;
+
+  }
+  .touch {
+    display: flex;
+    margin-top: 19px;
+  }
+
+  ////***************** BURGER MOB VERSION*************************////
+  .dws-menu-mob {
+    position: relative;
+    top: 15%;
+    left: -10px;
+    right: 14.4%;
+    height: 48px;
+    margin-bottom: -0.1%;
+
+  }
+
+  #touch-inp:checked ~ .dws-menu-mob {
+    position: absolute;
+    display: block;
+    margin: 0;
+    width: 103.5%;
+    height: 530px;
+    left: 0;
+    top: -460px;
+    z-index: -1;
+    background-color: #fff;
+    text-align: center;
+  }
+  ul.dws-ul-mob {
+    display: block;
+
+    li {
+      height: 35px;
+      margin: 20px 5%;
+
+      a {
+        font-size: 14px;
+        letter-spacing: 1px;
+        top: 2px;
+      }
+    }
+  }
+  //*******************************************************************//
+
+}
+
+@media only screen and (max-width: 768px) {
+  //----HEADER-----//
+  .logo {
+    background-size: 50px;
+    margin-top: 1.5%;
+  }
+
+
+  ////***************** BURGER MOB VERSION*************************////
+  #touch-inp:checked ~ .dws-menu-mob {
+    padding: 20px;
+    height: 658%;
+    left: 0;
+    top: -360px;
+
+  }
+
+  .dws-ul-mob li {
+    margin: 10px 0 0 -2%;
+  }
+
+  //*********************************************************************//
+  .top-pic-photo {
+    width: 100%;
+    height: 95.9vw;
+    max-height: 400px;
+
+  }
+}
+
+@media only screen and (max-width: 480px) {
+
+  header {
+
+    .logo {
+
+    }
+  }
+
+  ////***************** BURGER MOB VERSION*************************////
+  #touch-inp:checked ~ .dws-menu-mob {
+    height: 439px;
+    left: 0;
+    top: -375px;
+  }
+  .dws-ul-mob li {
+    margin: 10px 0 0 -8%;
+  }
+  //*****************************************************************//
+
+
+}
+

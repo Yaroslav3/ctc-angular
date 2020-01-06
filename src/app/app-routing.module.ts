@@ -1,13 +1,13 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {HomeComponent} from './home/home.component';
+import {HomeComponent} from './component-pages/home/home.component';
 import {TrainingsComponent} from './trainings/trainings.component';
-import {OrderComponent} from './order/order.component';
+import {OrderComponent} from './component-pages/order/order.component';
 
 import {WebinarsComponent} from './webinars/webinars.component';
 import {ScheduleComponent} from './schedule/schedule.component';
 import {RoomRentalComponent} from './room-rental/room-rental.component';
-import {RecommendationsComponent} from './recommendations/recommendations.component';
+import {RecommendationsComponent} from './component-pages/recommendations/recommendations.component';
 import {AuthGuardService} from './admin/auth/service/auth-guard.service';
 import {LoginComponent} from './login/login.component';
 import {CoachComponent} from './coach/coach.component';
@@ -55,15 +55,12 @@ const routes: Routes = [
   {path: 'room-rental', component: RoomRentalComponent},
   {path: 'room-rental/show/:id', component: ShowRoomInfoComponent},
   {path: 'room/order/:id', component: OrderRoomComponent},
-
-
   {path: 'recommendations', component: RecommendationsComponent},
   /**
    * admin child module.
    * **/
   {path: 'login', component: LoginComponent},
   {path: 'admin', loadChildren: './admin/admin.module#AdminModule', canLoad: [AuthGuardService]},
-
   {path: '**', redirectTo: ''}
 ];
 
