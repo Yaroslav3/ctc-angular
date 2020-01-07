@@ -1,75 +1,92 @@
-      <header>
-        <input type="checkbox" id="touch-inp" hidden (click)="burger()">
-        <label class="touch" for="touch-inp">
-          <span class="touch-row"></span>
-          <span class="touch-row"></span>
-          <span class="touch-row"></span>
-        </label>
+<header>
+  <div class="logo"
+       [ngStyle]="{'background-image': 'url('+'/assets/img/logo2.png'+ ')'}"></div>
+  <nav class="dws-menu">
+    <ul class="dws-ul">
+      <li class="dws-li"
+          routerLink=""
+          routerLinkActive="activeLink"
+          [routerLinkActiveOptions]="{exact:true}">
+        <a>HOME</a></li>
+      <li class="dws-li"
+          routerLink="/trainings/coach"
+          routerLinkActive="activeLink"
+          [routerLinkActiveOptions]="{exact:true}">
+        <a>Тренеры</a>
+      </li>
+      <li class="dws-li"
+          routerLink="/trainings" routerLinkActive="activeLink"
+          [routerLinkActiveOptions]="{exact:true}">
+        <a>Тренинги</a>
+      </li>
+      <li class="dws-li"
+          routerLink="/webinars"
+          routerLinkActive="activeLink"
+          [routerLinkActiveOptions]="{exact:true}">
+        <a>Вебинары</a>
+      </li>
+      <li class="dws-li"
+          routerLink="/schedule"
+          routerLinkActive="activeLink"
+          [routerLinkActiveOptions]="{exact:true}">
+        <a>Расписание</a>
+      </li>
+      <li class="dws-li"
+          routerLink="/room-rental"
+          routerLinkActive="activeLink"
+          [routerLinkActiveOptions]="{exact:true}">
+        <a>Аренда
+          Залов</a>
+      </li>
+      <li class="dws-li" routerLink="/recommendations"
+          routerLinkActive="activeLink"
+          [routerLinkActiveOptions]="{exact:true}">
+        <a>Рекомендации</a>
+      </li>
+    </ul>
+  </nav>
+</header>
 
-        <div class="logo"
-             [ngStyle]="{'background-image': 'url('+'/assets/img/logo2.png'+ ')'}"></div>
-        <nav class="dws-menu">
-          <ul class="dws-ul">
-            <li class="dws-li"
-                routerLink=""
-                routerLinkActive="activeLink"
-                [routerLinkActiveOptions]="{exact:true}">
-              <a>HOME</a></li>
-            <li class="dws-li"
-                routerLink="/trainings/coach"
-                routerLinkActive="activeLink"
-                [routerLinkActiveOptions]="{exact:true}">
-              <a>Тренеры</a>
-            </li>
-            <li class="dws-li"
-                routerLink="/trainings" routerLinkActive="activeLink"
-                [routerLinkActiveOptions]="{exact:true}">
-              <a>Тренинги</a>
-            </li>
-            <li class="dws-li"
-                routerLink="/webinars"
-                routerLinkActive="activeLink"
-                [routerLinkActiveOptions]="{exact:true}">
-              <a>Вебинары</a>
-            </li>
-            <li class="dws-li"
-                routerLink="/schedule"
-                routerLinkActive="activeLink"
-                [routerLinkActiveOptions]="{exact:true}">
-              <a>Расписание</a>
-            </li>
-            <li class="dws-li"
-                routerLink="/room-rental"
-                routerLinkActive="activeLink"
-                [routerLinkActiveOptions]="{exact:true}">
-              <a>Аренда
-                Залов</a>
-            </li>
-            <li class="dws-li" routerLink="/recommendations"
-                routerLinkActive="activeLink"
-                [routerLinkActiveOptions]="{exact:true}">
-              <a>Рекомендации</a>
-            </li>
-          </ul>
-        </nav>
+<div [ngClass]="{'mob-btn-menu': !burgerMenu, 'liner-open-menu': burgerMenu}" class="mob-btn-menu" (click)="burger()">
+  <span class="line line_1"></span>
+  <span class="line line_2"></span>
+  <span class="line line_3"></span>
+</div>
 
-        <!-- BURGER  MOBILE-->
-        <nav class="dws-menu-mob" *ngIf="burgerMenu">
-          <ul class="dws-ul-mob">
-            <li class="dws-li-mob"><a (click)="burgerHidden()" routerLink="" routerLinkActive="selected">HOME</a></li>
-            <li class="dws-li-mob"><a (click)="burgerHidden()" routerLink="/trainings" routerLinkActive="selected">ТРЕНИНГИ</a>
-            </li>
-            <li class="dws-li-mob"><a (click)="burgerHidden()" routerLink="/trainings/coach"
-                                      routerLinkActive="selected">ТРЕНЕРЫ</a></li>
-            <li class="dws-li-mob"><a (click)="burgerHidden()" routerLink="/webinars" routerLinkActive="selected">ВЕБИНАРЫ</a>
-            </li>
-            <li class="dws-li-mob"><a (click)="burgerHidden()" routerLink="/schedule" routerLinkActive="selected">РАСПИСАНИЕ</a>
-            </li>
-            <li class="dws-li-mob"><a (click)="burgerHidden()" routerLink="/room-rental" routerLinkActive="selected">АРЕНДА
-              ЗАЛОВ</a></li>
-            <li class="dws-li-mob"><a (click)="burgerHidden()" routerLink="/recommendations"
-                                      routerLinkActive="selected">РЕКОМЕНДАЦИИ</a></li>
-          </ul>
-        </nav>
-
-      </header>
+<!-- BURGER  MOBILE-->
+<nav [ngClass]="{'dws-menu-mob-active': burgerMenu, 'dws-menu-mob-hidden' :!burgerMenu}" class="mob-menu">
+  <ul class="dws-ul-mob">
+    <li class="dws-li-mob" (click)="burgerHidden()">
+      <a
+        routerLink=""
+        routerLinkActive="selected">HOME</a></li>
+    <li class="dws-li-mob" (click)="burgerHidden()">
+      <a
+        routerLink="/trainings"
+        routerLinkActive="selected">ТРЕНИНГИ</a>
+    </li>
+    <li class="dws-li-mob" (click)="burgerHidden()">
+      <a
+        routerLink="/trainings/coach"
+        routerLinkActive="selected">ТРЕНЕРЫ</a></li>
+    <li class="dws-li-mob" (click)="burgerHidden()">
+      <a
+        routerLink="/webinars"
+        routerLinkActive="selected">ВЕБИНАРЫ</a>
+    </li>
+    <li class="dws-li-mob" (click)="burgerHidden()">
+      <a
+        routerLink="/schedule"
+        routerLinkActive="selected">РАСПИСАНИЕ</a>
+    </li>
+    <li class="dws-li-mob" (click)="burgerHidden()">
+      <a
+        routerLink="/room-rental"
+        routerLinkActive="selected">АРЕНДА
+        ЗАЛОВ</a></li>
+    <li class="dws-li-mob" (click)="burgerHidden()">
+      <a
+        routerLink="/recommendations"
+        routerLinkActive="selected">РЕКОМЕНДАЦИИ</a></li>
+  </ul>
+</nav>

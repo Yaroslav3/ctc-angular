@@ -9,22 +9,27 @@ export class MenuAppComponent implements OnInit {
   burgerMenu: boolean;
 
   constructor() {
-    this.burgerMenu = true;
+
   }
 
   ngOnInit() {
-  }
-
-  burger() {
-    window.scroll(0, 0);
-    this.burgerMenu = true;
-  }
-
-  /**
-   *  burger hidden (mobile version)
-   * ***/
-  burgerHidden() {
     this.burgerMenu = false;
   }
 
+  public burger() {
+    window.scroll(0, 0);
+    this.burgerMenu = this.burgerMenu ? false : true;
+    if (this.burgerMenu === true) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'visible';
+    }
+
+  }
+
+
+ public burgerHidden() {
+    this.burgerMenu = false;
+    document.body.style.overflow = 'visible';
+  }
 }
