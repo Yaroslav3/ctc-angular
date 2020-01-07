@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {Store} from '@ngrx/store';
+import * as fromRoot from '../../common';
 
 
 @Component({
@@ -10,12 +12,18 @@ import {Component, OnInit} from '@angular/core';
 export class HomeComponent implements OnInit {
 
 
-  constructor() {
+  constructor(
+    private store: Store<fromRoot.AppState>,
+  ) {
   }
 
 
   ngOnInit() {
     window.scroll(0, 0);
+    this.store.select('trainers').subscribe( r => {
+      console.log(r);
+    });
+
   }
 
 }

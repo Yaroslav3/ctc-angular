@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {TrainersService} from '../../shared/service/trainers.service';
+import {TrainersService} from '../../../shared/service/trainers.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {TrainingsService} from '../../shared/service/trainings/trainings.service';
-import {Trainings} from '../../shared/model/trainings/Trainings.model';
+import {TrainingsService} from '../../../shared/service/trainings/trainings.service';
+import {Trainings} from '../../../shared/model/trainings/Trainings.model';
 import {AngularEditorConfig} from '@kolkov/angular-editor';
-import {Trainers} from '../../shared/model/Trainers.model';
+import {Trainers} from '../../../shared/model/Trainers.model';
 import {NgProgress} from '@ngx-progressbar/core';
-import {FilePDFService} from '../../shared/service/trainings/file-pdf.service';
-import {TrainingsShow} from '../../shared/model/trainings/TrainingsShow.model';
+import {FilePDFService} from '../../../shared/service/trainings/file-pdf.service';
+import {TrainingsShow} from '../../../shared/model/trainings/TrainingsShow.model';
 
 @Component({
   selector: 'app-training-show',

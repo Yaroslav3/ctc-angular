@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {Webinars} from '../../shared/model/webinars/Webinars.model';
-import {WebinarsService} from '../../shared/service/webinars/webinars.service';
+import {Webinars} from '../../../shared/model/webinars/Webinars.model';
+import {WebinarsService} from '../../../shared/service/webinars/webinars.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AngularEditorConfig} from '@kolkov/angular-editor';
 import {HttpClient} from '@angular/common/http';
-import {TransferCountPersonService} from '../../shared/service/share/transfer/transferCountPerson.service';
-import {TransferWebinarService} from '../../shared/service/share/transfer/transfer-webinar.service';
-import {WebinarCountStatuses} from '../../shared/model/webinars/WebinarCountStatuses.model';
+import {TransferCountPersonService} from '../../../shared/service/share/transfer/transferCountPerson.service';
+import {TransferWebinarService} from '../../../shared/service/share/transfer/transfer-webinar.service';
+import {WebinarCountStatuses} from '../../../shared/model/webinars/WebinarCountStatuses.model';
 
 @Component({
   selector: 'app-webinar-show',

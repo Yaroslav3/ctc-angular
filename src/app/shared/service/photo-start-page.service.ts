@@ -24,6 +24,7 @@ export class PhotoStartPageService {
    * get one for customer photo Start Page
    * **/
   customerPhotoStartPageGetOneForName(name: string){
+    console.log(name);
     return this.http.get(
       `${this.host + eHomePhoto.apiUrlPhotoNamePhotoPage}/${name}`, {responseType: 'blob'}
     );

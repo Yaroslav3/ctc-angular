@@ -1,18 +1,18 @@
 import {Component, ElementRef, OnInit, Renderer2, ViewChildren} from '@angular/core';
-import {RoomRentalService} from '../../shared/service/roomRental/room-rental.service';
+import {RoomRentalService} from '../../../shared/service/roomRental/room-rental.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {PhotoRoom} from '../../shared/model/room/PhotoRoom.model';
-import {Room} from '../../shared/model/room/Room.model';
+import {PhotoRoom} from '../../../shared/model/room/PhotoRoom.model';
+import {Room} from '../../../shared/model/room/Room.model';
 import {AngularEditorConfig} from '@kolkov/angular-editor';
 import {NgbDateAdapter, NgbDateNativeAdapter, NgbDatepickerConfig} from '@ng-bootstrap/ng-bootstrap';
-import {RoomTimeOrder} from '../../shared/model/room/RoomTimeOrder.model';
-import {RoomDateService} from '../../shared/service/roomRental/room-date.service';
+import {RoomTimeOrder} from '../../../shared/model/room/RoomTimeOrder.model';
+import {RoomDateService} from '../../../shared/service/roomRental/room-date.service';
 import {DatePipe} from '@angular/common';
-import {Status} from '../../shared/model/status/Status.model';
-import {TransferRoomOrderService} from '../../shared/service/share/transfer/transfer-room-order.service';
-import {TransferRoomService} from '../../shared/service/share/transfer/transfer-room.service';
-import {TransferDatePeriodService} from '../../shared/service/share/transfer/transfer-date-period.service';
-import {RoomDatePeriod} from '../../shared/model/room/RoomDatePeriod.model';
+import {Status} from '../../../shared/model/status/Status.model';
+import {TransferRoomOrderService} from '../../../shared/service/share/transfer/transfer-room-order.service';
+import {TransferRoomService} from '../../../shared/service/share/transfer/transfer-room.service';
+import {TransferDatePeriodService} from '../../../shared/service/share/transfer/transfer-date-period.service';
+import {RoomDatePeriod} from '../../../shared/model/room/RoomDatePeriod.model';
 
 
 @Component({

@@ -1,8 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {CalendarComponent} from 'ng-fullcalendar';
-import {CalendarTrainings} from '../shared/model/CalendarTrainings';
+import {CalendarTrainings} from '../../shared/model/CalendarTrainings';
 import {Options} from 'fullcalendar';
-import {TrainingsCalendarService} from '../shared/service/trainings/trainings-calendar.service';
+import {TrainingsCalendarService} from '../../shared/service/trainings/trainings-calendar.service';
 import {NgProgress} from '@ngx-progressbar/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
@@ -31,9 +31,14 @@ export class ScheduleComponent implements OnInit {
   getAllDateCalendar() {
     this.progressService.ref().start();
     this.trainingsCalendarService.getAllDataCalendar().subscribe((date: CalendarTrainings) => {
-      // console.log(date);
-      this.fullCalendar(date);
-      this.progressService.ref().complete();
+      console.log(date);
+      if (date.id === undefined) {
+        console.log('dfgdfgd');
+      } else {
+        this.fullCalendar(date);
+        this.progressService.ref().complete();
+      }
+
     });
   }
 

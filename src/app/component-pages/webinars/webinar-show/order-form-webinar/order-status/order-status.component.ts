@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {WebinarOrderService} from '../../../../shared/service/webinars/webinar-order.service';
-import {Status} from '../../../../shared/model/status/Status.model';
+import {WebinarOrderService} from '../../../../../shared/service/webinars/webinar-order.service';
+import {Status} from '../../../../../shared/model/status/Status.model';
 
 @Component({
   selector: 'app-order-succed',

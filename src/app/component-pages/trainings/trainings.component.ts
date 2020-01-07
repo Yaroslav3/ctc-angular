@@ -1,15 +1,16 @@
 import {Component, ElementRef, HostListener, OnInit} from '@angular/core';
-import {Trainings} from '../shared/model/trainings/Trainings.model';
-import {Inscriptions} from '../shared/model/Inscriptions.model';
+import {Trainings} from '../../shared/model/trainings/Trainings.model';
+import {Inscriptions} from '../../shared/model/Inscriptions.model';
 
-import {TrainingsService} from '../shared/service/trainings/trainings.service';
-import {InscriptionsService} from '../shared/service/trainings/inscriptions.service';
+import {TrainingsService} from '../../shared/service/trainings/trainings.service';
+import {InscriptionsService} from '../../shared/service/trainings/inscriptions.service';
 import {Router} from '@angular/router';
 import {NgProgress} from '@ngx-progressbar/core';
 import {Subscription} from 'rxjs';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {Store} from '@ngrx/store';
 import * as fromRoot from 'src/app/common/index';
+import {Location} from '@angular/common';
 
 
 @Component({
@@ -35,6 +36,7 @@ export class TrainingsComponent implements OnInit {
 
   constructor(private serviceTrainings: TrainingsService, private router: Router,
               private inscriptionsService: InscriptionsService,
+              private location: Location,
               public progressService: NgProgress, public el: ElementRef,
               private store: Store<fromRoot.AppState>) {
 
@@ -53,6 +55,10 @@ export class TrainingsComponent implements OnInit {
 
 
   ngOnInit() {
+    if (this.location.path() === '/trainings') {
+      console.log('location -  trainings');
+    }
+
     window.scroll(0, 0);
     this.progressService.ref().start();
     this.getAllTrainings();

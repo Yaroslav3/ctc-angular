@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {WebinarsService} from '../shared/service/webinars/webinars.service';
-import {WebinarsInscriptionsService} from '../shared/service/webinars/webinars-inscriptions.service';
-import {WebinarInscription} from '../shared/model/webinars/WebinarInscription.model';
-import {Webinars} from '../shared/model/webinars/Webinars.model';
+import {WebinarsService} from '../../shared/service/webinars/webinars.service';
+import {WebinarsInscriptionsService} from '../../shared/service/webinars/webinars-inscriptions.service';
+import {WebinarInscription} from '../../shared/model/webinars/WebinarInscription.model';
+import {Webinars} from '../../shared/model/webinars/Webinars.model';
 import {Router} from '@angular/router';
 
 @Component({
