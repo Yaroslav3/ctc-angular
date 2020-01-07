@@ -25,8 +25,11 @@ export class TrainingsService {
 
   getAllTrainingsState() {
     this.http.get(this.host + environment.apiUrlTrainings)
-      .subscribe(res =>
-        this.store.dispatch(new trainingsActions.AllTrainings(res)));
+      .subscribe(res => {
+          this.store.dispatch(new trainingsActions.AllTrainings(res));
+        }
+      );
+
   }
 
 
@@ -34,7 +37,7 @@ export class TrainingsService {
    * get one Trainings
    * **/
   getOneTrainings(id: number) {
-    return this.http.get(`${ this.host + environment.apiUrlTrainingsGetOne}/${id}`, {
+    return this.http.get(`${this.host + environment.apiUrlTrainingsGetOne}/${id}`, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
@@ -47,7 +50,7 @@ export class TrainingsService {
    * **/
 
   adminGetOneTrainings(id: number) {
-    return this.http.get(`${ this.host + eAdminTrainings.adminUrlGetOneTrainings}/${id}`, {
+    return this.http.get(`${this.host + eAdminTrainings.adminUrlGetOneTrainings}/${id}`, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
@@ -60,11 +63,11 @@ export class TrainingsService {
    * **/
 
   adminGetAllTrainings() {
-    return this.http.get( this.host + eAdminTrainings.adminUrlGetAllTrainings);
+    return this.http.get(this.host + eAdminTrainings.adminUrlGetAllTrainings);
   }
 
   getAllTrainingsStateAdmin() {
-    this.http.get( this.host + eAdminTrainings.adminUrlGetAllTrainings).subscribe((res) => {
+    this.http.get(this.host + eAdminTrainings.adminUrlGetAllTrainings).subscribe((res) => {
       this.store.dispatch(new trainingsActions.AllTrainings(res));
     });
   }
@@ -74,7 +77,7 @@ export class TrainingsService {
    * **/
 
   adminDeleteTrainings(id: number) {
-    return this.http.delete(`${ this.host + eAdminTrainings.adminUrlDeleteTrainings}/${id}`, {
+    return this.http.delete(`${this.host + eAdminTrainings.adminUrlDeleteTrainings}/${id}`, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
@@ -105,7 +108,7 @@ export class TrainingsService {
       briefly: trainings.briefly
     };
 
-    return this.http.put<Trainings>(`${this.host +  eAdminTrainings.adminUrlUpdateTrainings}/${id}`, body, {
+    return this.http.put<Trainings>(`${this.host + eAdminTrainings.adminUrlUpdateTrainings}/${id}`, body, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })

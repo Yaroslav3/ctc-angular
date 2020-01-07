@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {RoomRentalService} from '../shared/service/roomRental/room-rental.service';
-import {Room} from '../shared/model/room/Room.model';
-import {RoomArticle} from '../shared/model/room/RoomArticle.model';
+import {RoomRentalService} from '../../shared/service/roomRental/room-rental.service';
+import {Room} from '../../shared/model/room/Room.model';
+import {RoomArticle} from '../../shared/model/room/RoomArticle.model';
 import {AngularEditorConfig} from '@kolkov/angular-editor';
 
 
@@ -62,17 +62,20 @@ export class RoomRentalComponent implements OnInit {
   allRoom() {
     this.isProgress = true;
     this.roomRentalService.getAllRoom().subscribe((data: Room) => {
-      this.room = data;
-      if (data === undefined) {
+      console.log(data);
+      if (data.id === undefined) {
+        this.isProgress = false;
         this.isList = true;
-        this.isProgress = false;
+      } else {
+        this.room = data;
+        if (data === undefined) {
+          this.isList = true;
+          this.isProgress = false;
+        } else {
+          this.isList = false;
+          this.isProgress = false;
+        }
       }
-      else {
-        this.isList = false;
-        this.isProgress = false;
-        // console.log(data);
-      }
-
     });
   }
 }

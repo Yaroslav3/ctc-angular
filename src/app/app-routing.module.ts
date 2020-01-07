@@ -1,23 +1,23 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './component-pages/home/home.component';
-import {TrainingsComponent} from './trainings/trainings.component';
+import {TrainingsComponent} from './component-pages/trainings/trainings.component';
 import {OrderComponent} from './component-pages/order/order.component';
 
-import {WebinarsComponent} from './webinars/webinars.component';
-import {ScheduleComponent} from './schedule/schedule.component';
-import {RoomRentalComponent} from './room-rental/room-rental.component';
+import {WebinarsComponent} from './component-pages/webinars/webinars.component';
+import {ScheduleComponent} from './component-pages/schedule/schedule.component';
+import {RoomRentalComponent} from './component-pages/room-rental/room-rental.component';
 import {RecommendationsComponent} from './component-pages/recommendations/recommendations.component';
 import {AuthGuardService} from './admin/auth/service/auth-guard.service';
 import {LoginComponent} from './login/login.component';
 import {CoachComponent} from './coach/coach.component';
 import {ShowCouchResumeComponent} from './coach/show-couch-resume/show-couch-resume.component';
-import {TrainingShowComponent} from './trainings/training-show/training-show.component';
-import {WebinarShowComponent} from './webinars/webinar-show/webinar-show.component';
-import {OrderFormWebinarComponent} from './webinars/webinar-show/order-form-webinar/order-form-webinar.component';
-import {OrderStatusComponent} from './webinars/webinar-show/order-form-webinar/order-status/order-status.component';
-import {ShowRoomInfoComponent} from './room-rental/show-room-info/show-room-info.component';
-import {OrderRoomComponent} from './room-rental/order-room/order-room.component';
+import {TrainingShowComponent} from './component-pages/trainings/training-show/training-show.component';
+import {WebinarShowComponent} from './component-pages/webinars/webinar-show/webinar-show.component';
+import {OrderFormWebinarComponent} from './component-pages/webinars/webinar-show/order-form-webinar/order-form-webinar.component';
+import {OrderStatusComponent} from './component-pages/webinars/webinar-show/order-form-webinar/order-status/order-status.component';
+import {ShowRoomInfoComponent} from './component-pages/room-rental/show-room-info/show-room-info.component';
+import {OrderRoomComponent} from './component-pages/room-rental/order-room/order-room.component';
 
 const routes: Routes = [
 

@@ -37,7 +37,7 @@ export class HeaderComponent implements OnInit {
    * ***/
   video: Video;
 
-
+  imgPhoto: any;
   /**
    * model Trainers
    * **/
@@ -96,7 +96,7 @@ export class HeaderComponent implements OnInit {
 
   backgroundImageStyle: any = './assets/img/test10.jpg';
   private base64 = 'data:image/jpg;base64,';
-
+// private
 
   /**
    *url for hidden photo customer
@@ -217,29 +217,15 @@ export class HeaderComponent implements OnInit {
     this.getAllPhotoStartPage();
     this.startService.getTrainings();
     this.startService.getTrainers();
+    if (this.location.path() === '') {
+      console.log('dfgdfgdf');
+    }
   }
 
 
   animPhoto() {
     this.isVisible = true;
   }
-
-
-  /**
-   *  burger view (mobile version)
-   * ***/
-  burger() {
-    window.scroll(0, 0);
-    this.burgerMenu = true;
-  }
-
-  /**
-   *  burger hidden (mobile version)
-   * ***/
-  burgerHidden() {
-    this.burgerMenu = false;
-  }
-
 
   /**
    * show video Start Page
@@ -256,10 +242,12 @@ export class HeaderComponent implements OnInit {
   getAllPhotoStartPage() {
     this.progress.ref().start();
     this.photoService.customerPhotoStartPageGetAll().subscribe((data: PhotoStartPage) => {
+      console.log(data);
       for (let i = 0; i < Object.keys(data).length; i++) {
         const a = data[i];
         if (a.namePage === 'home') {
           this.homePhoto = this.base64 + a.photo;
+          // console.log(a.photo);
         } else if (a.namePage === 'trainings') {
           this.trainingsPhoto = this.base64 + a.photo;
         } else if (a.namePage === 'coach') {
@@ -288,6 +276,8 @@ export class HeaderComponent implements OnInit {
     }
     this.photoService.customerPhotoStartPageGetOneForName(name).subscribe((response) => {
       console.log('photo', response);
+      const vbn = this.base64 + response.type;
+      console.log(vbn);
     });
   }
 

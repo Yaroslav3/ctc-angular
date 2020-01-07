@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {TransferCountPersonService} from '../../../shared/service/share/transfer/transferCountPerson.service';
+import {TransferCountPersonService} from '../../../../shared/service/share/transfer/transferCountPerson.service';
 import {Router} from '@angular/router';
-import {TransferWebinarService} from '../../../shared/service/share/transfer/transfer-webinar.service';
+import {TransferWebinarService} from '../../../../shared/service/share/transfer/transfer-webinar.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {WebinarOrder} from '../../../shared/model/webinars/WebinarOrder.model';
-import {WebinarOrderService} from '../../../shared/service/webinars/webinar-order.service';
+import {WebinarOrder} from '../../../../shared/model/webinars/WebinarOrder.model';
+import {WebinarOrderService} from '../../../../shared/service/webinars/webinar-order.service';
 import {NgProgress} from '@ngx-progressbar/core';
 import {NumericValueType, RxwebValidators} from '@rxweb/reactive-form-validators';
-import {LiqPayOrder} from '../../../shared/model/webinars/LiqPayOrder.model';
+import {LiqPayOrder} from '../../../../shared/model/webinars/LiqPayOrder.model';
 
 @Component({
   selector: 'app-order-form-webinar',
