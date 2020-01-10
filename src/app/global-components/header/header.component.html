@@ -1,4 +1,5 @@
 <app-menu-animate></app-menu-animate>
+<img [src]="homePhoto"  alt="{{homePhoto}}">
 <div *ngIf="auth()">
   <div *ngIf="isHiddenAdmin()">
     <div *ngIf="isHidden()"
@@ -15,7 +16,7 @@
             class="video"
             playsinline="" muted="video" loop="" style="opacity: 1;"
             autoplay="autoplay">
-            <source [src]="elem.videoUrl" type="video/mp4">
+<!--            <source [src]="elem.videoUrl" type="video/mp4">-->
           </video>
         </div>
       </div>
