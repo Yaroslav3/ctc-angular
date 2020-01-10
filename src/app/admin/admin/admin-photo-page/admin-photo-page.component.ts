@@ -17,7 +17,7 @@ export class AdminPhotoPageComponent implements OnInit {
   /**
    *  get all model PhotoStartPage
    * **/
-  modelPhotoStartPage: PhotoStartPage;
+ public modelPhotoStartPage;
 
 
   /**
@@ -103,6 +103,7 @@ export class AdminPhotoPageComponent implements OnInit {
     this.progress.ref().start();
     this.photoStartPage.adminPhotoStartPageGetAll().subscribe((data: PhotoStartPage) => {
       this.modelPhotoStartPage = data;
+      console.log(' = ', data);
       this.progress.ref().complete();
     });
   }
