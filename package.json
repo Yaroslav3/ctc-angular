@@ -35,7 +35,7 @@
     "ember-cli-cors": "0.0.2",
     "font-awesome": "^4.7.0",
     "fullcalendar": "^3.6.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "ng-bootstrap": "^1.6.3",
     "ng-fullcalendar": "^1.7.1",
     "ngx-bootstrap": "^3.2.0",
